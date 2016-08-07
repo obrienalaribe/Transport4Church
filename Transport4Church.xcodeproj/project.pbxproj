@@ -1,0 +1,525 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		04DD3C1A1D57A72C00DEBB32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD3C191D57A72C00DEBB32 /* AppDelegate.swift */; };
+		04DD3C1C1D57A72C00DEBB32 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD3C1B1D57A72C00DEBB32 /* ViewController.swift */; };
+		04DD3C1F1D57A72C00DEBB32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04DD3C1D1D57A72C00DEBB32 /* Main.storyboard */; };
+		04DD3C221D57A72C00DEBB32 /* Transport4Church.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04DD3C201D57A72C00DEBB32 /* Transport4Church.xcdatamodeld */; };
+		04DD3C241D57A72C00DEBB32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04DD3C231D57A72C00DEBB32 /* Assets.xcassets */; };
+		04DD3C271D57A72C00DEBB32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04DD3C251D57A72C00DEBB32 /* LaunchScreen.storyboard */; };
+		04DD3C321D57A72C00DEBB32 /* Transport4ChurchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD3C311D57A72C00DEBB32 /* Transport4ChurchTests.swift */; };
+		04DD3C3D1D57A72C00DEBB32 /* Transport4ChurchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD3C3C1D57A72C00DEBB32 /* Transport4ChurchUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		04DD3C2E1D57A72C00DEBB32 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04DD3C0E1D57A72C00DEBB32 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 04DD3C151D57A72C00DEBB32;
+			remoteInfo = Transport4Church;
+		};
+		04DD3C391D57A72C00DEBB32 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04DD3C0E1D57A72C00DEBB32 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 04DD3C151D57A72C00DEBB32;
+			remoteInfo = Transport4Church;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		04DD3C161D57A72C00DEBB32 /* Transport4Church.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Transport4Church.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		04DD3C191D57A72C00DEBB32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		04DD3C1B1D57A72C00DEBB32 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		04DD3C1E1D57A72C00DEBB32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		04DD3C211D57A72C00DEBB32 /* Transport4Church.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Transport4Church.xcdatamodel; sourceTree = "<group>"; };
+		04DD3C231D57A72C00DEBB32 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		04DD3C261D57A72C00DEBB32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		04DD3C281D57A72C00DEBB32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04DD3C2D1D57A72C00DEBB32 /* Transport4ChurchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Transport4ChurchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		04DD3C311D57A72C00DEBB32 /* Transport4ChurchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transport4ChurchTests.swift; sourceTree = "<group>"; };
+		04DD3C331D57A72C00DEBB32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04DD3C381D57A72C00DEBB32 /* Transport4ChurchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Transport4ChurchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		04DD3C3C1D57A72C00DEBB32 /* Transport4ChurchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transport4ChurchUITests.swift; sourceTree = "<group>"; };
+		04DD3C3E1D57A72C00DEBB32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		04DD3C131D57A72C00DEBB32 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04DD3C2A1D57A72C00DEBB32 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04DD3C351D57A72C00DEBB32 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		04DD3C0D1D57A72C00DEBB32 = {
+			isa = PBXGroup;
+			children = (
+				04DD3C181D57A72C00DEBB32 /* Transport4Church */,
+				04DD3C301D57A72C00DEBB32 /* Transport4ChurchTests */,
+				04DD3C3B1D57A72C00DEBB32 /* Transport4ChurchUITests */,
+				04DD3C171D57A72C00DEBB32 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		04DD3C171D57A72C00DEBB32 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				04DD3C161D57A72C00DEBB32 /* Transport4Church.app */,
+				04DD3C2D1D57A72C00DEBB32 /* Transport4ChurchTests.xctest */,
+				04DD3C381D57A72C00DEBB32 /* Transport4ChurchUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		04DD3C181D57A72C00DEBB32 /* Transport4Church */ = {
+			isa = PBXGroup;
+			children = (
+				04DD3C191D57A72C00DEBB32 /* AppDelegate.swift */,
+				04DD3C1B1D57A72C00DEBB32 /* ViewController.swift */,
+				04DD3C1D1D57A72C00DEBB32 /* Main.storyboard */,
+				04DD3C231D57A72C00DEBB32 /* Assets.xcassets */,
+				04DD3C251D57A72C00DEBB32 /* LaunchScreen.storyboard */,
+				04DD3C281D57A72C00DEBB32 /* Info.plist */,
+				04DD3C201D57A72C00DEBB32 /* Transport4Church.xcdatamodeld */,
+			);
+			path = Transport4Church;
+			sourceTree = "<group>";
+		};
+		04DD3C301D57A72C00DEBB32 /* Transport4ChurchTests */ = {
+			isa = PBXGroup;
+			children = (
+				04DD3C311D57A72C00DEBB32 /* Transport4ChurchTests.swift */,
+				04DD3C331D57A72C00DEBB32 /* Info.plist */,
+			);
+			path = Transport4ChurchTests;
+			sourceTree = "<group>";
+		};
+		04DD3C3B1D57A72C00DEBB32 /* Transport4ChurchUITests */ = {
+			isa = PBXGroup;
+			children = (
+				04DD3C3C1D57A72C00DEBB32 /* Transport4ChurchUITests.swift */,
+				04DD3C3E1D57A72C00DEBB32 /* Info.plist */,
+			);
+			path = Transport4ChurchUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		04DD3C151D57A72C00DEBB32 /* Transport4Church */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04DD3C411D57A72C00DEBB32 /* Build configuration list for PBXNativeTarget "Transport4Church" */;
+			buildPhases = (
+				04DD3C121D57A72C00DEBB32 /* Sources */,
+				04DD3C131D57A72C00DEBB32 /* Frameworks */,
+				04DD3C141D57A72C00DEBB32 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Transport4Church;
+			productName = Transport4Church;
+			productReference = 04DD3C161D57A72C00DEBB32 /* Transport4Church.app */;
+			productType = "com.apple.product-type.application";
+		};
+		04DD3C2C1D57A72C00DEBB32 /* Transport4ChurchTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04DD3C441D57A72C00DEBB32 /* Build configuration list for PBXNativeTarget "Transport4ChurchTests" */;
+			buildPhases = (
+				04DD3C291D57A72C00DEBB32 /* Sources */,
+				04DD3C2A1D57A72C00DEBB32 /* Frameworks */,
+				04DD3C2B1D57A72C00DEBB32 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				04DD3C2F1D57A72C00DEBB32 /* PBXTargetDependency */,
+			);
+			name = Transport4ChurchTests;
+			productName = Transport4ChurchTests;
+			productReference = 04DD3C2D1D57A72C00DEBB32 /* Transport4ChurchTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		04DD3C371D57A72C00DEBB32 /* Transport4ChurchUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04DD3C471D57A72C00DEBB32 /* Build configuration list for PBXNativeTarget "Transport4ChurchUITests" */;
+			buildPhases = (
+				04DD3C341D57A72C00DEBB32 /* Sources */,
+				04DD3C351D57A72C00DEBB32 /* Frameworks */,
+				04DD3C361D57A72C00DEBB32 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				04DD3C3A1D57A72C00DEBB32 /* PBXTargetDependency */,
+			);
+			name = Transport4ChurchUITests;
+			productName = Transport4ChurchUITests;
+			productReference = 04DD3C381D57A72C00DEBB32 /* Transport4ChurchUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		04DD3C0E1D57A72C00DEBB32 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = rccg;
+				TargetAttributes = {
+					04DD3C151D57A72C00DEBB32 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = ND37B5VWDX;
+					};
+					04DD3C2C1D57A72C00DEBB32 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = ND37B5VWDX;
+						TestTargetID = 04DD3C151D57A72C00DEBB32;
+					};
+					04DD3C371D57A72C00DEBB32 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = ND37B5VWDX;
+						TestTargetID = 04DD3C151D57A72C00DEBB32;
+					};
+				};
+			};
+			buildConfigurationList = 04DD3C111D57A72C00DEBB32 /* Build configuration list for PBXProject "Transport4Church" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 04DD3C0D1D57A72C00DEBB32;
+			productRefGroup = 04DD3C171D57A72C00DEBB32 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				04DD3C151D57A72C00DEBB32 /* Transport4Church */,
+				04DD3C2C1D57A72C00DEBB32 /* Transport4ChurchTests */,
+				04DD3C371D57A72C00DEBB32 /* Transport4ChurchUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		04DD3C141D57A72C00DEBB32 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04DD3C271D57A72C00DEBB32 /* LaunchScreen.storyboard in Resources */,
+				04DD3C241D57A72C00DEBB32 /* Assets.xcassets in Resources */,
+				04DD3C1F1D57A72C00DEBB32 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04DD3C2B1D57A72C00DEBB32 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04DD3C361D57A72C00DEBB32 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		04DD3C121D57A72C00DEBB32 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04DD3C221D57A72C00DEBB32 /* Transport4Church.xcdatamodeld in Sources */,
+				04DD3C1C1D57A72C00DEBB32 /* ViewController.swift in Sources */,
+				04DD3C1A1D57A72C00DEBB32 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04DD3C291D57A72C00DEBB32 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04DD3C321D57A72C00DEBB32 /* Transport4ChurchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04DD3C341D57A72C00DEBB32 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04DD3C3D1D57A72C00DEBB32 /* Transport4ChurchUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		04DD3C2F1D57A72C00DEBB32 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 04DD3C151D57A72C00DEBB32 /* Transport4Church */;
+			targetProxy = 04DD3C2E1D57A72C00DEBB32 /* PBXContainerItemProxy */;
+		};
+		04DD3C3A1D57A72C00DEBB32 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 04DD3C151D57A72C00DEBB32 /* Transport4Church */;
+			targetProxy = 04DD3C391D57A72C00DEBB32 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		04DD3C1D1D57A72C00DEBB32 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				04DD3C1E1D57A72C00DEBB32 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		04DD3C251D57A72C00DEBB32 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				04DD3C261D57A72C00DEBB32 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		04DD3C3F1D57A72C00DEBB32 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		04DD3C401D57A72C00DEBB32 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		04DD3C421D57A72C00DEBB32 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Transport4Church/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.rccg.Transport4Church;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		04DD3C431D57A72C00DEBB32 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Transport4Church/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.rccg.Transport4Church;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		04DD3C451D57A72C00DEBB32 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = Transport4ChurchTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.rccg.Transport4ChurchTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Transport4Church.app/Transport4Church";
+			};
+			name = Debug;
+		};
+		04DD3C461D57A72C00DEBB32 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = Transport4ChurchTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.rccg.Transport4ChurchTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Transport4Church.app/Transport4Church";
+			};
+			name = Release;
+		};
+		04DD3C481D57A72C00DEBB32 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Transport4ChurchUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.rccg.Transport4ChurchUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Transport4Church;
+			};
+			name = Debug;
+		};
+		04DD3C491D57A72C00DEBB32 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Transport4ChurchUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.rccg.Transport4ChurchUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Transport4Church;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		04DD3C111D57A72C00DEBB32 /* Build configuration list for PBXProject "Transport4Church" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04DD3C3F1D57A72C00DEBB32 /* Debug */,
+				04DD3C401D57A72C00DEBB32 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		04DD3C411D57A72C00DEBB32 /* Build configuration list for PBXNativeTarget "Transport4Church" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04DD3C421D57A72C00DEBB32 /* Debug */,
+				04DD3C431D57A72C00DEBB32 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		04DD3C441D57A72C00DEBB32 /* Build configuration list for PBXNativeTarget "Transport4ChurchTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04DD3C451D57A72C00DEBB32 /* Debug */,
+				04DD3C461D57A72C00DEBB32 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		04DD3C471D57A72C00DEBB32 /* Build configuration list for PBXNativeTarget "Transport4ChurchUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04DD3C481D57A72C00DEBB32 /* Debug */,
+				04DD3C491D57A72C00DEBB32 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		04DD3C201D57A72C00DEBB32 /* Transport4Church.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				04DD3C211D57A72C00DEBB32 /* Transport4Church.xcdatamodel */,
+			);
+			currentVersion = 04DD3C211D57A72C00DEBB32 /* Transport4Church.xcdatamodel */;
+			path = Transport4Church.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 04DD3C0E1D57A72C00DEBB32 /* Project object */;
+}
