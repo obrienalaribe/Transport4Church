@@ -8,13 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		04DD3C1A1D57A72C00DEBB32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD3C191D57A72C00DEBB32 /* AppDelegate.swift */; };
-		04DD3C1C1D57A72C00DEBB32 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD3C1B1D57A72C00DEBB32 /* ViewController.swift */; };
-		04DD3C1F1D57A72C00DEBB32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04DD3C1D1D57A72C00DEBB32 /* Main.storyboard */; };
+		04DD3C1C1D57A72C00DEBB32 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD3C1B1D57A72C00DEBB32 /* LoginViewController.swift */; };
 		04DD3C221D57A72C00DEBB32 /* Transport4Church.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04DD3C201D57A72C00DEBB32 /* Transport4Church.xcdatamodeld */; };
 		04DD3C241D57A72C00DEBB32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04DD3C231D57A72C00DEBB32 /* Assets.xcassets */; };
 		04DD3C271D57A72C00DEBB32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04DD3C251D57A72C00DEBB32 /* LaunchScreen.storyboard */; };
 		04DD3C321D57A72C00DEBB32 /* Transport4ChurchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD3C311D57A72C00DEBB32 /* Transport4ChurchTests.swift */; };
 		04DD3C3D1D57A72C00DEBB32 /* Transport4ChurchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD3C3C1D57A72C00DEBB32 /* Transport4ChurchUITests.swift */; };
+		04DD3C4B1D57A88E00DEBB32 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD3C4A1D57A88E00DEBB32 /* UIViewExtension.swift */; };
+		04DD3C4D1D5909B700DEBB32 /* CalendarEventFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD3C4C1D5909B700DEBB32 /* CalendarEventFormViewController.swift */; };
+		04DD3C4F1D591C8500DEBB32 /* PickupRiderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD3C4E1D591C8500DEBB32 /* PickupRiderController.swift */; };
+		B36554A00E6C8ABE20A6CB5C /* Pods_Transport4Church.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B6ED9EB849BD37CF55BF93D /* Pods_Transport4Church.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,8 +40,7 @@
 /* Begin PBXFileReference section */
 		04DD3C161D57A72C00DEBB32 /* Transport4Church.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Transport4Church.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04DD3C191D57A72C00DEBB32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		04DD3C1B1D57A72C00DEBB32 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		04DD3C1E1D57A72C00DEBB32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		04DD3C1B1D57A72C00DEBB32 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		04DD3C211D57A72C00DEBB32 /* Transport4Church.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Transport4Church.xcdatamodel; sourceTree = "<group>"; };
 		04DD3C231D57A72C00DEBB32 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04DD3C261D57A72C00DEBB32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +51,12 @@
 		04DD3C381D57A72C00DEBB32 /* Transport4ChurchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Transport4ChurchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04DD3C3C1D57A72C00DEBB32 /* Transport4ChurchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transport4ChurchUITests.swift; sourceTree = "<group>"; };
 		04DD3C3E1D57A72C00DEBB32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04DD3C4A1D57A88E00DEBB32 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		04DD3C4C1D5909B700DEBB32 /* CalendarEventFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarEventFormViewController.swift; sourceTree = "<group>"; };
+		04DD3C4E1D591C8500DEBB32 /* PickupRiderController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickupRiderController.swift; sourceTree = "<group>"; };
+		2B6ED9EB849BD37CF55BF93D /* Pods_Transport4Church.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Transport4Church.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		57F70C9321DAFBF872F9AB6F /* Pods-Transport4Church.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transport4Church.release.xcconfig"; path = "Pods/Target Support Files/Pods-Transport4Church/Pods-Transport4Church.release.xcconfig"; sourceTree = "<group>"; };
+		D4E9C5FF9B3F4ACFFBC28C10 /* Pods-Transport4Church.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transport4Church.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Transport4Church/Pods-Transport4Church.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B36554A00E6C8ABE20A6CB5C /* Pods_Transport4Church.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +92,8 @@
 				04DD3C301D57A72C00DEBB32 /* Transport4ChurchTests */,
 				04DD3C3B1D57A72C00DEBB32 /* Transport4ChurchUITests */,
 				04DD3C171D57A72C00DEBB32 /* Products */,
+				E27EF942F82B7B0D07087BE7 /* Pods */,
+				F3768247FA0CC3A3D115BA26 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,12 +111,14 @@
 			isa = PBXGroup;
 			children = (
 				04DD3C191D57A72C00DEBB32 /* AppDelegate.swift */,
-				04DD3C1B1D57A72C00DEBB32 /* ViewController.swift */,
-				04DD3C1D1D57A72C00DEBB32 /* Main.storyboard */,
+				04DD3C1B1D57A72C00DEBB32 /* LoginViewController.swift */,
+				04DD3C4C1D5909B700DEBB32 /* CalendarEventFormViewController.swift */,
+				04DD3C4E1D591C8500DEBB32 /* PickupRiderController.swift */,
 				04DD3C231D57A72C00DEBB32 /* Assets.xcassets */,
 				04DD3C251D57A72C00DEBB32 /* LaunchScreen.storyboard */,
 				04DD3C281D57A72C00DEBB32 /* Info.plist */,
 				04DD3C201D57A72C00DEBB32 /* Transport4Church.xcdatamodeld */,
+				04DD3C4A1D57A88E00DEBB32 /* UIViewExtension.swift */,
 			);
 			path = Transport4Church;
 			sourceTree = "<group>";
@@ -128,6 +141,23 @@
 			path = Transport4ChurchUITests;
 			sourceTree = "<group>";
 		};
+		E27EF942F82B7B0D07087BE7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D4E9C5FF9B3F4ACFFBC28C10 /* Pods-Transport4Church.debug.xcconfig */,
+				57F70C9321DAFBF872F9AB6F /* Pods-Transport4Church.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F3768247FA0CC3A3D115BA26 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2B6ED9EB849BD37CF55BF93D /* Pods_Transport4Church.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +165,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04DD3C411D57A72C00DEBB32 /* Build configuration list for PBXNativeTarget "Transport4Church" */;
 			buildPhases = (
+				E2BA5704CBED7286E0817AB8 /* Check Pods Manifest.lock */,
 				04DD3C121D57A72C00DEBB32 /* Sources */,
 				04DD3C131D57A72C00DEBB32 /* Frameworks */,
 				04DD3C141D57A72C00DEBB32 /* Resources */,
+				B03454F9755D638DCDD8DCDE /* Embed Pods Frameworks */,
+				37D1CF899F58956A632466B1 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -237,7 +270,6 @@
 			files = (
 				04DD3C271D57A72C00DEBB32 /* LaunchScreen.storyboard in Resources */,
 				04DD3C241D57A72C00DEBB32 /* Assets.xcassets in Resources */,
-				04DD3C1F1D57A72C00DEBB32 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,14 +289,65 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		37D1CF899F58956A632466B1 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Transport4Church/Pods-Transport4Church-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B03454F9755D638DCDD8DCDE /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Transport4Church/Pods-Transport4Church-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E2BA5704CBED7286E0817AB8 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		04DD3C121D57A72C00DEBB32 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				04DD3C221D57A72C00DEBB32 /* Transport4Church.xcdatamodeld in Sources */,
-				04DD3C1C1D57A72C00DEBB32 /* ViewController.swift in Sources */,
+				04DD3C1C1D57A72C00DEBB32 /* LoginViewController.swift in Sources */,
+				04DD3C4F1D591C8500DEBB32 /* PickupRiderController.swift in Sources */,
+				04DD3C4B1D57A88E00DEBB32 /* UIViewExtension.swift in Sources */,
 				04DD3C1A1D57A72C00DEBB32 /* AppDelegate.swift in Sources */,
+				04DD3C4D1D5909B700DEBB32 /* CalendarEventFormViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,14 +383,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		04DD3C1D1D57A72C00DEBB32 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				04DD3C1E1D57A72C00DEBB32 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		04DD3C251D57A72C00DEBB32 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -404,6 +479,7 @@
 		};
 		04DD3C421D57A72C00DEBB32 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D4E9C5FF9B3F4ACFFBC28C10 /* Pods-Transport4Church.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Transport4Church/Info.plist;
@@ -415,6 +491,7 @@
 		};
 		04DD3C431D57A72C00DEBB32 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 57F70C9321DAFBF872F9AB6F /* Pods-Transport4Church.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Transport4Church/Info.plist;
@@ -489,6 +566,7 @@
 				04DD3C431D57A72C00DEBB32 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		04DD3C441D57A72C00DEBB32 /* Build configuration list for PBXNativeTarget "Transport4ChurchTests" */ = {
 			isa = XCConfigurationList;
@@ -497,6 +575,7 @@
 				04DD3C461D57A72C00DEBB32 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		04DD3C471D57A72C00DEBB32 /* Build configuration list for PBXNativeTarget "Transport4ChurchUITests" */ = {
 			isa = XCConfigurationList;
@@ -505,6 +584,7 @@
 				04DD3C491D57A72C00DEBB32 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
