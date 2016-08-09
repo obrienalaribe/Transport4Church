@@ -1,5 +1,6 @@
 PODS:
   - Eureka (1.7.0)
+  - FontAwesome.swift (0.8.0)
   - GoogleMaps (2.0.1):
     - GoogleMaps/Maps (= 2.0.1)
   - GoogleMaps/Base (2.0.1)
@@ -13,16 +14,16 @@ PODS:
 
 DEPENDENCIES:
   - Eureka (~> 1.7)
+  - FontAwesome.swift
   - GoogleMaps
   - GooglePlacePicker
   - GooglePlaces
 
 SPEC CHECKSUMS:
   Eureka: 2020d9faeef7b7e9adeb9e3d8af779e5931c1897
+  FontAwesome.swift: f8c6cc5c42cbe93bdc04371363bc7b371fb3d3a1
   GoogleMaps: f09da64fc987c1aa29394567c3cab5a3df83c402
   GooglePlacePicker: e7b11b732e40dbe76e8ab4c5fc2f4a7c32b96578
   GooglePlaces: 72fab1d1651c6df0322f2aad245ffb15b80d3c56
 
-PODFILE CHECKSUM: 363260b325060fbf2b4d59b190c84ff858c7e4d3
-
-COCOAPODS: 1.0.1
+COCOAPODS: 0.39.0

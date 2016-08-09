@@ -26,9 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         GMSPlacesClient.provideAPIKey(googleMapsApiKey)
 
-//        window?.rootViewController = UINavigationController(rootViewController: CalendarEventFormViewController())
+        window?.rootViewController = UINavigationController(rootViewController: CalendarEventFormViewController())
         
-        window?.rootViewController = PickupRiderController()
+//        window?.rootViewController = PickupRiderController()
 
         return true
     }

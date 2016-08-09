@@ -8,6 +8,7 @@ target 'Transport4Church' do
     pod 'GoogleMaps'
     pod 'GooglePlaces'
     pod 'GooglePlacePicker'
+    pod 'FontAwesome.swift'
 end
 
 target 'Transport4ChurchTests' do
