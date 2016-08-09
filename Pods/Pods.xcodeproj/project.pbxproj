@@ -1,2437 +1,1168 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>archiveVersion</key>
-	<string>1</string>
-	<key>classes</key>
-	<dict/>
-	<key>objectVersion</key>
-	<string>46</string>
-	<key>objects</key>
-	<dict>
-		<key>04A7E4726C77A961DB2138273C694373</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>BaseRow.swift</string>
-			<key>path</key>
-			<string>Source/Core/BaseRow.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>06CAE4617A9C4BF458755F5C4A516944</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>3B7A33D336DAAF846E4F3CB6066B5977</string>
-				<string>E4384FBB7CAEF23577402B48B1FFF78D</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>084761790C248445952514529274C776</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>GenericMultipleSelectorRow.swift</string>
-			<key>path</key>
-			<string>Source/Rows/Common/GenericMultipleSelectorRow.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>0883B652EBBDEB233C612202532B66C6</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>CF2355BE8F1ADC705D21BBA29D8B2D58</string>
-				<string>EB24169A450CCE937FF12884FF90E936</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>094127B4D0E8BEFA70B9297CFD05933D</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text</string>
-			<key>path</key>
-			<string>Pods-Transport4Church-acknowledgements.markdown</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>0A50C03F56AD58898CA2A7C6113C4EF4</key>
-		<dict>
-			<key>fileRef</key>
-			<string>1476B8C0420391841FE0DF3EEBCA3B5E</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>0AA48424DE5670B8C032BA88393BA9FA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>55688A2E3230AF8215F1149530A80779</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>0B54D47F4061120A46717916BCAD2393</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C2A5F0F0818437E9FBD687916D3B40B7</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>0E4FBDBCB07782C2AE7B6D7AF92F51D8</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E42A080B62B5E83FA6084EDC6433E11D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>0E5BF21646B3BB710036D815F22E3F09</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>AlertRow.swift</string>
-			<key>path</key>
-			<string>Source/Rows/AlertRow.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>0F5F75250C86D2F1FA1DDB08AA0A0D8E</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>DateFieldRow.swift</string>
-			<key>path</key>
-			<string>Source/Rows/Common/DateFieldRow.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>0F89D7DFAE0CE780F08FFE01D6141F7B</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>RowProtocols.swift</string>
-			<key>path</key>
-			<string>Source/Core/RowProtocols.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>103473BC0EFC477EB654B475B6AC8458</key>
-		<dict>
-			<key>fileRef</key>
-			<string>8829E591BC5E95A4F975B7B64E7635D0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>13CB51A5F85CF122676966CB347260BC</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C9A6A04F2EF47FD6AC0639CE4B0ECB86</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>1476B8C0420391841FE0DF3EEBCA3B5E</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>LabelRow.swift</string>
-			<key>path</key>
-			<string>Source/Rows/LabelRow.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>1662FE9A42490639B7E2A1F401D5D4DD</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BC837941407432F7BA3CF5D13600DD82</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>18340F12838DEE43507667CC74401EB1</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>6E7E5AF37923BFA48D6994B9BFC6535F</string>
-				<string>C3B7BDF5CE5CB8F095FE12DA55D9A9BB</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>iOS</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>1A4EB2A21C31D1B486E9A89D3C0F1D81</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>FieldRow.swift</string>
-			<key>path</key>
-			<string>Source/Rows/Common/FieldRow.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>1CF43CAFFA0071E9D22949910DB532BB</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>B0F20BD554F1CC8E8C28927DF42B1E15</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>1D8A48631192F6D377B97D5EF0AFE16C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FECBB83C1FEEFD6860BACECFAA4530D6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>1FE5D469BDAAFF0030F0AE5780975A4A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>55DAB88BF39F976A72744AD86D2F7302</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>21B2576EE93BC8C92F2F31DE3B15A857</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>Cell.swift</string>
-			<key>path</key>
-			<string>Source/Core/Cell.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>21F799472851BCE6A130A97729507B4C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>38A357658A9188D6B59A2BA0B5F11BA2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>22D80D75A3155009821CBE44E7A29298</key>
-		<dict>
-			<key>fileRef</key>
-			<string>0F89D7DFAE0CE780F08FFE01D6141F7B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>23B342EC7C65ED4CE071196650ADD70B</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>ButtonRow.swift</string>
-			<key>path</key>
-			<string>Source/Rows/ButtonRow.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2956D2538D326F528DF52EF888FFDBE9</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5014E25EC4CE9F67EA34143817DA2B22</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>29ADBF3B16C347FDBEDE9F49BD239324</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>Pods-Transport4Church-umbrella.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2B389FAB51F6EEA43F72CA7BDC8E8E28</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES</string>
-				<key>CLANG_WARN_UNREACHABLE_CODE</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
-				<string>NO</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>9.3</string>
-				<key>ONLY_ACTIVE_ARCH</key>
-				<string>YES</string>
-				<key>STRIP_INSTALLED_PRODUCT</key>
-				<string>NO</string>
-				<key>SYMROOT</key>
-				<string>${SRCROOT}/../build</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>2B7186AE8B80A62112C769454EDF350F</key>
-		<dict>
-			<key>fileRef</key>
-			<string>AD1369455F27F86E9B98B1C4B54BBC04</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>2D8E8EC45A3A1A1D94AE762CB5028504</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>2B389FAB51F6EEA43F72CA7BDC8E8E28</string>
-				<string>5A0C6FE968931D888F00C9EC18DDF5BC</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>2D9BFDA23F28E199B74ECCF6B18A7C2A</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>8CF6D36831BECDB4923E1745BE8777DA</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Targets Support Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2F36C253505ACF36271EABE5A2B0500E</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>name</key>
-			<string>Eureka</string>
-			<key>target</key>
-			<string>4332352E97A37C729DC7D9B3B8A4BB15</string>
-			<key>targetProxy</key>
-			<string>A3BFDB239D89F80572AE76400F4FD8A7</string>
-		</dict>
-		<key>3256698B182CE03454CDC45A2771B89A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>88CA42A7CAC8509A02DEA81AE6962F2B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>34D053EE46DEC5C7CA0F7F5EDBAE1F93</key>
-		<dict>
-			<key>fileRef</key>
-			<string>85AA65CE1C2B13A2A0F3B31D55AB8F23</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>3607E6F07FF8C4B04B6507C7077F637C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>CBF1C24757A739411C0A8BF328A00544</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>3695144974EC7EB912EF8583DD8E2CDB</key>
-		<dict>
-			<key>fileRef</key>
-			<string>04A7E4726C77A961DB2138273C694373</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>36E5333FBBF17D96BFEE999490A2F3D2</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>883F5DAFFFFAE0588FCEB1A3B4116F5D</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>38A357658A9188D6B59A2BA0B5F11BA2</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>ButtonRowWithPresent.swift</string>
-			<key>path</key>
-			<string>Source/Rows/ButtonRowWithPresent.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>3ADB8363A0D6C70359A56224E164D6A6</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>Eureka.modulemap</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>3B7A33D336DAAF846E4F3CB6066B5977</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>E4FE0C0DE27A5ACD8C198229865EA521</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>CURRENT_PROJECT_VERSION</key>
-				<string>1</string>
-				<key>DEFINES_MODULE</key>
-				<string>YES</string>
-				<key>DYLIB_COMPATIBILITY_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_CURRENT_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_INSTALL_NAME_BASE</key>
-				<string>@rpath</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Target Support Files/Eureka/Eureka-prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Target Support Files/Eureka/Info.plist</string>
-				<key>INSTALL_PATH</key>
-				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>9.3</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>@executable_path/Frameworks</string>
-					<string>@loader_path/Frameworks</string>
-				</array>
-				<key>MODULEMAP_FILE</key>
-				<string>Target Support Files/Eureka/Eureka.modulemap</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>YES</string>
-				<key>PRODUCT_NAME</key>
-				<string>Eureka</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>SWIFT_OPTIMIZATION_LEVEL</key>
-				<string>-Onone</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VERSIONING_SYSTEM</key>
-				<string>apple-generic</string>
-				<key>VERSION_INFO_PREFIX</key>
-				<string></string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>3E656AE0B15BCA426C714CC40539F60C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>9C0072816840A2EF18AF66B5E9CA0354</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>3ED2AA35CF7B4A6A75D5A68157803509</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>CheckRow.swift</string>
-			<key>path</key>
-			<string>Source/Rows/CheckRow.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4332352E97A37C729DC7D9B3B8A4BB15</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>06CAE4617A9C4BF458755F5C4A516944</string>
-			<key>buildPhases</key>
-			<array>
-				<string>8DBCEEFE2C0CBEDE4175E4E52D3B92D8</string>
-				<string>0883B652EBBDEB233C612202532B66C6</string>
-				<string>83BA61C6C975205F257CFAC4425941B1</string>
-				<string>7EDF7059C8541FFEA52A5075941329EE</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>Eureka</string>
-			<key>productName</key>
-			<string>Eureka</string>
-			<key>productReference</key>
-			<string>C9A102F843EF413706C84B925F640E2B</string>
-			<key>productType</key>
-			<string>com.apple.product-type.framework</string>
-		</dict>
-		<key>433CD3331B6C3787F473C941B61FC68F</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>18340F12838DEE43507667CC74401EB1</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>43D7FC0D7AE7CABE35DA8D69A62BEF35</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>SelectableRowType.swift</string>
-			<key>path</key>
-			<string>Source/Core/SelectableRowType.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>45CA5CCA9613BCC537B35C081B77507A</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>DateInlineRow.swift</string>
-			<key>path</key>
-			<string>Source/Rows/DateInlineRow.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4B25C340A6A0BE2E21AB864C563A08B7</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>ActionSheetRow.swift</string>
-			<key>path</key>
-			<string>Source/Rows/ActionSheetRow.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4E34E7BB952EDEEF27B5727A49B09974</key>
-		<dict>
-			<key>fileRef</key>
-			<string>EEA82F0F01B8E9EE3DA67E697C451EB4</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4EE88CF437D9E0619EE02281EB6A4B82</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>BF3A128C9CB2933F26E70348F018A788</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>CURRENT_PROJECT_VERSION</key>
-				<string>1</string>
-				<key>DEFINES_MODULE</key>
-				<string>YES</string>
-				<key>DYLIB_COMPATIBILITY_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_CURRENT_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_INSTALL_NAME_BASE</key>
-				<string>@rpath</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Target Support Files/Pods-Transport4Church/Info.plist</string>
-				<key>INSTALL_PATH</key>
-				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>9.3</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>@executable_path/Frameworks</string>
-					<string>@loader_path/Frameworks</string>
-				</array>
-				<key>MACH_O_TYPE</key>
-				<string>staticlib</string>
-				<key>MODULEMAP_FILE</key>
-				<string>Target Support Files/Pods-Transport4Church/Pods-Transport4Church.modulemap</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>NO</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>OTHER_LIBTOOLFLAGS</key>
-				<string></string>
-				<key>PODS_ROOT</key>
-				<string>$(SRCROOT)</string>
-				<key>PRODUCT_NAME</key>
-				<string>Pods_Transport4Church</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VERSIONING_SYSTEM</key>
-				<string>apple-generic</string>
-				<key>VERSION_INFO_PREFIX</key>
-				<string></string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>5014E25EC4CE9F67EA34143817DA2B22</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>NavigationAccessoryView.swift</string>
-			<key>path</key>
-			<string>Source/Core/NavigationAccessoryView.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5082F522B5F1B06CE9B3134DA731988A</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>55688A2E3230AF8215F1149530A80779</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>CellType.swift</string>
-			<key>path</key>
-			<string>Source/Core/CellType.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>55DAB88BF39F976A72744AD86D2F7302</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>FieldsRow.swift</string>
-			<key>path</key>
-			<string>Source/Rows/FieldsRow.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>58E2E4E04C8A365ABB02A4E62D566772</key>
-		<dict>
-			<key>fileRef</key>
-			<string>A168881AABE110FA5574D2E740927FF6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>58EEEA9CDFF2D4BC1C5C63868CCBDDF1</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>DateRow.swift</string>
-			<key>path</key>
-			<string>Source/Rows/DateRow.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>59876EF956057FD31A88235DBE6A4F3D</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Pods-Transport4Church-acknowledgements.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5A0C6FE968931D888F00C9EC18DDF5BC</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES</string>
-				<key>CLANG_WARN_UNREACHABLE_CODE</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>YES</string>
-				<key>ENABLE_NS_ASSERTIONS</key>
-				<string>NO</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>RELEASE=1</string>
-				</array>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>9.3</string>
-				<key>STRIP_INSTALLED_PRODUCT</key>
-				<string>NO</string>
-				<key>SYMROOT</key>
-				<string>${SRCROOT}/../build</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>5A74A0CAB51128C71D0519EA90F6DD0F</key>
-		<dict>
-			<key>fileRef</key>
-			<string>21B2576EE93BC8C92F2F31DE3B15A857</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>5B90200B7E19261FEA7C1129B2C13534</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>PresenterRowType.swift</string>
-			<key>path</key>
-			<string>Source/Core/PresenterRowType.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5BB610A40C1F1BC9A9338B1DC22B0AAA</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>InlineRowType.swift</string>
-			<key>path</key>
-			<string>Source/Core/InlineRowType.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>600D6836E73F7FBCAA1F493AFDFC4EBA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B525DCAA65A305E21376690993A86972</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>60A92912A0FEDE9ACE55C1E0CCD579B6</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>Eureka-dummy.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>6152633CCB6B0254E42C00D98BC28A13</key>
-		<dict>
-			<key>fileRef</key>
-			<string>726AC476AC8793F848C1F8E07A06EC4E</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>61FF740A2A37371EFA9F3C8ABEEDAFF3</key>
-		<dict>
-			<key>fileRef</key>
-			<string>DA0AEE4EB2DEEE31D09B93D7EC333223</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>629D8732C18896851E1D06F10886E679</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>MultipleSelectorRow.swift</string>
-			<key>path</key>
-			<string>Source/Rows/MultipleSelectorRow.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>660E29286B4C961F1181530F3E7A046E</key>
-		<dict>
-			<key>fileRef</key>
-			<string>60A92912A0FEDE9ACE55C1E0CCD579B6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>6775B0346C810AB8CF4380B44BEE1750</key>
-		<dict>
-			<key>fileRef</key>
-			<string>9FA1B93098124FE54EA125E1D80688DF</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>6E7E5AF37923BFA48D6994B9BFC6535F</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>Foundation.framework</string>
-			<key>path</key>
-			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>726AC476AC8793F848C1F8E07A06EC4E</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>HeaderFooterView.swift</string>
-			<key>path</key>
-			<string>Source/Core/HeaderFooterView.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>72F0F49C15C14D0EB94206F776713672</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5BB610A40C1F1BC9A9338B1DC22B0AAA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>753B8D051793599525865F2CC9936027</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>StepperRow.swift</string>
-			<key>path</key>
-			<string>Source/Rows/StepperRow.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>75CE307F39406AE14F3BD63D0A77C424</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>Row.swift</string>
-			<key>path</key>
-			<string>Source/Core/Row.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>79B45F3A766EFEE68638E20041006C87</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>DateInlineFieldRow.swift</string>
-			<key>path</key>
-			<string>Source/Rows/Common/DateInlineFieldRow.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>7D91ACD6586867700438C1CC2557BEF7</key>
-		<dict>
-			<key>fileRef</key>
-			<string>3ED2AA35CF7B4A6A75D5A68157803509</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>7DB346D0F39D3F0E887471402A8071AB</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>BA6428E9F66FD5A23C0A2E06ED26CD2F</string>
-				<string>433CD3331B6C3787F473C941B61FC68F</string>
-				<string>36E5333FBBF17D96BFEE999490A2F3D2</string>
-				<string>DF1A2012B5F63541953D1A16757405CB</string>
-				<string>2D9BFDA23F28E199B74ECCF6B18A7C2A</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>7EDF7059C8541FFEA52A5075941329EE</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>103473BC0EFC477EB654B475B6AC8458</string>
-			</array>
-			<key>isa</key>
-			<string>PBXHeadersBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>7F19075F528232B9579693645008C8A3</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>804B6D74785196303EB645CCD1C79EE5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4B25C340A6A0BE2E21AB864C563A08B7</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>83BA61C6C975205F257CFAC4425941B1</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>8D8B33F5C3E48D535F8189C52650B20F</string>
-			</array>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>8448DDBF78DD5943F7AC940CA24826D3</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>SelectorRow.swift</string>
-			<key>path</key>
-			<string>Source/Rows/Common/SelectorRow.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>85AA65CE1C2B13A2A0F3B31D55AB8F23</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>ImagePickerController.swift</string>
-			<key>path</key>
-			<string>Source/Rows/Controllers/ImagePickerController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>86A6FCD66930D1FD3C186353368F82F3</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>SelectorAlertController.swift</string>
-			<key>path</key>
-			<string>Source/Rows/Controllers/SelectorAlertController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>86B4E86B605F0A0A5C689E8E5F6294E5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>23B342EC7C65ED4CE071196650ADD70B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>8753A32F47346F636F128E13B1316A54</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.framework</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>Pods_Transport4Church.framework</string>
-			<key>path</key>
-			<string>Pods_Transport4Church.framework</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>8829E591BC5E95A4F975B7B64E7635D0</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>Eureka-umbrella.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>883F5DAFFFFAE0588FCEB1A3B4116F5D</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>4B25C340A6A0BE2E21AB864C563A08B7</string>
-				<string>0E5BF21646B3BB710036D815F22E3F09</string>
-				<string>04A7E4726C77A961DB2138273C694373</string>
-				<string>23B342EC7C65ED4CE071196650ADD70B</string>
-				<string>38A357658A9188D6B59A2BA0B5F11BA2</string>
-				<string>21B2576EE93BC8C92F2F31DE3B15A857</string>
-				<string>55688A2E3230AF8215F1149530A80779</string>
-				<string>3ED2AA35CF7B4A6A75D5A68157803509</string>
-				<string>FECBB83C1FEEFD6860BACECFAA4530D6</string>
-				<string>0F5F75250C86D2F1FA1DDB08AA0A0D8E</string>
-				<string>79B45F3A766EFEE68638E20041006C87</string>
-				<string>45CA5CCA9613BCC537B35C081B77507A</string>
-				<string>E42A080B62B5E83FA6084EDC6433E11D</string>
-				<string>58EEEA9CDFF2D4BC1C5C63868CCBDDF1</string>
-				<string>BC837941407432F7BA3CF5D13600DD82</string>
-				<string>1A4EB2A21C31D1B486E9A89D3C0F1D81</string>
-				<string>55DAB88BF39F976A72744AD86D2F7302</string>
-				<string>B525DCAA65A305E21376690993A86972</string>
-				<string>084761790C248445952514529274C776</string>
-				<string>726AC476AC8793F848C1F8E07A06EC4E</string>
-				<string>9FA1B93098124FE54EA125E1D80688DF</string>
-				<string>85AA65CE1C2B13A2A0F3B31D55AB8F23</string>
-				<string>956078B3685A38365A83B7CFCF7EB8B7</string>
-				<string>5BB610A40C1F1BC9A9338B1DC22B0AAA</string>
-				<string>1476B8C0420391841FE0DF3EEBCA3B5E</string>
-				<string>A96E359B7BD126C8DBDF9A3C781FA191</string>
-				<string>629D8732C18896851E1D06F10886E679</string>
-				<string>EE1878F3B9A4A0CB66E095E5ADD62033</string>
-				<string>5014E25EC4CE9F67EA34143817DA2B22</string>
-				<string>88CA42A7CAC8509A02DEA81AE6962F2B</string>
-				<string>EEA82F0F01B8E9EE3DA67E697C451EB4</string>
-				<string>A168881AABE110FA5574D2E740927FF6</string>
-				<string>CBF1C24757A739411C0A8BF328A00544</string>
-				<string>C9A6A04F2EF47FD6AC0639CE4B0ECB86</string>
-				<string>D483AE38B36594A5E272D0260F43056B</string>
-				<string>5B90200B7E19261FEA7C1129B2C13534</string>
-				<string>CB9F855F9EC82ED02AD26B6EAC083FCD</string>
-				<string>8F2E6E0930DDB21A77791ECF97ABE2C7</string>
-				<string>75CE307F39406AE14F3BD63D0A77C424</string>
-				<string>9C0072816840A2EF18AF66B5E9CA0354</string>
-				<string>0F89D7DFAE0CE780F08FFE01D6141F7B</string>
-				<string>AD1369455F27F86E9B98B1C4B54BBC04</string>
-				<string>F6843612617C72EE23A5C7F87C705E78</string>
-				<string>AA7C64E0509D2F32946134A288C5A68A</string>
-				<string>43D7FC0D7AE7CABE35DA8D69A62BEF35</string>
-				<string>C2A5F0F0818437E9FBD687916D3B40B7</string>
-				<string>86A6FCD66930D1FD3C186353368F82F3</string>
-				<string>8448DDBF78DD5943F7AC940CA24826D3</string>
-				<string>CF63C90691EE467BCD0C8F7549A76A88</string>
-				<string>EDD67B2647444869BAF7DBF4722C86D3</string>
-				<string>753B8D051793599525865F2CC9936027</string>
-				<string>DA582DF79D0F6ACC3F438C124CEFD3F3</string>
-				<string>DA0AEE4EB2DEEE31D09B93D7EC333223</string>
-				<string>8D9B90B6B1735BF90ADE9DC76C7AEA07</string>
-				<string>F4C3826D6EA1A0CB862B622B3EF05C68</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Eureka</string>
-			<key>path</key>
-			<string>Eureka</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>88CA42A7CAC8509A02DEA81AE6962F2B</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>Operators.swift</string>
-			<key>path</key>
-			<string>Source/Core/Operators.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>8CF6D36831BECDB4923E1745BE8777DA</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>7F19075F528232B9579693645008C8A3</string>
-				<string>BDD306AADBB2276610AE924E68114608</string>
-				<string>094127B4D0E8BEFA70B9297CFD05933D</string>
-				<string>59876EF956057FD31A88235DBE6A4F3D</string>
-				<string>D708D92FD5ED3A0DED1EBB5CB37F4348</string>
-				<string>AE8C52B31039D2FA6C8F4578AFADF2F2</string>
-				<string>ED2AC09CF7C48C622971C4001D1E4C32</string>
-				<string>29ADBF3B16C347FDBEDE9F49BD239324</string>
-				<string>BDF42298107418EC46FB7BEE0FDE8CCC</string>
-				<string>BF3A128C9CB2933F26E70348F018A788</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods-Transport4Church</string>
-			<key>path</key>
-			<string>Target Support Files/Pods-Transport4Church</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>8D8B33F5C3E48D535F8189C52650B20F</key>
-		<dict>
-			<key>fileRef</key>
-			<string>DB0E1DA340868ED190C88557D98E6B93</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>8D9B90B6B1735BF90ADE9DC76C7AEA07</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>DB0E1DA340868ED190C88557D98E6B93</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Resources</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>8DBCEEFE2C0CBEDE4175E4E52D3B92D8</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>804B6D74785196303EB645CCD1C79EE5</string>
-				<string>9530B28AFF019AC003E5A01ADAA19A7D</string>
-				<string>3695144974EC7EB912EF8583DD8E2CDB</string>
-				<string>86B4E86B605F0A0A5C689E8E5F6294E5</string>
-				<string>21F799472851BCE6A130A97729507B4C</string>
-				<string>5A74A0CAB51128C71D0519EA90F6DD0F</string>
-				<string>0AA48424DE5670B8C032BA88393BA9FA</string>
-				<string>7D91ACD6586867700438C1CC2557BEF7</string>
-				<string>1D8A48631192F6D377B97D5EF0AFE16C</string>
-				<string>CC70C7CF7A63CD3F4256B64D58C551B4</string>
-				<string>D9C4B34950478B1AD2F3ED1E39086298</string>
-				<string>D2EC301A80E6CFB2F650FF088412F8A7</string>
-				<string>0E4FBDBCB07782C2AE7B6D7AF92F51D8</string>
-				<string>E35126F5E99598B42315A9C9F5C41DEA</string>
-				<string>1662FE9A42490639B7E2A1F401D5D4DD</string>
-				<string>660E29286B4C961F1181530F3E7A046E</string>
-				<string>DCAEB773C1E1C0CF94EE92A9AA99C329</string>
-				<string>1FE5D469BDAAFF0030F0AE5780975A4A</string>
-				<string>600D6836E73F7FBCAA1F493AFDFC4EBA</string>
-				<string>E7744BDE6B307E60F1840FB7DF8416B1</string>
-				<string>6152633CCB6B0254E42C00D98BC28A13</string>
-				<string>6775B0346C810AB8CF4380B44BEE1750</string>
-				<string>34D053EE46DEC5C7CA0F7F5EDBAE1F93</string>
-				<string>E774FD99645675D8738D90037FD68F28</string>
-				<string>72F0F49C15C14D0EB94206F776713672</string>
-				<string>0A50C03F56AD58898CA2A7C6113C4EF4</string>
-				<string>A31A287529CB6FB1E3AD604BA7808EE2</string>
-				<string>A31A3E644C08304B82EA33D5CC49F642</string>
-				<string>A6792D1386AD67459293295DD80323B3</string>
-				<string>2956D2538D326F528DF52EF888FFDBE9</string>
-				<string>3256698B182CE03454CDC45A2771B89A</string>
-				<string>4E34E7BB952EDEEF27B5727A49B09974</string>
-				<string>58E2E4E04C8A365ABB02A4E62D566772</string>
-				<string>3607E6F07FF8C4B04B6507C7077F637C</string>
-				<string>13CB51A5F85CF122676966CB347260BC</string>
-				<string>C3D9FD39975FFCE3B1EA1968F6453426</string>
-				<string>F6489B5AA612A6B9DDA466AED1657023</string>
-				<string>A139110B451BC866C4D19E805577391D</string>
-				<string>A6F16B6CC1ED4C25031775A12FD730BB</string>
-				<string>E994C7B3AD81F25A03886A4E6AA327C0</string>
-				<string>3E656AE0B15BCA426C714CC40539F60C</string>
-				<string>22D80D75A3155009821CBE44E7A29298</string>
-				<string>2B7186AE8B80A62112C769454EDF350F</string>
-				<string>DBC4386DDD9D7096D8ABBB355B5E4DD0</string>
-				<string>DE644832B971D2031EF0246712692779</string>
-				<string>969E0DB9B80ADF2681C84C68C174BB38</string>
-				<string>0B54D47F4061120A46717916BCAD2393</string>
-				<string>D511F885870A7B7E7CB3199D645EB0E9</string>
-				<string>942583935EB712BC81E5F01919E1EFD7</string>
-				<string>94216BFB2AF1B7F1CD43B0401A623F70</string>
-				<string>93748EA49FCD9EF155AFCFFD9CEA8136</string>
-				<string>B01D4D0408E01DE7CC0EC5402D8D9F00</string>
-				<string>B7DB4B868834CC37618900C0FEDF3F1C</string>
-				<string>61FF740A2A37371EFA9F3C8ABEEDAFF3</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>8F2E6E0930DDB21A77791ECF97ABE2C7</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>PushRow.swift</string>
-			<key>path</key>
-			<string>Source/Rows/PushRow.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>93748EA49FCD9EF155AFCFFD9CEA8136</key>
-		<dict>
-			<key>fileRef</key>
-			<string>EDD67B2647444869BAF7DBF4722C86D3</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>94216BFB2AF1B7F1CD43B0401A623F70</key>
-		<dict>
-			<key>fileRef</key>
-			<string>CF63C90691EE467BCD0C8F7549A76A88</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>942583935EB712BC81E5F01919E1EFD7</key>
-		<dict>
-			<key>fileRef</key>
-			<string>8448DDBF78DD5943F7AC940CA24826D3</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>9530B28AFF019AC003E5A01ADAA19A7D</key>
-		<dict>
-			<key>fileRef</key>
-			<string>0E5BF21646B3BB710036D815F22E3F09</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>956078B3685A38365A83B7CFCF7EB8B7</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>ImageRow.swift</string>
-			<key>path</key>
-			<string>Source/Rows/ImageRow.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>969E0DB9B80ADF2681C84C68C174BB38</key>
-		<dict>
-			<key>fileRef</key>
-			<string>43D7FC0D7AE7CABE35DA8D69A62BEF35</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>98341586160A0488F333092C39518877</key>
-		<dict>
-			<key>fileRef</key>
-			<string>6E7E5AF37923BFA48D6994B9BFC6535F</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>9C0072816840A2EF18AF66B5E9CA0354</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>RowControllerType.swift</string>
-			<key>path</key>
-			<string>Source/Core/RowControllerType.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>9FA1B93098124FE54EA125E1D80688DF</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>Helpers.swift</string>
-			<key>path</key>
-			<string>Source/Core/Helpers.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>A139110B451BC866C4D19E805577391D</key>
-		<dict>
-			<key>fileRef</key>
-			<string>CB9F855F9EC82ED02AD26B6EAC083FCD</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>A168881AABE110FA5574D2E740927FF6</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>PickerInlineRow.swift</string>
-			<key>path</key>
-			<string>Source/Rows/PickerInlineRow.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>A31A287529CB6FB1E3AD604BA7808EE2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>A96E359B7BD126C8DBDF9A3C781FA191</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>A31A3E644C08304B82EA33D5CC49F642</key>
-		<dict>
-			<key>fileRef</key>
-			<string>629D8732C18896851E1D06F10886E679</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>A3BFDB239D89F80572AE76400F4FD8A7</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>D41D8CD98F00B204E9800998ECF8427E</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>4332352E97A37C729DC7D9B3B8A4BB15</string>
-			<key>remoteInfo</key>
-			<string>Eureka</string>
-		</dict>
-		<key>A625EEEDC331AF3EE306DF8808D3F912</key>
-		<dict>
-			<key>fileRef</key>
-			<string>29ADBF3B16C347FDBEDE9F49BD239324</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>A6792D1386AD67459293295DD80323B3</key>
-		<dict>
-			<key>fileRef</key>
-			<string>EE1878F3B9A4A0CB66E095E5ADD62033</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>A6F16B6CC1ED4C25031775A12FD730BB</key>
-		<dict>
-			<key>fileRef</key>
-			<string>8F2E6E0930DDB21A77791ECF97ABE2C7</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>A96E359B7BD126C8DBDF9A3C781FA191</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>ListCheckRow.swift</string>
-			<key>path</key>
-			<string>Source/Rows/SelectableRows/ListCheckRow.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AA7C64E0509D2F32946134A288C5A68A</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>SegmentedRow.swift</string>
-			<key>path</key>
-			<string>Source/Rows/SegmentedRow.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AD1369455F27F86E9B98B1C4B54BBC04</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>RowType.swift</string>
-			<key>path</key>
-			<string>Source/Core/RowType.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AE8C52B31039D2FA6C8F4578AFADF2F2</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.script.sh</string>
-			<key>path</key>
-			<string>Pods-Transport4Church-frameworks.sh</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B01D4D0408E01DE7CC0EC5402D8D9F00</key>
-		<dict>
-			<key>fileRef</key>
-			<string>753B8D051793599525865F2CC9936027</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B0F20BD554F1CC8E8C28927DF42B1E15</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D708D92FD5ED3A0DED1EBB5CB37F4348</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B525DCAA65A305E21376690993A86972</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>Form.swift</string>
-			<key>path</key>
-			<string>Source/Core/Form.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B7DB4B868834CC37618900C0FEDF3F1C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>DA582DF79D0F6ACC3F438C124CEFD3F3</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BA6428E9F66FD5A23C0A2E06ED26CD2F</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text</string>
-			<key>name</key>
-			<string>Podfile</string>
-			<key>path</key>
-			<string>../Podfile</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-			<key>xcLanguageSpecificationIdentifier</key>
-			<string>xcode.lang.ruby</string>
-		</dict>
-		<key>BC837941407432F7BA3CF5D13600DD82</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>DecimalFormatter.swift</string>
-			<key>path</key>
-			<string>Source/Rows/Common/DecimalFormatter.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>BDD306AADBB2276610AE924E68114608</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>Pods-Transport4Church.modulemap</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>BDF42298107418EC46FB7BEE0FDE8CCC</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods-Transport4Church.debug.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>BF3A128C9CB2933F26E70348F018A788</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods-Transport4Church.release.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>BFB650EC7B1D0501E79D6C311501D135</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>BDF42298107418EC46FB7BEE0FDE8CCC</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>CURRENT_PROJECT_VERSION</key>
-				<string>1</string>
-				<key>DEFINES_MODULE</key>
-				<string>YES</string>
-				<key>DYLIB_COMPATIBILITY_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_CURRENT_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_INSTALL_NAME_BASE</key>
-				<string>@rpath</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Target Support Files/Pods-Transport4Church/Info.plist</string>
-				<key>INSTALL_PATH</key>
-				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>9.3</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>@executable_path/Frameworks</string>
-					<string>@loader_path/Frameworks</string>
-				</array>
-				<key>MACH_O_TYPE</key>
-				<string>staticlib</string>
-				<key>MODULEMAP_FILE</key>
-				<string>Target Support Files/Pods-Transport4Church/Pods-Transport4Church.modulemap</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>YES</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>OTHER_LIBTOOLFLAGS</key>
-				<string></string>
-				<key>PODS_ROOT</key>
-				<string>$(SRCROOT)</string>
-				<key>PRODUCT_NAME</key>
-				<string>Pods_Transport4Church</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>SWIFT_OPTIMIZATION_LEVEL</key>
-				<string>-Onone</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VERSIONING_SYSTEM</key>
-				<string>apple-generic</string>
-				<key>VERSION_INFO_PREFIX</key>
-				<string></string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>C2A5F0F0818437E9FBD687916D3B40B7</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>SelectableSection.swift</string>
-			<key>path</key>
-			<string>Source/Core/SelectableSection.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C3B7BDF5CE5CB8F095FE12DA55D9A9BB</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>UIKit.framework</string>
-			<key>path</key>
-			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/UIKit.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>C3D9FD39975FFCE3B1EA1968F6453426</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D483AE38B36594A5E272D0260F43056B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>C9A102F843EF413706C84B925F640E2B</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.framework</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>Eureka.framework</string>
-			<key>path</key>
-			<string>Eureka.framework</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>C9A6A04F2EF47FD6AC0639CE4B0ECB86</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>PopoverSelectorRow.swift</string>
-			<key>path</key>
-			<string>Source/Rows/PopoverSelectorRow.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CB3B1D50818055A2415C59C9D72664D7</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>A625EEEDC331AF3EE306DF8808D3F912</string>
-			</array>
-			<key>isa</key>
-			<string>PBXHeadersBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>CB9F855F9EC82ED02AD26B6EAC083FCD</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>Protocols.swift</string>
-			<key>path</key>
-			<string>Source/Rows/Common/Protocols.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CBF1C24757A739411C0A8BF328A00544</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>PickerRow.swift</string>
-			<key>path</key>
-			<string>Source/Rows/PickerRow.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CC70C7CF7A63CD3F4256B64D58C551B4</key>
-		<dict>
-			<key>fileRef</key>
-			<string>0F5F75250C86D2F1FA1DDB08AA0A0D8E</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>CF2355BE8F1ADC705D21BBA29D8B2D58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>6E7E5AF37923BFA48D6994B9BFC6535F</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>CF63C90691EE467BCD0C8F7549A76A88</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>SelectorViewController.swift</string>
-			<key>path</key>
-			<string>Source/Rows/Controllers/SelectorViewController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D2EC301A80E6CFB2F650FF088412F8A7</key>
-		<dict>
-			<key>fileRef</key>
-			<string>45CA5CCA9613BCC537B35C081B77507A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D41D8CD98F00B204E9800998ECF8427E</key>
-		<dict>
-			<key>attributes</key>
-			<dict>
-				<key>LastSwiftUpdateCheck</key>
-				<string>0700</string>
-				<key>LastUpgradeCheck</key>
-				<string>0700</string>
-			</dict>
-			<key>buildConfigurationList</key>
-			<string>2D8E8EC45A3A1A1D94AE762CB5028504</string>
-			<key>compatibilityVersion</key>
-			<string>Xcode 3.2</string>
-			<key>developmentRegion</key>
-			<string>English</string>
-			<key>hasScannedForEncodings</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXProject</string>
-			<key>knownRegions</key>
-			<array>
-				<string>en</string>
-			</array>
-			<key>mainGroup</key>
-			<string>7DB346D0F39D3F0E887471402A8071AB</string>
-			<key>productRefGroup</key>
-			<string>DF1A2012B5F63541953D1A16757405CB</string>
-			<key>projectDirPath</key>
-			<string></string>
-			<key>projectReferences</key>
-			<array/>
-			<key>projectRoot</key>
-			<string></string>
-			<key>targets</key>
-			<array>
-				<string>4332352E97A37C729DC7D9B3B8A4BB15</string>
-				<string>DBE5150142CA2743EC24846A4FFAD36C</string>
-			</array>
-		</dict>
-		<key>D483AE38B36594A5E272D0260F43056B</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>PostalAddressRow.swift</string>
-			<key>path</key>
-			<string>Source/Rows/PostalAddressRow.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D511F885870A7B7E7CB3199D645EB0E9</key>
-		<dict>
-			<key>fileRef</key>
-			<string>86A6FCD66930D1FD3C186353368F82F3</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D708D92FD5ED3A0DED1EBB5CB37F4348</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>Pods-Transport4Church-dummy.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D9C4B34950478B1AD2F3ED1E39086298</key>
-		<dict>
-			<key>fileRef</key>
-			<string>79B45F3A766EFEE68638E20041006C87</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>DA0AEE4EB2DEEE31D09B93D7EC333223</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>TextAreaRow.swift</string>
-			<key>path</key>
-			<string>Source/Rows/TextAreaRow.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DA582DF79D0F6ACC3F438C124CEFD3F3</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>SwitchRow.swift</string>
-			<key>path</key>
-			<string>Source/Rows/SwitchRow.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DB0E1DA340868ED190C88557D98E6B93</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.plug-in</string>
-			<key>name</key>
-			<string>Eureka.bundle</string>
-			<key>path</key>
-			<string>Source/Resources/Eureka.bundle</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DBC4386DDD9D7096D8ABBB355B5E4DD0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>F6843612617C72EE23A5C7F87C705E78</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>DBE5150142CA2743EC24846A4FFAD36C</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>EC34318011F09FD866E6731794056639</string>
-			<key>buildPhases</key>
-			<array>
-				<string>1CF43CAFFA0071E9D22949910DB532BB</string>
-				<string>E3C87EF52F5D35BB42933F06B9670D87</string>
-				<string>CB3B1D50818055A2415C59C9D72664D7</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>2F36C253505ACF36271EABE5A2B0500E</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>Pods-Transport4Church</string>
-			<key>productName</key>
-			<string>Pods-Transport4Church</string>
-			<key>productReference</key>
-			<string>8753A32F47346F636F128E13B1316A54</string>
-			<key>productType</key>
-			<string>com.apple.product-type.framework</string>
-		</dict>
-		<key>DCAEB773C1E1C0CF94EE92A9AA99C329</key>
-		<dict>
-			<key>fileRef</key>
-			<string>1A4EB2A21C31D1B486E9A89D3C0F1D81</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>DE644832B971D2031EF0246712692779</key>
-		<dict>
-			<key>fileRef</key>
-			<string>AA7C64E0509D2F32946134A288C5A68A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>DF1A2012B5F63541953D1A16757405CB</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>C9A102F843EF413706C84B925F640E2B</string>
-				<string>8753A32F47346F636F128E13B1316A54</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DF913A13EDE39868F6BB455FAD540242</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>Eureka-prefix.pch</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E35126F5E99598B42315A9C9F5C41DEA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>58EEEA9CDFF2D4BC1C5C63868CCBDDF1</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E3C87EF52F5D35BB42933F06B9670D87</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>98341586160A0488F333092C39518877</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>E42A080B62B5E83FA6084EDC6433E11D</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>DatePickerRow.swift</string>
-			<key>path</key>
-			<string>Source/Rows/DatePickerRow.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E4384FBB7CAEF23577402B48B1FFF78D</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>E4FE0C0DE27A5ACD8C198229865EA521</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>CURRENT_PROJECT_VERSION</key>
-				<string>1</string>
-				<key>DEFINES_MODULE</key>
-				<string>YES</string>
-				<key>DYLIB_COMPATIBILITY_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_CURRENT_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_INSTALL_NAME_BASE</key>
-				<string>@rpath</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Target Support Files/Eureka/Eureka-prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Target Support Files/Eureka/Info.plist</string>
-				<key>INSTALL_PATH</key>
-				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>9.3</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>@executable_path/Frameworks</string>
-					<string>@loader_path/Frameworks</string>
-				</array>
-				<key>MODULEMAP_FILE</key>
-				<string>Target Support Files/Eureka/Eureka.modulemap</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>NO</string>
-				<key>PRODUCT_NAME</key>
-				<string>Eureka</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VERSIONING_SYSTEM</key>
-				<string>apple-generic</string>
-				<key>VERSION_INFO_PREFIX</key>
-				<string></string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>E4FE0C0DE27A5ACD8C198229865EA521</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Eureka.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E7744BDE6B307E60F1840FB7DF8416B1</key>
-		<dict>
-			<key>fileRef</key>
-			<string>084761790C248445952514529274C776</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E774FD99645675D8738D90037FD68F28</key>
-		<dict>
-			<key>fileRef</key>
-			<string>956078B3685A38365A83B7CFCF7EB8B7</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E994C7B3AD81F25A03886A4E6AA327C0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>75CE307F39406AE14F3BD63D0A77C424</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>EB24169A450CCE937FF12884FF90E936</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C3B7BDF5CE5CB8F095FE12DA55D9A9BB</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>EC34318011F09FD866E6731794056639</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>BFB650EC7B1D0501E79D6C311501D135</string>
-				<string>4EE88CF437D9E0619EE02281EB6A4B82</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>ED2AC09CF7C48C622971C4001D1E4C32</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.script.sh</string>
-			<key>path</key>
-			<string>Pods-Transport4Church-resources.sh</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>EDD67B2647444869BAF7DBF4722C86D3</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>SliderRow.swift</string>
-			<key>path</key>
-			<string>Source/Rows/SliderRow.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>EE1878F3B9A4A0CB66E095E5ADD62033</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>MultipleSelectorViewController.swift</string>
-			<key>path</key>
-			<string>Source/Rows/Controllers/MultipleSelectorViewController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>EEA82F0F01B8E9EE3DA67E697C451EB4</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>OptionsRow.swift</string>
-			<key>path</key>
-			<string>Source/Rows/Common/OptionsRow.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F4C3826D6EA1A0CB862B622B3EF05C68</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>3ADB8363A0D6C70359A56224E164D6A6</string>
-				<string>E4FE0C0DE27A5ACD8C198229865EA521</string>
-				<string>60A92912A0FEDE9ACE55C1E0CCD579B6</string>
-				<string>DF913A13EDE39868F6BB455FAD540242</string>
-				<string>8829E591BC5E95A4F975B7B64E7635D0</string>
-				<string>5082F522B5F1B06CE9B3134DA731988A</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Support Files</string>
-			<key>path</key>
-			<string>../Target Support Files/Eureka</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F6489B5AA612A6B9DDA466AED1657023</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5B90200B7E19261FEA7C1129B2C13534</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>F6843612617C72EE23A5C7F87C705E78</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>Section.swift</string>
-			<key>path</key>
-			<string>Source/Core/Section.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FECBB83C1FEEFD6860BACECFAA4530D6</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>Core.swift</string>
-			<key>path</key>
-			<string>Source/Core/Core.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-	</dict>
-	<key>rootObject</key>
-	<string>D41D8CD98F00B204E9800998ECF8427E</string>
-</dict>
-</plist>
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		04BA79FE8990EC728FE1903C27F6A37C /* Pods-Transport4ChurchTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E77A224EEC0CCA69DBCD3E4D137B9DF5 /* Pods-Transport4ChurchTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0A50C03F56AD58898CA2A7C6113C4EF4 /* LabelRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F908F82F62E3C1C7084A43200F680FA /* LabelRow.swift */; };
+		0AA48424DE5670B8C032BA88393BA9FA /* CellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149F6897E7B86E86B3416F92C8E292E8 /* CellType.swift */; };
+		0B54D47F4061120A46717916BCAD2393 /* SelectableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C56EEF0EB1B5A6BF2E2EBC7C4754AC8 /* SelectableSection.swift */; };
+		0E4FBDBCB07782C2AE7B6D7AF92F51D8 /* DatePickerRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E16D15E53603B6930B24492EE428DD6 /* DatePickerRow.swift */; };
+		103473BC0EFC477EB654B475B6AC8458 /* Eureka-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 618949B6535D86821FEB94FC317AD956 /* Eureka-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		13CB51A5F85CF122676966CB347260BC /* PopoverSelectorRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B2BDCADCE39800E7D25495495ADC0E /* PopoverSelectorRow.swift */; };
+		1662FE9A42490639B7E2A1F401D5D4DD /* DecimalFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77365E3311B7523F069FE93A4B730FF7 /* DecimalFormatter.swift */; };
+		1D8A48631192F6D377B97D5EF0AFE16C /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940F38A8A297CC18F7ED609B7A0E7399 /* Core.swift */; };
+		1FE5D469BDAAFF0030F0AE5780975A4A /* FieldsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB106010DE58CDF3666864C1CA41EB7A /* FieldsRow.swift */; };
+		21F799472851BCE6A130A97729507B4C /* ButtonRowWithPresent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06787A0C044DA0649A890EA3F08D350 /* ButtonRowWithPresent.swift */; };
+		22D80D75A3155009821CBE44E7A29298 /* RowProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FF1C7513A08C6178617E20D35B269F /* RowProtocols.swift */; };
+		2956D2538D326F528DF52EF888FFDBE9 /* NavigationAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8BB3506B64D91256B3CD24FAAB53FA /* NavigationAccessoryView.swift */; };
+		2B7186AE8B80A62112C769454EDF350F /* RowType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A858A9CD09AE061922DA6C0FA58850 /* RowType.swift */; };
+		3256698B182CE03454CDC45A2771B89A /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB290D00B777CC62832DC54569B8C556 /* Operators.swift */; };
+		34D053EE46DEC5C7CA0F7F5EDBAE1F93 /* ImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D543FFCFC46361C54796A4931620E79F /* ImagePickerController.swift */; };
+		3607E6F07FF8C4B04B6507C7077F637C /* PickerRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998C5B7170CD63F541F34A86F75EC53A /* PickerRow.swift */; };
+		3695144974EC7EB912EF8583DD8E2CDB /* BaseRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F501152ECBEC0A9641559A31B8964129 /* BaseRow.swift */; };
+		3CF8A9E91544C26679B953CA262A6411 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
+		3E656AE0B15BCA426C714CC40539F60C /* RowControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F858D8C1DB9558ADA3D008FB3245C29A /* RowControllerType.swift */; };
+		4E34E7BB952EDEEF27B5727A49B09974 /* OptionsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5B9846C75F403724E1CFBB36107F7F /* OptionsRow.swift */; };
+		53043A48F03B153D2FF45E28CBDD4FF5 /* Pods-Transport4ChurchUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BF21692018FC26608CA455F1950BC /* Pods-Transport4ChurchUITests-dummy.m */; };
+		58E2E4E04C8A365ABB02A4E62D566772 /* PickerInlineRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3067C743DFF7D2B7801D3615C09268EB /* PickerInlineRow.swift */; };
+		58FFE8F00110EBEE43C67ACF3B9B68D6 /* Pods-Transport4ChurchUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 341C4BF289DB7C725131343E97840D1F /* Pods-Transport4ChurchUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5A74A0CAB51128C71D0519EA90F6DD0F /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0E8CE48881FFF2C98F07F989F3B8F0 /* Cell.swift */; };
+		600D6836E73F7FBCAA1F493AFDFC4EBA /* Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = C534B42C541C4934C0D22F3A22DE1C99 /* Form.swift */; };
+		60F510943D69ECEA792527666CC0AF95 /* Pods-Transport4ChurchTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A6CBBF99D45A383D5B290ADDCA61027F /* Pods-Transport4ChurchTests-dummy.m */; };
+		6152633CCB6B0254E42C00D98BC28A13 /* HeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5A8DA5967325EF9F69C88F78C7EBFD /* HeaderFooterView.swift */; };
+		61FF740A2A37371EFA9F3C8ABEEDAFF3 /* TextAreaRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDB35276EF413570E7C2C7CD003B234 /* TextAreaRow.swift */; };
+		660E29286B4C961F1181530F3E7A046E /* Eureka-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C1F9744CFE1929C450E76A309C04266 /* Eureka-dummy.m */; };
+		6775B0346C810AB8CF4380B44BEE1750 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F22DFB6CB3E1864F671D818726BA82 /* Helpers.swift */; };
+		72F0F49C15C14D0EB94206F776713672 /* InlineRowType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A39C57D3F2C8CD8F30426133FF510C /* InlineRowType.swift */; };
+		7D91ACD6586867700438C1CC2557BEF7 /* CheckRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C0465A13CAD8738D1F2B8609928B3 /* CheckRow.swift */; };
+		7DF0D078388923B8816F7D57910CFD42 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
+		804B6D74785196303EB645CCD1C79EE5 /* ActionSheetRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C77321F6B74F038E74BD567FF464A6 /* ActionSheetRow.swift */; };
+		813FB2024EBF0FEF9CA1D7CE502EFF67 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
+		86B4E86B605F0A0A5C689E8E5F6294E5 /* ButtonRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D733CC015FF2553BEB8713F98D83F1B /* ButtonRow.swift */; };
+		8D8B33F5C3E48D535F8189C52650B20F /* Eureka.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 028554BAA710E9036CAD8EAACAF87A8D /* Eureka.bundle */; };
+		93748EA49FCD9EF155AFCFFD9CEA8136 /* SliderRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494576049CDBF9234FE6ABEA578C053B /* SliderRow.swift */; };
+		94216BFB2AF1B7F1CD43B0401A623F70 /* SelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF586C87189E09B058B602FCF376E81 /* SelectorViewController.swift */; };
+		942583935EB712BC81E5F01919E1EFD7 /* SelectorRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3927F7174B9C5F432D25ABDBA20407F /* SelectorRow.swift */; };
+		946F34CD1A547CC15717ADE54EDC11A8 /* Pods-Transport4Church-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 62A5363F308D89FC9588C762E600E8BF /* Pods-Transport4Church-dummy.m */; };
+		9530B28AFF019AC003E5A01ADAA19A7D /* AlertRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EA3460386B1013C8AD63F169CAC957 /* AlertRow.swift */; };
+		969E0DB9B80ADF2681C84C68C174BB38 /* SelectableRowType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF51C41A3F40746BF2FF7C65FBD2B014 /* SelectableRowType.swift */; };
+		9AB7B5F59B35E193CB225C15EBD35680 /* Pods-Transport4Church-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 792C0EF8D4B382D92BD385D21735E0BC /* Pods-Transport4Church-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A139110B451BC866C4D19E805577391D /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E556304D51949581E2F2BE08117618F /* Protocols.swift */; };
+		A31A287529CB6FB1E3AD604BA7808EE2 /* ListCheckRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B42FB1699FC0003705A8BE8B12E3BE0 /* ListCheckRow.swift */; };
+		A31A3E644C08304B82EA33D5CC49F642 /* MultipleSelectorRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FF5A12382FEC8EA575D095E0D63E04 /* MultipleSelectorRow.swift */; };
+		A6792D1386AD67459293295DD80323B3 /* MultipleSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE2138C54C00C6229BBD3BE6B804A64 /* MultipleSelectorViewController.swift */; };
+		A6F16B6CC1ED4C25031775A12FD730BB /* PushRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830F75F93658804A9AF1DC3F0A68754B /* PushRow.swift */; };
+		B01D4D0408E01DE7CC0EC5402D8D9F00 /* StepperRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0668BF0BC2D1EC8FB85B24727CD185FC /* StepperRow.swift */; };
+		B4C681E1639A0FCD1E5770370FA5027E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E86668F20F252C440D1015B816BE59C5 /* UIKit.framework */; };
+		B7DB4B868834CC37618900C0FEDF3F1C /* SwitchRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417AD15F48DB797674B35D7D0EA4AE56 /* SwitchRow.swift */; };
+		C3D9FD39975FFCE3B1EA1968F6453426 /* PostalAddressRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C785FDA6D57D053DF950BC7D157B3C3F /* PostalAddressRow.swift */; };
+		CC70C7CF7A63CD3F4256B64D58C551B4 /* DateFieldRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA575711CD388733B68394BE11058A15 /* DateFieldRow.swift */; };
+		D2EC301A80E6CFB2F650FF088412F8A7 /* DateInlineRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94234F7EBF5D59B115968E39496647C /* DateInlineRow.swift */; };
+		D511F885870A7B7E7CB3199D645EB0E9 /* SelectorAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5080F06679EB8F67ED62DBAD97EB2EAD /* SelectorAlertController.swift */; };
+		D9C4B34950478B1AD2F3ED1E39086298 /* DateInlineFieldRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7672E649FC92BFE3A89C228B94A2F526 /* DateInlineFieldRow.swift */; };
+		DBC4386DDD9D7096D8ABBB355B5E4DD0 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9EE5E2FEFA1BD939B963CA708C0FD5 /* Section.swift */; };
+		DCAEB773C1E1C0CF94EE92A9AA99C329 /* FieldRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3324C46D6092631F051B3403F96B2DF4 /* FieldRow.swift */; };
+		DE644832B971D2031EF0246712692779 /* SegmentedRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46898655FF0CC17120410545C9394DCC /* SegmentedRow.swift */; };
+		E35126F5E99598B42315A9C9F5C41DEA /* DateRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958B8ED2BAB196E78138EF59914AFAA1 /* DateRow.swift */; };
+		E7744BDE6B307E60F1840FB7DF8416B1 /* GenericMultipleSelectorRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A3183309C1965E529CE90A7941722F /* GenericMultipleSelectorRow.swift */; };
+		E774FD99645675D8738D90037FD68F28 /* ImageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC3767558A45D3E41915B71E24C997 /* ImageRow.swift */; };
+		E967C86355EA4E5F97C528574632F712 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
+		E994C7B3AD81F25A03886A4E6AA327C0 /* Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C41E7022AD1318E517D12DD9085076C /* Row.swift */; };
+		F6489B5AA612A6B9DDA466AED1657023 /* PresenterRowType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9734D9ED36D4A32E7708E0E9A63EE9 /* PresenterRowType.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A4F0CC9DE89B891EF0D2CA80BA20A47D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4332352E97A37C729DC7D9B3B8A4BB15;
+			remoteInfo = Eureka;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		006F8ED15C63D2044FB51A73F39E627B /* Pods-Transport4ChurchUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Transport4ChurchUITests-frameworks.sh"; sourceTree = "<group>"; };
+		025B1202A627B882CC35E6FBF0A2FDE6 /* Pods-Transport4ChurchUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Transport4ChurchUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		028554BAA710E9036CAD8EAACAF87A8D /* Eureka.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = Eureka.bundle; path = Source/Resources/Eureka.bundle; sourceTree = "<group>"; };
+		028C1404A9F36A347C0C3D0633EDEBC2 /* Pods-Transport4ChurchUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Transport4ChurchUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		0668BF0BC2D1EC8FB85B24727CD185FC /* StepperRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StepperRow.swift; path = Source/Rows/StepperRow.swift; sourceTree = "<group>"; };
+		0D0E8CE48881FFF2C98F07F989F3B8F0 /* Cell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Cell.swift; path = Source/Core/Cell.swift; sourceTree = "<group>"; };
+		11E1E277322039AD86701C0AE6CA2284 /* Pods-Transport4ChurchTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Transport4ChurchTests.modulemap"; sourceTree = "<group>"; };
+		12E193179A62D71C0174032CF1C40FA9 /* Eureka.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Eureka.modulemap; sourceTree = "<group>"; };
+		149F6897E7B86E86B3416F92C8E292E8 /* CellType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CellType.swift; path = Source/Core/CellType.swift; sourceTree = "<group>"; };
+		16FF1C7513A08C6178617E20D35B269F /* RowProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RowProtocols.swift; path = Source/Core/RowProtocols.swift; sourceTree = "<group>"; };
+		17DD60991AFC997B48603BC4ADD8308C /* Pods-Transport4Church.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Transport4Church.release.xcconfig"; sourceTree = "<group>"; };
+		1E556304D51949581E2F2BE08117618F /* Protocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Protocols.swift; path = Source/Rows/Common/Protocols.swift; sourceTree = "<group>"; };
+		1F9734D9ED36D4A32E7708E0E9A63EE9 /* PresenterRowType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PresenterRowType.swift; path = Source/Core/PresenterRowType.swift; sourceTree = "<group>"; };
+		20A858A9CD09AE061922DA6C0FA58850 /* RowType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RowType.swift; path = Source/Core/RowType.swift; sourceTree = "<group>"; };
+		23067CAD8410065AFF313256E10C369A /* Pods-Transport4Church.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Transport4Church.debug.xcconfig"; sourceTree = "<group>"; };
+		252A472294D562E1DC2AE143A23A0BDB /* GooglePlacePicker.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GooglePlacePicker.bundle; path = Frameworks/GooglePlacePicker.framework/Versions/A/Resources/GooglePlacePicker.bundle; sourceTree = "<group>"; };
+		29B060A9700686D1DDB0B7DEFF8FE031 /* Pods-Transport4ChurchTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Transport4ChurchTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		2A5E96262BEADA7B9AFC60A23AD077B6 /* GooglePlaces.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GooglePlaces.bundle; path = Frameworks/GooglePlaces.framework/Versions/A/Resources/GooglePlaces.bundle; sourceTree = "<group>"; };
+		2BD3B27911508E831DCB65499228EA23 /* Pods_Transport4ChurchUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Transport4ChurchUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D9CCF0F316277AAFE5331973F7A0775 /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsBase.framework; path = Subspecs/Base/Frameworks/GoogleMapsBase.framework; sourceTree = "<group>"; };
+		2E16D15E53603B6930B24492EE428DD6 /* DatePickerRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DatePickerRow.swift; path = Source/Rows/DatePickerRow.swift; sourceTree = "<group>"; };
+		2F908F82F62E3C1C7084A43200F680FA /* LabelRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LabelRow.swift; path = Source/Rows/LabelRow.swift; sourceTree = "<group>"; };
+		3067C743DFF7D2B7801D3615C09268EB /* PickerInlineRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PickerInlineRow.swift; path = Source/Rows/PickerInlineRow.swift; sourceTree = "<group>"; };
+		3324C46D6092631F051B3403F96B2DF4 /* FieldRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FieldRow.swift; path = Source/Rows/Common/FieldRow.swift; sourceTree = "<group>"; };
+		341C4BF289DB7C725131343E97840D1F /* Pods-Transport4ChurchUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Transport4ChurchUITests-umbrella.h"; sourceTree = "<group>"; };
+		377E51E8E4D4AF6C4B0714D8EE326A30 /* Pods-Transport4Church-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Transport4Church-resources.sh"; sourceTree = "<group>"; };
+		39710CFEB9E382285A2D8F30D1AB3232 /* Pods-Transport4ChurchTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Transport4ChurchTests.release.xcconfig"; sourceTree = "<group>"; };
+		3B42FB1699FC0003705A8BE8B12E3BE0 /* ListCheckRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ListCheckRow.swift; path = Source/Rows/SelectableRows/ListCheckRow.swift; sourceTree = "<group>"; };
+		417AD15F48DB797674B35D7D0EA4AE56 /* SwitchRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwitchRow.swift; path = Source/Rows/SwitchRow.swift; sourceTree = "<group>"; };
+		46898655FF0CC17120410545C9394DCC /* SegmentedRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SegmentedRow.swift; path = Source/Rows/SegmentedRow.swift; sourceTree = "<group>"; };
+		47BA04795489D999D7A0CDF26481068E /* Pods-Transport4Church.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Transport4Church.modulemap"; sourceTree = "<group>"; };
+		494576049CDBF9234FE6ABEA578C053B /* SliderRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SliderRow.swift; path = Source/Rows/SliderRow.swift; sourceTree = "<group>"; };
+		4D7BF21692018FC26608CA455F1950BC /* Pods-Transport4ChurchUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Transport4ChurchUITests-dummy.m"; sourceTree = "<group>"; };
+		4E5A8DA5967325EF9F69C88F78C7EBFD /* HeaderFooterView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HeaderFooterView.swift; path = Source/Core/HeaderFooterView.swift; sourceTree = "<group>"; };
+		5080F06679EB8F67ED62DBAD97EB2EAD /* SelectorAlertController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SelectorAlertController.swift; path = Source/Rows/Controllers/SelectorAlertController.swift; sourceTree = "<group>"; };
+		55A39C57D3F2C8CD8F30426133FF510C /* InlineRowType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InlineRowType.swift; path = Source/Core/InlineRowType.swift; sourceTree = "<group>"; };
+		58F22DFB6CB3E1864F671D818726BA82 /* Helpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Helpers.swift; path = Source/Core/Helpers.swift; sourceTree = "<group>"; };
+		5B5B9846C75F403724E1CFBB36107F7F /* OptionsRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OptionsRow.swift; path = Source/Rows/Common/OptionsRow.swift; sourceTree = "<group>"; };
+		5E8BB3506B64D91256B3CD24FAAB53FA /* NavigationAccessoryView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NavigationAccessoryView.swift; path = Source/Core/NavigationAccessoryView.swift; sourceTree = "<group>"; };
+		618949B6535D86821FEB94FC317AD956 /* Eureka-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Eureka-umbrella.h"; sourceTree = "<group>"; };
+		62A5363F308D89FC9588C762E600E8BF /* Pods-Transport4Church-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Transport4Church-dummy.m"; sourceTree = "<group>"; };
+		6C1F9744CFE1929C450E76A309C04266 /* Eureka-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Eureka-dummy.m"; sourceTree = "<group>"; };
+		6C41E7022AD1318E517D12DD9085076C /* Row.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Row.swift; path = Source/Core/Row.swift; sourceTree = "<group>"; };
+		6C56EEF0EB1B5A6BF2E2EBC7C4754AC8 /* SelectableSection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SelectableSection.swift; path = Source/Core/SelectableSection.swift; sourceTree = "<group>"; };
+		6D733CC015FF2553BEB8713F98D83F1B /* ButtonRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ButtonRow.swift; path = Source/Rows/ButtonRow.swift; sourceTree = "<group>"; };
+		72B60EAB288C04067A4C500EE85C2BC7 /* Eureka.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Eureka.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		74B2BDCADCE39800E7D25495495ADC0E /* PopoverSelectorRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PopoverSelectorRow.swift; path = Source/Rows/PopoverSelectorRow.swift; sourceTree = "<group>"; };
+		761CB88CC86751C9B90E05A6E5CA12B3 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7672E649FC92BFE3A89C228B94A2F526 /* DateInlineFieldRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DateInlineFieldRow.swift; path = Source/Rows/Common/DateInlineFieldRow.swift; sourceTree = "<group>"; };
+		77365E3311B7523F069FE93A4B730FF7 /* DecimalFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DecimalFormatter.swift; path = Source/Rows/Common/DecimalFormatter.swift; sourceTree = "<group>"; };
+		792C0EF8D4B382D92BD385D21735E0BC /* Pods-Transport4Church-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Transport4Church-umbrella.h"; sourceTree = "<group>"; };
+		7BAE7456DB6AD88A5CE85FBC116880AE /* Pods-Transport4ChurchUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Transport4ChurchUITests-resources.sh"; sourceTree = "<group>"; };
+		7DF586C87189E09B058B602FCF376E81 /* SelectorViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SelectorViewController.swift; path = Source/Rows/Controllers/SelectorViewController.swift; sourceTree = "<group>"; };
+		7DFD1B149EE402E7EBC6FF196B2FC5FA /* GooglePlaces.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlaces.framework; path = Frameworks/GooglePlaces.framework; sourceTree = "<group>"; };
+		830F75F93658804A9AF1DC3F0A68754B /* PushRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PushRow.swift; path = Source/Rows/PushRow.swift; sourceTree = "<group>"; };
+		849BC656783B3C3859DB0751760980F3 /* Pods-Transport4ChurchTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Transport4ChurchTests-frameworks.sh"; sourceTree = "<group>"; };
+		8ED12BA04EBBF7569D857798919E86C5 /* Eureka-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Eureka-prefix.pch"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		940F38A8A297CC18F7ED609B7A0E7399 /* Core.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Core.swift; path = Source/Core/Core.swift; sourceTree = "<group>"; };
+		958B8ED2BAB196E78138EF59914AFAA1 /* DateRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DateRow.swift; path = Source/Rows/DateRow.swift; sourceTree = "<group>"; };
+		998C5B7170CD63F541F34A86F75EC53A /* PickerRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PickerRow.swift; path = Source/Rows/PickerRow.swift; sourceTree = "<group>"; };
+		99FF5A12382FEC8EA575D095E0D63E04 /* MultipleSelectorRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipleSelectorRow.swift; path = Source/Rows/MultipleSelectorRow.swift; sourceTree = "<group>"; };
+		9C9EE5E2FEFA1BD939B963CA708C0FD5 /* Section.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Section.swift; path = Source/Core/Section.swift; sourceTree = "<group>"; };
+		9D5DEBD5FE8A552FA6C53C1E09BB103F /* GoogleMaps.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = Subspecs/Maps/Frameworks/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
+		A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		A44B5B9643F1D0302226F43AFF64D5D4 /* Pods-Transport4ChurchTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Transport4ChurchTests-resources.sh"; sourceTree = "<group>"; };
+		A558066D3DB241DBC9A7CBCDF840D819 /* Pods-Transport4Church-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Transport4Church-acknowledgements.plist"; sourceTree = "<group>"; };
+		A6589A29039F2001CD9E53BD669668ED /* Pods-Transport4Church-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Transport4Church-frameworks.sh"; sourceTree = "<group>"; };
+		A6CBBF99D45A383D5B290ADDCA61027F /* Pods-Transport4ChurchTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Transport4ChurchTests-dummy.m"; sourceTree = "<group>"; };
+		A9DAE36BF381446C143D3B03201631ED /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = Subspecs/Maps/Frameworks/GoogleMaps.framework; sourceTree = "<group>"; };
+		B3927F7174B9C5F432D25ABDBA20407F /* SelectorRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SelectorRow.swift; path = Source/Rows/Common/SelectorRow.swift; sourceTree = "<group>"; };
+		B4DAEA527CF045948BCD9631509182C7 /* GoogleMapsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsCore.framework; path = Subspecs/Maps/Frameworks/GoogleMapsCore.framework; sourceTree = "<group>"; };
+		B897A2D592EA6F9CDAC4FD4D828DCA7A /* Pods-Transport4ChurchTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Transport4ChurchTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		B94234F7EBF5D59B115968E39496647C /* DateInlineRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DateInlineRow.swift; path = Source/Rows/DateInlineRow.swift; sourceTree = "<group>"; };
+		BB106010DE58CDF3666864C1CA41EB7A /* FieldsRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FieldsRow.swift; path = Source/Rows/FieldsRow.swift; sourceTree = "<group>"; };
+		BD71CA15532B35B791893D167C79A9B0 /* Pods-Transport4ChurchUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Transport4ChurchUITests.release.xcconfig"; sourceTree = "<group>"; };
+		C0193CD16C02C600BBDB3C27CBE35272 /* GooglePlacePicker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlacePicker.framework; path = Frameworks/GooglePlacePicker.framework; sourceTree = "<group>"; };
+		C02C0465A13CAD8738D1F2B8609928B3 /* CheckRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CheckRow.swift; path = Source/Rows/CheckRow.swift; sourceTree = "<group>"; };
+		C2C744B8FE77215F95D8A976F4605C0C /* Pods-Transport4ChurchUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Transport4ChurchUITests.modulemap"; sourceTree = "<group>"; };
+		C534B42C541C4934C0D22F3A22DE1C99 /* Form.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Form.swift; path = Source/Core/Form.swift; sourceTree = "<group>"; };
+		C5A2E60AA0BC7735357C42B8C603864E /* Eureka.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Eureka.xcconfig; sourceTree = "<group>"; };
+		C785FDA6D57D053DF950BC7D157B3C3F /* PostalAddressRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PostalAddressRow.swift; path = Source/Rows/PostalAddressRow.swift; sourceTree = "<group>"; };
+		C9942A5BB31BE14040227C7EDAA15693 /* Pods_Transport4Church.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Transport4Church.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CCA7717784FC8002FC5F5397617D7675 /* Pods-Transport4Church-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Transport4Church-acknowledgements.markdown"; sourceTree = "<group>"; };
+		CD1FA1C33A3C00F76241C3C866275FAD /* Pods-Transport4ChurchUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Transport4ChurchUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		CEDB35276EF413570E7C2C7CD003B234 /* TextAreaRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextAreaRow.swift; path = Source/Rows/TextAreaRow.swift; sourceTree = "<group>"; };
+		D543FFCFC46361C54796A4931620E79F /* ImagePickerController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImagePickerController.swift; path = Source/Rows/Controllers/ImagePickerController.swift; sourceTree = "<group>"; };
+		D58D90708D2C55B40A8DD98722E4B2EA /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D83DE52681AD5D10548B4FBFCBA9D962 /* Pods-Transport4ChurchTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Transport4ChurchTests.debug.xcconfig"; sourceTree = "<group>"; };
+		DAE7F60D7816BEB8CC74B6403B0316E8 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E06787A0C044DA0649A890EA3F08D350 /* ButtonRowWithPresent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ButtonRowWithPresent.swift; path = Source/Rows/ButtonRowWithPresent.swift; sourceTree = "<group>"; };
+		E49C112FB120E2B62B272184DAD40E03 /* Pods_Transport4ChurchTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Transport4ChurchTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6A3183309C1965E529CE90A7941722F /* GenericMultipleSelectorRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GenericMultipleSelectorRow.swift; path = Source/Rows/Common/GenericMultipleSelectorRow.swift; sourceTree = "<group>"; };
+		E77A224EEC0CCA69DBCD3E4D137B9DF5 /* Pods-Transport4ChurchTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Transport4ChurchTests-umbrella.h"; sourceTree = "<group>"; };
+		E86668F20F252C440D1015B816BE59C5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		E8EA3460386B1013C8AD63F169CAC957 /* AlertRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AlertRow.swift; path = Source/Rows/AlertRow.swift; sourceTree = "<group>"; };
+		EA575711CD388733B68394BE11058A15 /* DateFieldRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DateFieldRow.swift; path = Source/Rows/Common/DateFieldRow.swift; sourceTree = "<group>"; };
+		F2C77321F6B74F038E74BD567FF464A6 /* ActionSheetRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ActionSheetRow.swift; path = Source/Rows/ActionSheetRow.swift; sourceTree = "<group>"; };
+		F501152ECBEC0A9641559A31B8964129 /* BaseRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BaseRow.swift; path = Source/Core/BaseRow.swift; sourceTree = "<group>"; };
+		F858D8C1DB9558ADA3D008FB3245C29A /* RowControllerType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RowControllerType.swift; path = Source/Core/RowControllerType.swift; sourceTree = "<group>"; };
+		FA28675DA1594C36F8654F117056BC9B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAAC3767558A45D3E41915B71E24C997 /* ImageRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageRow.swift; path = Source/Rows/ImageRow.swift; sourceTree = "<group>"; };
+		FAE2138C54C00C6229BBD3BE6B804A64 /* MultipleSelectorViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipleSelectorViewController.swift; path = Source/Rows/Controllers/MultipleSelectorViewController.swift; sourceTree = "<group>"; };
+		FB290D00B777CC62832DC54569B8C556 /* Operators.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Operators.swift; path = Source/Core/Operators.swift; sourceTree = "<group>"; };
+		FF51C41A3F40746BF2FF7C65FBD2B014 /* SelectableRowType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SelectableRowType.swift; path = Source/Core/SelectableRowType.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0883B652EBBDEB233C612202532B66C6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7DF0D078388923B8816F7D57910CFD42 /* Foundation.framework in Frameworks */,
+				B4C681E1639A0FCD1E5770370FA5027E /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1658C82D7E9084AFDB22F8C8811527FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				813FB2024EBF0FEF9CA1D7CE502EFF67 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB32B6AEEB539159CD033B463A90067B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CF8A9E91544C26679B953CA262A6411 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7C8A177A7ECB918C2ACE29489E63031 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E967C86355EA4E5F97C528574632F712 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		03EC33B48198FE92B4DB46A4D141DE97 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				028554BAA710E9036CAD8EAACAF87A8D /* Eureka.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		0B58D4A3DE66B8C7D4F65CBB052539CB /* Pods-Transport4ChurchUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FA28675DA1594C36F8654F117056BC9B /* Info.plist */,
+				C2C744B8FE77215F95D8A976F4605C0C /* Pods-Transport4ChurchUITests.modulemap */,
+				025B1202A627B882CC35E6FBF0A2FDE6 /* Pods-Transport4ChurchUITests-acknowledgements.markdown */,
+				028C1404A9F36A347C0C3D0633EDEBC2 /* Pods-Transport4ChurchUITests-acknowledgements.plist */,
+				4D7BF21692018FC26608CA455F1950BC /* Pods-Transport4ChurchUITests-dummy.m */,
+				006F8ED15C63D2044FB51A73F39E627B /* Pods-Transport4ChurchUITests-frameworks.sh */,
+				7BAE7456DB6AD88A5CE85FBC116880AE /* Pods-Transport4ChurchUITests-resources.sh */,
+				341C4BF289DB7C725131343E97840D1F /* Pods-Transport4ChurchUITests-umbrella.h */,
+				CD1FA1C33A3C00F76241C3C866275FAD /* Pods-Transport4ChurchUITests.debug.xcconfig */,
+				BD71CA15532B35B791893D167C79A9B0 /* Pods-Transport4ChurchUITests.release.xcconfig */,
+			);
+			name = "Pods-Transport4ChurchUITests";
+			path = "Target Support Files/Pods-Transport4ChurchUITests";
+			sourceTree = "<group>";
+		};
+		0BC9B10287061DF6EEBFBE0DB869C5C5 /* Pods-Transport4Church */ = {
+			isa = PBXGroup;
+			children = (
+				D58D90708D2C55B40A8DD98722E4B2EA /* Info.plist */,
+				47BA04795489D999D7A0CDF26481068E /* Pods-Transport4Church.modulemap */,
+				CCA7717784FC8002FC5F5397617D7675 /* Pods-Transport4Church-acknowledgements.markdown */,
+				A558066D3DB241DBC9A7CBCDF840D819 /* Pods-Transport4Church-acknowledgements.plist */,
+				62A5363F308D89FC9588C762E600E8BF /* Pods-Transport4Church-dummy.m */,
+				A6589A29039F2001CD9E53BD669668ED /* Pods-Transport4Church-frameworks.sh */,
+				377E51E8E4D4AF6C4B0714D8EE326A30 /* Pods-Transport4Church-resources.sh */,
+				792C0EF8D4B382D92BD385D21735E0BC /* Pods-Transport4Church-umbrella.h */,
+				23067CAD8410065AFF313256E10C369A /* Pods-Transport4Church.debug.xcconfig */,
+				17DD60991AFC997B48603BC4ADD8308C /* Pods-Transport4Church.release.xcconfig */,
+			);
+			name = "Pods-Transport4Church";
+			path = "Target Support Files/Pods-Transport4Church";
+			sourceTree = "<group>";
+		};
+		199AD95992AAE57E028E60FB23D8E7AE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7DFD1B149EE402E7EBC6FF196B2FC5FA /* GooglePlaces.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1A019502EFA59BBACF6198E83D6DE730 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				72B60EAB288C04067A4C500EE85C2BC7 /* Eureka.framework */,
+				C9942A5BB31BE14040227C7EDAA15693 /* Pods_Transport4Church.framework */,
+				E49C112FB120E2B62B272184DAD40E03 /* Pods_Transport4ChurchTests.framework */,
+				2BD3B27911508E831DCB65499228EA23 /* Pods_Transport4ChurchUITests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1F4FC0658A53682FA419133041177786 /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				CA0FB32A4FEA50992D03D520896B08E2 /* Frameworks */,
+				7703F9B6BCA30E313AD0C2983B56B76E /* Resources */,
+			);
+			name = Maps;
+			sourceTree = "<group>";
+		};
+		310ACE5FEA06A351E24FFD2942F4A5B0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2D9CCF0F316277AAFE5331973F7A0775 /* GoogleMapsBase.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F302CD3B306AF1ED96B9AF31FCDBC26C /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		47DF0D7EAFDED4F2D5C214625A396DFB /* GoogleMaps */ = {
+			isa = PBXGroup;
+			children = (
+				79534FE086A2EFB3794D5F569297F4AA /* Base */,
+				1F4FC0658A53682FA419133041177786 /* Maps */,
+			);
+			path = GoogleMaps;
+			sourceTree = "<group>";
+		};
+		5807E8DB73E4F1122F678761CA86DB0E /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				0BC9B10287061DF6EEBFBE0DB869C5C5 /* Pods-Transport4Church */,
+				EF36441EBBDE9156E91DF9B6032CA552 /* Pods-Transport4ChurchTests */,
+				0B58D4A3DE66B8C7D4F65CBB052539CB /* Pods-Transport4ChurchUITests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		5909F47FF8A2F11BB5785E8697477C04 /* GooglePlaces */ = {
+			isa = PBXGroup;
+			children = (
+				199AD95992AAE57E028E60FB23D8E7AE /* Frameworks */,
+				DDAACD6BEFE5A1FA277120309C25ABE3 /* Resources */,
+			);
+			path = GooglePlaces;
+			sourceTree = "<group>";
+		};
+		735A2F1CDFA205E854555D57B260D5B0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F6E4D7E4D50FDF80536A72BE8F5CA078 /* Eureka */,
+				47DF0D7EAFDED4F2D5C214625A396DFB /* GoogleMaps */,
+				F3FABACF57F9FFFA399D11E857D361ED /* GooglePlacePicker */,
+				5909F47FF8A2F11BB5785E8697477C04 /* GooglePlaces */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7703F9B6BCA30E313AD0C2983B56B76E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9D5DEBD5FE8A552FA6C53C1E09BB103F /* GoogleMaps.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		79534FE086A2EFB3794D5F569297F4AA /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				310ACE5FEA06A351E24FFD2942F4A5B0 /* Frameworks */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
+				735A2F1CDFA205E854555D57B260D5B0 /* Pods */,
+				1A019502EFA59BBACF6198E83D6DE730 /* Products */,
+				5807E8DB73E4F1122F678761CA86DB0E /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		8CD85A895DF73249756AC77D934C0C61 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C0193CD16C02C600BBDB3C27CBE35272 /* GooglePlacePicker.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		986D68DCB14DA7167AE4B12C0BB48E66 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				252A472294D562E1DC2AE143A23A0BDB /* GooglePlacePicker.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		CA0FB32A4FEA50992D03D520896B08E2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A9DAE36BF381446C143D3B03201631ED /* GoogleMaps.framework */,
+				B4DAEA527CF045948BCD9631509182C7 /* GoogleMapsCore.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DB31E3C61D2C16DB08BE4E306BB25F7B /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				12E193179A62D71C0174032CF1C40FA9 /* Eureka.modulemap */,
+				C5A2E60AA0BC7735357C42B8C603864E /* Eureka.xcconfig */,
+				6C1F9744CFE1929C450E76A309C04266 /* Eureka-dummy.m */,
+				8ED12BA04EBBF7569D857798919E86C5 /* Eureka-prefix.pch */,
+				618949B6535D86821FEB94FC317AD956 /* Eureka-umbrella.h */,
+				761CB88CC86751C9B90E05A6E5CA12B3 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Eureka";
+			sourceTree = "<group>";
+		};
+		DDAACD6BEFE5A1FA277120309C25ABE3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2A5E96262BEADA7B9AFC60A23AD077B6 /* GooglePlaces.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		EF36441EBBDE9156E91DF9B6032CA552 /* Pods-Transport4ChurchTests */ = {
+			isa = PBXGroup;
+			children = (
+				DAE7F60D7816BEB8CC74B6403B0316E8 /* Info.plist */,
+				11E1E277322039AD86701C0AE6CA2284 /* Pods-Transport4ChurchTests.modulemap */,
+				29B060A9700686D1DDB0B7DEFF8FE031 /* Pods-Transport4ChurchTests-acknowledgements.markdown */,
+				B897A2D592EA6F9CDAC4FD4D828DCA7A /* Pods-Transport4ChurchTests-acknowledgements.plist */,
+				A6CBBF99D45A383D5B290ADDCA61027F /* Pods-Transport4ChurchTests-dummy.m */,
+				849BC656783B3C3859DB0751760980F3 /* Pods-Transport4ChurchTests-frameworks.sh */,
+				A44B5B9643F1D0302226F43AFF64D5D4 /* Pods-Transport4ChurchTests-resources.sh */,
+				E77A224EEC0CCA69DBCD3E4D137B9DF5 /* Pods-Transport4ChurchTests-umbrella.h */,
+				D83DE52681AD5D10548B4FBFCBA9D962 /* Pods-Transport4ChurchTests.debug.xcconfig */,
+				39710CFEB9E382285A2D8F30D1AB3232 /* Pods-Transport4ChurchTests.release.xcconfig */,
+			);
+			name = "Pods-Transport4ChurchTests";
+			path = "Target Support Files/Pods-Transport4ChurchTests";
+			sourceTree = "<group>";
+		};
+		F302CD3B306AF1ED96B9AF31FCDBC26C /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */,
+				E86668F20F252C440D1015B816BE59C5 /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		F3FABACF57F9FFFA399D11E857D361ED /* GooglePlacePicker */ = {
+			isa = PBXGroup;
+			children = (
+				8CD85A895DF73249756AC77D934C0C61 /* Frameworks */,
+				986D68DCB14DA7167AE4B12C0BB48E66 /* Resources */,
+			);
+			path = GooglePlacePicker;
+			sourceTree = "<group>";
+		};
+		F6E4D7E4D50FDF80536A72BE8F5CA078 /* Eureka */ = {
+			isa = PBXGroup;
+			children = (
+				F2C77321F6B74F038E74BD567FF464A6 /* ActionSheetRow.swift */,
+				E8EA3460386B1013C8AD63F169CAC957 /* AlertRow.swift */,
+				F501152ECBEC0A9641559A31B8964129 /* BaseRow.swift */,
+				6D733CC015FF2553BEB8713F98D83F1B /* ButtonRow.swift */,
+				E06787A0C044DA0649A890EA3F08D350 /* ButtonRowWithPresent.swift */,
+				0D0E8CE48881FFF2C98F07F989F3B8F0 /* Cell.swift */,
+				149F6897E7B86E86B3416F92C8E292E8 /* CellType.swift */,
+				C02C0465A13CAD8738D1F2B8609928B3 /* CheckRow.swift */,
+				940F38A8A297CC18F7ED609B7A0E7399 /* Core.swift */,
+				EA575711CD388733B68394BE11058A15 /* DateFieldRow.swift */,
+				7672E649FC92BFE3A89C228B94A2F526 /* DateInlineFieldRow.swift */,
+				B94234F7EBF5D59B115968E39496647C /* DateInlineRow.swift */,
+				2E16D15E53603B6930B24492EE428DD6 /* DatePickerRow.swift */,
+				958B8ED2BAB196E78138EF59914AFAA1 /* DateRow.swift */,
+				77365E3311B7523F069FE93A4B730FF7 /* DecimalFormatter.swift */,
+				3324C46D6092631F051B3403F96B2DF4 /* FieldRow.swift */,
+				BB106010DE58CDF3666864C1CA41EB7A /* FieldsRow.swift */,
+				C534B42C541C4934C0D22F3A22DE1C99 /* Form.swift */,
+				E6A3183309C1965E529CE90A7941722F /* GenericMultipleSelectorRow.swift */,
+				4E5A8DA5967325EF9F69C88F78C7EBFD /* HeaderFooterView.swift */,
+				58F22DFB6CB3E1864F671D818726BA82 /* Helpers.swift */,
+				D543FFCFC46361C54796A4931620E79F /* ImagePickerController.swift */,
+				FAAC3767558A45D3E41915B71E24C997 /* ImageRow.swift */,
+				55A39C57D3F2C8CD8F30426133FF510C /* InlineRowType.swift */,
+				2F908F82F62E3C1C7084A43200F680FA /* LabelRow.swift */,
+				3B42FB1699FC0003705A8BE8B12E3BE0 /* ListCheckRow.swift */,
+				99FF5A12382FEC8EA575D095E0D63E04 /* MultipleSelectorRow.swift */,
+				FAE2138C54C00C6229BBD3BE6B804A64 /* MultipleSelectorViewController.swift */,
+				5E8BB3506B64D91256B3CD24FAAB53FA /* NavigationAccessoryView.swift */,
+				FB290D00B777CC62832DC54569B8C556 /* Operators.swift */,
+				5B5B9846C75F403724E1CFBB36107F7F /* OptionsRow.swift */,
+				3067C743DFF7D2B7801D3615C09268EB /* PickerInlineRow.swift */,
+				998C5B7170CD63F541F34A86F75EC53A /* PickerRow.swift */,
+				74B2BDCADCE39800E7D25495495ADC0E /* PopoverSelectorRow.swift */,
+				C785FDA6D57D053DF950BC7D157B3C3F /* PostalAddressRow.swift */,
+				1F9734D9ED36D4A32E7708E0E9A63EE9 /* PresenterRowType.swift */,
+				1E556304D51949581E2F2BE08117618F /* Protocols.swift */,
+				830F75F93658804A9AF1DC3F0A68754B /* PushRow.swift */,
+				6C41E7022AD1318E517D12DD9085076C /* Row.swift */,
+				F858D8C1DB9558ADA3D008FB3245C29A /* RowControllerType.swift */,
+				16FF1C7513A08C6178617E20D35B269F /* RowProtocols.swift */,
+				20A858A9CD09AE061922DA6C0FA58850 /* RowType.swift */,
+				9C9EE5E2FEFA1BD939B963CA708C0FD5 /* Section.swift */,
+				46898655FF0CC17120410545C9394DCC /* SegmentedRow.swift */,
+				FF51C41A3F40746BF2FF7C65FBD2B014 /* SelectableRowType.swift */,
+				6C56EEF0EB1B5A6BF2E2EBC7C4754AC8 /* SelectableSection.swift */,
+				5080F06679EB8F67ED62DBAD97EB2EAD /* SelectorAlertController.swift */,
+				B3927F7174B9C5F432D25ABDBA20407F /* SelectorRow.swift */,
+				7DF586C87189E09B058B602FCF376E81 /* SelectorViewController.swift */,
+				494576049CDBF9234FE6ABEA578C053B /* SliderRow.swift */,
+				0668BF0BC2D1EC8FB85B24727CD185FC /* StepperRow.swift */,
+				417AD15F48DB797674B35D7D0EA4AE56 /* SwitchRow.swift */,
+				CEDB35276EF413570E7C2C7CD003B234 /* TextAreaRow.swift */,
+				03EC33B48198FE92B4DB46A4D141DE97 /* Resources */,
+				DB31E3C61D2C16DB08BE4E306BB25F7B /* Support Files */,
+			);
+			path = Eureka;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		0CE7EB5AB1F0BE8D335AF2CD61EFD0CC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9AB7B5F59B35E193CB225C15EBD35680 /* Pods-Transport4Church-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7EDF7059C8541FFEA52A5075941329EE /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				103473BC0EFC477EB654B475B6AC8458 /* Eureka-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4D29AA60ACCF69816EEC36E2930C6F5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04BA79FE8990EC728FE1903C27F6A37C /* Pods-Transport4ChurchTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F95C96A629B5A020A54223FDF77A9F1D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58FFE8F00110EBEE43C67ACF3B9B68D6 /* Pods-Transport4ChurchUITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		4332352E97A37C729DC7D9B3B8A4BB15 /* Eureka */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 06CAE4617A9C4BF458755F5C4A516944 /* Build configuration list for PBXNativeTarget "Eureka" */;
+			buildPhases = (
+				8DBCEEFE2C0CBEDE4175E4E52D3B92D8 /* Sources */,
+				0883B652EBBDEB233C612202532B66C6 /* Frameworks */,
+				83BA61C6C975205F257CFAC4425941B1 /* Resources */,
+				7EDF7059C8541FFEA52A5075941329EE /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Eureka;
+			productName = Eureka;
+			productReference = 72B60EAB288C04067A4C500EE85C2BC7 /* Eureka.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		4CBACC14C2E6C86754787C45C1202A72 /* Pods-Transport4ChurchTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A269E5BF8780D7538DECC2B03DCAEAB5 /* Build configuration list for PBXNativeTarget "Pods-Transport4ChurchTests" */;
+			buildPhases = (
+				D7DEEF0407F1076C61A3E1592E382845 /* Sources */,
+				B7C8A177A7ECB918C2ACE29489E63031 /* Frameworks */,
+				E4D29AA60ACCF69816EEC36E2930C6F5 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-Transport4ChurchTests";
+			productName = "Pods-Transport4ChurchTests";
+			productReference = E49C112FB120E2B62B272184DAD40E03 /* Pods_Transport4ChurchTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		C1DE056C775EABFED8C84D4B9F424BEF /* Pods-Transport4Church */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 273381BF68281BD9DB9EE27E454612BD /* Build configuration list for PBXNativeTarget "Pods-Transport4Church" */;
+			buildPhases = (
+				45ACF68074AD6175704BE8F92F1D2143 /* Sources */,
+				AB32B6AEEB539159CD033B463A90067B /* Frameworks */,
+				0CE7EB5AB1F0BE8D335AF2CD61EFD0CC /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FEDA6DAA3FFBFDD949548FB5D224FC86 /* PBXTargetDependency */,
+			);
+			name = "Pods-Transport4Church";
+			productName = "Pods-Transport4Church";
+			productReference = C9942A5BB31BE14040227C7EDAA15693 /* Pods_Transport4Church.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D546D56CB7723739BDBA8F805B0B6BD5 /* Pods-Transport4ChurchUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0433C2E05C138225167C507F6B053086 /* Build configuration list for PBXNativeTarget "Pods-Transport4ChurchUITests" */;
+			buildPhases = (
+				DF0E2B0652BEBC86BD74B9AF6C91A30C /* Sources */,
+				1658C82D7E9084AFDB22F8C8811527FE /* Frameworks */,
+				F95C96A629B5A020A54223FDF77A9F1D /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-Transport4ChurchUITests";
+			productName = "Pods-Transport4ChurchUITests";
+			productReference = 2BD3B27911508E831DCB65499228EA23 /* Pods_Transport4ChurchUITests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 1A019502EFA59BBACF6198E83D6DE730 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4332352E97A37C729DC7D9B3B8A4BB15 /* Eureka */,
+				C1DE056C775EABFED8C84D4B9F424BEF /* Pods-Transport4Church */,
+				4CBACC14C2E6C86754787C45C1202A72 /* Pods-Transport4ChurchTests */,
+				D546D56CB7723739BDBA8F805B0B6BD5 /* Pods-Transport4ChurchUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		83BA61C6C975205F257CFAC4425941B1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D8B33F5C3E48D535F8189C52650B20F /* Eureka.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		45ACF68074AD6175704BE8F92F1D2143 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				946F34CD1A547CC15717ADE54EDC11A8 /* Pods-Transport4Church-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8DBCEEFE2C0CBEDE4175E4E52D3B92D8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				804B6D74785196303EB645CCD1C79EE5 /* ActionSheetRow.swift in Sources */,
+				9530B28AFF019AC003E5A01ADAA19A7D /* AlertRow.swift in Sources */,
+				3695144974EC7EB912EF8583DD8E2CDB /* BaseRow.swift in Sources */,
+				86B4E86B605F0A0A5C689E8E5F6294E5 /* ButtonRow.swift in Sources */,
+				21F799472851BCE6A130A97729507B4C /* ButtonRowWithPresent.swift in Sources */,
+				5A74A0CAB51128C71D0519EA90F6DD0F /* Cell.swift in Sources */,
+				0AA48424DE5670B8C032BA88393BA9FA /* CellType.swift in Sources */,
+				7D91ACD6586867700438C1CC2557BEF7 /* CheckRow.swift in Sources */,
+				1D8A48631192F6D377B97D5EF0AFE16C /* Core.swift in Sources */,
+				CC70C7CF7A63CD3F4256B64D58C551B4 /* DateFieldRow.swift in Sources */,
+				D9C4B34950478B1AD2F3ED1E39086298 /* DateInlineFieldRow.swift in Sources */,
+				D2EC301A80E6CFB2F650FF088412F8A7 /* DateInlineRow.swift in Sources */,
+				0E4FBDBCB07782C2AE7B6D7AF92F51D8 /* DatePickerRow.swift in Sources */,
+				E35126F5E99598B42315A9C9F5C41DEA /* DateRow.swift in Sources */,
+				1662FE9A42490639B7E2A1F401D5D4DD /* DecimalFormatter.swift in Sources */,
+				660E29286B4C961F1181530F3E7A046E /* Eureka-dummy.m in Sources */,
+				DCAEB773C1E1C0CF94EE92A9AA99C329 /* FieldRow.swift in Sources */,
+				1FE5D469BDAAFF0030F0AE5780975A4A /* FieldsRow.swift in Sources */,
+				600D6836E73F7FBCAA1F493AFDFC4EBA /* Form.swift in Sources */,
+				E7744BDE6B307E60F1840FB7DF8416B1 /* GenericMultipleSelectorRow.swift in Sources */,
+				6152633CCB6B0254E42C00D98BC28A13 /* HeaderFooterView.swift in Sources */,
+				6775B0346C810AB8CF4380B44BEE1750 /* Helpers.swift in Sources */,
+				34D053EE46DEC5C7CA0F7F5EDBAE1F93 /* ImagePickerController.swift in Sources */,
+				E774FD99645675D8738D90037FD68F28 /* ImageRow.swift in Sources */,
+				72F0F49C15C14D0EB94206F776713672 /* InlineRowType.swift in Sources */,
+				0A50C03F56AD58898CA2A7C6113C4EF4 /* LabelRow.swift in Sources */,
+				A31A287529CB6FB1E3AD604BA7808EE2 /* ListCheckRow.swift in Sources */,
+				A31A3E644C08304B82EA33D5CC49F642 /* MultipleSelectorRow.swift in Sources */,
+				A6792D1386AD67459293295DD80323B3 /* MultipleSelectorViewController.swift in Sources */,
+				2956D2538D326F528DF52EF888FFDBE9 /* NavigationAccessoryView.swift in Sources */,
+				3256698B182CE03454CDC45A2771B89A /* Operators.swift in Sources */,
+				4E34E7BB952EDEEF27B5727A49B09974 /* OptionsRow.swift in Sources */,
+				58E2E4E04C8A365ABB02A4E62D566772 /* PickerInlineRow.swift in Sources */,
+				3607E6F07FF8C4B04B6507C7077F637C /* PickerRow.swift in Sources */,
+				13CB51A5F85CF122676966CB347260BC /* PopoverSelectorRow.swift in Sources */,
+				C3D9FD39975FFCE3B1EA1968F6453426 /* PostalAddressRow.swift in Sources */,
+				F6489B5AA612A6B9DDA466AED1657023 /* PresenterRowType.swift in Sources */,
+				A139110B451BC866C4D19E805577391D /* Protocols.swift in Sources */,
+				A6F16B6CC1ED4C25031775A12FD730BB /* PushRow.swift in Sources */,
+				E994C7B3AD81F25A03886A4E6AA327C0 /* Row.swift in Sources */,
+				3E656AE0B15BCA426C714CC40539F60C /* RowControllerType.swift in Sources */,
+				22D80D75A3155009821CBE44E7A29298 /* RowProtocols.swift in Sources */,
+				2B7186AE8B80A62112C769454EDF350F /* RowType.swift in Sources */,
+				DBC4386DDD9D7096D8ABBB355B5E4DD0 /* Section.swift in Sources */,
+				DE644832B971D2031EF0246712692779 /* SegmentedRow.swift in Sources */,
+				969E0DB9B80ADF2681C84C68C174BB38 /* SelectableRowType.swift in Sources */,
+				0B54D47F4061120A46717916BCAD2393 /* SelectableSection.swift in Sources */,
+				D511F885870A7B7E7CB3199D645EB0E9 /* SelectorAlertController.swift in Sources */,
+				942583935EB712BC81E5F01919E1EFD7 /* SelectorRow.swift in Sources */,
+				94216BFB2AF1B7F1CD43B0401A623F70 /* SelectorViewController.swift in Sources */,
+				93748EA49FCD9EF155AFCFFD9CEA8136 /* SliderRow.swift in Sources */,
+				B01D4D0408E01DE7CC0EC5402D8D9F00 /* StepperRow.swift in Sources */,
+				B7DB4B868834CC37618900C0FEDF3F1C /* SwitchRow.swift in Sources */,
+				61FF740A2A37371EFA9F3C8ABEEDAFF3 /* TextAreaRow.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7DEEF0407F1076C61A3E1592E382845 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60F510943D69ECEA792527666CC0AF95 /* Pods-Transport4ChurchTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DF0E2B0652BEBC86BD74B9AF6C91A30C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53043A48F03B153D2FF45E28CBDD4FF5 /* Pods-Transport4ChurchUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FEDA6DAA3FFBFDD949548FB5D224FC86 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Eureka;
+			target = 4332352E97A37C729DC7D9B3B8A4BB15 /* Eureka */;
+			targetProxy = A4F0CC9DE89B891EF0D2CA80BA20A47D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		15D654858AEA529A4032C964F11017F9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD1FA1C33A3C00F76241C3C866275FAD /* Pods-Transport4ChurchUITests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Transport4ChurchUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Transport4ChurchUITests/Pods-Transport4ChurchUITests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Transport4ChurchUITests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		2E4E51F89EE7BAC568C54C4BC5A2A3ED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 23067CAD8410065AFF313256E10C369A /* Pods-Transport4Church.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Transport4Church/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Transport4Church/Pods-Transport4Church.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Transport4Church;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		3FA451D268613890FA8A5A03801E11D5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5E62115DE8C09934BF8D2FE5D15FED1E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		67368F9796A5B6E0F9289C3648A61006 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 39710CFEB9E382285A2D8F30D1AB3232 /* Pods-Transport4ChurchTests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Transport4ChurchTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Transport4ChurchTests/Pods-Transport4ChurchTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Transport4ChurchTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		8DC995999B356B9F8B3CFD5F8DC1DDD2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C5A2E60AA0BC7735357C42B8C603864E /* Eureka.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Eureka/Eureka-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Eureka/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Eureka/Eureka.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = Eureka;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		CA44AC09DF32E57F21481FF0DDE2BF7A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BD71CA15532B35B791893D167C79A9B0 /* Pods-Transport4ChurchUITests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Transport4ChurchUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Transport4ChurchUITests/Pods-Transport4ChurchUITests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Transport4ChurchUITests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		E0A6D612C55BE5A88044EF036D31A8AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 17DD60991AFC997B48603BC4ADD8308C /* Pods-Transport4Church.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Transport4Church/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Transport4Church/Pods-Transport4Church.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Transport4Church;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		EF275FF6FCD1D504CDDE09462E7C4B79 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C5A2E60AA0BC7735357C42B8C603864E /* Eureka.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Eureka/Eureka-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Eureka/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Eureka/Eureka.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = Eureka;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		F0D430D185FF746CAF7C96EBA1FF487D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D83DE52681AD5D10548B4FBFCBA9D962 /* Pods-Transport4ChurchTests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Transport4ChurchTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Transport4ChurchTests/Pods-Transport4ChurchTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Transport4ChurchTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0433C2E05C138225167C507F6B053086 /* Build configuration list for PBXNativeTarget "Pods-Transport4ChurchUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				15D654858AEA529A4032C964F11017F9 /* Debug */,
+				CA44AC09DF32E57F21481FF0DDE2BF7A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		06CAE4617A9C4BF458755F5C4A516944 /* Build configuration list for PBXNativeTarget "Eureka" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8DC995999B356B9F8B3CFD5F8DC1DDD2 /* Debug */,
+				EF275FF6FCD1D504CDDE09462E7C4B79 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		273381BF68281BD9DB9EE27E454612BD /* Build configuration list for PBXNativeTarget "Pods-Transport4Church" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E4E51F89EE7BAC568C54C4BC5A2A3ED /* Debug */,
+				E0A6D612C55BE5A88044EF036D31A8AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E62115DE8C09934BF8D2FE5D15FED1E /* Debug */,
+				3FA451D268613890FA8A5A03801E11D5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A269E5BF8780D7538DECC2B03DCAEAB5 /* Build configuration list for PBXNativeTarget "Pods-Transport4ChurchTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F0D430D185FF746CAF7C96EBA1FF487D /* Debug */,
+				67368F9796A5B6E0F9289C3648A61006 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

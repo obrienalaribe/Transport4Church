@@ -8,21 +8,28 @@
 
 import UIKit
 import CoreData
+import GooglePlaces
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
+    let googleMapsApiKey = "AIzaSyCRbgOlz9moQ-Hlp65-piLroeMtfpNouck"
+    
+  
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window?.makeKeyAndVisible()
+        GMSServices.provideAPIKey(googleMapsApiKey)
         
+        GMSPlacesClient.provideAPIKey(googleMapsApiKey)
+
+//        window?.rootViewController = UINavigationController(rootViewController: CalendarEventFormViewController())
         
-        window?.rootViewController = UINavigationController(rootViewController: CalendarEventFormViewController())
-        
+        window?.rootViewController = PickupRiderController()
+
         return true
     }
 

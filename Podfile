@@ -5,6 +5,9 @@ use_frameworks!
 
 target 'Transport4Church' do
 	pod 'Eureka', '~> 1.7'
+    pod 'GoogleMaps'
+    pod 'GooglePlaces'
+    pod 'GooglePlacePicker'
 end
 
 target 'Transport4ChurchTests' do

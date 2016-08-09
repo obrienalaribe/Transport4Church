@@ -6,6 +6,11 @@
 	<string>We will use your location to help a driver find you</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>We need to know where you are when using the app</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>googlechromes</string>
+		<string>comgooglemaps</string>
+	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>

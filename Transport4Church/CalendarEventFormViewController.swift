@@ -13,12 +13,8 @@ class CalendarEventFormViewController : FormViewController {
         super.viewDidLoad()
         form +++ Section("Profile Details")
             <<< TextRow(){ row in
-                row.title = "Firstname"
-                row.placeholder = "i.e Emma"
-            }
-            <<< TextRow(){
-                $0.title = "Lastname"
-                $0.placeholder = "i.e Smith"
+                row.title = "Name"
+                row.placeholder = "i.e Emma Smith"
             }
             
             <<< EmailRow(){
