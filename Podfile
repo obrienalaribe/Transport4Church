@@ -9,6 +9,8 @@ target 'Transport4Church' do
     pod 'GooglePlaces'
     pod 'GooglePlacePicker'
     pod 'FontAwesome.swift'
+    pod 'ENSwiftSideMenu', '~> 0.1.1'
+
 end
 
 target 'Transport4ChurchTests' do

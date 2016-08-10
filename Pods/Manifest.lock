@@ -1,4 +1,5 @@
 PODS:
+  - ENSwiftSideMenu (0.1.1)
   - Eureka (1.7.0)
   - FontAwesome.swift (0.8.0)
   - GoogleMaps (2.0.1):
@@ -13,6 +14,7 @@ PODS:
     - GoogleMaps/Base (= 2.0.1)
 
 DEPENDENCIES:
+  - ENSwiftSideMenu (~> 0.1.1)
   - Eureka (~> 1.7)
   - FontAwesome.swift
   - GoogleMaps
@@ -20,10 +22,13 @@ DEPENDENCIES:
   - GooglePlaces
 
 SPEC CHECKSUMS:
+  ENSwiftSideMenu: a934caefbe811e4925f172009349da4a49901307
   Eureka: 2020d9faeef7b7e9adeb9e3d8af779e5931c1897
   FontAwesome.swift: f8c6cc5c42cbe93bdc04371363bc7b371fb3d3a1
   GoogleMaps: f09da64fc987c1aa29394567c3cab5a3df83c402
   GooglePlacePicker: e7b11b732e40dbe76e8ab4c5fc2f4a7c32b96578
   GooglePlaces: 72fab1d1651c6df0322f2aad245ffb15b80d3c56
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 2b35d2514dfec28a1b0919f0e0aa8847ba3aa4dd
+
+COCOAPODS: 1.0.1

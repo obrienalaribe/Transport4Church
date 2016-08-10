@@ -4,7 +4,22 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>ENSwiftSideMenu.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Eureka.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>FontAwesome.swift-FontAwesome.swift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>FontAwesome.swift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -27,6 +42,16 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>1FE2578FF0805299395CF2A0206BB671</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>34C45FA21047A285C60F9E270E1A6768</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>4332352E97A37C729DC7D9B3B8A4BB15</key>
 		<dict>
 			<key>primary</key>
@@ -37,12 +62,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C1DE056C775EABFED8C84D4B9F424BEF</key>
+		<key>5E40B80F0FA7BDA9FBB0AB7DDCD07249</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>D546D56CB7723739BDBA8F805B0B6BD5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EF4F067C2D0E135B80299B089E168BDA</key>
 		<dict>
 			<key>primary</key>
 			<true/>

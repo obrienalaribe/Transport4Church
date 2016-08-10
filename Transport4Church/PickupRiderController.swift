@@ -10,14 +10,11 @@ import UIKit
 import Eureka
 import FontAwesome_swift
 import GooglePlaces
+import ENSwiftSideMenu
 
-class PickupRiderController: UIViewController, GMSMapViewDelegate{
+class PickupRiderController: UIViewController, GMSMapViewDelegate, ENSideMenuDelegate{
 
     var mapView : GMSMapView!
-    var geocoder: GMSGeocoder!
-    
-    var marker: GMSMarker!
-
 
    //API Key : AIzaSyCRbgOlz9moQ-Hlp65-piLroeMtfpNouck
     
@@ -29,30 +26,63 @@ class PickupRiderController: UIViewController, GMSMapViewDelegate{
     
     //https://github.com/evnaz/ENSwiftSideMenu
     
+    //http://ashishkakkad.com/2015/09/create-your-own-slider-menu-drawer-in-swift-2-ios-9/
+    
+    // https://github.com/teodorpatras/SideMenuController
+    
     var locationManager:CLLocationManager!
     
-    var locationLabel : UILabel = {
-        let label = UILabel(frame: CGRectMake(0, 0, 200, 21))
+    var headerView : UIView!
+    
+    var locationTrackingLabel : UILabel = {
+        let label = UILabel(frame: CGRectMake(0, 0, 200, 40))
         label.textAlignment = NSTextAlignment.Center
         return label
     }()
-   
-    let headerHorizontalOffset : CGFloat = 80
+    
+    
+    let mapPin : UIImageView = {
+        let view = UIImageView()
+        view.contentMode = .ScaleAspectFit
+        view.image = UIImage(named: "map_pin")
+        return view
+    }()
+    
+    let brandLogo  : UIImageView = {
+        let view = UIImageView()
+        view.contentMode = .ScaleAspectFit
+        view.image = UIImage(named: "brand_logo")
+        view.backgroundColor = UIColor.redColor()
+        return view
+    }()
+
+    let HEADER_V_OFFSET : CGFloat = 80
+    
+    
+    func toggleSideMenu(sender: AnyObject) {
+        toggleSideMenuView()
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        mapView = GMSMapView(frame: CGRectMake(0, headerHorizontalOffset, view.bounds.width, view.bounds.height - headerHorizontalOffset))
+        self.sideMenuController()?.sideMenu?.delegate = self
         
-        geocoder = GMSGeocoder()
-        marker = GMSMarker()
-        marker.map = mapView
-       
+        var button = UIBarButtonItem(
+            title: "Menu",
+            style: .Plain,
+            target: self,
+            action: #selector(toggleSideMenu(_:))
+        )
+        self.navigationItem.leftBarButtonItem = button
+
+        
+        mapView = GMSMapView(frame: CGRectMake(0, HEADER_V_OFFSET, view.bounds.width, view.bounds.height - HEADER_V_OFFSET))
+        
         var manager = CLLocationManager()
-        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
-
-
+        let userLocation:CLLocationCoordinate2D = manager.location!.coordinate
         
-        mapView.camera = GMSCameraPosition.cameraWithLatitude(locValue.latitude, longitude: locValue.longitude, zoom: 16.0)
+        mapView.camera = GMSCameraPosition.cameraWithLatitude(userLocation.latitude, longitude: userLocation.longitude, zoom: 14.0)
         
         mapView.mapType = kGMSTypeNormal
         mapView.delegate = self
@@ -61,63 +91,110 @@ class PickupRiderController: UIViewController, GMSMapViewDelegate{
 
         
         view.addSubview(mapView)
-
+        view.sendSubviewToBack(mapView)
         
-        let headerView = UIView(frame: CGRectMake(0, 0, view.bounds.width, headerHorizontalOffset))
+        headerView = UIView(frame: CGRectMake(0, 0, view.bounds.width, HEADER_V_OFFSET))
         headerView.backgroundColor = .whiteColor()
         view.addSubview(headerView)
         
         let changeLocationBtn = UIButton()
       
-        changeLocationBtn.setTitle("sdf", forState: .Normal)
-        let editBtn = UIImage.fontAwesomeIconWithName(.Amazon, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
+        let editBtn = UIImage.fontAwesomeIconWithName(.Amazon, textColor: UIColor.whiteColor(), size: CGSizeMake(30, 30))
         changeLocationBtn.frame = CGRectMake(0, 0, 100, 100)
         changeLocationBtn.setImage(editBtn, forState: .Normal)
         changeLocationBtn.addTarget(self, action: #selector(PickupRiderController.autocompleteClicked(_:)), forControlEvents: .TouchUpInside)
         
         headerView.addSubview(changeLocationBtn)
-        headerView.addSubview(locationLabel)
-        
-        let margins = headerView.layoutMarginsGuide
-        
-        locationLabel.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor).active = true
-        locationLabel.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor).active = true
-        locationLabel.topAnchor.constraintEqualToAnchor(headerView.bottomAnchor,
-                                                             constant: 8.0).active = true
-        locationLabel.translatesAutoresizingMaskIntoConstraints = false
-        locationLabel.backgroundColor = .whiteColor()
-        locationLabel.text = "Hello World"
 
-//        headerView.addConstraintsWithFormat("H:[v0]|", views: locationLabel)
-//        headerView.addConstraintsWithFormat("V:[v0]|", views: locationLabel)
+        setupBrandLogo()
+        setupLocationTrackingLabel()
+        setupMapPin()
+        setupPickupButton()
+       
+    }
+    
+    private func setupBrandLogo(){
+      
+        
+        headerView.addSubview(brandLogo)
+        
+        brandLogo.centerXAnchor.constraintEqualToAnchor(headerView.centerXAnchor).active = true
+        brandLogo.centerYAnchor.constraintEqualToAnchor(headerView.centerYAnchor).active = true
+        brandLogo.autoresizingMask = .FlexibleBottomMargin
+        brandLogo.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    private func setupLocationTrackingLabel() {
+        let margins = headerView.layoutMarginsGuide
+
+        headerView.addSubview(locationTrackingLabel)
+        
+        locationTrackingLabel.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor).active = true
+        locationTrackingLabel.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor).active = true
+        locationTrackingLabel.topAnchor.constraintEqualToAnchor(headerView.bottomAnchor,
+                                                                constant: 8.0).active = true
+        locationTrackingLabel.translatesAutoresizingMaskIntoConstraints = false
+        locationTrackingLabel.backgroundColor = .whiteColor()
+        locationTrackingLabel.heightAnchor.constraintEqualToAnchor(headerView.heightAnchor,
+                                                                   multiplier: 0.5).active = true
+        
+        locationTrackingLabel.layer.zPosition = 3
+        
+        let tap = UITapGestureRecognizer(target: self, action: Selector("tapFunction:"))
+        locationTrackingLabel.addGestureRecognizer(tap)
+        
+    }
+    
+    private func setupMapPin(){
+        mapView.addSubview(mapPin)
+        
+        mapPin.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor).active = true
+        mapPin.centerYAnchor.constraintEqualToAnchor(view.centerYAnchor, constant: 10).active = true
+        mapPin.translatesAutoresizingMaskIntoConstraints = false
 
     }
     
+    private func setupPickupButton(){
+        let pickupBtn = UIButton()
+        let pickupImg = UIImage.fontAwesomeIconWithName(.MapMarker, textColor: UIColor.whiteColor(), size: CGSizeMake(20, 20))
+        
+        pickupBtn.layer.cornerRadius = 12
+        pickupBtn.setTitle("Pick me up here", forState: .Normal)
+        pickupBtn.setImage(pickupImg, forState: .Normal)
+        pickupBtn.backgroundColor = .blackColor()
+        pickupBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 2);
+        pickupBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 2, 0, 0);
+        pickupBtn.contentEdgeInsets = UIEdgeInsetsMake(10, 0, 10, 0);
+        
+        mapView.addSubview(pickupBtn)
+        
+        pickupBtn.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor).active = true
+        pickupBtn.centerYAnchor.constraintEqualToAnchor(view.centerYAnchor).active = true
+        pickupBtn.translatesAutoresizingMaskIntoConstraints = false
+
+        pickupBtn.addTarget(self, action: "createPickupRequest", forControlEvents: .TouchUpInside)
+
+    }
+    
+    func createPickupRequest() {
+       navigationController?.pushViewController(ConfirmPickupFormController(), animated: true)
+    }
+    
+    
+    func tapFunction(sender:UITapGestureRecognizer) {
+        print("tap working")
+    }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
-        let handler = { (response: GMSReverseGeocodeResponse?, error: NSError?) -> Void in
-            guard error == nil else {
-                return
-            }
-            
-            if let result = response?.firstResult() {
-                self.locationLabel.text = result.lines?[0]
-//                marker.snippet = result.lines?[1]
-                
-                print(result.lines?[0])
-            }else{
-                print("mumum")
-            }
-            
-        }
+       
         
     }
   
     // MARK: GMSMapViewDelegate
     
     func mapView(mapView: GMSMapView, didTapAtCoordinate coordinate: CLLocationCoordinate2D) {
-        print("You tapped at \(coordinate.latitude), \(coordinate.longitude)")
+//        print("You tapped at \(coordinate.latitude), \(coordinate.longitude)")
     }
     
     func mapView(mapView: GMSMapView, willMove gesture: Bool) {
@@ -126,24 +203,32 @@ class PickupRiderController: UIViewController, GMSMapViewDelegate{
     }
     
     func mapView(mapView: GMSMapView, idleAtCameraPosition cameraPosition: GMSCameraPosition) {
-        let handler = { (response: GMSReverseGeocodeResponse?, error: NSError?) -> Void in
-            guard error == nil else {
-                return
-            }
-            
-            if let result = response?.firstResult() {
-                let marker = GMSMarker()
-                marker.position = cameraPosition.target
-                marker.title = result.lines?[0]
-                marker.snippet = result.lines?[1]
-                marker.map = mapView
-                marker.draggable = true
+        reverseGeocodeCoordinate(cameraPosition.target)
+    }
+    
+    private func reverseGeocodeCoordinate(coordinate: CLLocationCoordinate2D) {
+        
+        // 1
+        let geocoder = GMSGeocoder()
+        
+        // 2
+        geocoder.reverseGeocodeCoordinate(coordinate) { response, error in
+            if let address = response?.firstResult() {
                 
+                // 3
+                let lines = address.lines
                 
+                if let userAddress = address.lines {
+                    self.locationTrackingLabel.text = userAddress[0]
+                }
+                print(lines!.joinWithSeparator("\n"))
+                
+                // 4
+                UIView.animateWithDuration(0.25) {
+                    self.view.layoutIfNeeded()
+                }
             }
-           
         }
-
     }
 
    
@@ -153,7 +238,8 @@ class PickupRiderController: UIViewController, GMSMapViewDelegate{
         autocompleteController.delegate = self
         self.presentViewController(autocompleteController, animated: true, completion: nil)
     }
-
+    
+   
 }
 
 extension PickupRiderController: GMSAutocompleteViewControllerDelegate {
@@ -163,7 +249,7 @@ extension PickupRiderController: GMSAutocompleteViewControllerDelegate {
         print("Place name: ", place.name)
         print("Place address: ", place.formattedAddress)
         print("Place attributions: ", place.attributions)
-        self.locationLabel.text = place.name
+        self.locationTrackingLabel.text = place.name
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     

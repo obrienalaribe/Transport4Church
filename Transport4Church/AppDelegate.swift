@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import GooglePlaces
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -26,10 +27,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         GMSPlacesClient.provideAPIKey(googleMapsApiKey)
 
-        window?.rootViewController = UINavigationController(rootViewController: CalendarEventFormViewController())
+//        window?.rootViewController = UINavigationController(rootViewController: ConfirmPickupFormController())
         
-//        window?.rootViewController = PickupRiderController()
-
+        window?.rootViewController = CustomNavigationController(menuViewController: MyMenuTableViewController(), contentViewController: PickupRiderController())
         return true
     }
 
