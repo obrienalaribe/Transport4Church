@@ -17,8 +17,6 @@
 		04DD3C4B1D57A88E00DEBB32 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD3C4A1D57A88E00DEBB32 /* UIViewExtension.swift */; };
 		04DD3C4D1D5909B700DEBB32 /* RegisterFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD3C4C1D5909B700DEBB32 /* RegisterFormViewController.swift */; };
 		04DD3C4F1D591C8500DEBB32 /* PickupRiderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD3C4E1D591C8500DEBB32 /* PickupRiderController.swift */; };
-		436329FD1D5B528500AD3B75 /* MyMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436329FC1D5B528500AD3B75 /* MyMenuTableViewController.swift */; };
-		436329FF1D5B52FE00AD3B75 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436329FE1D5B52FE00AD3B75 /* CustomNavigationController.swift */; };
 		43632A051D5B62F700AD3B75 /* ConfirmPickupFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43632A041D5B62F700AD3B75 /* ConfirmPickupFormController.swift */; };
 		43632A071D5B786800AD3B75 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43632A061D5B786800AD3B75 /* Trip.swift */; };
 		43632A091D5B811600AD3B75 /* FormButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43632A081D5B811600AD3B75 /* FormButton.swift */; };
@@ -64,8 +62,6 @@
 		04DD3C4C1D5909B700DEBB32 /* RegisterFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterFormViewController.swift; sourceTree = "<group>"; };
 		04DD3C4E1D591C8500DEBB32 /* PickupRiderController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickupRiderController.swift; sourceTree = "<group>"; };
 		2B3148B7DBC0B7F371C5393E /* Pods-Transport4ChurchTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transport4ChurchTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Transport4ChurchTests/Pods-Transport4ChurchTests.release.xcconfig"; sourceTree = "<group>"; };
-		436329FC1D5B528500AD3B75 /* MyMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyMenuTableViewController.swift; sourceTree = "<group>"; };
-		436329FE1D5B52FE00AD3B75 /* CustomNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		43632A041D5B62F700AD3B75 /* ConfirmPickupFormController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmPickupFormController.swift; sourceTree = "<group>"; };
 		43632A061D5B786800AD3B75 /* Trip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		43632A081D5B811600AD3B75 /* FormButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormButton.swift; sourceTree = "<group>"; };
@@ -146,8 +142,6 @@
 				04DD3C201D57A72C00DEBB32 /* Transport4Church.xcdatamodeld */,
 				04DD3C4A1D57A88E00DEBB32 /* UIViewExtension.swift */,
 				43E383761D5A38EF0014DED2 /* LocationResultsController.swift */,
-				436329FC1D5B528500AD3B75 /* MyMenuTableViewController.swift */,
-				436329FE1D5B52FE00AD3B75 /* CustomNavigationController.swift */,
 				43632A041D5B62F700AD3B75 /* ConfirmPickupFormController.swift */,
 				43632A0A1D5B88A200AD3B75 /* TrackPickupController.swift */,
 				43632A061D5B786800AD3B75 /* Trip.swift */,
@@ -464,9 +458,7 @@
 				43632A0B1D5B88A200AD3B75 /* TrackPickupController.swift in Sources */,
 				04DD3C221D57A72C00DEBB32 /* Transport4Church.xcdatamodeld in Sources */,
 				43E383771D5A38EF0014DED2 /* LocationResultsController.swift in Sources */,
-				436329FD1D5B528500AD3B75 /* MyMenuTableViewController.swift in Sources */,
 				43632A071D5B786800AD3B75 /* Trip.swift in Sources */,
-				436329FF1D5B52FE00AD3B75 /* CustomNavigationController.swift in Sources */,
 				04DD3C1C1D57A72C00DEBB32 /* LoginViewController.swift in Sources */,
 				04DD3C4F1D591C8500DEBB32 /* PickupRiderController.swift in Sources */,
 				43632A051D5B62F700AD3B75 /* ConfirmPickupFormController.swift in Sources */,

@@ -21,18 +21,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        window?.makeKeyAndVisible()
+        
         GMSServices.provideAPIKey(googleMapsApiKey)
         
         GMSPlacesClient.provideAPIKey(googleMapsApiKey)
-
-//        window?.rootViewController = UINavigationController(rootViewController: ConfirmPickupFormController())
         
-        window?.rootViewController = CustomNavigationController(menuViewController: MyMenuTableViewController(), contentViewController: PickupRiderController())
+       
+//        UINavigationBar.appearance().setBackgroundImage(UIImage(), forBarPosition: UIBarPosition.Any, barMetrics: UIBarMetrics.Default)
+        UINavigationBar.appearance().shadowImage = UIImage()
+        UINavigationBar.appearance().tintColor = UIColor.blackColor()
+        UINavigationBar.appearance().barTintColor = .whiteColor()
+        UINavigationBar.appearance().translucent = false
+        UINavigationBar.appearance().clipsToBounds = false
+        UINavigationBar.appearance().backgroundColor = .whiteColor()
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.blackColor()]
+        
+
+        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+
+        
+        window?.makeKeyAndVisible()
+
+    
+        window?.rootViewController = UINavigationController(rootViewController: PickupRiderController())
+        
+//        window?.rootViewController = PickupRiderController()
         return true
     }
-
+    
+  
+    
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.

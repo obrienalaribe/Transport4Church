@@ -76,7 +76,9 @@ class ConfirmPickupFormController: FormViewController {
     }
     
     func handleFormSubmission(sender: UIButton!){
-       navigationController?.pushViewController(TrackPickupController(), animated: true)
+        navigationController?.presentViewController(TrackPickupController(), animated: true, completion: { 
+            
+        })
     }
 
 
