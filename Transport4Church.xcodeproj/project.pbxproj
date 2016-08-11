@@ -21,6 +21,7 @@
 		43632A071D5B786800AD3B75 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43632A061D5B786800AD3B75 /* Trip.swift */; };
 		43632A091D5B811600AD3B75 /* FormButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43632A081D5B811600AD3B75 /* FormButton.swift */; };
 		43632A0B1D5B88A200AD3B75 /* TrackPickupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43632A0A1D5B88A200AD3B75 /* TrackPickupController.swift */; };
+		43632A0E1D5CCBCC00AD3B75 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43632A0D1D5CCBCC00AD3B75 /* User.swift */; };
 		43E383771D5A38EF0014DED2 /* LocationResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E383761D5A38EF0014DED2 /* LocationResultsController.swift */; };
 		83EA7DC4DB1B69BE86C35912 /* Pods_Transport4Church.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 488882E45C394C24207FC14B /* Pods_Transport4Church.framework */; };
 		9C3BDE250107873CD48D2C67 /* Pods_Transport4ChurchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90CAB7063715F7564B7B9A9F /* Pods_Transport4ChurchUITests.framework */; };
@@ -66,6 +67,7 @@
 		43632A061D5B786800AD3B75 /* Trip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		43632A081D5B811600AD3B75 /* FormButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormButton.swift; sourceTree = "<group>"; };
 		43632A0A1D5B88A200AD3B75 /* TrackPickupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackPickupController.swift; sourceTree = "<group>"; };
+		43632A0D1D5CCBCC00AD3B75 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		43E383711D5A1F2E0014DED2 /* Transport4Church-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Transport4Church-Bridging-Header.h"; sourceTree = "<group>"; };
 		43E383761D5A38EF0014DED2 /* LocationResultsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationResultsController.swift; sourceTree = "<group>"; };
 		488882E45C394C24207FC14B /* Pods_Transport4Church.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Transport4Church.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,6 +134,7 @@
 		04DD3C181D57A72C00DEBB32 /* Transport4Church */ = {
 			isa = PBXGroup;
 			children = (
+				43632A0C1D5CCBB100AD3B75 /* Models */,
 				04DD3C191D57A72C00DEBB32 /* AppDelegate.swift */,
 				04DD3C1B1D57A72C00DEBB32 /* LoginViewController.swift */,
 				04DD3C4C1D5909B700DEBB32 /* RegisterFormViewController.swift */,
@@ -144,7 +147,6 @@
 				43E383761D5A38EF0014DED2 /* LocationResultsController.swift */,
 				43632A041D5B62F700AD3B75 /* ConfirmPickupFormController.swift */,
 				43632A0A1D5B88A200AD3B75 /* TrackPickupController.swift */,
-				43632A061D5B786800AD3B75 /* Trip.swift */,
 				43632A081D5B811600AD3B75 /* FormButton.swift */,
 			);
 			path = Transport4Church;
@@ -166,6 +168,15 @@
 				04DD3C3E1D57A72C00DEBB32 /* Info.plist */,
 			);
 			path = Transport4ChurchUITests;
+			sourceTree = "<group>";
+		};
+		43632A0C1D5CCBB100AD3B75 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				43632A061D5B786800AD3B75 /* Trip.swift */,
+				43632A0D1D5CCBCC00AD3B75 /* User.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		6951CF0CE312A750D76D9A2B /* Pods */ = {
@@ -463,6 +474,7 @@
 				04DD3C4F1D591C8500DEBB32 /* PickupRiderController.swift in Sources */,
 				43632A051D5B62F700AD3B75 /* ConfirmPickupFormController.swift in Sources */,
 				04DD3C4B1D57A88E00DEBB32 /* UIViewExtension.swift in Sources */,
+				43632A0E1D5CCBCC00AD3B75 /* User.swift in Sources */,
 				04DD3C1A1D57A72C00DEBB32 /* AppDelegate.swift in Sources */,
 				04DD3C4D1D5909B700DEBB32 /* RegisterFormViewController.swift in Sources */,
 				43632A091D5B811600AD3B75 /* FormButton.swift in Sources */,

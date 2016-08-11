@@ -39,6 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
 
+<<<<<<< HEAD
         
         window?.makeKeyAndVisible()
 
@@ -46,6 +47,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = UINavigationController(rootViewController: PickupRiderController())
         
 //        window?.rootViewController = PickupRiderController()
+=======
+        window?.rootViewController = UINavigationController(rootViewController: PickupRiderController())
+      
+>>>>>>> a66282efd62080a8bd73f3c1cb9cfdaf682bfa79
         return true
     }
     
