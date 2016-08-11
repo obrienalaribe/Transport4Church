@@ -25,21 +25,12 @@ class ConfirmPickupFormController: FormViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
+        navigationItem.title = "Confirm Pickup"
+        
         form +++ Section()
-            <<< TextRow(){ row in
-                row.title = "Name"
-                row.value = "Emma Smith"
-                row.disabled = true
-            }
-            
-            <<< StepperRow(){ row in
-                row.title = "Extra passengers"
-                
-            }
-            +++ Section()
-            <<< PostalAddressRow(){
-                $0.title = "Address"
+            <<< PostalAddressRow("location"){
+                $0.title = "Location"
                 $0.streetPlaceholder = "Street"
                 $0.postalCodePlaceholder = "Postcode"
                 $0.cityPlaceholder = "City"
@@ -53,16 +44,23 @@ class ConfirmPickupFormController: FormViewController {
                 )
                 $0.disabled = true
             }
-            
-            +++ Section()
-            <<< TextRow(){ row in
+            <<< TextRow("destination"){ row in
                 row.title = "Destination"
                 row.value = "RCCG EFA Leeds, LS4 2BB"
                 row.disabled = true
             }
             
+            
             +++ Section()
-            <<< TimeRow(){
+            <<< PushRow<String>("extraRider") {
+                $0.title = "Extra riders"
+                $0.selectorTitle = "How many people are with you ?"
+                $0.options = ["None", "One","Two","Three", "Four", "Five", "Six"]
+                $0.value = "None"    // initially selected
+            }
+            
+            +++ Section()
+            <<< TimeRow("pickupTime"){
                 $0.title = "Choose Pickup Time"
                 $0.value = NSDate()
             }
@@ -78,13 +76,16 @@ class ConfirmPickupFormController: FormViewController {
                     return header
                 }()
         }
-            
+        
+        
     }
     
     func handleFormSubmission(sender: UIButton!){
-        navigationController?.presentViewController(TrackPickupController(), animated: true, completion: { 
-            
-        })
+       navigationController?.popViewControllerAnimated(true)
+        
+        let valuesDictionary = form.values()
+        
+        print(valuesDictionary)
     }
 
 

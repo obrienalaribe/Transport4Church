@@ -14,9 +14,9 @@ class FormButton: UIButton {
         super.init(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
         self.setTitle(title, forState: .Normal)
         self.layer.cornerRadius = 5.0;
-        self.layer.borderColor = UIColor.redColor().CGColor
+        self.layer.borderColor = UIColor.whiteColor().CGColor
         self.layer.borderWidth = 1.5
-        self.backgroundColor = UIColor.blueColor()
+        self.backgroundColor = UIColor.purpleColor()
         self.tintColor = UIColor.whiteColor()
     }
     

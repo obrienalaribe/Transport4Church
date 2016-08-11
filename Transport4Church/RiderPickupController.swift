@@ -11,7 +11,7 @@ import Eureka
 import FontAwesome_swift
 import GooglePlaces
 
-class PickupRiderController: UIViewController, GMSMapViewDelegate{
+class RiderPickupController: UIViewController, GMSMapViewDelegate{
     
     var mapView : GMSMapView!
     
@@ -134,15 +134,15 @@ class PickupRiderController: UIViewController, GMSMapViewDelegate{
     
     private func setupPickupButton(){
         pickupBtn = UIButton()
-        let pickupImg = UIImage.fontAwesomeIconWithName(.MapMarker, textColor: UIColor.whiteColor(), size: CGSizeMake(20, 20))
+//        let pickupImg = UIImage.fontAwesomeIconWithName(.MapMarker, textColor: UIColor.whiteColor(), size: CGSizeMake(20, 20))
         pickupBtn.userInteractionEnabled = false
         
         pickupBtn.layer.cornerRadius = 12
         pickupBtn.setTitle("Pick me up here", forState: .Normal)
-        pickupBtn.setImage(pickupImg, forState: .Normal)
-        pickupBtn.backgroundColor = .blackColor()
-        pickupBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 2);
-        pickupBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 2, 0, 0);
+//        pickupBtn.setImage(pickupImg, forState: .Normal)
+        pickupBtn.backgroundColor = .purpleColor()
+//        pickupBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 2);
+//        pickupBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 2, 0, 0);
         pickupBtn.contentEdgeInsets = UIEdgeInsetsMake(10, 0, 10, 0);
         
         mapView.addSubview(pickupBtn)
@@ -218,7 +218,7 @@ class PickupRiderController: UIViewController, GMSMapViewDelegate{
     
 }
 
-extension PickupRiderController: GMSAutocompleteViewControllerDelegate {
+extension RiderPickupController: GMSAutocompleteViewControllerDelegate {
     
     // Handle the user's selection.
     func viewController(viewController: GMSAutocompleteViewController, didAutocompleteWithPlace place: GMSPlace) {
