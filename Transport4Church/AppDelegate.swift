@@ -27,9 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         GMSPlacesClient.provideAPIKey(googleMapsApiKey)
 
-//        window?.rootViewController = UINavigationController(rootViewController: ConfirmPickupFormController())
-        
-        window?.rootViewController = CustomNavigationController(menuViewController: MyMenuTableViewController(), contentViewController: PickupRiderController())
+        window?.rootViewController = UINavigationController(rootViewController: PickupRiderController())
+      
         return true
     }
 
