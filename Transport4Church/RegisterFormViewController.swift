@@ -11,42 +11,58 @@ import Eureka
 class RegisterFormViewController : FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        form +++ Section("Profile Details")
-            <<< TextRow(){ row in
+        form +++ Section("Please fill in the details below")
+            <<< TextRow("Name"){ row in
                 row.title = "Name"
                 row.placeholder = "i.e Emma Smith"
             }
+            <<< ActionSheetRow<String>("Gender") {
+                $0.title = "Gender"
+                $0.selectorTitle = "Select Gender"
+                $0.options = ["Male","Female", "Other"]
+                $0.value = "Other"
+            }
             
-            <<< EmailRow(){
+            <<< EmailRow("Email"){
                 $0.title = "Email"
                 $0.placeholder = "i.e emmy23@gmail.com"
             }
+            <<< ActionSheetRow<String>("Role") {
+                $0.title = "Passenger or Driver ?"
+                $0.selectorTitle = "Pick one"
+                $0.options = ["Passenger","Driver"]
+                $0.value = "Passenger"    // initially selected
+            }
+            
             +++ Section() { section in
                 section.header = {
                     var header = HeaderFooterView<UIButton>(.Callback({
-                        let button = FormButton(title: "Submit")
+                        let button = FormButton(title: "Register")
                         button.addTarget(self, action: "handleFormSubmission:", forControlEvents: .TouchUpInside)
                         return button
                     }))
                     header.height = { 50 }
                     return header
                 }()
-                
            }
-            
-            +++ Section("Section2")
-            <<< TimeRow(){
-                $0.title = "Pickup Time"
-                $0.value = NSDate(timeIntervalSinceReferenceDate: 0)
-            }
-        
     }
     
     func handleFormSubmission(sender: UIButton!){
-        navigationController?.presentViewController(PickupRiderController(), animated: true, completion: { 
+       
+        let valuesDictionary = form.values()
+
+        if let role = valuesDictionary["Role"] {
+            let userRole = role as! String
             
-            print("finished present rider pickup")
-        })
+            if userRole == "Driver" {
+                self.navigationController?.pushViewController(DriverRequestListController(collectionViewLayout: UICollectionViewFlowLayout()), animated: true)
+            }else{
+                self.navigationController?.setViewControllers([RiderPickupController()], animated: true)
+            }
+
+            
+        }
+
     }
     
 }
