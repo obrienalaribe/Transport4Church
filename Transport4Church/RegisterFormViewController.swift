@@ -11,6 +11,13 @@ import Eureka
 class RegisterFormViewController : FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ImageRow.defaultCellUpdate = { cell, row in
+            cell.accessoryView?.layer.cornerRadius = 17
+            cell.accessoryView?.frame = CGRectMake(0, 0, 80, 80)
+        }
+        
+        
         form +++ Section("Please fill in the details below")
             <<< TextRow("Name"){ row in
                 row.title = "Name"
@@ -34,6 +41,10 @@ class RegisterFormViewController : FormViewController {
                 $0.value = "Passenger"    // initially selected
             }
             
+            <<< ImageRow(){
+                $0.title = "Profile picture"
+            }
+            
             +++ Section() { section in
                 section.header = {
                     var header = HeaderFooterView<UIButton>(.Callback({
@@ -45,6 +56,8 @@ class RegisterFormViewController : FormViewController {
                     return header
                 }()
            }
+        
+        
     }
     
     func handleFormSubmission(sender: UIButton!){

@@ -2,10 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleDisplayName</key>
+	<string>Trans4Church</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>We will use your location to help a driver find you</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We need to know where you are when using the app</string>
+	<string>Let the driver know where you are</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>googlechromes</string>

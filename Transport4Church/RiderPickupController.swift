@@ -8,10 +8,10 @@
 
 import UIKit
 import Eureka
-import FontAwesome_swift
 import GooglePlaces
+import CoreLocation
 
-class RiderPickupController: UIViewController, GMSMapViewDelegate{
+class RiderPickupController: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate{
     
     var mapView : GMSMapView!
     
@@ -35,6 +35,8 @@ class RiderPickupController: UIViewController, GMSMapViewDelegate{
     var locationTrackingLabel : UILabel = {
         let label = UILabel(frame: CGRectMake(0, 0, 200, 40))
         label.textAlignment = NSTextAlignment.Center
+        
+        
         return label
     }()
     
@@ -56,21 +58,20 @@ class RiderPickupController: UIViewController, GMSMapViewDelegate{
     
     var pickupBtn : UIButton!
     
+    var locationServiceEnabled : Bool? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
         mapView = GMSMapView(frame: CGRectMake(0, 0, view.bounds.width, view.bounds.height ))
         
-        var manager = CLLocationManager()
-        let userLocation:CLLocationCoordinate2D = manager.location!.coordinate
-        
-        mapView.camera = GMSCameraPosition.cameraWithLatitude(userLocation.latitude, longitude: userLocation.longitude, zoom: 14.0)
-        
         mapView.mapType = kGMSTypeNormal
         mapView.delegate = self
         mapView.myLocationEnabled = true
         mapView.settings.myLocationButton = true
+        
+        setUserLocationOnMap()
         
         
         view.addSubview(mapView)
@@ -83,6 +84,20 @@ class RiderPickupController: UIViewController, GMSMapViewDelegate{
         setupMapPin()
         setupPickupButton()
         
+    }
+    
+    private func setUserLocationOnMap(){
+        let manager = CLLocationManager()
+        manager.delegate = self
+        
+        if let location = manager.location {
+            let userLocation:CLLocationCoordinate2D = location.coordinate
+            self.locationServiceEnabled = true
+            mapView.camera = GMSCameraPosition.cameraWithLatitude(userLocation.latitude, longitude: userLocation.longitude, zoom: 14.0)
+        }else{
+            //            manager.requestWhenInUseAuthorization()
+            self.locationServiceEnabled = false
+        }
     }
     
     private func setupBrandLogo(){
@@ -134,15 +149,11 @@ class RiderPickupController: UIViewController, GMSMapViewDelegate{
     
     private func setupPickupButton(){
         pickupBtn = UIButton()
-//        let pickupImg = UIImage.fontAwesomeIconWithName(.MapMarker, textColor: UIColor.whiteColor(), size: CGSizeMake(20, 20))
         pickupBtn.userInteractionEnabled = false
         
         pickupBtn.layer.cornerRadius = 12
         pickupBtn.setTitle("Pick me up here", forState: .Normal)
-//        pickupBtn.setImage(pickupImg, forState: .Normal)
         pickupBtn.backgroundColor = .purpleColor()
-//        pickupBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 2);
-//        pickupBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 2, 0, 0);
         pickupBtn.contentEdgeInsets = UIEdgeInsetsMake(10, 0, 10, 0);
         
         mapView.addSubview(pickupBtn)
@@ -162,13 +173,42 @@ class RiderPickupController: UIViewController, GMSMapViewDelegate{
         navigationController?.pushViewController(ConfirmPickupFormController(trip: currentTrip), animated: true)
     }
     
-    
+    // MARK: CLLocationManagerDelegate
+
+    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        if (status == CLAuthorizationStatus.Denied) {
+            // The user denied authorization
+            print("why did you decline ?")
+
+                    manager.requestWhenInUseAuthorization()
+
+
+        } else if (status == CLAuthorizationStatus.AuthorizedAlways) {
+            // The user accepted authorization
+            print("thanks for accepting ")
+
+        }
+    }
     
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
+        var alertController = UIAlertController (title: "Location Service Required", message: "The Location access has been disabled please go to settings and turn it on ", preferredStyle: .Alert)
         
+        var settingsAction = UIAlertAction(title: "Settings", style: .Default) { (_) -> Void in
+            let settingsUrl = NSURL(string: UIApplicationOpenSettingsURLString)
+            if let url = settingsUrl {
+                UIApplication.sharedApplication().openURL(url)
+            }
+        }
+        
+        var cancelAction = UIAlertAction(title: "Cancel", style: .Default, handler: nil)
+        alertController.addAction(settingsAction)
+        alertController.addAction(cancelAction)
+        
+        presentViewController(alertController, animated: true, completion: nil)
     }
+    
     
     // MARK: GMSMapViewDelegate
     
@@ -200,8 +240,26 @@ class RiderPickupController: UIViewController, GMSMapViewDelegate{
                 let lines = address.lines
                 
                 if let userAddress = address.lines {
-                    self.locationTrackingLabel.text = userAddress[0]
                     self.pickupBtn.userInteractionEnabled = true
+//                    let attributedText = NSMutableAttributedString(string: "", attributes: [NSFontAttributeName: UIFont.boldSystemFontOfSize(14)])
+//                    
+//                    attributedText.appendAttributedString(NSAttributedString(string: "" ,
+//                        attributes: [NSFontAttributeName: UIFont.boldSystemFontOfSize(12)]))
+//                    
+//                    let paragraphStyle = NSMutableParagraphStyle()
+//                    paragraphStyle.lineSpacing = 4
+//                    attributedText.addAttribute(NSParagraphStyleAttributeName, value: paragraphStyle, range:NSMakeRange(0, attributedText.string.characters.count))
+//                    
+//                    let attachment = NSTextAttachment()
+//                    attachment.image = UIImage(named: "edit_pen")
+//                    attachment.bounds = CGRectMake(-95, -20, 12, 12)
+//                    attributedText.appendAttributedString(NSAttributedString(attachment: attachment))
+//                    
+//                    self.locationTrackingLabel.textAlignment = .Center
+//                    self.locationTrackingLabel.attributedText = attributedText
+                    self.locationTrackingLabel.text = userAddress[0]
+
+
                     
                 }
                 //                print(lines!.joinWithSeparator("\n"))

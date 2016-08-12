@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '5E40B80F0FA7BDA9FBB0AB7DDCD07249'
-               BlueprintName = 'ENSwiftSideMenu'
+               BlueprintIdentifier = 'EAF9BBA80C271F670FBB7DB6CBA8FCE6'
+               BlueprintName = 'SCLAlertView'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'ENSwiftSideMenu.framework'>
+               BuildableName = 'SCLAlertView.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

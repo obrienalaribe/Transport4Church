@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SCLAlertView
 
 let cellId = "cellId"
 var numberOfRequest = 3
@@ -28,7 +29,6 @@ class DriverRequestListController: UICollectionViewController, UICollectionViewD
     
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
         return numberOfRequest
     }
     
@@ -203,6 +203,16 @@ class PickupRequestCell : BaseCollectionCell {
         }else {
             numberOfRequest = 0
             parent.reloadData()
+            
+            SCLAlertView().showTitle(
+                "Congratulations", // Title of view
+                subTitle: "Pickup successfully completed", // String of view
+                duration: 5.0, // Duration to show before closing automatically, default: 0.0
+                completeText: "Done", // Optional button value, default: ""
+                style: .Success, // Styles - see below.
+                colorStyle: 0x00EE00,
+                colorTextButton: 0xFFFFFF
+            )
         }
 
         print(buttonIndex.row)
