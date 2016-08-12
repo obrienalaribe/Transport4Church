@@ -26,9 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         GMSPlacesClient.provideAPIKey(googleMapsApiKey)
         
-        window?.rootViewController = UINavigationController(rootViewController:RegisterFormViewController())
+//        window?.rootViewController = UINavigationController(rootViewController:RegisterFormViewController())
         
-//        window?.rootViewController = UINavigationController(rootViewController: DriverRequestListController(collectionViewLayout: UICollectionViewFlowLayout()))
+        window?.rootViewController = UINavigationController(rootViewController: DriverRequestListController(collectionViewLayout: UICollectionViewFlowLayout()))
         
         return true
     }

@@ -168,7 +168,6 @@ class RiderPickupController: UIViewController, GMSMapViewDelegate{
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
         
-        
     }
     
     // MARK: GMSMapViewDelegate

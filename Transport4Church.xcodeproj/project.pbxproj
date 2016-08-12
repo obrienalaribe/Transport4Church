@@ -169,10 +169,10 @@
 			isa = PBXGroup;
 			children = (
 				04DD3C191D57A72C00DEBB32 /* AppDelegate.swift */,
+				04283A361D5D1E210053D1D2 /* Rider */,
 				04283A391D5D1FC50053D1D2 /* Register */,
 				04283A381D5D1E8F0053D1D2 /* Driver */,
 				04283A371D5D1E530053D1D2 /* Utils */,
-				04283A361D5D1E210053D1D2 /* Rider */,
 				43632A0C1D5CCBB100AD3B75 /* Models */,
 				04DD3C231D57A72C00DEBB32 /* Assets.xcassets */,
 				04DD3C251D57A72C00DEBB32 /* LaunchScreen.storyboard */,
