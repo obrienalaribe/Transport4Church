@@ -18,8 +18,8 @@ class ConfirmPickupFormController: FormViewController {
     }
     
     init(trip: Trip?) {
-        self.trip = trip
         super.init(nibName: nil, bundle: nil)
+        self.trip = trip
     }
  
     
@@ -54,8 +54,8 @@ class ConfirmPickupFormController: FormViewController {
             +++ Section()
             <<< PushRow<String>("extraRider") {
                 $0.title = "Extra riders"
-                $0.selectorTitle = "How many people are with you ?"
-                $0.options = ["None", "One","Two","Three", "Four", "Five", "Six"]
+                $0.selectorTitle = ""
+                $0.options = ["None", "One","Two","Three"]
                 $0.value = "None"    // initially selected
             }
             
@@ -84,8 +84,11 @@ class ConfirmPickupFormController: FormViewController {
        navigationController?.popViewControllerAnimated(true)
         
         let valuesDictionary = form.values()
+        print(trip)
         
-        print(valuesDictionary)
+//        print("\(trip!.getAddress()) \(trip!.getCoordinates())")
+        
+//        print(valuesDictionary)
     }
 
 

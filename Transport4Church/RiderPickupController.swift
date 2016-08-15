@@ -11,35 +11,17 @@ import Eureka
 import GooglePlaces
 import CoreLocation
 
-class RiderPickupController: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate{
+class RiderPickupController: UIViewController {
     
     var mapView : GMSMapView!
     
-    //API Key : AIzaSyCRbgOlz9moQ-Hlp65-piLroeMtfpNouck
-    
-    // Server Key : AIzaSyBGSay353rsnXZ14dvFomQLiLaVv9CHiCU
-    
-    // http://sweettutos.com/2015/09/30/how-to-use-the-google-places-autocomplete-api-with-google-maps-sdk-on-ios/
-    
-    //https://github.com/John-Lluch/SWRevealViewController
-    
-    //https://github.com/evnaz/ENSwiftSideMenu
-    
     //http://ashishkakkad.com/2015/09/create-your-own-slider-menu-drawer-in-swift-2-ios-9/
-    
-    // https://github.com/teodorpatras/SideMenuController
-    
-    var locationManager:CLLocationManager!
-    
     
     var locationTrackingLabel : UILabel = {
         let label = UILabel(frame: CGRectMake(0, 0, 200, 40))
         label.textAlignment = NSTextAlignment.Center
-        
-        
         return label
     }()
-    
     
     let mapPin : UIImageView = {
         let view = UIImageView()
@@ -58,59 +40,57 @@ class RiderPickupController: UIViewController, GMSMapViewDelegate, CLLocationMan
     
     var pickupBtn : UIButton!
     
-    var locationServiceEnabled : Bool? = nil
+    var userLocationPermissionEnabled : Bool? = nil
+    
+    var userCoordinate: CLLocationCoordinate2D!
+    var driverLocation : GMSMarker!
+    
+    var currentTrip : Trip?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         mapView = GMSMapView(frame: CGRectMake(0, 0, view.bounds.width, view.bounds.height ))
-        
         mapView.mapType = kGMSTypeNormal
         mapView.delegate = self
         mapView.myLocationEnabled = true
         mapView.settings.myLocationButton = true
+        mapView.setMinZoom(12, maxZoom: 16)
         
         setUserLocationOnMap()
         
-        
         view.addSubview(mapView)
-        view.sendSubviewToBack(mapView)
         
-        
-        
-        setupBrandLogo()
         setupLocationTrackingLabel()
         setupMapPin()
         setupPickupButton()
         
+        //observers
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(handleLocationAuthorizationState), name: UIApplicationWillEnterForegroundNotification, object: nil)
+
     }
     
-    private func setUserLocationOnMap(){
+    func setUserLocationOnMap(){
         let manager = CLLocationManager()
         manager.delegate = self
         
         if let location = manager.location {
-            let userLocation:CLLocationCoordinate2D = location.coordinate
-            self.locationServiceEnabled = true
-            mapView.camera = GMSCameraPosition.cameraWithLatitude(userLocation.latitude, longitude: userLocation.longitude, zoom: 14.0)
+            self.userCoordinate = location.coordinate
+            self.userLocationPermissionEnabled = true
+            mapView.camera = GMSCameraPosition.cameraWithLatitude(self.userCoordinate.latitude, longitude: self.userCoordinate.longitude, zoom: 14.0)
+           
+            mapView.animateToLocation(CLLocationCoordinate2D(latitude: self.userCoordinate.latitude, longitude: self.userCoordinate.longitude))
+            
         }else{
             //            manager.requestWhenInUseAuthorization()
-            self.locationServiceEnabled = false
+            self.userLocationPermissionEnabled = false
         }
-    }
-    
-    private func setupBrandLogo(){
         
-        //        brandLogo.centerXAnchor.constraintEqualToAnchor(headerView.centerXAnchor).active = true
-        //        brandLogo.centerYAnchor.constraintEqualToAnchor(headerView.centerYAnchor).active = true
-        //        brandLogo.autoresizingMask = .FlexibleBottomMargin
-        //        brandLogo.translatesAutoresizingMaskIntoConstraints = false
+       
     }
     
     private func setupLocationTrackingLabel() {
         let margins = view.layoutMarginsGuide
-        
         view.addSubview(locationTrackingLabel)
         
         locationTrackingLabel.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor).active = true
@@ -121,14 +101,10 @@ class RiderPickupController: UIViewController, GMSMapViewDelegate, CLLocationMan
         locationTrackingLabel.backgroundColor = .whiteColor()
         locationTrackingLabel.heightAnchor.constraintEqualToAnchor(view.heightAnchor,
                                                                    multiplier: 0.1).active = true
-        locationTrackingLabel.layer.zPosition = 3
-        
         locationTrackingLabel.userInteractionEnabled = true
         let tap = UITapGestureRecognizer(target: self, action: Selector("updateLocationAction:"))
         locationTrackingLabel.addGestureRecognizer(tap)
-        
     }
-    
     
     func updateLocationAction(sender:UITapGestureRecognizer) {
         let autocompleteController = GMSAutocompleteViewController()
@@ -139,23 +115,18 @@ class RiderPickupController: UIViewController, GMSMapViewDelegate, CLLocationMan
     
     private func setupMapPin(){
         mapView.addSubview(mapPin)
-        
         mapPin.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor).active = true
         mapPin.centerYAnchor.constraintEqualToAnchor(view.centerYAnchor, constant: -30).active = true
         mapPin.translatesAutoresizingMaskIntoConstraints = false
-        
     }
-    
     
     private func setupPickupButton(){
         pickupBtn = UIButton()
-        pickupBtn.userInteractionEnabled = false
-        
+        pickupBtn.userInteractionEnabled = false //disable till user location is determined
         pickupBtn.layer.cornerRadius = 12
-        pickupBtn.setTitle("Pick me up here", forState: .Normal)
+        pickupBtn.setTitle("Pick me up", forState: .Normal)
         pickupBtn.backgroundColor = .purpleColor()
         pickupBtn.contentEdgeInsets = UIEdgeInsetsMake(10, 0, 10, 0);
-        
         mapView.addSubview(pickupBtn)
         
         pickupBtn.centerXAnchor.constraintEqualToAnchor(mapPin.centerXAnchor).active = true
@@ -167,143 +138,54 @@ class RiderPickupController: UIViewController, GMSMapViewDelegate, CLLocationMan
     }
     
     func createPickupRequest() {
-        //        print("address: \(locationTrackingLabel.text) , coord: \(mapView.camera.target)")
-        let currentTrip = Trip()
-        currentTrip.address(locationTrackingLabel.text!).destinationCoordinates(mapView.camera.target)
-        navigationController?.pushViewController(ConfirmPickupFormController(trip: currentTrip), animated: true)
+        let fakeUser = User(name: "John Okafor", gender: "Male", email: "john@gmail.com", role: .Rider)
+        let rider = Rider(currentLocation: nil, destination: Address(), userDetails: fakeUser)
+        //Make vars above instance variables
+        
+        self.currentTrip = Trip(rider: rider)
+        
+//        self.currentTrip!.address("test")
+//        self.currentTrip!.coordinates(mapView.camera.target)
+        navigationController?.pushViewController(ConfirmPickupFormController(trip: self.currentTrip), animated: true)
     }
     
-    // MARK: CLLocationManagerDelegate
 
-    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        if (status == CLAuthorizationStatus.Denied) {
-            // The user denied authorization
-            print("why did you decline ?")
-
-                    manager.requestWhenInUseAuthorization()
-
-
-        } else if (status == CLAuthorizationStatus.AuthorizedAlways) {
-            // The user accepted authorization
-            print("thanks for accepting ")
-
-        }
-    }
-    
-    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
-        var alertController = UIAlertController (title: "Location Service Required", message: "The Location access has been disabled please go to settings and turn it on ", preferredStyle: .Alert)
         
-        var settingsAction = UIAlertAction(title: "Settings", style: .Default) { (_) -> Void in
-            let settingsUrl = NSURL(string: UIApplicationOpenSettingsURLString)
-            if let url = settingsUrl {
-                UIApplication.sharedApplication().openURL(url)
-            }
-        }
+//        handleLocationAuthorizationState()
         
-        var cancelAction = UIAlertAction(title: "Cancel", style: .Default, handler: nil)
-        alertController.addAction(settingsAction)
-        alertController.addAction(cancelAction)
+       
         
-        presentViewController(alertController, animated: true, completion: nil)
     }
     
-    
-    // MARK: GMSMapViewDelegate
-    
-    func mapView(mapView: GMSMapView, didTapAtCoordinate coordinate: CLLocationCoordinate2D) {
-        //        print("You tapped at \(coordinate.latitude), \(coordinate.longitude)")
-    }
-    
-    func mapView(mapView: GMSMapView, willMove gesture: Bool) {
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-        print(mapView.camera.target)
-        mapView.clear()
-    }
-    
-    func mapView(mapView: GMSMapView, idleAtCameraPosition cameraPosition: GMSCameraPosition) {
-        reverseGeocodeCoordinate(cameraPosition.target)
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
-    }
-    
-    private func reverseGeocodeCoordinate(coordinate: CLLocationCoordinate2D) {
-        
-        // 1
-        let geocoder = GMSGeocoder()
-        
-        // 2
-        geocoder.reverseGeocodeCoordinate(coordinate) { response, error in
-            if let address = response?.firstResult() {
-                
-                // 3
-                let lines = address.lines
-                
-                if let userAddress = address.lines {
-                    self.pickupBtn.userInteractionEnabled = true
-//                    let attributedText = NSMutableAttributedString(string: "", attributes: [NSFontAttributeName: UIFont.boldSystemFontOfSize(14)])
-//                    
-//                    attributedText.appendAttributedString(NSAttributedString(string: "" ,
-//                        attributes: [NSFontAttributeName: UIFont.boldSystemFontOfSize(12)]))
-//                    
-//                    let paragraphStyle = NSMutableParagraphStyle()
-//                    paragraphStyle.lineSpacing = 4
-//                    attributedText.addAttribute(NSParagraphStyleAttributeName, value: paragraphStyle, range:NSMakeRange(0, attributedText.string.characters.count))
-//                    
-//                    let attachment = NSTextAttachment()
-//                    attachment.image = UIImage(named: "edit_pen")
-//                    attachment.bounds = CGRectMake(-95, -20, 12, 12)
-//                    attributedText.appendAttributedString(NSAttributedString(attachment: attachment))
-//                    
-//                    self.locationTrackingLabel.textAlignment = .Center
-//                    self.locationTrackingLabel.attributedText = attributedText
-                    self.locationTrackingLabel.text = userAddress[0]
-
-
-                    
-                }
-                //                print(lines!.joinWithSeparator("\n"))
-                print(lines!)
-                
-                // 4
-                UIView.animateWithDuration(0.25) {
-                    self.view.layoutIfNeeded()
+    func handleLocationAuthorizationState(){
+        if !userLocationPermissionEnabled! {
+            var alertController = UIAlertController (title: "Location Required", message: "You have disabled location usage. Kindly visit your settings and turn it on ", preferredStyle: .Alert)
+            
+            var settingsAction = UIAlertAction(title: "Settings", style: .Default) { (_) -> Void in
+                let settingsUrl = NSURL(string: UIApplicationOpenSettingsURLString)
+                if let url = settingsUrl {
+                    UIApplication.sharedApplication().openURL(url)
                 }
             }
+            
+            var cancelAction = UIAlertAction(title: "Cancel", style: .Default, handler: nil)
+            alertController.addAction(settingsAction)
+            alertController.addAction(cancelAction)
+            
+            presentViewController(alertController, animated: true, completion: nil)
+        } else {
+            setUserLocationOnMap()
+            print("view loaded from background ")
+
         }
+        
+        
+        
     }
     
+       
 }
 
-extension RiderPickupController: GMSAutocompleteViewControllerDelegate {
-    
-    // Handle the user's selection.
-    func viewController(viewController: GMSAutocompleteViewController, didAutocompleteWithPlace place: GMSPlace) {
-        //        print("Place name: ", place.name)
-        //        print("Place address: ", place.formattedAddress)
-        //        print("Place coordinates: ", place.coordinate)
-        self.locationTrackingLabel.text = place.name
-        mapView.camera = GMSCameraPosition.cameraWithLatitude(place.coordinate.latitude, longitude: place.coordinate.longitude, zoom: 16.0)
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    func viewController(viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: NSError) {
-        // TODO: handle the error.
-        print("Error: ", error.description)
-    }
-    
-    // User canceled the operation.
-    func wasCancelled(viewController: GMSAutocompleteViewController) {
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    // Turn the network activity indicator on and off again.
-    func didRequestAutocompletePredictions(viewController: GMSAutocompleteViewController) {
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-    }
-    
-    func didUpdateAutocompletePredictions(viewController: GMSAutocompleteViewController) {
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-    }
-    
-}
+

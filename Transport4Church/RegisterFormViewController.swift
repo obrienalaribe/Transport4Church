@@ -64,6 +64,8 @@ class RegisterFormViewController : FormViewController {
        
         let valuesDictionary = form.values()
 
+        //TODO: create user struct here to pass on
+        
         if let role = valuesDictionary["Role"] {
             let userRole = role as! String
             
