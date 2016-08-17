@@ -9,6 +9,8 @@ target 'Transport4Church' do
     pod 'GooglePlaces'
     pod 'GooglePlacePicker'
     pod 'SCLAlertView'
+    pod 'Alamofire'
+    pod 'SwiftyJSON'
 end
 
 target 'Transport4ChurchTests' do

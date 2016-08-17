@@ -9,11 +9,11 @@
 import Foundation
 
 //need core data for this from register
-struct User : CustomStringConvertible {
+class User : CustomStringConvertible {
     var name : String?
     var gender: String?
     var email: String?
-    var role : UserRoles!
+    var role : UserRoles
     
     init(name: String?, gender: String?, email: String?, role: UserRoles) {
         self.name = name
@@ -23,7 +23,7 @@ struct User : CustomStringConvertible {
     }
     
     var description: String {
-        return "name: \(name), gender: \(gender), email: \(email), role: \(role) "
+        return "[User [Name: \(name), Gender: \(gender), Email: \(email), Role: \(role) ]] \n"
     }
 }
 

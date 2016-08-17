@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Driver : CustomStringConvertible {
+class Driver : CustomStringConvertible {
     
     var currentLocation : Address?
     var destination : Address?

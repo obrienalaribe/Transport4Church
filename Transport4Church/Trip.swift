@@ -8,19 +8,19 @@
 
 import Foundation
 
-struct Trip : CustomStringConvertible {
-    private var rider: Rider?
-    private var driver: Driver?
-    private var tripStatus: TripStatus = TripStatus.NEW
-    private var extraRiders : Int = 0
-    private var pickupTime : NSDate?
+class Trip : CustomStringConvertible {
+    var rider: Rider
+    var driver: Driver?
+    var status: TripStatus = TripStatus.NEW
+    var extraRiders : Int = 0
+    var pickupTime : NSDate?
     
-    init (rider: Rider?) {
+    init (rider: Rider) {
         self.rider = rider
     }
 
       var description : String {
-        return "Rider: \(rider)"
+        return "[TripDetails [Rider: [\(rider)] Status: [\(status)]] \n"
     }
 }
 

@@ -26,6 +26,7 @@
 		43632A141D61F51100AD3B75 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43632A131D61F51100AD3B75 /* Address.swift */; };
 		43632A161D62154900AD3B75 /* Rider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43632A151D62154900AD3B75 /* Rider.swift */; };
 		43632A181D62155200AD3B75 /* Driver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43632A171D62155200AD3B75 /* Driver.swift */; };
+		43632A1A1D63269A00AD3B75 /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43632A191D63269A00AD3B75 /* LocationHelper.swift */; };
 		43E383771D5A38EF0014DED2 /* LocationResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E383761D5A38EF0014DED2 /* LocationResultsController.swift */; };
 		83EA7DC4DB1B69BE86C35912 /* Pods_Transport4Church.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 488882E45C394C24207FC14B /* Pods_Transport4Church.framework */; };
 		9C3BDE250107873CD48D2C67 /* Pods_Transport4ChurchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90CAB7063715F7564B7B9A9F /* Pods_Transport4ChurchUITests.framework */; };
@@ -76,6 +77,7 @@
 		43632A131D61F51100AD3B75 /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		43632A151D62154900AD3B75 /* Rider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rider.swift; sourceTree = "<group>"; };
 		43632A171D62155200AD3B75 /* Driver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Driver.swift; sourceTree = "<group>"; };
+		43632A191D63269A00AD3B75 /* LocationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationHelper.swift; sourceTree = "<group>"; };
 		43E383711D5A1F2E0014DED2 /* Transport4Church-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Transport4Church-Bridging-Header.h"; sourceTree = "<group>"; };
 		43E383761D5A38EF0014DED2 /* LocationResultsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationResultsController.swift; sourceTree = "<group>"; };
 		488882E45C394C24207FC14B /* Pods_Transport4Church.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Transport4Church.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,6 +133,7 @@
 			children = (
 				43632A081D5B811600AD3B75 /* FormButton.swift */,
 				04DD3C4A1D57A88E00DEBB32 /* UIViewExtension.swift */,
+				43632A191D63269A00AD3B75 /* LocationHelper.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -517,6 +520,7 @@
 				43E383771D5A38EF0014DED2 /* LocationResultsController.swift in Sources */,
 				43632A071D5B786800AD3B75 /* Trip.swift in Sources */,
 				04DD3C4F1D591C8500DEBB32 /* RiderPickupController.swift in Sources */,
+				43632A1A1D63269A00AD3B75 /* LocationHelper.swift in Sources */,
 				43632A051D5B62F700AD3B75 /* ConfirmPickupFormController.swift in Sources */,
 				43632A141D61F51100AD3B75 /* Address.swift in Sources */,
 				04DD3C4B1D57A88E00DEBB32 /* UIViewExtension.swift in Sources */,

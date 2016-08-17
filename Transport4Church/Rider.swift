@@ -8,11 +8,11 @@
 
 import Foundation
 
-struct Rider : CustomStringConvertible {
+class Rider : CustomStringConvertible {
     
-    var currentLocation : Address?
-    var destination : Address?
-    var userDetails: User?
+    var location : Address
+    var destination : Address
+    var userDetails: User
 //    
 //    init(currentLocation: Address?, destination: Address?, userDetails: User?) {
 //        self.currentLocation = currentLocation
@@ -20,8 +20,14 @@ struct Rider : CustomStringConvertible {
 //        self.userDetails = userDetails
 //    }
     
+    init(location: Address, destination: Address, userDetails: User){
+        self.location = location
+        self.destination = destination
+        self.userDetails = userDetails
+    }
+    
     var description : String {
-        return "current: \(currentLocation) dest: \(destination), User: \(userDetails)"
+        return "[Rider [Location: [\(location)], Dest: [\(destination)], User: [\(userDetails)]] \n"
     }
     
 }

@@ -11,15 +11,16 @@ import Eureka
 
 class ConfirmPickupFormController: FormViewController {
     
-    var trip : Trip?
+    var trip : Trip
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init(trip: Trip?) {
-        super.init(nibName: nil, bundle: nil)
+    init(trip: Trip) {
         self.trip = trip
+        super.init(nibName: nil, bundle: nil)
+
     }
  
     
@@ -30,26 +31,25 @@ class ConfirmPickupFormController: FormViewController {
         
         form +++ Section()
             <<< PostalAddressRow("location"){
-                $0.title = "Location"
-                $0.streetPlaceholder = "Street"
-                $0.postalCodePlaceholder = "Postcode"
-                $0.cityPlaceholder = "City"
+                $0.title = "From"
+                $0.streetPlaceholder = ""
+                $0.postalCodePlaceholder = ""
+                $0.cityPlaceholder = ""
                 
                 $0.value = PostalAddress(
-                    street: "12 David Street",
-                    state: "Holbeck",
-                    postalCode: "LS12 2BB",
-                    city: "Leeds",
-                    country: nil
+                    street: self.trip.rider.location.streetName,
+                    state: self.trip.rider.location.city,
+                    postalCode: self.trip.rider.location.postcode,
+                    city: self.trip.rider.location.country,
+                    country: ""
                 )
                 $0.disabled = true
             }
             <<< TextRow("destination"){ row in
-                row.title = "Destination"
+                row.title = "To"
                 row.value = "RCCG EFA Leeds, LS4 2BB"
                 row.disabled = true
             }
-            
             
             +++ Section()
             <<< PushRow<String>("extraRider") {
@@ -64,7 +64,7 @@ class ConfirmPickupFormController: FormViewController {
                 $0.title = "Choose Pickup Time"
                 $0.value = NSDate()
             }
-        
+
             +++ Section() { section in
                 section.header = {
                     var header = HeaderFooterView<FormButton>(.Callback({
@@ -84,7 +84,7 @@ class ConfirmPickupFormController: FormViewController {
        navigationController?.popViewControllerAnimated(true)
         
         let valuesDictionary = form.values()
-        print(trip)
+        self.trip.status = .REQUESTED
         
 //        print("\(trip!.getAddress()) \(trip!.getCoordinates())")
         
