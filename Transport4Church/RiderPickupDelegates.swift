@@ -17,8 +17,9 @@ extension RiderPickupController : GMSMapViewDelegate{
     
     func mapView(mapView: GMSMapView, willMove gesture: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-
 //        mapView.clear()
+
+        
     }
     
     func mapView(mapView: GMSMapView, idleAtCameraPosition cameraPosition: GMSCameraPosition) {
@@ -30,12 +31,15 @@ extension RiderPickupController : GMSMapViewDelegate{
             self.rider.location.updateProperties(helper.result)
             self.pickupBtn.userInteractionEnabled = true
             
-            if self.currentTrip?.status == nil {
-                //only update before active trip requested mode
+            if self.currentTrip?.status == nil || self.currentTrip?.status == .CANCELLED {
+                //only update during pickup mode
                 self.locationTrackingLabel.text = helper.result[0]
 
+                
             }
 
+            print(self.currentTrip?.status)
+            
             UIView.animateWithDuration(0.25) {
                 self.view.layoutIfNeeded()
             }

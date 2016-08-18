@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Eureka
 import GooglePlaces
 import Alamofire
 import SwiftyJSON
@@ -49,7 +48,7 @@ class RiderPickupController: UIViewController {
     var rider: Rider!
     
     var driverLocation : GMSMarker!
-    var previousDistanceInMiles = 0.0
+    var previousDistanceInMiles: Double!
 
     
     override func viewDidLoad() {
@@ -69,6 +68,7 @@ class RiderPickupController: UIViewController {
         
         //observers
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(handleLocationAuthorizationState), name: UIApplicationWillEnterForegroundNotification, object: nil)
+        
 
     }
     
@@ -84,6 +84,7 @@ class RiderPickupController: UIViewController {
         
         if let tripStatus = self.currentTrip?.status {
             if tripStatus == TripStatus.REQUESTED {
+                print("trip mode on")
                 setupActiveTripModeView()
             }
         }
@@ -131,8 +132,8 @@ class RiderPickupController: UIViewController {
     
     func setupActiveTripModeView(){
        toggleRequestMode()
-        self.locationTrackingLabel.textColor = .redColor()
-
+        previousDistanceInMiles = 0.0
+        
         let position = CLLocationCoordinate2D(latitude: 53.787302434358566, longitude: -1.5659943222999573)
         
     
@@ -157,7 +158,8 @@ class RiderPickupController: UIViewController {
     func updateDriverMarker(timer: NSTimer){
         let padLat : Double = driverLocation.position.latitude - 0.0001
         let padLong : Double = driverLocation.position.longitude  + 0.0001
-        
+        self.locationTrackingLabel.textColor = .redColor()
+
         let position = CLLocationCoordinate2D(latitude: (padLat), longitude: (padLong))
         
         driverLocation.position = position
@@ -191,6 +193,7 @@ class RiderPickupController: UIViewController {
             //trip was cancelled
             print("stopping driver locationTrackingLabel")
             timer.invalidate()
+            self.locationTrackingLabel.textColor = .blackColor()
         }
         
     }
