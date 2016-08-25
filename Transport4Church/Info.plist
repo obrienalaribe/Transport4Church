@@ -10,6 +10,7 @@
 	<string>Let the driver know where you are</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
+		<string>fb</string>
 		<string>googlechromes</string>
 		<string>comgooglemaps</string>
 	</array>

@@ -18,6 +18,7 @@ class RegisterFormViewController : FormViewController {
         }
         
         
+        
         form +++ Section("Please fill in the details below")
             <<< TextRow("Name"){ row in
                 row.title = "Name"

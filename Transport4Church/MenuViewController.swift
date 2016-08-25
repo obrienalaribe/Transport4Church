@@ -54,9 +54,34 @@ class MenuViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         if indexPath.section == 0 {
+            let editProfileController = RegisterFormViewController()
+            editProfileController.title = "Edit Profile"
+            navigationController?.pushViewController(editProfileController, animated: true)
             print("Value: \(userSection[indexPath.row])")
+            
         } else if indexPath.section == 1 {
+            
+            switch(indexPath.row) {
+                case 0:
+                    MenuActions.openScheme("itms://itunes.apple.com/us/app/apple-store/id375380948?mt=8")
+                    break
+                case 1:
+                    MenuActions.openScheme("fb://page/?id=1177853545619876")
+                    break
+                case 2:
+                    break
+                case 3:
+                    break
+                case 4:
+                    break
+                case 5:
+                    break
+                default:
+                    return
+                }
+            
             print("Value: \(enquirySection[indexPath.row])")
+            
         }
     }
     
