@@ -17,6 +17,8 @@
 		04DD3C4B1D57A88E00DEBB32 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD3C4A1D57A88E00DEBB32 /* UIViewExtension.swift */; };
 		04DD3C4D1D5909B700DEBB32 /* RegisterFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD3C4C1D5909B700DEBB32 /* RegisterFormViewController.swift */; };
 		04DD3C4F1D591C8500DEBB32 /* RiderPickupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD3C4E1D591C8500DEBB32 /* RiderPickupController.swift */; };
+		431CF3D81D67269A00898CD7 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431CF3D71D67269A00898CD7 /* MenuViewController.swift */; };
+		431CF3DA1D6EF2F500898CD7 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431CF3D91D6EF2F500898CD7 /* MenuItem.swift */; };
 		43632A051D5B62F700AD3B75 /* ConfirmPickupFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43632A041D5B62F700AD3B75 /* ConfirmPickupFormController.swift */; };
 		43632A071D5B786800AD3B75 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43632A061D5B786800AD3B75 /* Trip.swift */; };
 		43632A091D5B811600AD3B75 /* FormButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43632A081D5B811600AD3B75 /* FormButton.swift */; };
@@ -68,6 +70,8 @@
 		04DD3C4C1D5909B700DEBB32 /* RegisterFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterFormViewController.swift; sourceTree = "<group>"; };
 		04DD3C4E1D591C8500DEBB32 /* RiderPickupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RiderPickupController.swift; sourceTree = "<group>"; };
 		2B3148B7DBC0B7F371C5393E /* Pods-Transport4ChurchTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transport4ChurchTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Transport4ChurchTests/Pods-Transport4ChurchTests.release.xcconfig"; sourceTree = "<group>"; };
+		431CF3D71D67269A00898CD7 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		431CF3D91D6EF2F500898CD7 /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		43632A041D5B62F700AD3B75 /* ConfirmPickupFormController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmPickupFormController.swift; sourceTree = "<group>"; };
 		43632A061D5B786800AD3B75 /* Trip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		43632A081D5B811600AD3B75 /* FormButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormButton.swift; sourceTree = "<group>"; };
@@ -180,6 +184,7 @@
 		04DD3C181D57A72C00DEBB32 /* Transport4Church */ = {
 			isa = PBXGroup;
 			children = (
+				431CF3D61D67268300898CD7 /* Menu */,
 				04DD3C191D57A72C00DEBB32 /* AppDelegate.swift */,
 				04283A361D5D1E210053D1D2 /* Rider */,
 				04283A391D5D1FC50053D1D2 /* Register */,
@@ -212,6 +217,15 @@
 				04DD3C3E1D57A72C00DEBB32 /* Info.plist */,
 			);
 			path = Transport4ChurchUITests;
+			sourceTree = "<group>";
+		};
+		431CF3D61D67268300898CD7 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				431CF3D71D67269A00898CD7 /* MenuViewController.swift */,
+				431CF3D91D6EF2F500898CD7 /* MenuItem.swift */,
+			);
+			name = Menu;
 			sourceTree = "<group>";
 		};
 		43632A0C1D5CCBB100AD3B75 /* Models */ = {
@@ -526,10 +540,12 @@
 				04DD3C4B1D57A88E00DEBB32 /* UIViewExtension.swift in Sources */,
 				43632A121D61DB7700AD3B75 /* RiderPickupDelegates.swift in Sources */,
 				43632A0E1D5CCBCC00AD3B75 /* User.swift in Sources */,
+				431CF3D81D67269A00898CD7 /* MenuViewController.swift in Sources */,
 				04DD3C1A1D57A72C00DEBB32 /* AppDelegate.swift in Sources */,
 				04DD3C4D1D5909B700DEBB32 /* RegisterFormViewController.swift in Sources */,
 				04283A351D5D1DB90053D1D2 /* DriverRequestListController.swift in Sources */,
 				43632A091D5B811600AD3B75 /* FormButton.swift in Sources */,
+				431CF3DA1D6EF2F500898CD7 /* MenuItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -665,6 +681,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Transport4Church/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -684,6 +701,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Transport4Church/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
