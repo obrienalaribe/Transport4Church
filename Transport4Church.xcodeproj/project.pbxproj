@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		04283A351D5D1DB90053D1D2 /* DriverRequestListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04283A341D5D1DB90053D1D2 /* DriverRequestListController.swift */; };
+		042B42341D6887BE008CBFE0 /* ParseServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B42331D6887BE008CBFE0 /* ParseServer.swift */; };
+		042B42371D68BE0F008CBFE0 /* DaoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B42361D68BE0F008CBFE0 /* DaoManager.swift */; };
+		042B42391D68D908008CBFE0 /* UserRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B42381D68D908008CBFE0 /* UserRepo.swift */; };
+		042B423B1D6B6D86008CBFE0 /* TripRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B423A1D6B6D86008CBFE0 /* TripRepo.swift */; };
 		04DD3C1A1D57A72C00DEBB32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD3C191D57A72C00DEBB32 /* AppDelegate.swift */; };
 		04DD3C221D57A72C00DEBB32 /* Transport4Church.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04DD3C201D57A72C00DEBB32 /* Transport4Church.xcdatamodeld */; };
 		04DD3C241D57A72C00DEBB32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04DD3C231D57A72C00DEBB32 /* Assets.xcassets */; };
@@ -20,7 +24,6 @@
 		43632A051D5B62F700AD3B75 /* ConfirmPickupFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43632A041D5B62F700AD3B75 /* ConfirmPickupFormController.swift */; };
 		43632A071D5B786800AD3B75 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43632A061D5B786800AD3B75 /* Trip.swift */; };
 		43632A091D5B811600AD3B75 /* FormButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43632A081D5B811600AD3B75 /* FormButton.swift */; };
-		43632A0B1D5B88A200AD3B75 /* TrackPickupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43632A0A1D5B88A200AD3B75 /* TrackPickupController.swift */; };
 		43632A0E1D5CCBCC00AD3B75 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43632A0D1D5CCBCC00AD3B75 /* User.swift */; };
 		43632A121D61DB7700AD3B75 /* RiderPickupDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43632A111D61DB7700AD3B75 /* RiderPickupDelegates.swift */; };
 		43632A141D61F51100AD3B75 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43632A131D61F51100AD3B75 /* Address.swift */; };
@@ -52,6 +55,10 @@
 
 /* Begin PBXFileReference section */
 		04283A341D5D1DB90053D1D2 /* DriverRequestListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverRequestListController.swift; sourceTree = "<group>"; };
+		042B42331D6887BE008CBFE0 /* ParseServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseServer.swift; sourceTree = "<group>"; };
+		042B42361D68BE0F008CBFE0 /* DaoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DaoManager.swift; sourceTree = "<group>"; };
+		042B42381D68D908008CBFE0 /* UserRepo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRepo.swift; sourceTree = "<group>"; };
+		042B423A1D6B6D86008CBFE0 /* TripRepo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripRepo.swift; sourceTree = "<group>"; };
 		04DD3C161D57A72C00DEBB32 /* Transport4Church.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Transport4Church.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04DD3C191D57A72C00DEBB32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04DD3C211D57A72C00DEBB32 /* Transport4Church.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Transport4Church.xcdatamodel; sourceTree = "<group>"; };
@@ -71,7 +78,6 @@
 		43632A041D5B62F700AD3B75 /* ConfirmPickupFormController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmPickupFormController.swift; sourceTree = "<group>"; };
 		43632A061D5B786800AD3B75 /* Trip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		43632A081D5B811600AD3B75 /* FormButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormButton.swift; sourceTree = "<group>"; };
-		43632A0A1D5B88A200AD3B75 /* TrackPickupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackPickupController.swift; sourceTree = "<group>"; };
 		43632A0D1D5CCBCC00AD3B75 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		43632A111D61DB7700AD3B75 /* RiderPickupDelegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RiderPickupDelegates.swift; sourceTree = "<group>"; };
 		43632A131D61F51100AD3B75 /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
@@ -154,6 +160,25 @@
 			name = Register;
 			sourceTree = "<group>";
 		};
+		042B42301D68876B008CBFE0 /* Backend */ = {
+			isa = PBXGroup;
+			children = (
+				042B42351D68BDD5008CBFE0 /* Dao */,
+				042B42331D6887BE008CBFE0 /* ParseServer.swift */,
+			);
+			name = Backend;
+			sourceTree = "<group>";
+		};
+		042B42351D68BDD5008CBFE0 /* Dao */ = {
+			isa = PBXGroup;
+			children = (
+				042B42361D68BE0F008CBFE0 /* DaoManager.swift */,
+				042B42381D68D908008CBFE0 /* UserRepo.swift */,
+				042B423A1D6B6D86008CBFE0 /* TripRepo.swift */,
+			);
+			name = Dao;
+			sourceTree = "<group>";
+		};
 		04DD3C0D1D57A72C00DEBB32 = {
 			isa = PBXGroup;
 			children = (
@@ -181,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				04DD3C191D57A72C00DEBB32 /* AppDelegate.swift */,
+				042B42301D68876B008CBFE0 /* Backend */,
 				04283A361D5D1E210053D1D2 /* Rider */,
 				04283A391D5D1FC50053D1D2 /* Register */,
 				04283A381D5D1E8F0053D1D2 /* Driver */,
@@ -191,7 +217,6 @@
 				04DD3C281D57A72C00DEBB32 /* Info.plist */,
 				04DD3C201D57A72C00DEBB32 /* Transport4Church.xcdatamodeld */,
 				43E383761D5A38EF0014DED2 /* LocationResultsController.swift */,
-				43632A0A1D5B88A200AD3B75 /* TrackPickupController.swift */,
 			);
 			path = Transport4Church;
 			sourceTree = "<group>";
@@ -262,6 +287,7 @@
 				04DD3C141D57A72C00DEBB32 /* Resources */,
 				BF467F1C80AD15B1100D7A75 /* [CP] Embed Pods Frameworks */,
 				BE660D48D3DD2729BE3AD5B0 /* [CP] Copy Pods Resources */,
+				3CCE0B1CE22E66B4AF883471 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -386,6 +412,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3CCE0B1CE22E66B4AF883471 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Transport4Church/Pods-Transport4Church-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		4DCAFA600FC7821D835E476A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -513,7 +554,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43632A0B1D5B88A200AD3B75 /* TrackPickupController.swift in Sources */,
+				042B423B1D6B6D86008CBFE0 /* TripRepo.swift in Sources */,
 				04DD3C221D57A72C00DEBB32 /* Transport4Church.xcdatamodeld in Sources */,
 				43632A161D62154900AD3B75 /* Rider.swift in Sources */,
 				43632A181D62155200AD3B75 /* Driver.swift in Sources */,
@@ -527,8 +568,11 @@
 				43632A121D61DB7700AD3B75 /* RiderPickupDelegates.swift in Sources */,
 				43632A0E1D5CCBCC00AD3B75 /* User.swift in Sources */,
 				04DD3C1A1D57A72C00DEBB32 /* AppDelegate.swift in Sources */,
+				042B42341D6887BE008CBFE0 /* ParseServer.swift in Sources */,
+				042B42371D68BE0F008CBFE0 /* DaoManager.swift in Sources */,
 				04DD3C4D1D5909B700DEBB32 /* RegisterFormViewController.swift in Sources */,
 				04283A351D5D1DB90053D1D2 /* DriverRequestListController.swift in Sources */,
+				042B42391D68D908008CBFE0 /* UserRepo.swift in Sources */,
 				43632A091D5B811600AD3B75 /* FormButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

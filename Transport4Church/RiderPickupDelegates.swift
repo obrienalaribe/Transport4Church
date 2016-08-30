@@ -28,13 +28,12 @@ extension RiderPickupController : GMSMapViewDelegate{
         
         dispatch_group_notify(locationDispatchGroup, dispatch_get_main_queue(), {
             print("hence \(helper.result)")
-            self.rider.location.updateProperties(helper.result)
+//            self.rider.location.updateProperties(helper.result)
             self.pickupBtn.userInteractionEnabled = true
             
             if self.currentTrip?.status == nil || self.currentTrip?.status == .CANCELLED {
-                //only update during pickup mode
+                //only update rider location on view during pickup mode
                 self.locationTrackingLabel.text = helper.result[0]
-
                 
             }
 
@@ -103,7 +102,5 @@ extension RiderPickupController : CLLocationManagerDelegate {
             print("thanks for accepting ")
             
         }
-    }
-    
-    
+    }    
 }

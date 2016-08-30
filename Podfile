@@ -11,6 +11,7 @@ target 'Transport4Church' do
     pod 'SCLAlertView'
     pod 'Alamofire'
     pod 'SwiftyJSON'
+    pod 'Parse'
 end
 
 target 'Transport4ChurchTests' do

@@ -40,9 +40,7 @@ class RiderPickupController: UIViewController {
     
     var pickupBtn : UIButton!
     var cancelTripButton : UIButton!
-    
     var userLocationPermissionEnabled : Bool? = nil
-    
     
     var currentTrip : Trip?
     var rider: Rider!
@@ -53,38 +51,42 @@ class RiderPickupController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Transport4Church"
         mapView = GMSMapView(frame: CGRectMake(0, 0, view.bounds.width, view.bounds.height ))
         mapView.mapType = kGMSTypeNormal
         mapView.delegate = self
         mapView.myLocationEnabled = true
         mapView.settings.myLocationButton = true
-        mapView.setMinZoom(12, maxZoom: 16)
+//        mapView.setMinZoom(12, maxZoom: 16)
         
         view.addSubview(mapView)
         
         setupLocationTrackingLabel()
         setupMapPin()
         setupPickupButton()
+        setupViewObservers()
         
-        //observers
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(handleLocationAuthorizationState), name: UIApplicationWillEnterForegroundNotification, object: nil)
-        
+        var driverView = UIBarButtonItem(title: "DriverView", style: .Plain, target: self, action:"showDriverView")
 
+        navigationItem.rightBarButtonItem = driverView
+        
+        
+    }
+    
+    func showDriverView() {
+        navigationController?.pushViewController(DriverRequestListController(collectionViewLayout: UICollectionViewFlowLayout()), animated: true)
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewDidAppear(true)
         
-        
-        print(self.currentTrip?.status)
         if self.currentTrip?.status == nil {
-            //initial view before pick me up request
+            //initial state before trip is initialized
             setRiderLocationOnMap()
         }
         
         if let tripStatus = self.currentTrip?.status {
             if tripStatus == TripStatus.REQUESTED {
-                print("trip mode on")
                 setupActiveTripModeView()
             }
         }
@@ -97,7 +99,8 @@ class RiderPickupController: UIViewController {
         
         //start an animations or the loading of external data from an API or checks for location permission
         
-        //        handleLocationAuthorizationState()
+        //TODO: Check if user is connected to the internet first
+//                handleLocationAuthorizationState()
         
     
 //
@@ -108,7 +111,7 @@ class RiderPickupController: UIViewController {
         manager.delegate = self
         
         if let location = manager.location {
-            let fakeUser = User(name: "John Okafor", gender: "Male", email: "john@gmail.com", role: .Rider)
+            let fakeUser = User(name: "John Okafor", gender: "Male", email: "john@gmail.com", role: .Rider, username: "sdfds", password: "dfdd")
             
             let fakeDest = CLLocationCoordinate2DMake(53.789607182624763, -1.5980678424239159) //remove this in prod
             
@@ -131,11 +134,10 @@ class RiderPickupController: UIViewController {
     }
     
     func setupActiveTripModeView(){
-       toggleRequestMode()
+        toggleTripMode()
         previousDistanceInMiles = 0.0
         
         let position = CLLocationCoordinate2D(latitude: 53.787302434358566, longitude: -1.5659943222999573)
-        
     
         driverLocation = GMSMarker(position: position)
         driverLocation.title = "EFA Church Bus"
@@ -191,14 +193,13 @@ class RiderPickupController: UIViewController {
         
         if driverLocation.map == nil {
             //trip was cancelled
-            print("stopping driver locationTrackingLabel")
             timer.invalidate()
             self.locationTrackingLabel.textColor = .blackColor()
         }
         
     }
     
-    
+    //TODO: could move this to location helper
     private func updateArrivalTime(){
         let requestUrl = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=ls29aa&destinations=ls119bn&mode=driving"
         Alamofire.request(.GET, requestUrl, parameters: ["foo": "bar"])
@@ -209,7 +210,6 @@ class RiderPickupController: UIViewController {
                     if let result = response.result.value {
                         let time: String = ("\(JSON(result)["rows"][0]["elements"][0]["duration"]["text"])")
                         self.locationTrackingLabel.text = "Pickup time: \(time)"
-                        
                     }
                 case .Failure(let error):
                     print(error)
@@ -242,7 +242,6 @@ class RiderPickupController: UIViewController {
     }
     
     private func setupCancelButton(){
-        
         cancelTripButton = UIButton()
         cancelTripButton.setTitle("Cancel Pickup", forState: .Normal)
         cancelTripButton.backgroundColor = .whiteColor()
@@ -268,7 +267,6 @@ class RiderPickupController: UIViewController {
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(cancelTrip))
         cancelTripButton.addGestureRecognizer(longPressRecognizer)
         
-
     }
     
     func cancelTrip(sender : UIGestureRecognizer){
@@ -277,25 +275,24 @@ class RiderPickupController: UIViewController {
             self.locationTrackingLabel.text = "Pickup Cancelled"
             driverLocation.map = nil
             self.currentTrip!.status = .CANCELLED
-            toggleRequestMode()
+            toggleTripMode()
         }
         else if sender.state == .Began {
             self.cancelTripButton.alpha = 1
             self.locationTrackingLabel.text = "Cancelling Pickup ... "
 
-            //send cancel request through network
+            //TODO: send cancel request through network
         }
     }
     
-    private func toggleRequestMode(){
+    private func toggleTripMode(){
         self.locationTrackingLabel.userInteractionEnabled = !self.locationTrackingLabel.userInteractionEnabled
         self.pickupBtn.hidden = !self.pickupBtn.hidden
         self.mapPin.hidden = !self.mapPin.hidden
         
-        if  self.currentTrip!.status == .CANCELLED {
+        if self.currentTrip!.status == .CANCELLED {
             mapView.animateToLocation(CLLocationCoordinate2D(latitude: self.rider.location.coordinate.latitude, longitude: self.rider.location.coordinate.longitude))
         }
-        
     }
     
     private func setupMapPin(){
@@ -309,13 +306,15 @@ class RiderPickupController: UIViewController {
         pickupBtn = UIButton()
         pickupBtn.userInteractionEnabled = false //disable till user location is determined
         pickupBtn.layer.cornerRadius = 12
-        pickupBtn.setTitle("Pick me up", forState: .Normal)
-        pickupBtn.backgroundColor = .purpleColor()
+        pickupBtn.setTitleColor(.darkGrayColor(), forState: .Normal)
+        pickupBtn.setTitle("Pick me up here", forState: .Normal)
+        pickupBtn.backgroundColor = UIColor(white: 1, alpha: 1)
         pickupBtn.contentEdgeInsets = UIEdgeInsetsMake(10, 0, 10, 0);
         mapView.addSubview(pickupBtn)
         
         pickupBtn.centerXAnchor.constraintEqualToAnchor(mapPin.centerXAnchor).active = true
-        pickupBtn.centerYAnchor.constraintEqualToAnchor(mapPin.centerYAnchor, constant: -15).active = true
+        pickupBtn.centerYAnchor.constraintEqualToAnchor(mapPin.centerYAnchor, constant: -18).active = true
+        pickupBtn.widthAnchor.constraintEqualToAnchor(view.widthAnchor, multiplier: 0.5).active = true
         pickupBtn.translatesAutoresizingMaskIntoConstraints = false
         
         pickupBtn.addTarget(self, action: "createPickupRequest", forControlEvents: .TouchUpInside)
@@ -323,10 +322,15 @@ class RiderPickupController: UIViewController {
     }
     
     func createPickupRequest() {
+        //TODO: current trip should be initialized at first call so that trip status is NEW not nil
         self.currentTrip = Trip(rider: self.rider)
         navigationController?.pushViewController(ConfirmPickupFormController(trip: currentTrip!), animated: true)
     }
     
+    
+    func setupViewObservers() -> Void {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(handleLocationAuthorizationState), name: UIApplicationWillEnterForegroundNotification, object: nil)
+    }
     
     func handleLocationAuthorizationState(){
         if !userLocationPermissionEnabled! {

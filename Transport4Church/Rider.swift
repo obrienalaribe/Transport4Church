@@ -8,6 +8,7 @@
 
 import Foundation
 
+//TODO: should extend user and only have location 
 class Rider : CustomStringConvertible {
     
     var location : Address

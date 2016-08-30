@@ -51,6 +51,14 @@ class ConfirmPickupFormController: FormViewController {
                 row.disabled = true
             }
             
+            //TODO: check if it is the users first trip then ask for contact
+            //try and do test call to verify number given
+            <<< TextRow("contact"){ row in
+                row.title = "Contact"
+                row.value = "07950412921"
+                row.highlightCell()
+            }
+            
             +++ Section()
             <<< PushRow<String>("extraRider") {
                 $0.title = "Extra riders"
