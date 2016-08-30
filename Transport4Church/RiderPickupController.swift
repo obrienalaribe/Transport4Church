@@ -12,7 +12,7 @@ import Alamofire
 import SwiftyJSON
 import NVActivityIndicatorView
 
-class RiderPickupController: UIViewController {
+class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
     
     var mapView : GMSMapView!
     
@@ -43,7 +43,7 @@ class RiderPickupController: UIViewController {
     var cancelTripButton : UIButton!
     var userLocationPermissionEnabled : Bool? = nil
     
-    var currentTrip : Trip?
+    var currentTrip : Trip!
     var rider: Rider!
     
     var driverLocation : GMSMarker!
@@ -75,7 +75,6 @@ class RiderPickupController: UIViewController {
         navigationItem.leftBarButtonItem = menuBtn
         navigationItem.rightBarButtonItem = driverView
         
-        test()
     }
     
     func showMenu() {
@@ -126,6 +125,9 @@ class RiderPickupController: UIViewController {
             let fakeDest = CLLocationCoordinate2DMake(53.789607182624763, -1.5980678424239159) //remove this in prod
             
             self.rider = Rider(location: Address(coordinate: location.coordinate), destination: Address(coordinate: fakeDest), userDetails: fakeUser)
+            
+            self.currentTrip = Trip(rider: self.rider)
+
             
             self.userLocationPermissionEnabled = true
             let riderLatitude = self.rider.location.coordinate.latitude
@@ -280,9 +282,7 @@ class RiderPickupController: UIViewController {
     
     func cancelTrip(sender : UIGestureRecognizer){
         if sender.state == .Ended {
-            startNetworkActivity()
             self.cancelTripButton.hidden = !self.cancelTripButton.hidden
-            self.locationTrackingLabel.text = "Pickup Cancelled"
             driverLocation.map = nil
             self.currentTrip!.status = .CANCELLED
             toggleTripMode()
@@ -290,7 +290,7 @@ class RiderPickupController: UIViewController {
         else if sender.state == .Began {
             self.cancelTripButton.alpha = 1
             self.locationTrackingLabel.text = "Cancelling Pickup ... "
-
+            startNetworkActivity(sender)
             //TODO: send cancel request through network
         }
     }
@@ -333,8 +333,7 @@ class RiderPickupController: UIViewController {
     
     func createPickupRequest() {
         //TODO: current trip should be initialized at first call so that trip status is NEW not nil
-        self.currentTrip = Trip(rider: self.rider)
-        navigationController?.pushViewController(ConfirmPickupFormController(trip: currentTrip!), animated: true)
+        navigationController?.pushViewController(ConfirmPickupFormController(trip: self.currentTrip), animated: true)
     }
     
     
@@ -366,51 +365,15 @@ class RiderPickupController: UIViewController {
         
     }
     
+
     
-    func setupNetworkIndicatory(){
-        let cols = 4
-        let rows = 8
-        let cellWidth = Int(self.view.frame.width / CGFloat(cols))
-        let cellHeight = Int(self.view.frame.height / CGFloat(rows))
-        
-        (NVActivityIndicatorType.BallPulse.rawValue ... NVActivityIndicatorType.AudioEqualizer.rawValue).forEach {
-            let x = ($0 - 1) % cols * cellWidth
-            let y = ($0 - 1) / cols * cellHeight
-            let frame = CGRect(x: x, y: y, width: cellWidth, height: cellHeight)
-            let activityIndicatorView = NVActivityIndicatorView(frame: frame,
-                type: NVActivityIndicatorType(rawValue: $0)!)
-            let animationTypeLabel = UILabel(frame: frame)
-            
-            animationTypeLabel.text = String($0)
-            animationTypeLabel.sizeToFit()
-            animationTypeLabel.textColor = UIColor.whiteColor()
-            animationTypeLabel.frame.origin.x += 5
-            animationTypeLabel.frame.origin.y += CGFloat(cellHeight) - animationTypeLabel.frame.size.height
-            
-            activityIndicatorView.padding = 20
-            if ($0 == NVActivityIndicatorType.Orbit.rawValue) {
-                activityIndicatorView.padding = 0
-            }
-            self.view.addSubview(activityIndicatorView)
-            self.view.addSubview(animationTypeLabel)
-            activityIndicatorView.startAnimation()
-            
-            let button:UIButton = UIButton(frame: frame)
-            button.tag = $0
-            button.addTarget(self,
-                action: #selector(buttonTapped(_:)),
-                forControlEvents: UIControlEvents.TouchUpInside)
-            self.view.addSubview(button)
-        }
-    }
-    
-    func startNetworkActivity(){
+    func startNetworkActivity(sender: UIGestureRecognizer){
         let size = CGSize(width: 30, height:30)
         
-        startActivityAnimating(size, message: "Loading...", type: NVActivityIndicatorType(rawValue: sender.tag)!)
+        startActivityAnimating(size, message: "Please wait", type: NVActivityIndicatorType(rawValue: 17)!)
         performSelector(#selector(delayedStopActivity),
                         withObject: nil,
-                        afterDelay: 2.5)
+                        afterDelay: 5.5)
     }
     
     func delayedStopActivity() {

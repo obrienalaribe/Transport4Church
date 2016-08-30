@@ -6,23 +6,23 @@
 //  Copyright © 2016 rccg. All rights reserved.
 //
 
-import Parse
+//import Parse
 
 var fakeTrips : [Trip] = [Trip]()
 
 class ParseServer {
-    init(){
-        print("initializing parse server ...")
-        Parse.enableLocalDatastore()
-        
-        let parseConfiguration = ParseClientConfiguration(block: { (ParseMutableClientConfiguration) -> Void in
-            ParseMutableClientConfiguration.applicationId = "myAppId"
-            ParseMutableClientConfiguration.clientKey = "myMasterKey"
-            ParseMutableClientConfiguration.server = "http://localhost:1337/parse"
-        })
-
-        Parse.initializeWithConfiguration(parseConfiguration)
-    }
+//    init(){
+//        print("initializing parse server ...")
+//        Parse.enableLocalDatastore()
+//        
+//        let parseConfiguration = ParseClientConfiguration(block: { (ParseMutableClientConfiguration) -> Void in
+//            ParseMutableClientConfiguration.applicationId = "myAppId"
+//            ParseMutableClientConfiguration.clientKey = "myMasterKey"
+//            ParseMutableClientConfiguration.server = "http://localhost:1337/parse"
+//        })
+//
+//        Parse.initializeWithConfiguration(parseConfiguration)
+//    }
     
     func createTripRequests(){
 //        var user = PFUser.currentUser()

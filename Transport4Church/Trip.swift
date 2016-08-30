@@ -6,9 +6,8 @@
 //  Copyright © 2016 rccg. All rights reserved.
 //
 
-import Parse
-
-//TODO: Subclass PFObject and include destination
+//
+////TODO: Subclass PFObject and include destination
 class Trip : CustomStringConvertible {
     var rider: Rider
     var driver: Driver?
