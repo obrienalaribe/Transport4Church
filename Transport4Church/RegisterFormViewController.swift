@@ -9,19 +9,20 @@
 import Eureka
 
 class RegisterFormViewController : FormViewController {
+    
+    private var userRepo : UserRepo = UserRepo()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ImageRow.defaultCellUpdate = { cell, row in
-            cell.accessoryView?.layer.cornerRadius = 17
-            cell.accessoryView?.frame = CGRectMake(0, 0, 80, 80)
-        }
+        title = "Register for Account"
         
+        //TODO: Add section for login button and caption
         
         
         form +++ Section("Please fill in the details below")
             <<< TextRow("Name"){ row in
-                row.title = "Name"
+                row.title = "Fullname"
                 row.placeholder = "i.e Emma Smith"
             }
             <<< ActionSheetRow<String>("Gender") {
@@ -35,15 +36,16 @@ class RegisterFormViewController : FormViewController {
                 $0.title = "Email"
                 $0.placeholder = "i.e emmy23@gmail.com"
             }
-            <<< ActionSheetRow<String>("Role") {
-                $0.title = "Passenger or Driver ?"
-                $0.selectorTitle = "Pick one"
-                $0.options = ["Passenger","Driver"]
-                $0.value = "Passenger"    // initially selected
+            
+            <<< PasswordRow("Password"){
+                $0.title = "Password"
             }
             
-            <<< ImageRow(){
-                $0.title = "Profile picture"
+            <<< ActionSheetRow<String>("Role") {
+                $0.title = "Rider or Driver ?"
+                $0.selectorTitle = "Rider or Driver ?"
+                $0.options = ["Rider","Driver"]
+                $0.value = "Rider"    // initially selected
             }
             
             +++ Section() { section in
@@ -67,18 +69,60 @@ class RegisterFormViewController : FormViewController {
 
         //TODO: create user struct here to pass on
         
-        if let role = valuesDictionary["Role"] {
-            let userRole = role as! String
+        let listOfEmptyFields = validateFormInputs(valuesDictionary)
+        
+        if listOfEmptyFields.isEmpty == false {
+            print("please provide \(listOfEmptyFields.joinWithSeparator(", "))")
+
+        }else{
             
-            if userRole == "Driver" {
-                self.navigationController?.pushViewController(DriverRequestListController(collectionViewLayout: UICollectionViewFlowLayout()), animated: true)
-            }else{
-                self.navigationController?.setViewControllers([RiderPickupController()], animated: true)
+            if let role = valuesDictionary["Role"] {
+                let userRole = role as! String
+                
+                var user = User(
+                    name: valuesDictionary["Name"] as! String,
+                    gender: valuesDictionary["Gender"] as! String,
+                    email: valuesDictionary["Email"] as! String,
+                    role: nil,
+                    username: valuesDictionary["Email"] as! String,
+                    password: valuesDictionary["Password"] as! String
+                )
+                
+                if userRole == UserRoles.Driver.rawValue {
+                    //driver registration
+                    user.role = .Driver
+//                    userRepo.register(user)
+                    
+                    self.navigationController?.pushViewController(DriverRequestListController(collectionViewLayout: UICollectionViewFlowLayout()), animated: true)
+                }else{
+                    //rider registration
+                    user.role = .Rider
+//                    userRepo.register(user)
+                    
+                    self.navigationController?.setViewControllers([RiderPickupController()], animated: true)
+                }
+                
             }
-
-            
         }
-
+        
+    }
+    
+    private func validateFormInputs(valuesDictionary: Dictionary<String, Any?>) -> [String]{
+        var emptyFields = [String]()
+        for key in valuesDictionary.keys {
+            if unwrap(valuesDictionary[key]) == nil {
+                emptyFields.append(key)
+            }
+        }
+        
+        return emptyFields
+    }
+    
+    private func unwrap(value: Any?) -> String? {
+        if let result = value {
+            return result as? String
+        }
+        return nil
     }
     
 }

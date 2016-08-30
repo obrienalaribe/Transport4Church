@@ -43,6 +43,7 @@ class Address : CustomStringConvertible {
             let postcode = addressArr.joinWithSeparator(" ") //join remaining index to string
             self.postcode = postcode.substringToIndex(postcode.endIndex.predecessor()) //remove comma at end index
         }else{
+            //clear values to reflect new current location has no city/postcode returned from Google
             self.city = nil
             self.postcode = nil
         }

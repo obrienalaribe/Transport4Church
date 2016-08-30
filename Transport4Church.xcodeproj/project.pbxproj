@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		04283A351D5D1DB90053D1D2 /* DriverRequestListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04283A341D5D1DB90053D1D2 /* DriverRequestListController.swift */; };
+		042B42341D6887BE008CBFE0 /* ParseServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B42331D6887BE008CBFE0 /* ParseServer.swift */; };
+		042B42371D68BE0F008CBFE0 /* DaoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B42361D68BE0F008CBFE0 /* DaoManager.swift */; };
+		042B42391D68D908008CBFE0 /* UserRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B42381D68D908008CBFE0 /* UserRepo.swift */; };
+		042B423B1D6B6D86008CBFE0 /* TripRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B423A1D6B6D86008CBFE0 /* TripRepo.swift */; };
 		04DD3C1A1D57A72C00DEBB32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD3C191D57A72C00DEBB32 /* AppDelegate.swift */; };
 		04DD3C221D57A72C00DEBB32 /* Transport4Church.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04DD3C201D57A72C00DEBB32 /* Transport4Church.xcdatamodeld */; };
 		04DD3C241D57A72C00DEBB32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04DD3C231D57A72C00DEBB32 /* Assets.xcassets */; };
@@ -17,13 +21,13 @@
 		04DD3C4B1D57A88E00DEBB32 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD3C4A1D57A88E00DEBB32 /* UIViewExtension.swift */; };
 		04DD3C4D1D5909B700DEBB32 /* RegisterFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD3C4C1D5909B700DEBB32 /* RegisterFormViewController.swift */; };
 		04DD3C4F1D591C8500DEBB32 /* RiderPickupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD3C4E1D591C8500DEBB32 /* RiderPickupController.swift */; };
+		39734B47F855D5991D980EB8 /* Pods_Transport4Church.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD3389B6AE8E9ED396B265AB /* Pods_Transport4Church.framework */; };
 		431CF3D81D67269A00898CD7 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431CF3D71D67269A00898CD7 /* MenuViewController.swift */; };
 		431CF3DA1D6EF2F500898CD7 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431CF3D91D6EF2F500898CD7 /* MenuItem.swift */; };
 		431CF3DC1D6F493200898CD7 /* MenuActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431CF3DB1D6F493200898CD7 /* MenuActions.swift */; };
 		43632A051D5B62F700AD3B75 /* ConfirmPickupFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43632A041D5B62F700AD3B75 /* ConfirmPickupFormController.swift */; };
 		43632A071D5B786800AD3B75 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43632A061D5B786800AD3B75 /* Trip.swift */; };
 		43632A091D5B811600AD3B75 /* FormButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43632A081D5B811600AD3B75 /* FormButton.swift */; };
-		43632A0B1D5B88A200AD3B75 /* TrackPickupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43632A0A1D5B88A200AD3B75 /* TrackPickupController.swift */; };
 		43632A0E1D5CCBCC00AD3B75 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43632A0D1D5CCBCC00AD3B75 /* User.swift */; };
 		43632A121D61DB7700AD3B75 /* RiderPickupDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43632A111D61DB7700AD3B75 /* RiderPickupDelegates.swift */; };
 		43632A141D61F51100AD3B75 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43632A131D61F51100AD3B75 /* Address.swift */; };
@@ -31,9 +35,8 @@
 		43632A181D62155200AD3B75 /* Driver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43632A171D62155200AD3B75 /* Driver.swift */; };
 		43632A1A1D63269A00AD3B75 /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43632A191D63269A00AD3B75 /* LocationHelper.swift */; };
 		43E383771D5A38EF0014DED2 /* LocationResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E383761D5A38EF0014DED2 /* LocationResultsController.swift */; };
-		83EA7DC4DB1B69BE86C35912 /* Pods_Transport4Church.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 488882E45C394C24207FC14B /* Pods_Transport4Church.framework */; };
-		9C3BDE250107873CD48D2C67 /* Pods_Transport4ChurchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90CAB7063715F7564B7B9A9F /* Pods_Transport4ChurchUITests.framework */; };
-		B13003BA457486F1A85BB05D /* Pods_Transport4ChurchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D404B604434C9A8A2083EB /* Pods_Transport4ChurchTests.framework */; };
+		4F49629DF8931134CADCF722 /* Pods_Transport4ChurchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF716B2146A8851D163AD3D9 /* Pods_Transport4ChurchUITests.framework */; };
+		59E6CC5AF3A827D98D24481B /* Pods_Transport4ChurchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD7BBFEB66CA5FE6FEB05CA2 /* Pods_Transport4ChurchTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +58,10 @@
 
 /* Begin PBXFileReference section */
 		04283A341D5D1DB90053D1D2 /* DriverRequestListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverRequestListController.swift; sourceTree = "<group>"; };
+		042B42331D6887BE008CBFE0 /* ParseServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseServer.swift; sourceTree = "<group>"; };
+		042B42361D68BE0F008CBFE0 /* DaoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DaoManager.swift; sourceTree = "<group>"; };
+		042B42381D68D908008CBFE0 /* UserRepo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRepo.swift; sourceTree = "<group>"; };
+		042B423A1D6B6D86008CBFE0 /* TripRepo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripRepo.swift; sourceTree = "<group>"; };
 		04DD3C161D57A72C00DEBB32 /* Transport4Church.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Transport4Church.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04DD3C191D57A72C00DEBB32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04DD3C211D57A72C00DEBB32 /* Transport4Church.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Transport4Church.xcdatamodel; sourceTree = "<group>"; };
@@ -70,30 +77,30 @@
 		04DD3C4A1D57A88E00DEBB32 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		04DD3C4C1D5909B700DEBB32 /* RegisterFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterFormViewController.swift; sourceTree = "<group>"; };
 		04DD3C4E1D591C8500DEBB32 /* RiderPickupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RiderPickupController.swift; sourceTree = "<group>"; };
-		2B3148B7DBC0B7F371C5393E /* Pods-Transport4ChurchTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transport4ChurchTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Transport4ChurchTests/Pods-Transport4ChurchTests.release.xcconfig"; sourceTree = "<group>"; };
+		0FDA6FFF19D53FAD4F0BB6B8 /* Pods-Transport4ChurchTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transport4ChurchTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Transport4ChurchTests/Pods-Transport4ChurchTests.debug.xcconfig"; sourceTree = "<group>"; };
+		1E3A4D8FC5519975B3702AF5 /* Pods-Transport4Church.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transport4Church.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Transport4Church/Pods-Transport4Church.debug.xcconfig"; sourceTree = "<group>"; };
+		3A9A3511D2F7458141EEDB47 /* Pods-Transport4ChurchTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transport4ChurchTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Transport4ChurchTests/Pods-Transport4ChurchTests.release.xcconfig"; sourceTree = "<group>"; };
 		431CF3D71D67269A00898CD7 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		431CF3D91D6EF2F500898CD7 /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		431CF3DB1D6F493200898CD7 /* MenuActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuActions.swift; sourceTree = "<group>"; };
 		43632A041D5B62F700AD3B75 /* ConfirmPickupFormController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmPickupFormController.swift; sourceTree = "<group>"; };
 		43632A061D5B786800AD3B75 /* Trip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		43632A081D5B811600AD3B75 /* FormButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormButton.swift; sourceTree = "<group>"; };
-		43632A0A1D5B88A200AD3B75 /* TrackPickupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackPickupController.swift; sourceTree = "<group>"; };
 		43632A0D1D5CCBCC00AD3B75 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		43632A111D61DB7700AD3B75 /* RiderPickupDelegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RiderPickupDelegates.swift; sourceTree = "<group>"; };
 		43632A131D61F51100AD3B75 /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		43632A151D62154900AD3B75 /* Rider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rider.swift; sourceTree = "<group>"; };
 		43632A171D62155200AD3B75 /* Driver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Driver.swift; sourceTree = "<group>"; };
 		43632A191D63269A00AD3B75 /* LocationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationHelper.swift; sourceTree = "<group>"; };
+		43674C7AFD10E409ECBAA189 /* Pods-Transport4ChurchUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transport4ChurchUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Transport4ChurchUITests/Pods-Transport4ChurchUITests.release.xcconfig"; sourceTree = "<group>"; };
+		43A72E641D75BB54002F3B65 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "../../../Library/Developer/Xcode/DerivedData/Transport4Church-gccuimlyhmdulufbuospzakbdhuy/Build/Products/Debug-iphoneos/Parse/Parse.framework"; sourceTree = "<group>"; };
 		43E383711D5A1F2E0014DED2 /* Transport4Church-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Transport4Church-Bridging-Header.h"; sourceTree = "<group>"; };
 		43E383761D5A38EF0014DED2 /* LocationResultsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationResultsController.swift; sourceTree = "<group>"; };
-		488882E45C394C24207FC14B /* Pods_Transport4Church.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Transport4Church.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4A2CC14E5C1894F233DB1578 /* Pods-Transport4Church.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transport4Church.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Transport4Church/Pods-Transport4Church.debug.xcconfig"; sourceTree = "<group>"; };
-		52D404B604434C9A8A2083EB /* Pods_Transport4ChurchTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Transport4ChurchTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		90CAB7063715F7564B7B9A9F /* Pods_Transport4ChurchUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Transport4ChurchUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A891570EE997745F88955EEE /* Pods-Transport4ChurchUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transport4ChurchUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Transport4ChurchUITests/Pods-Transport4ChurchUITests.release.xcconfig"; sourceTree = "<group>"; };
-		AB51584F7DB2C99245CC3AD9 /* Pods-Transport4Church.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transport4Church.release.xcconfig"; path = "Pods/Target Support Files/Pods-Transport4Church/Pods-Transport4Church.release.xcconfig"; sourceTree = "<group>"; };
-		B97745C60E340341893AE75B /* Pods-Transport4ChurchUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transport4ChurchUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Transport4ChurchUITests/Pods-Transport4ChurchUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		E06813A56D56A7ABCC4DFCB3 /* Pods-Transport4ChurchTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transport4ChurchTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Transport4ChurchTests/Pods-Transport4ChurchTests.debug.xcconfig"; sourceTree = "<group>"; };
+		46A97FF25810D397CD614581 /* Pods-Transport4ChurchUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transport4ChurchUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Transport4ChurchUITests/Pods-Transport4ChurchUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		860BB8DC7ACFFA8A5F821177 /* Pods-Transport4Church.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transport4Church.release.xcconfig"; path = "Pods/Target Support Files/Pods-Transport4Church/Pods-Transport4Church.release.xcconfig"; sourceTree = "<group>"; };
+		AD3389B6AE8E9ED396B265AB /* Pods_Transport4Church.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Transport4Church.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD7BBFEB66CA5FE6FEB05CA2 /* Pods_Transport4ChurchTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Transport4ChurchTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF716B2146A8851D163AD3D9 /* Pods_Transport4ChurchUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Transport4ChurchUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83EA7DC4DB1B69BE86C35912 /* Pods_Transport4Church.framework in Frameworks */,
+				39734B47F855D5991D980EB8 /* Pods_Transport4Church.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,7 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B13003BA457486F1A85BB05D /* Pods_Transport4ChurchTests.framework in Frameworks */,
+				59E6CC5AF3A827D98D24481B /* Pods_Transport4ChurchTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,7 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C3BDE250107873CD48D2C67 /* Pods_Transport4ChurchUITests.framework in Frameworks */,
+				4F49629DF8931134CADCF722 /* Pods_Transport4ChurchUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,6 +167,25 @@
 			name = Register;
 			sourceTree = "<group>";
 		};
+		042B42301D68876B008CBFE0 /* Backend */ = {
+			isa = PBXGroup;
+			children = (
+				042B42351D68BDD5008CBFE0 /* Dao */,
+				042B42331D6887BE008CBFE0 /* ParseServer.swift */,
+			);
+			name = Backend;
+			sourceTree = "<group>";
+		};
+		042B42351D68BDD5008CBFE0 /* Dao */ = {
+			isa = PBXGroup;
+			children = (
+				042B42361D68BE0F008CBFE0 /* DaoManager.swift */,
+				042B42381D68D908008CBFE0 /* UserRepo.swift */,
+				042B423A1D6B6D86008CBFE0 /* TripRepo.swift */,
+			);
+			name = Dao;
+			sourceTree = "<group>";
+		};
 		04DD3C0D1D57A72C00DEBB32 = {
 			isa = PBXGroup;
 			children = (
@@ -168,8 +194,8 @@
 				04DD3C3B1D57A72C00DEBB32 /* Transport4ChurchUITests */,
 				04DD3C171D57A72C00DEBB32 /* Products */,
 				43E383711D5A1F2E0014DED2 /* Transport4Church-Bridging-Header.h */,
-				6951CF0CE312A750D76D9A2B /* Pods */,
-				EDCB8EAB8A43C59FF31AC9D3 /* Frameworks */,
+				AE9329980DE57A7FEF9BE8AA /* Pods */,
+				17DAC0283DD1181CF77AF2FD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -188,6 +214,7 @@
 			children = (
 				431CF3D61D67268300898CD7 /* Menu */,
 				04DD3C191D57A72C00DEBB32 /* AppDelegate.swift */,
+				042B42301D68876B008CBFE0 /* Backend */,
 				04283A361D5D1E210053D1D2 /* Rider */,
 				04283A391D5D1FC50053D1D2 /* Register */,
 				04283A381D5D1E8F0053D1D2 /* Driver */,
@@ -198,7 +225,6 @@
 				04DD3C281D57A72C00DEBB32 /* Info.plist */,
 				04DD3C201D57A72C00DEBB32 /* Transport4Church.xcdatamodeld */,
 				43E383761D5A38EF0014DED2 /* LocationResultsController.swift */,
-				43632A0A1D5B88A200AD3B75 /* TrackPickupController.swift */,
 			);
 			path = Transport4Church;
 			sourceTree = "<group>";
@@ -219,6 +245,17 @@
 				04DD3C3E1D57A72C00DEBB32 /* Info.plist */,
 			);
 			path = Transport4ChurchUITests;
+			sourceTree = "<group>";
+		};
+		17DAC0283DD1181CF77AF2FD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				43A72E641D75BB54002F3B65 /* Parse.framework */,
+				AD3389B6AE8E9ED396B265AB /* Pods_Transport4Church.framework */,
+				CD7BBFEB66CA5FE6FEB05CA2 /* Pods_Transport4ChurchTests.framework */,
+				CF716B2146A8851D163AD3D9 /* Pods_Transport4ChurchUITests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		431CF3D61D67268300898CD7 /* Menu */ = {
@@ -243,27 +280,17 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
-		6951CF0CE312A750D76D9A2B /* Pods */ = {
+		AE9329980DE57A7FEF9BE8AA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				4A2CC14E5C1894F233DB1578 /* Pods-Transport4Church.debug.xcconfig */,
-				AB51584F7DB2C99245CC3AD9 /* Pods-Transport4Church.release.xcconfig */,
-				E06813A56D56A7ABCC4DFCB3 /* Pods-Transport4ChurchTests.debug.xcconfig */,
-				2B3148B7DBC0B7F371C5393E /* Pods-Transport4ChurchTests.release.xcconfig */,
-				B97745C60E340341893AE75B /* Pods-Transport4ChurchUITests.debug.xcconfig */,
-				A891570EE997745F88955EEE /* Pods-Transport4ChurchUITests.release.xcconfig */,
+				1E3A4D8FC5519975B3702AF5 /* Pods-Transport4Church.debug.xcconfig */,
+				860BB8DC7ACFFA8A5F821177 /* Pods-Transport4Church.release.xcconfig */,
+				0FDA6FFF19D53FAD4F0BB6B8 /* Pods-Transport4ChurchTests.debug.xcconfig */,
+				3A9A3511D2F7458141EEDB47 /* Pods-Transport4ChurchTests.release.xcconfig */,
+				46A97FF25810D397CD614581 /* Pods-Transport4ChurchUITests.debug.xcconfig */,
+				43674C7AFD10E409ECBAA189 /* Pods-Transport4ChurchUITests.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		EDCB8EAB8A43C59FF31AC9D3 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				488882E45C394C24207FC14B /* Pods_Transport4Church.framework */,
-				52D404B604434C9A8A2083EB /* Pods_Transport4ChurchTests.framework */,
-				90CAB7063715F7564B7B9A9F /* Pods_Transport4ChurchUITests.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -530,7 +557,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43632A0B1D5B88A200AD3B75 /* TrackPickupController.swift in Sources */,
+				042B423B1D6B6D86008CBFE0 /* TripRepo.swift in Sources */,
 				04DD3C221D57A72C00DEBB32 /* Transport4Church.xcdatamodeld in Sources */,
 				43632A161D62154900AD3B75 /* Rider.swift in Sources */,
 				43632A181D62155200AD3B75 /* Driver.swift in Sources */,
@@ -545,8 +572,11 @@
 				43632A0E1D5CCBCC00AD3B75 /* User.swift in Sources */,
 				431CF3D81D67269A00898CD7 /* MenuViewController.swift in Sources */,
 				04DD3C1A1D57A72C00DEBB32 /* AppDelegate.swift in Sources */,
+				042B42341D6887BE008CBFE0 /* ParseServer.swift in Sources */,
+				042B42371D68BE0F008CBFE0 /* DaoManager.swift in Sources */,
 				04DD3C4D1D5909B700DEBB32 /* RegisterFormViewController.swift in Sources */,
 				04283A351D5D1DB90053D1D2 /* DriverRequestListController.swift in Sources */,
+				042B42391D68D908008CBFE0 /* UserRepo.swift in Sources */,
 				43632A091D5B811600AD3B75 /* FormButton.swift in Sources */,
 				431CF3DC1D6F493200898CD7 /* MenuActions.swift in Sources */,
 				431CF3DA1D6EF2F500898CD7 /* MenuItem.swift in Sources */,
@@ -681,7 +711,7 @@
 		};
 		04DD3C421D57A72C00DEBB32 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4A2CC14E5C1894F233DB1578 /* Pods-Transport4Church.debug.xcconfig */;
+			baseConfigurationReference = 1E3A4D8FC5519975B3702AF5 /* Pods-Transport4Church.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -701,7 +731,7 @@
 		};
 		04DD3C431D57A72C00DEBB32 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AB51584F7DB2C99245CC3AD9 /* Pods-Transport4Church.release.xcconfig */;
+			baseConfigurationReference = 860BB8DC7ACFFA8A5F821177 /* Pods-Transport4Church.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -720,7 +750,7 @@
 		};
 		04DD3C451D57A72C00DEBB32 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E06813A56D56A7ABCC4DFCB3 /* Pods-Transport4ChurchTests.debug.xcconfig */;
+			baseConfigurationReference = 0FDA6FFF19D53FAD4F0BB6B8 /* Pods-Transport4ChurchTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = Transport4ChurchTests/Info.plist;
@@ -733,7 +763,7 @@
 		};
 		04DD3C461D57A72C00DEBB32 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2B3148B7DBC0B7F371C5393E /* Pods-Transport4ChurchTests.release.xcconfig */;
+			baseConfigurationReference = 3A9A3511D2F7458141EEDB47 /* Pods-Transport4ChurchTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = Transport4ChurchTests/Info.plist;
@@ -746,7 +776,7 @@
 		};
 		04DD3C481D57A72C00DEBB32 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B97745C60E340341893AE75B /* Pods-Transport4ChurchUITests.debug.xcconfig */;
+			baseConfigurationReference = 46A97FF25810D397CD614581 /* Pods-Transport4ChurchUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = Transport4ChurchUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -758,7 +788,7 @@
 		};
 		04DD3C491D57A72C00DEBB32 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A891570EE997745F88955EEE /* Pods-Transport4ChurchUITests.release.xcconfig */;
+			baseConfigurationReference = 43674C7AFD10E409ECBAA189 /* Pods-Transport4ChurchUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = Transport4ChurchUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

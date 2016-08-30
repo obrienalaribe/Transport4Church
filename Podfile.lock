@@ -1,5 +1,6 @@
 PODS:
-  - Alamofire (3.4.1)
+  - Alamofire (3.4.2)
+  - Bolts/Tasks (1.8.4)
   - Eureka (1.7.0)
   - GoogleMaps (2.0.1):
     - GoogleMaps/Maps (= 2.0.1)
@@ -11,6 +12,9 @@ PODS:
     - GooglePlaces (= 2.0.1)
   - GooglePlaces (2.0.1):
     - GoogleMaps/Base (= 2.0.1)
+  - NVActivityIndicatorView (2.10)
+  - Parse (1.14.2):
+    - Bolts/Tasks (~> 1.8)
   - SCLAlertView (0.6.0)
   - SwiftyJSON (2.3.2)
 
@@ -20,18 +24,23 @@ DEPENDENCIES:
   - GoogleMaps
   - GooglePlacePicker
   - GooglePlaces
+  - NVActivityIndicatorView
+  - Parse
   - SCLAlertView
   - SwiftyJSON
 
 SPEC CHECKSUMS:
-  Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
+  Alamofire: 6aa33201d20d069e1598891cf928883ff1888c7a
+  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   Eureka: 2020d9faeef7b7e9adeb9e3d8af779e5931c1897
   GoogleMaps: f09da64fc987c1aa29394567c3cab5a3df83c402
   GooglePlacePicker: e7b11b732e40dbe76e8ab4c5fc2f4a7c32b96578
   GooglePlaces: 72fab1d1651c6df0322f2aad245ffb15b80d3c56
+  NVActivityIndicatorView: 5568608c3511690a42c4dd02f7a1de4361d670ae
+  Parse: 4335d65f40cb3d43190d723144bbe1afb9c38230
   SCLAlertView: 0f6b3c23a48b4993564ff1dd3c065782e4b2b687
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
-PODFILE CHECKSUM: aa7b7ab1dd2cba2d97ba3529441afeb8e3d3bb98
+PODFILE CHECKSUM: 085ab407f4d1c0fa369f2366d9ce4d211c90bfb7
 
 COCOAPODS: 1.0.1

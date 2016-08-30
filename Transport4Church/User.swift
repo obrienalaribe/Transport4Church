@@ -8,23 +8,22 @@
 
 import Foundation
 
-//need core data for this from register
-class User : CustomStringConvertible {
-    var name : String?
-    var gender: String?
-    var email: String?
-    var role : UserRoles
+//struct because parse contains current user session
+
+//TODO: Subclass PFObject
+struct User {
+    var name : String
+    var gender: String
+    var email: String
+    var role : UserRoles?
+    var username : String
+    var password : String
     
-    init(name: String?, gender: String?, email: String?, role: UserRoles) {
-        self.name = name
-        self.gender = gender
-        self.email = email
-        self.role = role
-    }
-    
-    var description: String {
-        return "[User [Name: \(name), Gender: \(gender), Email: \(email), Role: \(role) ]] \n"
-    }
+   
+//    
+//    override var description: String {
+//        return "[User [Name: \(name), Gender: \(gender), Email: \(email), Role: \(role) ]] \n"
+//    }
 }
 
 enum UserRoles : String {

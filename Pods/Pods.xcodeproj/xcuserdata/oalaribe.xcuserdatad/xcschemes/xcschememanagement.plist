@@ -9,7 +9,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Bolts.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Eureka.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>NVActivityIndicatorView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Parse.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -42,7 +57,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2637C02A9FA946061714A669B4162D08</key>
+		<key>2C8AA1BAF35413BDB954A1DF93576ED1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -52,7 +67,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>4851004E85A899E40F7795A26A58F87B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>4CBACC14C2E6C86754787C45C1202A72</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7129FAB61478FA70223DADF4921468CD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -62,32 +87,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A896584922652666F0DFC23302CAE736</key>
+		<key>817B95C4AB815EEE09F92FA4A74504BB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AB482A1D193690654A3F135B0574D6A4</key>
+		<key>8698C4558AE758AD92477EC134E714F7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D44B48FF45937AA26612F3BC1D4BF6A1</key>
+		<key>9A16E9A4DAA216B965A91458E48BEB5C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>D546D56CB7723739BDBA8F805B0B6BD5</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DCDE96ACBD574057780745DDB61CE9D4</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E215B327ACDC81F9261F5AA79137703C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

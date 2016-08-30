@@ -11,9 +11,16 @@ import SCLAlertView
 
 let cellId = "cellId"
 var numberOfRequest = 3
+let EFA_Coord = CLLocationCoordinate2DMake(53.2232323, -3.32424232)
+
+
+//TODO: Make all requests come from Parse
 
 class DriverRequestListController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
+//    var pickupRequests = TripRepo.fetchAllPickupRequests(EFA_Coord)
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,7 +36,7 @@ class DriverRequestListController: UICollectionViewController, UICollectionViewD
     
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return numberOfRequest
+        return fakeTrips.count
     }
     
     
@@ -39,16 +46,35 @@ class DriverRequestListController: UICollectionViewController, UICollectionViewD
         
         cell.doneButton.layer.setValue(indexPath, forKey: "indexPath")
         
+        cell.trip = fakeTrips[indexPath.row]
+        
         return cell
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSizeMake(view.frame.width, 140)
-
+        return CGSizeMake(view.frame.width - 20, 140)
     }
 }
 
 class PickupRequestCell : BaseCollectionCell {
+    
+    var trip : Trip? {
+        didSet {
+            fakeTrips.sort({$0.pickupTime!.compare($1.pickupTime!) == .OrderedAscending })
+            
+            if let rider = trip?.rider {
+                nameLabel.text = rider.userDetails.name
+            }
+            
+            if let pickupTime = trip?.pickupTime {
+                let dateFormatter = NSDateFormatter()
+                dateFormatter.dateFormat = "h:mm a"
+                
+                timeLabel.text = dateFormatter.stringFromDate(pickupTime)
+
+            }
+        }
+    }
     
     let profileImageView: UIImageView = {
         let imageView = UIImageView()
@@ -68,7 +94,7 @@ class PickupRequestCell : BaseCollectionCell {
 
     let nameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Emma Smith"
+        label.text = "Emma Smith + 3"
         label.textColor = UIColor.darkGrayColor()
         label.font = UIFont.boldSystemFontOfSize(18)
         return label

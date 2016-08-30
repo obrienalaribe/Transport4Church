@@ -37,6 +37,16 @@ class MenuViewController: UITableViewController {
         self.tableView.tableHeaderView = dummyView;
         self.tableView.contentInset = UIEdgeInsetsMake(-dummyViewHeight, 0, 0, 0);
 
+        //add close button
+        var closeBtn =  UIBarButtonItem(image: UIImage(named: "close"), style: .Plain, target: self, action: "closeMenu")
+        closeBtn.tintColor = .blackColor()
+        navigationItem.leftBarButtonItem = closeBtn
+        
+
+    }
+    
+    func closeMenu(){
+        navigationController?.dismissViewControllerAnimated(false, completion: nil)
     }
     
     // return the number of sections
