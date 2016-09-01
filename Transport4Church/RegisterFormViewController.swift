@@ -90,13 +90,13 @@ class RegisterFormViewController : FormViewController {
                 if userRole == UserRoles.Driver.rawValue {
                     //driver registration
                     user.role = .Driver
-//                    userRepo.register(user)
+                    userRepo.register(user)
                     
                     self.navigationController?.pushViewController(DriverRequestListController(collectionViewLayout: UICollectionViewFlowLayout()), animated: true)
                 }else{
                     //rider registration
                     user.role = .Rider
-//                    userRepo.register(user)
+                    userRepo.register(user)
                     
                     self.navigationController?.setViewControllers([RiderPickupController()], animated: true)
                 }

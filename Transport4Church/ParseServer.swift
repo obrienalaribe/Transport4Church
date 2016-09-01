@@ -18,7 +18,7 @@ class ParseServer {
         let parseConfiguration = ParseClientConfiguration(block: { (ParseMutableClientConfiguration) -> Void in
             ParseMutableClientConfiguration.applicationId = "myAppId"
             ParseMutableClientConfiguration.clientKey = "myMasterKey"
-            ParseMutableClientConfiguration.server = "http://localhost:1337/parse"
+            ParseMutableClientConfiguration.server = "https://insta231.herokuapp.com/parse"
         })
 
         Parse.initializeWithConfiguration(parseConfiguration)
