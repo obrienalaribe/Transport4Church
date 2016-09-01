@@ -6,7 +6,7 @@
 //  Copyright © 2016 rccg. All rights reserved.
 //
 
-//import Parse
+import Parse
 //
 class UserRepo {
 //

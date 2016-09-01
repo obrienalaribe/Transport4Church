@@ -24,11 +24,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Parse.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-Transport4Church.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -57,22 +52,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0DA0688A938CE3E7AC2652AA878611FD</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>2C8AA1BAF35413BDB954A1DF93576ED1</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>4332352E97A37C729DC7D9B3B8A4BB15</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>4851004E85A899E40F7795A26A58F87B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -82,12 +62,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>649DC77F708ADB2A49E953E7F2506525</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>654D4E796941C0E83EE5736554080643</key>
+		<key>5C6C0C0C3DAE77653A8B6E3902D37BD9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -102,37 +77,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>817B95C4AB815EEE09F92FA4A74504BB</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>8698C4558AE758AD92477EC134E714F7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9A16E9A4DAA216B965A91458E48BEB5C</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>A896584922652666F0DFC23302CAE736</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>AB482A1D193690654A3F135B0574D6A4</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D44B48FF45937AA26612F3BC1D4BF6A1</key>
+		<key>CEB4DADA71DA986F2B41B3A48EEE72E5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>D546D56CB7723739BDBA8F805B0B6BD5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FAEB4AF029858D9375F881D9504ED156</key>
 		<dict>
 			<key>primary</key>
 			<true/>
