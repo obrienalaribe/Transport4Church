@@ -8,7 +8,10 @@
 
 //
 ////TODO: Subclass PFObject and include destination
-class Trip : CustomStringConvertible {
+
+import Parse
+
+class Trip : PFObject, PFSubclassing {
     var rider: Rider
     var driver: Driver?
     var status: TripStatus = TripStatus.NEW
@@ -17,12 +20,31 @@ class Trip : CustomStringConvertible {
     
     init (rider: Rider) {
         self.rider = rider
+        super.init()
     }
 
-      var description : String {
-        return "[TripDetails [Rider: [\(rider)] Status: [\(status)]] \n"
+    static func parseClassName() -> String {
+        return "Trip"
     }
 }
+
+class Tester : PFObject, PFSubclassing {
+    @NSManaged var displayName: String
+
+    override class func initialize() {
+        struct Static {
+            static var onceToken : dispatch_once_t = 0;
+        }
+        dispatch_once(&Static.onceToken) {
+            self.registerSubclass()
+        }
+    }
+
+    static func parseClassName() -> String {
+        return "Tester"
+    }
+}
+
 
 enum TripStatus : String {
     case NEW = "New"

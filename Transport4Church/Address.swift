@@ -38,6 +38,10 @@ class Address : CustomStringConvertible {
         var addressArr = result[1].characters.split{$0 == " "}.map(String.init)
         self.country = addressArr.removeLast() //pop region
         
+        if addressArr.isEmpty{
+            return
+        }
+        
         if addressArr.count >= 2 {
             self.city = addressArr.removeFirst() //pop city
             let postcode = addressArr.joinWithSeparator(" ") //join remaining index to string

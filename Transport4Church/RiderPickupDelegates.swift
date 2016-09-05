@@ -28,7 +28,7 @@ extension RiderPickupController : GMSMapViewDelegate{
         
         dispatch_group_notify(locationDispatchGroup, dispatch_get_main_queue(), {
             print("hence \(helper.result)")
-            self.rider.location.updateProperties(helper.result)
+//            self.rider.location.updateProperties(helper.result)
             self.pickupBtn.userInteractionEnabled = true
             
             if self.currentTrip?.status == .NEW || self.currentTrip?.status == .CANCELLED {

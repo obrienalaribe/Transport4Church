@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 //        window?.rootViewController = UINavigationController(rootViewController:MenuViewController())
 
-        window?.rootViewController = UINavigationController(rootViewController:RiderPickupController())
+        window?.rootViewController = UINavigationController(rootViewController:RegisterFormViewController())
 
         
         let server = ParseServer()
