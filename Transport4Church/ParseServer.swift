@@ -17,9 +17,7 @@ class ParseServer {
     }
     
     func registerSubClasses(){
-        Trip.registerSubclass()
-        Tester.registerSubclass()
-        
+        TripRequest.registerSubclass()
        
     }
     
@@ -53,9 +51,8 @@ class ParseServer {
 //        
         
         for index in 0...10 {
-            let fakeUser = User(name: "User \(index)", gender: "Male", email: "user\(index)@gmail.com", role: .Rider, username: "user\(index)", password: "dfdd")
-            
-            let rider = Rider(location: Address(coordinate: EFA_Coord), destination: Address(coordinate: EFA_Coord), userDetails: fakeUser)
+           
+            let rider = Rider(location: Address(coordinate: EFA_Coord), destination: Address(coordinate: EFA_Coord))
             
             let trip = Trip(rider: rider)
             trip.pickupTime = NSDate().dateByAddingTimeInterval(-Double(index) * 60)
@@ -64,9 +61,7 @@ class ParseServer {
             
          }
         
-        let fakeUser = User(name: "Randomer", gender: "Male", email: "random@gmail.com", role: .Rider, username: "userrandom", password: "dfdd")
-        
-        let rider = Rider(location: Address(coordinate: EFA_Coord), destination: Address(coordinate: EFA_Coord), userDetails: fakeUser)
+        let rider = Rider(location: Address(coordinate: EFA_Coord), destination: Address(coordinate: EFA_Coord))
         
         let trip = Trip(rider: rider)
         trip.pickupTime = NSDate().dateByAddingTimeInterval(-Double(1) * 60)

@@ -62,10 +62,7 @@ class PickupRequestCell : BaseCollectionCell {
         didSet {
             fakeTrips.sort({$0.pickupTime!.compare($1.pickupTime!) == .OrderedAscending })
             
-            if let rider = trip?.rider {
-                nameLabel.text = rider.userDetails.name
-            }
-            
+         
             if let pickupTime = trip?.pickupTime {
                 let dateFormatter = NSDateFormatter()
                 dateFormatter.dateFormat = "h:mm a"

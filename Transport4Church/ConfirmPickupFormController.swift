@@ -8,6 +8,7 @@
 
 import UIKit
 import Eureka
+import Parse
 
 class ConfirmPickupFormController: FormViewController {
     
@@ -89,14 +90,23 @@ class ConfirmPickupFormController: FormViewController {
     }
     
     func handleFormSubmission(sender: UIButton!){
-       navigationController?.popViewControllerAnimated(true)
         
         let valuesDictionary = form.values()
-        self.trip.status = .REQUESTED
+        self.trip.status = TripStatus.REQUESTED
         
-//        print("\(trip!.getAddress()) \(trip!.getCoordinates())")
+        let tripRequest = TripRequest()
+        let riderCoord = self.trip.rider.location.coordinate
         
-//        print(valuesDictionary)
+        tripRequest.pickupLocation = PFGeoPoint(latitude: riderCoord.latitude, longitude: riderCoord.longitude)
+        tripRequest.time = valuesDictionary["pickupTime"] as! NSDate
+        tripRequest.status = self.trip.status.rawValue
+        
+        tripRequest.saveInBackgroundWithBlock({ (success, error) in
+            self.navigationController?.popViewControllerAnimated(true)
+        })
+       
+        
+        
     }
 
 

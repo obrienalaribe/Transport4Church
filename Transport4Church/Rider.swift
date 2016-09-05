@@ -9,26 +9,13 @@
 import Foundation
 
 //TODO: should extend user and only have location 
-class Rider : CustomStringConvertible {
-    
+class Rider  {
     var location : Address
     var destination : Address
-    var userDetails: User
-//    
-//    init(currentLocation: Address?, destination: Address?, userDetails: User?) {
-//        self.currentLocation = currentLocation
-//        self.destination = destination
-//        self.userDetails = userDetails
-//    }
     
-    init(location: Address, destination: Address, userDetails: User){
+    init(location: Address, destination: Address){
         self.location = location
         self.destination = destination
-        self.userDetails = userDetails
     }
-    
-    var description : String {
-        return "[Rider [Location: [\(location)], Dest: [\(destination)], User: [\(userDetails)]] \n"
-    }
-    
+
 }

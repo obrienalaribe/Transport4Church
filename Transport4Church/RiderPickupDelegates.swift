@@ -31,7 +31,7 @@ extension RiderPickupController : GMSMapViewDelegate{
 //            self.rider.location.updateProperties(helper.result)
             self.pickupBtn.userInteractionEnabled = true
             
-            if self.currentTrip?.status == .NEW || self.currentTrip?.status == .CANCELLED {
+            if self.currentTrip?.status == TripStatus.NEW || self.currentTrip?.status == TripStatus.CANCELLED {
                 //only update rider location on view during pickup mode
                 self.locationTrackingLabel.text = helper.result[0]
                 

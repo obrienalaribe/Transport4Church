@@ -99,13 +99,11 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
                 setupActiveTripModeView()
             }
         }
-        
-       
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
-        
+
         //start an animations or the loading of external data from an API or checks for location permission
         
         //TODO: Check if user is connected to the internet first
@@ -120,15 +118,13 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
         manager.delegate = self
         
         if let location = manager.location {
-            let fakeUser = User(name: "John Okafor", gender: "Male", email: "john@gmail.com", role: .Rider, username: "sdfds", password: "dfdd")
             
             let fakeDest = CLLocationCoordinate2DMake(53.789607182624763, -1.5980678424239159) //remove this in prod
             
-            self.rider = Rider(location: Address(coordinate: location.coordinate), destination: Address(coordinate: fakeDest), userDetails: fakeUser)
+            self.rider = Rider(location: Address(coordinate: location.coordinate), destination: Address(coordinate: fakeDest))
             
             self.currentTrip = Trip(rider: self.rider)
 
-            
             self.userLocationPermissionEnabled = true
             let riderLatitude = self.rider.location.coordinate.latitude
             let riderLongitude = self.rider.location.coordinate.longitude
@@ -199,7 +195,6 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
             //driver made signficant change in distance
             updateArrivalTime()
             previousDistanceInMiles = distanceInMiles
-
         }
         
         if driverLocation.map == nil {
@@ -284,7 +279,7 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
         if sender.state == .Ended {
             self.cancelTripButton.hidden = !self.cancelTripButton.hidden
             driverLocation.map = nil
-            self.currentTrip!.status = .CANCELLED
+            self.currentTrip!.status = TripStatus.CANCELLED
             toggleTripMode()
         }
         else if sender.state == .Began {
@@ -300,7 +295,7 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
         self.pickupBtn.hidden = !self.pickupBtn.hidden
         self.mapPin.hidden = !self.mapPin.hidden
 
-        if self.currentTrip!.status == .CANCELLED {
+        if self.currentTrip!.status == TripStatus.CANCELLED {
             mapView.animateToLocation(CLLocationCoordinate2D(latitude: self.rider.location.coordinate.latitude, longitude: self.rider.location.coordinate.longitude))
         }
     }

@@ -69,7 +69,7 @@ class RegisterFormViewController : FormViewController {
 
         //TODO: create user struct here to pass on
         
-        let listOfEmptyFields = validateFormInputs(valuesDictionary)
+        let listOfEmptyFields = Helper.validateFormInputs(valuesDictionary)
         
         if listOfEmptyFields.isEmpty == false {
             print("please provide \(listOfEmptyFields.joinWithSeparator(", "))")
@@ -106,23 +106,5 @@ class RegisterFormViewController : FormViewController {
         }
         
     }
-    
-    private func validateFormInputs(valuesDictionary: Dictionary<String, Any?>) -> [String]{
-        var emptyFields = [String]()
-        for key in valuesDictionary.keys {
-            if unwrap(valuesDictionary[key]) == nil {
-                emptyFields.append(key)
-            }
-        }
-        
-        return emptyFields
-    }
-    
-    private func unwrap(value: Any?) -> String? {
-        if let result = value {
-            return result as? String
-        }
-        return nil
-    }
-    
+      
 }

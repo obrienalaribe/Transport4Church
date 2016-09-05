@@ -37,28 +37,28 @@ class TripRepo {
 class TestRepo {
     
     static func sendTest(){
-        let test = Tester()
-        
-        
-        var query = PFQuery(className: Tester.parseClassName())
-        query.findObjectsInBackgroundWithBlock {
-            (objects: [PFObject]?, error: NSError?) -> Void in
-            
-            if error == nil {
-                // The find succeeded.
-                print("Successfully retrieved \(objects!.count) .")
-                // Do something with the found objects
-                if let objects = objects {
-                    for object in objects {
-                        let test = object as! Tester
-                        print(test.displayName)
-                    }
-                }
-            } else {
-                // Log details of the failure
-                print("Error: \(error!) \(error!.userInfo)")
-            }
-        }
+//        let test = Tester()
+//        
+//        
+//        var query = PFQuery(className: Tester.parseClassName())
+//        query.findObjectsInBackgroundWithBlock {
+//            (objects: [PFObject]?, error: NSError?) -> Void in
+//            
+//            if error == nil {
+//                // The find succeeded.
+//                print("Successfully retrieved \(objects!.count) .")
+//                // Do something with the found objects
+//                if let objects = objects {
+//                    for object in objects {
+//                        let test = object as! Tester
+//                        print(test.displayName)
+//                    }
+//                }
+//            } else {
+//                // Log details of the failure
+//                print("Error: \(error!) \(error!.userInfo)")
+//            }
+//        }
 
 
     }

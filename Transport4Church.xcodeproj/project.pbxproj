@@ -1,2007 +1,876 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>archiveVersion</key>
-	<string>1</string>
-	<key>classes</key>
-	<dict/>
-	<key>objectVersion</key>
-	<string>46</string>
-	<key>objects</key>
-	<dict>
-		<key>04283A341D5D1DB90053D1D2</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>DriverRequestListController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>04283A351D5D1DB90053D1D2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>04283A341D5D1DB90053D1D2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>04283A361D5D1E210053D1D2</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>43632A041D5B62F700AD3B75</string>
-				<string>04DD3C4E1D591C8500DEBB32</string>
-				<string>43632A111D61DB7700AD3B75</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Rider</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>04283A371D5D1E530053D1D2</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>43632A081D5B811600AD3B75</string>
-				<string>04DD3C4A1D57A88E00DEBB32</string>
-				<string>43632A191D63269A00AD3B75</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Utils</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>04283A381D5D1E8F0053D1D2</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>04283A341D5D1DB90053D1D2</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Driver</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>04283A391D5D1FC50053D1D2</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>04DD3C4C1D5909B700DEBB32</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Register</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>042B42301D68876B008CBFE0</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>042B42351D68BDD5008CBFE0</string>
-				<string>042B42331D6887BE008CBFE0</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Backend</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>042B42331D6887BE008CBFE0</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>ParseServer.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>042B42341D6887BE008CBFE0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>042B42331D6887BE008CBFE0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>042B42351D68BDD5008CBFE0</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>042B42361D68BE0F008CBFE0</string>
-				<string>042B42381D68D908008CBFE0</string>
-				<string>042B423A1D6B6D86008CBFE0</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Dao</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>042B42361D68BE0F008CBFE0</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>DaoManager.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>042B42371D68BE0F008CBFE0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>042B42361D68BE0F008CBFE0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>042B42381D68D908008CBFE0</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>UserRepo.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>042B42391D68D908008CBFE0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>042B42381D68D908008CBFE0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>042B423A1D6B6D86008CBFE0</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>TripRepo.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>042B423B1D6B6D86008CBFE0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>042B423A1D6B6D86008CBFE0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>04DD3C0D1D57A72C00DEBB32</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>04DD3C181D57A72C00DEBB32</string>
-				<string>04DD3C301D57A72C00DEBB32</string>
-				<string>04DD3C3B1D57A72C00DEBB32</string>
-				<string>04DD3C171D57A72C00DEBB32</string>
-				<string>43E383711D5A1F2E0014DED2</string>
-				<string>AE9329980DE57A7FEF9BE8AA</string>
-				<string>17DAC0283DD1181CF77AF2FD</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>04DD3C0E1D57A72C00DEBB32</key>
-		<dict>
-			<key>attributes</key>
-			<dict>
-				<key>LastSwiftUpdateCheck</key>
-				<string>0730</string>
-				<key>LastUpgradeCheck</key>
-				<string>0730</string>
-				<key>ORGANIZATIONNAME</key>
-				<string>rccg</string>
-				<key>TargetAttributes</key>
-				<dict>
-					<key>04DD3C151D57A72C00DEBB32</key>
-					<dict>
-						<key>CreatedOnToolsVersion</key>
-						<string>7.3</string>
-						<key>DevelopmentTeam</key>
-						<string>ND37B5VWDX</string>
-					</dict>
-					<key>04DD3C2C1D57A72C00DEBB32</key>
-					<dict>
-						<key>CreatedOnToolsVersion</key>
-						<string>7.3</string>
-						<key>DevelopmentTeam</key>
-						<string>ND37B5VWDX</string>
-						<key>TestTargetID</key>
-						<string>04DD3C151D57A72C00DEBB32</string>
-					</dict>
-					<key>04DD3C371D57A72C00DEBB32</key>
-					<dict>
-						<key>CreatedOnToolsVersion</key>
-						<string>7.3</string>
-						<key>DevelopmentTeam</key>
-						<string>ND37B5VWDX</string>
-						<key>TestTargetID</key>
-						<string>04DD3C151D57A72C00DEBB32</string>
-					</dict>
-				</dict>
-			</dict>
-			<key>buildConfigurationList</key>
-			<string>04DD3C111D57A72C00DEBB32</string>
-			<key>compatibilityVersion</key>
-			<string>Xcode 3.2</string>
-			<key>developmentRegion</key>
-			<string>English</string>
-			<key>hasScannedForEncodings</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXProject</string>
-			<key>knownRegions</key>
-			<array>
-				<string>en</string>
-				<string>Base</string>
-			</array>
-			<key>mainGroup</key>
-			<string>04DD3C0D1D57A72C00DEBB32</string>
-			<key>productRefGroup</key>
-			<string>04DD3C171D57A72C00DEBB32</string>
-			<key>projectDirPath</key>
-			<string></string>
-			<key>projectReferences</key>
-			<array/>
-			<key>projectRoot</key>
-			<string></string>
-			<key>targets</key>
-			<array>
-				<string>04DD3C151D57A72C00DEBB32</string>
-				<string>04DD3C2C1D57A72C00DEBB32</string>
-				<string>04DD3C371D57A72C00DEBB32</string>
-			</array>
-		</dict>
-		<key>04DD3C111D57A72C00DEBB32</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>04DD3C3F1D57A72C00DEBB32</string>
-				<string>04DD3C401D57A72C00DEBB32</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>04DD3C121D57A72C00DEBB32</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>042B423B1D6B6D86008CBFE0</string>
-				<string>04DD3C221D57A72C00DEBB32</string>
-				<string>43632A161D62154900AD3B75</string>
-				<string>43632A181D62155200AD3B75</string>
-				<string>43E383771D5A38EF0014DED2</string>
-				<string>43632A071D5B786800AD3B75</string>
-				<string>04DD3C4F1D591C8500DEBB32</string>
-				<string>43632A1A1D63269A00AD3B75</string>
-				<string>43632A051D5B62F700AD3B75</string>
-				<string>43632A141D61F51100AD3B75</string>
-				<string>04DD3C4B1D57A88E00DEBB32</string>
-				<string>43632A121D61DB7700AD3B75</string>
-				<string>43632A0E1D5CCBCC00AD3B75</string>
-				<string>431CF3D81D67269A00898CD7</string>
-				<string>04DD3C1A1D57A72C00DEBB32</string>
-				<string>042B42341D6887BE008CBFE0</string>
-				<string>042B42371D68BE0F008CBFE0</string>
-				<string>04DD3C4D1D5909B700DEBB32</string>
-				<string>04283A351D5D1DB90053D1D2</string>
-				<string>042B42391D68D908008CBFE0</string>
-				<string>43632A091D5B811600AD3B75</string>
-				<string>431CF3DC1D6F493200898CD7</string>
-				<string>431CF3DA1D6EF2F500898CD7</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>04DD3C131D57A72C00DEBB32</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>39734B47F855D5991D980EB8</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>04DD3C141D57A72C00DEBB32</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>04DD3C271D57A72C00DEBB32</string>
-				<string>04DD3C241D57A72C00DEBB32</string>
-			</array>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>04DD3C151D57A72C00DEBB32</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>04DD3C411D57A72C00DEBB32</string>
-			<key>buildPhases</key>
-			<array>
-				<string>4DCAFA600FC7821D835E476A</string>
-				<string>04DD3C121D57A72C00DEBB32</string>
-				<string>04DD3C131D57A72C00DEBB32</string>
-				<string>04DD3C141D57A72C00DEBB32</string>
-				<string>BF467F1C80AD15B1100D7A75</string>
-				<string>BE660D48D3DD2729BE3AD5B0</string>
-				<string>997C65FD9749617D13902C7E</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>Transport4Church</string>
-			<key>productName</key>
-			<string>Transport4Church</string>
-			<key>productReference</key>
-			<string>04DD3C161D57A72C00DEBB32</string>
-			<key>productType</key>
-			<string>com.apple.product-type.application</string>
-		</dict>
-		<key>04DD3C161D57A72C00DEBB32</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.application</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>Transport4Church.app</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>04DD3C171D57A72C00DEBB32</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>04DD3C161D57A72C00DEBB32</string>
-				<string>04DD3C2D1D57A72C00DEBB32</string>
-				<string>04DD3C381D57A72C00DEBB32</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>04DD3C181D57A72C00DEBB32</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>431CF3D61D67268300898CD7</string>
-				<string>04DD3C191D57A72C00DEBB32</string>
-				<string>042B42301D68876B008CBFE0</string>
-				<string>04283A361D5D1E210053D1D2</string>
-				<string>04283A391D5D1FC50053D1D2</string>
-				<string>04283A381D5D1E8F0053D1D2</string>
-				<string>04283A371D5D1E530053D1D2</string>
-				<string>43632A0C1D5CCBB100AD3B75</string>
-				<string>04DD3C231D57A72C00DEBB32</string>
-				<string>04DD3C251D57A72C00DEBB32</string>
-				<string>04DD3C281D57A72C00DEBB32</string>
-				<string>04DD3C201D57A72C00DEBB32</string>
-				<string>43E383761D5A38EF0014DED2</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Transport4Church</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>04DD3C191D57A72C00DEBB32</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>AppDelegate.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>04DD3C1A1D57A72C00DEBB32</key>
-		<dict>
-			<key>fileRef</key>
-			<string>04DD3C191D57A72C00DEBB32</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>04DD3C201D57A72C00DEBB32</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>04DD3C211D57A72C00DEBB32</string>
-			</array>
-			<key>currentVersion</key>
-			<string>04DD3C211D57A72C00DEBB32</string>
-			<key>isa</key>
-			<string>XCVersionGroup</string>
-			<key>path</key>
-			<string>Transport4Church.xcdatamodeld</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-			<key>versionGroupType</key>
-			<string>wrapper.xcdatamodel</string>
-		</dict>
-		<key>04DD3C211D57A72C00DEBB32</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.xcdatamodel</string>
-			<key>path</key>
-			<string>Transport4Church.xcdatamodel</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>04DD3C221D57A72C00DEBB32</key>
-		<dict>
-			<key>fileRef</key>
-			<string>04DD3C201D57A72C00DEBB32</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>04DD3C231D57A72C00DEBB32</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>folder.assetcatalog</string>
-			<key>path</key>
-			<string>Assets.xcassets</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>04DD3C241D57A72C00DEBB32</key>
-		<dict>
-			<key>fileRef</key>
-			<string>04DD3C231D57A72C00DEBB32</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>04DD3C251D57A72C00DEBB32</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>04DD3C261D57A72C00DEBB32</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>LaunchScreen.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>04DD3C261D57A72C00DEBB32</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file.storyboard</string>
-			<key>name</key>
-			<string>Base</string>
-			<key>path</key>
-			<string>Base.lproj/LaunchScreen.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>04DD3C271D57A72C00DEBB32</key>
-		<dict>
-			<key>fileRef</key>
-			<string>04DD3C251D57A72C00DEBB32</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>04DD3C281D57A72C00DEBB32</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>04DD3C291D57A72C00DEBB32</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>04DD3C321D57A72C00DEBB32</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>04DD3C2A1D57A72C00DEBB32</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>59E6CC5AF3A827D98D24481B</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>04DD3C2B1D57A72C00DEBB32</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>04DD3C2C1D57A72C00DEBB32</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>04DD3C441D57A72C00DEBB32</string>
-			<key>buildPhases</key>
-			<array>
-				<string>B4C3297F68854D5D52C462AC</string>
-				<string>04DD3C291D57A72C00DEBB32</string>
-				<string>04DD3C2A1D57A72C00DEBB32</string>
-				<string>04DD3C2B1D57A72C00DEBB32</string>
-				<string>E641A87BC505824D6A80F35B</string>
-				<string>6D997063FE41C766F0C8B6A2</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>04DD3C2F1D57A72C00DEBB32</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>Transport4ChurchTests</string>
-			<key>productName</key>
-			<string>Transport4ChurchTests</string>
-			<key>productReference</key>
-			<string>04DD3C2D1D57A72C00DEBB32</string>
-			<key>productType</key>
-			<string>com.apple.product-type.bundle.unit-test</string>
-		</dict>
-		<key>04DD3C2D1D57A72C00DEBB32</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.cfbundle</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>Transport4ChurchTests.xctest</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>04DD3C2E1D57A72C00DEBB32</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>04DD3C0E1D57A72C00DEBB32</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>04DD3C151D57A72C00DEBB32</string>
-			<key>remoteInfo</key>
-			<string>Transport4Church</string>
-		</dict>
-		<key>04DD3C2F1D57A72C00DEBB32</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>target</key>
-			<string>04DD3C151D57A72C00DEBB32</string>
-			<key>targetProxy</key>
-			<string>04DD3C2E1D57A72C00DEBB32</string>
-		</dict>
-		<key>04DD3C301D57A72C00DEBB32</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>04DD3C311D57A72C00DEBB32</string>
-				<string>04DD3C331D57A72C00DEBB32</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Transport4ChurchTests</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>04DD3C311D57A72C00DEBB32</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>Transport4ChurchTests.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>04DD3C321D57A72C00DEBB32</key>
-		<dict>
-			<key>fileRef</key>
-			<string>04DD3C311D57A72C00DEBB32</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>04DD3C331D57A72C00DEBB32</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>04DD3C341D57A72C00DEBB32</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>04DD3C3D1D57A72C00DEBB32</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>04DD3C351D57A72C00DEBB32</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>4F49629DF8931134CADCF722</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>04DD3C361D57A72C00DEBB32</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>04DD3C371D57A72C00DEBB32</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>04DD3C471D57A72C00DEBB32</string>
-			<key>buildPhases</key>
-			<array>
-				<string>642448CD55C207305F7169C0</string>
-				<string>04DD3C341D57A72C00DEBB32</string>
-				<string>04DD3C351D57A72C00DEBB32</string>
-				<string>04DD3C361D57A72C00DEBB32</string>
-				<string>C1D289DA8DD6BD2453F3D955</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>04DD3C3A1D57A72C00DEBB32</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>Transport4ChurchUITests</string>
-			<key>productName</key>
-			<string>Transport4ChurchUITests</string>
-			<key>productReference</key>
-			<string>04DD3C381D57A72C00DEBB32</string>
-			<key>productType</key>
-			<string>com.apple.product-type.bundle.ui-testing</string>
-		</dict>
-		<key>04DD3C381D57A72C00DEBB32</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.cfbundle</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>Transport4ChurchUITests.xctest</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>04DD3C391D57A72C00DEBB32</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>04DD3C0E1D57A72C00DEBB32</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>04DD3C151D57A72C00DEBB32</string>
-			<key>remoteInfo</key>
-			<string>Transport4Church</string>
-		</dict>
-		<key>04DD3C3A1D57A72C00DEBB32</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>target</key>
-			<string>04DD3C151D57A72C00DEBB32</string>
-			<key>targetProxy</key>
-			<string>04DD3C391D57A72C00DEBB32</string>
-		</dict>
-		<key>04DD3C3B1D57A72C00DEBB32</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>04DD3C3C1D57A72C00DEBB32</string>
-				<string>04DD3C3E1D57A72C00DEBB32</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Transport4ChurchUITests</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>04DD3C3C1D57A72C00DEBB32</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>Transport4ChurchUITests.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>04DD3C3D1D57A72C00DEBB32</key>
-		<dict>
-			<key>fileRef</key>
-			<string>04DD3C3C1D57A72C00DEBB32</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>04DD3C3E1D57A72C00DEBB32</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>04DD3C3F1D57A72C00DEBB32</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_ANALYZER_NONNULL</key>
-				<string>YES</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_UNREACHABLE_CODE</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>DEBUG_INFORMATION_FORMAT</key>
-				<string>dwarf</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>ENABLE_TESTABILITY</key>
-				<string>YES</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_NO_COMMON_BLOCKS</key>
-				<string>YES</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES_AGGRESSIVE</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>9.3</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>YES</string>
-				<key>ONLY_ACTIVE_ARCH</key>
-				<string>YES</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SWIFT_OPTIMIZATION_LEVEL</key>
-				<string>-Onone</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>04DD3C401D57A72C00DEBB32</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_ANALYZER_NONNULL</key>
-				<string>YES</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_UNREACHABLE_CODE</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>DEBUG_INFORMATION_FORMAT</key>
-				<string>dwarf-with-dsym</string>
-				<key>ENABLE_NS_ASSERTIONS</key>
-				<string>NO</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_NO_COMMON_BLOCKS</key>
-				<string>YES</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES_AGGRESSIVE</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>9.3</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>NO</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>04DD3C411D57A72C00DEBB32</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>04DD3C421D57A72C00DEBB32</string>
-				<string>04DD3C431D57A72C00DEBB32</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>04DD3C421D57A72C00DEBB32</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>1E3A4D8FC5519975B3702AF5</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>AppIcon</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY</key>
-				<string>iPhone Developer</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Transport4Church/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks</string>
-				<key>OTHER_LDFLAGS</key>
-				<array>
-					<string>-ObjC</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>org.rccg.Transport4Church</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SWIFT_OBJC_BRIDGING_HEADER</key>
-				<string>Transport4Church-Bridging-Header.h</string>
-				<key>SWIFT_OPTIMIZATION_LEVEL</key>
-				<string>-Onone</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>04DD3C431D57A72C00DEBB32</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>860BB8DC7ACFFA8A5F821177</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>AppIcon</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY</key>
-				<string>iPhone Developer</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Transport4Church/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks</string>
-				<key>OTHER_LDFLAGS</key>
-				<array>
-					<string>-ObjC</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>org.rccg.Transport4Church</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SWIFT_OBJC_BRIDGING_HEADER</key>
-				<string>Transport4Church-Bridging-Header.h</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>04DD3C441D57A72C00DEBB32</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>04DD3C451D57A72C00DEBB32</string>
-				<string>04DD3C461D57A72C00DEBB32</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>04DD3C451D57A72C00DEBB32</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>0FDA6FFF19D53FAD4F0BB6B8</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>BUNDLE_LOADER</key>
-				<string>$(TEST_HOST)</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Transport4ChurchTests/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>org.rccg.Transport4ChurchTests</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>TEST_HOST</key>
-				<string>$(BUILT_PRODUCTS_DIR)/Transport4Church.app/Transport4Church</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>04DD3C461D57A72C00DEBB32</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>3A9A3511D2F7458141EEDB47</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>BUNDLE_LOADER</key>
-				<string>$(TEST_HOST)</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Transport4ChurchTests/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>org.rccg.Transport4ChurchTests</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>TEST_HOST</key>
-				<string>$(BUILT_PRODUCTS_DIR)/Transport4Church.app/Transport4Church</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>04DD3C471D57A72C00DEBB32</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>04DD3C481D57A72C00DEBB32</string>
-				<string>04DD3C491D57A72C00DEBB32</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>04DD3C481D57A72C00DEBB32</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>46A97FF25810D397CD614581</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>INFOPLIST_FILE</key>
-				<string>Transport4ChurchUITests/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>org.rccg.Transport4ChurchUITests</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>TEST_TARGET_NAME</key>
-				<string>Transport4Church</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>04DD3C491D57A72C00DEBB32</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>43674C7AFD10E409ECBAA189</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>INFOPLIST_FILE</key>
-				<string>Transport4ChurchUITests/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>org.rccg.Transport4ChurchUITests</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>TEST_TARGET_NAME</key>
-				<string>Transport4Church</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>04DD3C4A1D57A88E00DEBB32</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>UIViewExtension.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>04DD3C4B1D57A88E00DEBB32</key>
-		<dict>
-			<key>fileRef</key>
-			<string>04DD3C4A1D57A88E00DEBB32</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>04DD3C4C1D5909B700DEBB32</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>RegisterFormViewController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>04DD3C4D1D5909B700DEBB32</key>
-		<dict>
-			<key>fileRef</key>
-			<string>04DD3C4C1D5909B700DEBB32</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>04DD3C4E1D591C8500DEBB32</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>RiderPickupController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>04DD3C4F1D591C8500DEBB32</key>
-		<dict>
-			<key>fileRef</key>
-			<string>04DD3C4E1D591C8500DEBB32</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>0FDA6FFF19D53FAD4F0BB6B8</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-Transport4ChurchTests.debug.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods-Transport4ChurchTests/Pods-Transport4ChurchTests.debug.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>17DAC0283DD1181CF77AF2FD</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>43A72E641D75BB54002F3B65</string>
-				<string>AD3389B6AE8E9ED396B265AB</string>
-				<string>CD7BBFEB66CA5FE6FEB05CA2</string>
-				<string>CF716B2146A8851D163AD3D9</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>1E3A4D8FC5519975B3702AF5</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-Transport4Church.debug.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods-Transport4Church/Pods-Transport4Church.debug.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>39734B47F855D5991D980EB8</key>
-		<dict>
-			<key>fileRef</key>
-			<string>AD3389B6AE8E9ED396B265AB</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>3A9A3511D2F7458141EEDB47</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-Transport4ChurchTests.release.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods-Transport4ChurchTests/Pods-Transport4ChurchTests.release.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>431CF3D61D67268300898CD7</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>431CF3D71D67269A00898CD7</string>
-				<string>431CF3D91D6EF2F500898CD7</string>
-				<string>431CF3DB1D6F493200898CD7</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Menu</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>431CF3D71D67269A00898CD7</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>MenuViewController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>431CF3D81D67269A00898CD7</key>
-		<dict>
-			<key>fileRef</key>
-			<string>431CF3D71D67269A00898CD7</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>431CF3D91D6EF2F500898CD7</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>MenuItem.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>431CF3DA1D6EF2F500898CD7</key>
-		<dict>
-			<key>fileRef</key>
-			<string>431CF3D91D6EF2F500898CD7</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>431CF3DB1D6F493200898CD7</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>MenuActions.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>431CF3DC1D6F493200898CD7</key>
-		<dict>
-			<key>fileRef</key>
-			<string>431CF3DB1D6F493200898CD7</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>43632A041D5B62F700AD3B75</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>ConfirmPickupFormController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>43632A051D5B62F700AD3B75</key>
-		<dict>
-			<key>fileRef</key>
-			<string>43632A041D5B62F700AD3B75</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>43632A061D5B786800AD3B75</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>Trip.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>43632A071D5B786800AD3B75</key>
-		<dict>
-			<key>fileRef</key>
-			<string>43632A061D5B786800AD3B75</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>43632A081D5B811600AD3B75</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>FormButton.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>43632A091D5B811600AD3B75</key>
-		<dict>
-			<key>fileRef</key>
-			<string>43632A081D5B811600AD3B75</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>43632A0C1D5CCBB100AD3B75</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>43632A061D5B786800AD3B75</string>
-				<string>43632A0D1D5CCBCC00AD3B75</string>
-				<string>43632A131D61F51100AD3B75</string>
-				<string>43632A151D62154900AD3B75</string>
-				<string>43632A171D62155200AD3B75</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Models</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>43632A0D1D5CCBCC00AD3B75</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>User.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>43632A0E1D5CCBCC00AD3B75</key>
-		<dict>
-			<key>fileRef</key>
-			<string>43632A0D1D5CCBCC00AD3B75</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>43632A111D61DB7700AD3B75</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>RiderPickupDelegates.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>43632A121D61DB7700AD3B75</key>
-		<dict>
-			<key>fileRef</key>
-			<string>43632A111D61DB7700AD3B75</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>43632A131D61F51100AD3B75</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>Address.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>43632A141D61F51100AD3B75</key>
-		<dict>
-			<key>fileRef</key>
-			<string>43632A131D61F51100AD3B75</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>43632A151D62154900AD3B75</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>Rider.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>43632A161D62154900AD3B75</key>
-		<dict>
-			<key>fileRef</key>
-			<string>43632A151D62154900AD3B75</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>43632A171D62155200AD3B75</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>Driver.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>43632A181D62155200AD3B75</key>
-		<dict>
-			<key>fileRef</key>
-			<string>43632A171D62155200AD3B75</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>43632A191D63269A00AD3B75</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>LocationHelper.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>43632A1A1D63269A00AD3B75</key>
-		<dict>
-			<key>fileRef</key>
-			<string>43632A191D63269A00AD3B75</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>43674C7AFD10E409ECBAA189</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-Transport4ChurchUITests.release.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods-Transport4ChurchUITests/Pods-Transport4ChurchUITests.release.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>43A72E641D75BB54002F3B65</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>Parse.framework</string>
-			<key>path</key>
-			<string>../../../Library/Developer/Xcode/DerivedData/Transport4Church-gccuimlyhmdulufbuospzakbdhuy/Build/Products/Debug-iphoneos/Parse/Parse.framework</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>43E383711D5A1F2E0014DED2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>Transport4Church-Bridging-Header.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>43E383761D5A38EF0014DED2</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>LocationResultsController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>43E383771D5A38EF0014DED2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>43E383761D5A38EF0014DED2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>46A97FF25810D397CD614581</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-Transport4ChurchUITests.debug.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods-Transport4ChurchUITests/Pods-Transport4ChurchUITests.debug.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4DCAFA600FC7821D835E476A</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>[CP] Check Pods Manifest.lock</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
-if [[ $? != 0 ]] ; then
-    cat &lt;&lt; EOM
-error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
-EOM
-    exit 1
-fi
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>4F49629DF8931134CADCF722</key>
-		<dict>
-			<key>fileRef</key>
-			<string>CF716B2146A8851D163AD3D9</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>59E6CC5AF3A827D98D24481B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>CD7BBFEB66CA5FE6FEB05CA2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>642448CD55C207305F7169C0</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>[CP] Check Pods Manifest.lock</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
-if [[ $? != 0 ]] ; then
-    cat &lt;&lt; EOM
-error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
-EOM
-    exit 1
-fi
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>6D997063FE41C766F0C8B6A2</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>[CP] Copy Pods Resources</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Target Support Files/Pods-Transport4ChurchTests/Pods-Transport4ChurchTests-resources.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>860BB8DC7ACFFA8A5F821177</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-Transport4Church.release.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods-Transport4Church/Pods-Transport4Church.release.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>997C65FD9749617D13902C7E</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Embed Pods Frameworks</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Target Support Files/Pods-Transport4Church/Pods-Transport4Church-frameworks.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>AD3389B6AE8E9ED396B265AB</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.framework</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>Pods_Transport4Church.framework</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>AE9329980DE57A7FEF9BE8AA</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>1E3A4D8FC5519975B3702AF5</string>
-				<string>860BB8DC7ACFFA8A5F821177</string>
-				<string>0FDA6FFF19D53FAD4F0BB6B8</string>
-				<string>3A9A3511D2F7458141EEDB47</string>
-				<string>46A97FF25810D397CD614581</string>
-				<string>43674C7AFD10E409ECBAA189</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B4C3297F68854D5D52C462AC</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>[CP] Check Pods Manifest.lock</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
-if [[ $? != 0 ]] ; then
-    cat &lt;&lt; EOM
-error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
-EOM
-    exit 1
-fi
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>BE660D48D3DD2729BE3AD5B0</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>[CP] Copy Pods Resources</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Target Support Files/Pods-Transport4Church/Pods-Transport4Church-resources.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>BF467F1C80AD15B1100D7A75</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>[CP] Embed Pods Frameworks</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Target Support Files/Pods-Transport4Church/Pods-Transport4Church-frameworks.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>C1D289DA8DD6BD2453F3D955</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>[CP] Copy Pods Resources</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Target Support Files/Pods-Transport4ChurchUITests/Pods-Transport4ChurchUITests-resources.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>CD7BBFEB66CA5FE6FEB05CA2</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.framework</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>Pods_Transport4ChurchTests.framework</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>CF716B2146A8851D163AD3D9</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.framework</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>Pods_Transport4ChurchUITests.framework</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>E641A87BC505824D6A80F35B</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>[CP] Embed Pods Frameworks</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Target Support Files/Pods-Transport4ChurchTests/Pods-Transport4ChurchTests-frameworks.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-	</dict>
-	<key>rootObject</key>
-	<string>04DD3C0E1D57A72C00DEBB32</string>
-</dict>
-</plist>
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		04283A351D5D1DB90053D1D2 /* DriverRequestListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04283A341D5D1DB90053D1D2 /* DriverRequestListController.swift */; };
+		042B42341D6887BE008CBFE0 /* ParseServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B42331D6887BE008CBFE0 /* ParseServer.swift */; };
+		042B42371D68BE0F008CBFE0 /* DaoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B42361D68BE0F008CBFE0 /* DaoManager.swift */; };
+		042B42391D68D908008CBFE0 /* UserRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B42381D68D908008CBFE0 /* UserRepo.swift */; };
+		042B423B1D6B6D86008CBFE0 /* TripRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B423A1D6B6D86008CBFE0 /* TripRepo.swift */; };
+		048552841D7DEF8D00F7B9B6 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048552831D7DEF8D00F7B9B6 /* Helper.swift */; };
+		04DD3C1A1D57A72C00DEBB32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD3C191D57A72C00DEBB32 /* AppDelegate.swift */; };
+		04DD3C221D57A72C00DEBB32 /* Transport4Church.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04DD3C201D57A72C00DEBB32 /* Transport4Church.xcdatamodeld */; };
+		04DD3C241D57A72C00DEBB32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04DD3C231D57A72C00DEBB32 /* Assets.xcassets */; };
+		04DD3C271D57A72C00DEBB32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04DD3C251D57A72C00DEBB32 /* LaunchScreen.storyboard */; };
+		04DD3C321D57A72C00DEBB32 /* Transport4ChurchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD3C311D57A72C00DEBB32 /* Transport4ChurchTests.swift */; };
+		04DD3C3D1D57A72C00DEBB32 /* Transport4ChurchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD3C3C1D57A72C00DEBB32 /* Transport4ChurchUITests.swift */; };
+		04DD3C4B1D57A88E00DEBB32 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD3C4A1D57A88E00DEBB32 /* UIViewExtension.swift */; };
+		04DD3C4D1D5909B700DEBB32 /* RegisterFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD3C4C1D5909B700DEBB32 /* RegisterFormViewController.swift */; };
+		04DD3C4F1D591C8500DEBB32 /* RiderPickupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD3C4E1D591C8500DEBB32 /* RiderPickupController.swift */; };
+		39734B47F855D5991D980EB8 /* Pods_Transport4Church.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD3389B6AE8E9ED396B265AB /* Pods_Transport4Church.framework */; };
+		431CF3D81D67269A00898CD7 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431CF3D71D67269A00898CD7 /* MenuViewController.swift */; };
+		431CF3DA1D6EF2F500898CD7 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431CF3D91D6EF2F500898CD7 /* MenuItem.swift */; };
+		431CF3DC1D6F493200898CD7 /* MenuActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431CF3DB1D6F493200898CD7 /* MenuActions.swift */; };
+		43632A051D5B62F700AD3B75 /* ConfirmPickupFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43632A041D5B62F700AD3B75 /* ConfirmPickupFormController.swift */; };
+		43632A071D5B786800AD3B75 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43632A061D5B786800AD3B75 /* Trip.swift */; };
+		43632A091D5B811600AD3B75 /* FormButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43632A081D5B811600AD3B75 /* FormButton.swift */; };
+		43632A0E1D5CCBCC00AD3B75 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43632A0D1D5CCBCC00AD3B75 /* User.swift */; };
+		43632A121D61DB7700AD3B75 /* RiderPickupDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43632A111D61DB7700AD3B75 /* RiderPickupDelegates.swift */; };
+		43632A141D61F51100AD3B75 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43632A131D61F51100AD3B75 /* Address.swift */; };
+		43632A161D62154900AD3B75 /* Rider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43632A151D62154900AD3B75 /* Rider.swift */; };
+		43632A181D62155200AD3B75 /* Driver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43632A171D62155200AD3B75 /* Driver.swift */; };
+		43632A1A1D63269A00AD3B75 /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43632A191D63269A00AD3B75 /* LocationHelper.swift */; };
+		43E383771D5A38EF0014DED2 /* LocationResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E383761D5A38EF0014DED2 /* LocationResultsController.swift */; };
+		4F49629DF8931134CADCF722 /* Pods_Transport4ChurchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF716B2146A8851D163AD3D9 /* Pods_Transport4ChurchUITests.framework */; };
+		59E6CC5AF3A827D98D24481B /* Pods_Transport4ChurchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD7BBFEB66CA5FE6FEB05CA2 /* Pods_Transport4ChurchTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		04DD3C2E1D57A72C00DEBB32 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04DD3C0E1D57A72C00DEBB32 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 04DD3C151D57A72C00DEBB32;
+			remoteInfo = Transport4Church;
+		};
+		04DD3C391D57A72C00DEBB32 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04DD3C0E1D57A72C00DEBB32 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 04DD3C151D57A72C00DEBB32;
+			remoteInfo = Transport4Church;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		04283A341D5D1DB90053D1D2 /* DriverRequestListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverRequestListController.swift; sourceTree = "<group>"; };
+		042B42331D6887BE008CBFE0 /* ParseServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseServer.swift; sourceTree = "<group>"; };
+		042B42361D68BE0F008CBFE0 /* DaoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DaoManager.swift; sourceTree = "<group>"; };
+		042B42381D68D908008CBFE0 /* UserRepo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRepo.swift; sourceTree = "<group>"; };
+		042B423A1D6B6D86008CBFE0 /* TripRepo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripRepo.swift; sourceTree = "<group>"; };
+		048552831D7DEF8D00F7B9B6 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		04DD3C161D57A72C00DEBB32 /* Transport4Church.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Transport4Church.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		04DD3C191D57A72C00DEBB32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		04DD3C211D57A72C00DEBB32 /* Transport4Church.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Transport4Church.xcdatamodel; sourceTree = "<group>"; };
+		04DD3C231D57A72C00DEBB32 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		04DD3C261D57A72C00DEBB32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		04DD3C281D57A72C00DEBB32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04DD3C2D1D57A72C00DEBB32 /* Transport4ChurchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Transport4ChurchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		04DD3C311D57A72C00DEBB32 /* Transport4ChurchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transport4ChurchTests.swift; sourceTree = "<group>"; };
+		04DD3C331D57A72C00DEBB32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04DD3C381D57A72C00DEBB32 /* Transport4ChurchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Transport4ChurchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		04DD3C3C1D57A72C00DEBB32 /* Transport4ChurchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transport4ChurchUITests.swift; sourceTree = "<group>"; };
+		04DD3C3E1D57A72C00DEBB32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04DD3C4A1D57A88E00DEBB32 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		04DD3C4C1D5909B700DEBB32 /* RegisterFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterFormViewController.swift; sourceTree = "<group>"; };
+		04DD3C4E1D591C8500DEBB32 /* RiderPickupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RiderPickupController.swift; sourceTree = "<group>"; };
+		0FDA6FFF19D53FAD4F0BB6B8 /* Pods-Transport4ChurchTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transport4ChurchTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Transport4ChurchTests/Pods-Transport4ChurchTests.debug.xcconfig"; sourceTree = "<group>"; };
+		1E3A4D8FC5519975B3702AF5 /* Pods-Transport4Church.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transport4Church.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Transport4Church/Pods-Transport4Church.debug.xcconfig"; sourceTree = "<group>"; };
+		3A9A3511D2F7458141EEDB47 /* Pods-Transport4ChurchTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transport4ChurchTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Transport4ChurchTests/Pods-Transport4ChurchTests.release.xcconfig"; sourceTree = "<group>"; };
+		431CF3D71D67269A00898CD7 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		431CF3D91D6EF2F500898CD7 /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
+		431CF3DB1D6F493200898CD7 /* MenuActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuActions.swift; sourceTree = "<group>"; };
+		43632A041D5B62F700AD3B75 /* ConfirmPickupFormController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmPickupFormController.swift; sourceTree = "<group>"; };
+		43632A061D5B786800AD3B75 /* Trip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
+		43632A081D5B811600AD3B75 /* FormButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormButton.swift; sourceTree = "<group>"; };
+		43632A0D1D5CCBCC00AD3B75 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		43632A111D61DB7700AD3B75 /* RiderPickupDelegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RiderPickupDelegates.swift; sourceTree = "<group>"; };
+		43632A131D61F51100AD3B75 /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		43632A151D62154900AD3B75 /* Rider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rider.swift; sourceTree = "<group>"; };
+		43632A171D62155200AD3B75 /* Driver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Driver.swift; sourceTree = "<group>"; };
+		43632A191D63269A00AD3B75 /* LocationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationHelper.swift; sourceTree = "<group>"; };
+		43674C7AFD10E409ECBAA189 /* Pods-Transport4ChurchUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transport4ChurchUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Transport4ChurchUITests/Pods-Transport4ChurchUITests.release.xcconfig"; sourceTree = "<group>"; };
+		43A72E641D75BB54002F3B65 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "../../../Library/Developer/Xcode/DerivedData/Transport4Church-gccuimlyhmdulufbuospzakbdhuy/Build/Products/Debug-iphoneos/Parse/Parse.framework"; sourceTree = "<group>"; };
+		43E383711D5A1F2E0014DED2 /* Transport4Church-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Transport4Church-Bridging-Header.h"; sourceTree = "<group>"; };
+		43E383761D5A38EF0014DED2 /* LocationResultsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationResultsController.swift; sourceTree = "<group>"; };
+		46A97FF25810D397CD614581 /* Pods-Transport4ChurchUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transport4ChurchUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Transport4ChurchUITests/Pods-Transport4ChurchUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		860BB8DC7ACFFA8A5F821177 /* Pods-Transport4Church.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transport4Church.release.xcconfig"; path = "Pods/Target Support Files/Pods-Transport4Church/Pods-Transport4Church.release.xcconfig"; sourceTree = "<group>"; };
+		AD3389B6AE8E9ED396B265AB /* Pods_Transport4Church.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Transport4Church.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD7BBFEB66CA5FE6FEB05CA2 /* Pods_Transport4ChurchTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Transport4ChurchTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF716B2146A8851D163AD3D9 /* Pods_Transport4ChurchUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Transport4ChurchUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		04DD3C131D57A72C00DEBB32 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39734B47F855D5991D980EB8 /* Pods_Transport4Church.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04DD3C2A1D57A72C00DEBB32 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				59E6CC5AF3A827D98D24481B /* Pods_Transport4ChurchTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04DD3C351D57A72C00DEBB32 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F49629DF8931134CADCF722 /* Pods_Transport4ChurchUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		04283A361D5D1E210053D1D2 /* Rider */ = {
+			isa = PBXGroup;
+			children = (
+				43632A041D5B62F700AD3B75 /* ConfirmPickupFormController.swift */,
+				04DD3C4E1D591C8500DEBB32 /* RiderPickupController.swift */,
+				43632A111D61DB7700AD3B75 /* RiderPickupDelegates.swift */,
+			);
+			name = Rider;
+			sourceTree = "<group>";
+		};
+		04283A371D5D1E530053D1D2 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				43632A081D5B811600AD3B75 /* FormButton.swift */,
+				04DD3C4A1D57A88E00DEBB32 /* UIViewExtension.swift */,
+				43632A191D63269A00AD3B75 /* LocationHelper.swift */,
+				048552831D7DEF8D00F7B9B6 /* Helper.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		04283A381D5D1E8F0053D1D2 /* Driver */ = {
+			isa = PBXGroup;
+			children = (
+				04283A341D5D1DB90053D1D2 /* DriverRequestListController.swift */,
+			);
+			name = Driver;
+			sourceTree = "<group>";
+		};
+		04283A391D5D1FC50053D1D2 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				04DD3C4C1D5909B700DEBB32 /* RegisterFormViewController.swift */,
+			);
+			name = Register;
+			sourceTree = "<group>";
+		};
+		042B42301D68876B008CBFE0 /* Backend */ = {
+			isa = PBXGroup;
+			children = (
+				042B42351D68BDD5008CBFE0 /* Dao */,
+				042B42331D6887BE008CBFE0 /* ParseServer.swift */,
+			);
+			name = Backend;
+			sourceTree = "<group>";
+		};
+		042B42351D68BDD5008CBFE0 /* Dao */ = {
+			isa = PBXGroup;
+			children = (
+				042B42361D68BE0F008CBFE0 /* DaoManager.swift */,
+				042B42381D68D908008CBFE0 /* UserRepo.swift */,
+				042B423A1D6B6D86008CBFE0 /* TripRepo.swift */,
+			);
+			name = Dao;
+			sourceTree = "<group>";
+		};
+		04DD3C0D1D57A72C00DEBB32 = {
+			isa = PBXGroup;
+			children = (
+				04DD3C181D57A72C00DEBB32 /* Transport4Church */,
+				04DD3C301D57A72C00DEBB32 /* Transport4ChurchTests */,
+				04DD3C3B1D57A72C00DEBB32 /* Transport4ChurchUITests */,
+				04DD3C171D57A72C00DEBB32 /* Products */,
+				43E383711D5A1F2E0014DED2 /* Transport4Church-Bridging-Header.h */,
+				AE9329980DE57A7FEF9BE8AA /* Pods */,
+				17DAC0283DD1181CF77AF2FD /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		04DD3C171D57A72C00DEBB32 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				04DD3C161D57A72C00DEBB32 /* Transport4Church.app */,
+				04DD3C2D1D57A72C00DEBB32 /* Transport4ChurchTests.xctest */,
+				04DD3C381D57A72C00DEBB32 /* Transport4ChurchUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		04DD3C181D57A72C00DEBB32 /* Transport4Church */ = {
+			isa = PBXGroup;
+			children = (
+				431CF3D61D67268300898CD7 /* Menu */,
+				04DD3C191D57A72C00DEBB32 /* AppDelegate.swift */,
+				042B42301D68876B008CBFE0 /* Backend */,
+				04283A361D5D1E210053D1D2 /* Rider */,
+				04283A391D5D1FC50053D1D2 /* Register */,
+				04283A381D5D1E8F0053D1D2 /* Driver */,
+				04283A371D5D1E530053D1D2 /* Utils */,
+				43632A0C1D5CCBB100AD3B75 /* Models */,
+				04DD3C231D57A72C00DEBB32 /* Assets.xcassets */,
+				04DD3C251D57A72C00DEBB32 /* LaunchScreen.storyboard */,
+				04DD3C281D57A72C00DEBB32 /* Info.plist */,
+				04DD3C201D57A72C00DEBB32 /* Transport4Church.xcdatamodeld */,
+				43E383761D5A38EF0014DED2 /* LocationResultsController.swift */,
+			);
+			path = Transport4Church;
+			sourceTree = "<group>";
+		};
+		04DD3C301D57A72C00DEBB32 /* Transport4ChurchTests */ = {
+			isa = PBXGroup;
+			children = (
+				04DD3C311D57A72C00DEBB32 /* Transport4ChurchTests.swift */,
+				04DD3C331D57A72C00DEBB32 /* Info.plist */,
+			);
+			path = Transport4ChurchTests;
+			sourceTree = "<group>";
+		};
+		04DD3C3B1D57A72C00DEBB32 /* Transport4ChurchUITests */ = {
+			isa = PBXGroup;
+			children = (
+				04DD3C3C1D57A72C00DEBB32 /* Transport4ChurchUITests.swift */,
+				04DD3C3E1D57A72C00DEBB32 /* Info.plist */,
+			);
+			path = Transport4ChurchUITests;
+			sourceTree = "<group>";
+		};
+		17DAC0283DD1181CF77AF2FD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				43A72E641D75BB54002F3B65 /* Parse.framework */,
+				AD3389B6AE8E9ED396B265AB /* Pods_Transport4Church.framework */,
+				CD7BBFEB66CA5FE6FEB05CA2 /* Pods_Transport4ChurchTests.framework */,
+				CF716B2146A8851D163AD3D9 /* Pods_Transport4ChurchUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		431CF3D61D67268300898CD7 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				431CF3D71D67269A00898CD7 /* MenuViewController.swift */,
+				431CF3D91D6EF2F500898CD7 /* MenuItem.swift */,
+				431CF3DB1D6F493200898CD7 /* MenuActions.swift */,
+			);
+			name = Menu;
+			sourceTree = "<group>";
+		};
+		43632A0C1D5CCBB100AD3B75 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				43632A061D5B786800AD3B75 /* Trip.swift */,
+				43632A0D1D5CCBCC00AD3B75 /* User.swift */,
+				43632A131D61F51100AD3B75 /* Address.swift */,
+				43632A151D62154900AD3B75 /* Rider.swift */,
+				43632A171D62155200AD3B75 /* Driver.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		AE9329980DE57A7FEF9BE8AA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1E3A4D8FC5519975B3702AF5 /* Pods-Transport4Church.debug.xcconfig */,
+				860BB8DC7ACFFA8A5F821177 /* Pods-Transport4Church.release.xcconfig */,
+				0FDA6FFF19D53FAD4F0BB6B8 /* Pods-Transport4ChurchTests.debug.xcconfig */,
+				3A9A3511D2F7458141EEDB47 /* Pods-Transport4ChurchTests.release.xcconfig */,
+				46A97FF25810D397CD614581 /* Pods-Transport4ChurchUITests.debug.xcconfig */,
+				43674C7AFD10E409ECBAA189 /* Pods-Transport4ChurchUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		04DD3C151D57A72C00DEBB32 /* Transport4Church */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04DD3C411D57A72C00DEBB32 /* Build configuration list for PBXNativeTarget "Transport4Church" */;
+			buildPhases = (
+				4DCAFA600FC7821D835E476A /* [CP] Check Pods Manifest.lock */,
+				04DD3C121D57A72C00DEBB32 /* Sources */,
+				04DD3C131D57A72C00DEBB32 /* Frameworks */,
+				04DD3C141D57A72C00DEBB32 /* Resources */,
+				BF467F1C80AD15B1100D7A75 /* [CP] Embed Pods Frameworks */,
+				BE660D48D3DD2729BE3AD5B0 /* [CP] Copy Pods Resources */,
+				997C65FD9749617D13902C7E /* Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Transport4Church;
+			productName = Transport4Church;
+			productReference = 04DD3C161D57A72C00DEBB32 /* Transport4Church.app */;
+			productType = "com.apple.product-type.application";
+		};
+		04DD3C2C1D57A72C00DEBB32 /* Transport4ChurchTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04DD3C441D57A72C00DEBB32 /* Build configuration list for PBXNativeTarget "Transport4ChurchTests" */;
+			buildPhases = (
+				B4C3297F68854D5D52C462AC /* [CP] Check Pods Manifest.lock */,
+				04DD3C291D57A72C00DEBB32 /* Sources */,
+				04DD3C2A1D57A72C00DEBB32 /* Frameworks */,
+				04DD3C2B1D57A72C00DEBB32 /* Resources */,
+				E641A87BC505824D6A80F35B /* [CP] Embed Pods Frameworks */,
+				6D997063FE41C766F0C8B6A2 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				04DD3C2F1D57A72C00DEBB32 /* PBXTargetDependency */,
+			);
+			name = Transport4ChurchTests;
+			productName = Transport4ChurchTests;
+			productReference = 04DD3C2D1D57A72C00DEBB32 /* Transport4ChurchTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		04DD3C371D57A72C00DEBB32 /* Transport4ChurchUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04DD3C471D57A72C00DEBB32 /* Build configuration list for PBXNativeTarget "Transport4ChurchUITests" */;
+			buildPhases = (
+				642448CD55C207305F7169C0 /* [CP] Check Pods Manifest.lock */,
+				04DD3C341D57A72C00DEBB32 /* Sources */,
+				04DD3C351D57A72C00DEBB32 /* Frameworks */,
+				04DD3C361D57A72C00DEBB32 /* Resources */,
+				C1D289DA8DD6BD2453F3D955 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				04DD3C3A1D57A72C00DEBB32 /* PBXTargetDependency */,
+			);
+			name = Transport4ChurchUITests;
+			productName = Transport4ChurchUITests;
+			productReference = 04DD3C381D57A72C00DEBB32 /* Transport4ChurchUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		04DD3C0E1D57A72C00DEBB32 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = rccg;
+				TargetAttributes = {
+					04DD3C151D57A72C00DEBB32 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = ND37B5VWDX;
+					};
+					04DD3C2C1D57A72C00DEBB32 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = ND37B5VWDX;
+						TestTargetID = 04DD3C151D57A72C00DEBB32;
+					};
+					04DD3C371D57A72C00DEBB32 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = ND37B5VWDX;
+						TestTargetID = 04DD3C151D57A72C00DEBB32;
+					};
+				};
+			};
+			buildConfigurationList = 04DD3C111D57A72C00DEBB32 /* Build configuration list for PBXProject "Transport4Church" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 04DD3C0D1D57A72C00DEBB32;
+			productRefGroup = 04DD3C171D57A72C00DEBB32 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				04DD3C151D57A72C00DEBB32 /* Transport4Church */,
+				04DD3C2C1D57A72C00DEBB32 /* Transport4ChurchTests */,
+				04DD3C371D57A72C00DEBB32 /* Transport4ChurchUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		04DD3C141D57A72C00DEBB32 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04DD3C271D57A72C00DEBB32 /* LaunchScreen.storyboard in Resources */,
+				04DD3C241D57A72C00DEBB32 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04DD3C2B1D57A72C00DEBB32 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04DD3C361D57A72C00DEBB32 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4DCAFA600FC7821D835E476A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		642448CD55C207305F7169C0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6D997063FE41C766F0C8B6A2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Transport4ChurchTests/Pods-Transport4ChurchTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		997C65FD9749617D13902C7E /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Transport4Church/Pods-Transport4Church-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B4C3297F68854D5D52C462AC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BE660D48D3DD2729BE3AD5B0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Transport4Church/Pods-Transport4Church-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BF467F1C80AD15B1100D7A75 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Transport4Church/Pods-Transport4Church-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C1D289DA8DD6BD2453F3D955 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Transport4ChurchUITests/Pods-Transport4ChurchUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E641A87BC505824D6A80F35B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Transport4ChurchTests/Pods-Transport4ChurchTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		04DD3C121D57A72C00DEBB32 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				042B423B1D6B6D86008CBFE0 /* TripRepo.swift in Sources */,
+				04DD3C221D57A72C00DEBB32 /* Transport4Church.xcdatamodeld in Sources */,
+				43632A161D62154900AD3B75 /* Rider.swift in Sources */,
+				43632A181D62155200AD3B75 /* Driver.swift in Sources */,
+				048552841D7DEF8D00F7B9B6 /* Helper.swift in Sources */,
+				43E383771D5A38EF0014DED2 /* LocationResultsController.swift in Sources */,
+				43632A071D5B786800AD3B75 /* Trip.swift in Sources */,
+				04DD3C4F1D591C8500DEBB32 /* RiderPickupController.swift in Sources */,
+				43632A1A1D63269A00AD3B75 /* LocationHelper.swift in Sources */,
+				43632A051D5B62F700AD3B75 /* ConfirmPickupFormController.swift in Sources */,
+				43632A141D61F51100AD3B75 /* Address.swift in Sources */,
+				04DD3C4B1D57A88E00DEBB32 /* UIViewExtension.swift in Sources */,
+				43632A121D61DB7700AD3B75 /* RiderPickupDelegates.swift in Sources */,
+				43632A0E1D5CCBCC00AD3B75 /* User.swift in Sources */,
+				431CF3D81D67269A00898CD7 /* MenuViewController.swift in Sources */,
+				04DD3C1A1D57A72C00DEBB32 /* AppDelegate.swift in Sources */,
+				042B42341D6887BE008CBFE0 /* ParseServer.swift in Sources */,
+				042B42371D68BE0F008CBFE0 /* DaoManager.swift in Sources */,
+				04DD3C4D1D5909B700DEBB32 /* RegisterFormViewController.swift in Sources */,
+				04283A351D5D1DB90053D1D2 /* DriverRequestListController.swift in Sources */,
+				042B42391D68D908008CBFE0 /* UserRepo.swift in Sources */,
+				43632A091D5B811600AD3B75 /* FormButton.swift in Sources */,
+				431CF3DC1D6F493200898CD7 /* MenuActions.swift in Sources */,
+				431CF3DA1D6EF2F500898CD7 /* MenuItem.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04DD3C291D57A72C00DEBB32 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04DD3C321D57A72C00DEBB32 /* Transport4ChurchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04DD3C341D57A72C00DEBB32 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04DD3C3D1D57A72C00DEBB32 /* Transport4ChurchUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		04DD3C2F1D57A72C00DEBB32 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 04DD3C151D57A72C00DEBB32 /* Transport4Church */;
+			targetProxy = 04DD3C2E1D57A72C00DEBB32 /* PBXContainerItemProxy */;
+		};
+		04DD3C3A1D57A72C00DEBB32 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 04DD3C151D57A72C00DEBB32 /* Transport4Church */;
+			targetProxy = 04DD3C391D57A72C00DEBB32 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		04DD3C251D57A72C00DEBB32 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				04DD3C261D57A72C00DEBB32 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		04DD3C3F1D57A72C00DEBB32 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		04DD3C401D57A72C00DEBB32 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		04DD3C421D57A72C00DEBB32 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E3A4D8FC5519975B3702AF5 /* Pods-Transport4Church.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = Transport4Church/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"$(inherited)",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.rccg.Transport4Church;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Transport4Church-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		04DD3C431D57A72C00DEBB32 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 860BB8DC7ACFFA8A5F821177 /* Pods-Transport4Church.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = Transport4Church/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"$(inherited)",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.rccg.Transport4Church;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Transport4Church-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		04DD3C451D57A72C00DEBB32 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0FDA6FFF19D53FAD4F0BB6B8 /* Pods-Transport4ChurchTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = Transport4ChurchTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.rccg.Transport4ChurchTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Transport4Church.app/Transport4Church";
+			};
+			name = Debug;
+		};
+		04DD3C461D57A72C00DEBB32 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A9A3511D2F7458141EEDB47 /* Pods-Transport4ChurchTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = Transport4ChurchTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.rccg.Transport4ChurchTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Transport4Church.app/Transport4Church";
+			};
+			name = Release;
+		};
+		04DD3C481D57A72C00DEBB32 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 46A97FF25810D397CD614581 /* Pods-Transport4ChurchUITests.debug.xcconfig */;
+			buildSettings = {
+				INFOPLIST_FILE = Transport4ChurchUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.rccg.Transport4ChurchUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Transport4Church;
+			};
+			name = Debug;
+		};
+		04DD3C491D57A72C00DEBB32 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 43674C7AFD10E409ECBAA189 /* Pods-Transport4ChurchUITests.release.xcconfig */;
+			buildSettings = {
+				INFOPLIST_FILE = Transport4ChurchUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.rccg.Transport4ChurchUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Transport4Church;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		04DD3C111D57A72C00DEBB32 /* Build configuration list for PBXProject "Transport4Church" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04DD3C3F1D57A72C00DEBB32 /* Debug */,
+				04DD3C401D57A72C00DEBB32 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		04DD3C411D57A72C00DEBB32 /* Build configuration list for PBXNativeTarget "Transport4Church" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04DD3C421D57A72C00DEBB32 /* Debug */,
+				04DD3C431D57A72C00DEBB32 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		04DD3C441D57A72C00DEBB32 /* Build configuration list for PBXNativeTarget "Transport4ChurchTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04DD3C451D57A72C00DEBB32 /* Debug */,
+				04DD3C461D57A72C00DEBB32 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		04DD3C471D57A72C00DEBB32 /* Build configuration list for PBXNativeTarget "Transport4ChurchUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04DD3C481D57A72C00DEBB32 /* Debug */,
+				04DD3C491D57A72C00DEBB32 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		04DD3C201D57A72C00DEBB32 /* Transport4Church.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				04DD3C211D57A72C00DEBB32 /* Transport4Church.xcdatamodel */,
+			);
+			currentVersion = 04DD3C211D57A72C00DEBB32 /* Transport4Church.xcdatamodel */;
+			path = Transport4Church.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 04DD3C0E1D57A72C00DEBB32 /* Project object */;
+}
