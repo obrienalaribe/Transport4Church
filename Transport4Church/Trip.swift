@@ -11,32 +11,32 @@
 
 import Parse
 
-class Trip {
-    var rider: Rider
-    var driver: Driver?
-    var status: TripStatus = TripStatus.NEW
+class Trip : PFObject, PFSubclassing  {
+    var rider: Rider {
+        get { return objectForKey(Rider.parseClassName()) as! Rider }
+        set {setObject(newValue, forKey: Rider.parseClassName())}
+    }
+        
+    var status : TripStatus {
+        get { return TripStatus.reverse(objectForKey("status") as! String)!}
+        set { self["status"] = newValue.rawValue }
+    }
+    
     var extraRiders : Int = 0
-    var pickupTime : NSDate?
+    
+    @NSManaged var pickupLocation : PFGeoPoint
+
+    var pickupTime : NSDate {
+        get {return Helper.convertStringToDate(objectForKey("pickup_time") as! String)}
+        set { setObject(Helper.convertDateToString(newValue), forKey: "pickup_time") }
+    }
+
     
     init (rider: Rider) {
+        super.init()
         self.rider = rider
+        self.status = .NEW
     }
-}
-
-class TripRequest : PFObject, PFSubclassing {
-    // MARK: - PFSubclassing
-    @NSManaged var pickupLocation : PFGeoPoint
-    @NSManaged var rider: PFUser
-    var time : NSDate {
-        get {return convertStringToDate(objectForKey("pickup_time") as! String)}
-        set { setObject(convertDateToString(newValue), forKey: "pickup_time") }
-    }
-    
-    var status : String {
-        get {return objectForKey("status") as! String}
-        set { self["status"] = newValue }
-    }
-
     
     override class func initialize() {
         struct Static {
@@ -47,31 +47,6 @@ class TripRequest : PFObject, PFSubclassing {
         }
     }
     
-    override init(){
-        super.init()
-        self.rider = PFUser.currentUser()!
-    }
-
-    
-    private func convertDateToString(date : NSDate) -> String{
-        // format the NSDate to a NSString
-        let dateFormat = NSDateFormatter()
-        dateFormat.dateFormat = "cccc, MMM d, hh:mm aa"
-        let dateString = dateFormat.stringFromDate(date)
-        return dateString
-    }
-    
-    
-    
-    private func convertStringToDate (date : String) -> NSDate{
-        // format the NSDate to a NSString
-        let dateFormatter = NSDateFormatter()
-        
-        dateFormatter.dateFormat = "dd-MM-yyyy"
-        var dateFromString = NSDate()
-        dateFromString = dateFormatter.dateFromString(date)!
-        return dateFromString
-    }
     
     static func parseClassName() -> String {
         return "Trip"
@@ -86,4 +61,31 @@ enum TripStatus : String {
     case CANCELLED = "Cancelled"
     case STARTED = "Started"
     case COMPLETED = "Completed"
+    
+    static func reverse(status: String) -> TripStatus? {
+        switch(status){
+            case "New" :
+                return .NEW
+                break
+            case "Requested" :
+                return .REQUESTED
+                break
+            case "Accepted" :
+                return .ACCEPTED
+                break
+            case "Cancelled" :
+                return .CANCELLED
+                break
+            case "Started" :
+                return .STARTED
+                break
+            case "Completed" :
+                return .COMPLETED
+                break            
+            default:
+                return nil
+           
+        }
+        
+    }
 }

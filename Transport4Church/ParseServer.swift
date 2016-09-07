@@ -17,7 +17,8 @@ class ParseServer {
     }
     
     func registerSubClasses(){
-        TripRequest.registerSubclass()
+        Rider.registerSubclass()
+        Trip.registerSubclass()
        
     }
     

@@ -28,15 +28,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
 
 //        window?.rootViewController = UINavigationController(rootViewController:MenuViewController())
-
-        window?.rootViewController = UINavigationController(rootViewController:RegisterFormViewController())
+//
+//        window?.rootViewController = UINavigationController(rootViewController:RiderPickupController())
 
         
         let server = ParseServer()
         server.createTripRequests()
         
-//        window?.rootViewController = UINavigationController(rootViewController: DriverRequestListController(collectionViewLayout: UICollectionViewFlowLayout()))
-//        
+        window?.rootViewController = UINavigationController(rootViewController: DriverRequestListController(collectionViewLayout: UICollectionViewFlowLayout()))
+//
         return true
     }
     

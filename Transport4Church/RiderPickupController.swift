@@ -89,10 +89,13 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
     override func viewWillAppear(animated: Bool) {
         super.viewDidAppear(true)
         
-        if self.currentTrip?.status == nil {
+        
+        if self.currentTrip == nil {
             //initial state before trip is initialized
             setRiderLocationOnMap()
         }
+        
+        print(self.currentTrip)
         
         if let tripStatus = self.currentTrip?.status {
             if tripStatus == TripStatus.REQUESTED {
@@ -124,6 +127,7 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
             self.rider = Rider(location: Address(coordinate: location.coordinate), destination: Address(coordinate: fakeDest))
             
             self.currentTrip = Trip(rider: self.rider)
+            self.currentTrip.status = TripStatus.NEW
 
             self.userLocationPermissionEnabled = true
             let riderLatitude = self.rider.location.coordinate.latitude
@@ -279,14 +283,17 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
         if sender.state == .Ended {
             self.cancelTripButton.hidden = !self.cancelTripButton.hidden
             driverLocation.map = nil
-            self.currentTrip!.status = TripStatus.CANCELLED
-            toggleTripMode()
+            self.currentTrip.status = TripStatus.CANCELLED
+            
+            self.currentTrip.saveInBackgroundWithBlock({ (success, error) in
+                self.toggleTripMode()
+            })
         }
         else if sender.state == .Began {
             self.cancelTripButton.alpha = 1
             self.locationTrackingLabel.text = "Cancelling Pickup ... "
             startNetworkActivity(sender)
-            //TODO: send cancel request through network
+            
         }
     }
     
@@ -368,7 +375,7 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
         startActivityAnimating(size, message: "Please wait", type: NVActivityIndicatorType(rawValue: 17)!)
         performSelector(#selector(delayedStopActivity),
                         withObject: nil,
-                        afterDelay: 5.5)
+                        afterDelay: 2.5)
     }
     
     func delayedStopActivity() {

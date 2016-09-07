@@ -69,7 +69,7 @@ class ConfirmPickupFormController: FormViewController {
             }
             
             +++ Section()
-            <<< TimeRow("pickupTime"){
+            <<< TimeRow("pickup_time"){
                 $0.title = "Choose Pickup Time"
                 $0.value = NSDate()
             }
@@ -92,19 +92,26 @@ class ConfirmPickupFormController: FormViewController {
     func handleFormSubmission(sender: UIButton!){
         
         let valuesDictionary = form.values()
+        let riderCoord = self.trip.rider.location.coordinate
+
+        self.trip.rider.saveEventually()
+
         self.trip.status = TripStatus.REQUESTED
         
-        let tripRequest = TripRequest()
-        let riderCoord = self.trip.rider.location.coordinate
+        self.trip.pickupLocation = PFGeoPoint(latitude: riderCoord.latitude, longitude: riderCoord.longitude)
+        self.trip.pickupTime = valuesDictionary["pickup_time"] as! NSDate
         
-        tripRequest.pickupLocation = PFGeoPoint(latitude: riderCoord.latitude, longitude: riderCoord.longitude)
-        tripRequest.time = valuesDictionary["pickupTime"] as! NSDate
-        tripRequest.status = self.trip.status.rawValue
+        print(self.trip.rider)
+
         
-        tripRequest.saveInBackgroundWithBlock({ (success, error) in
+        self.trip.saveInBackgroundWithBlock({ (success, error) in
             self.navigationController?.popViewControllerAnimated(true)
         })
-       
+        
+        
+//
+
+//        
         
         
     }

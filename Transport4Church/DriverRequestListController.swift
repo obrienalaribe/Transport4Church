@@ -60,7 +60,7 @@ class PickupRequestCell : BaseCollectionCell {
     
     var trip : Trip? {
         didSet {
-            fakeTrips.sort({$0.pickupTime!.compare($1.pickupTime!) == .OrderedAscending })
+            fakeTrips.sort({$0.pickupTime.compare($1.pickupTime) == .OrderedAscending })
             
          
             if let pickupTime = trip?.pickupTime {
