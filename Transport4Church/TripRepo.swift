@@ -10,19 +10,19 @@ import Parse
 
 class TripRepo {
     
-    static func fetchAllPickupRequests(location: CLLocationCoordinate2D) -> [AnyObject] {
+    static func fetchAllPickupRequests(location: CLLocationCoordinate2D) -> [Trip] {
         
     
-        let tripDestination = PFGeoPoint.init(latitude: EFA_Coord.latitude, longitude: EFA_Coord.longitude)
+        let tripDestination = PFGeoPoint.init(latitude: location.latitude, longitude: location.longitude)
 
         var query = PFQuery(className:"Trip")
-        query.whereKey("destination", equalTo: tripDestination)
+        query.whereKey("pickupLocation", nearGeoPoint: tripDestination)
         query.limit = 10
         
-        var result : [AnyObject] = [AnyObject]()
+        var result : [Trip] = [Trip]()
         
         do {
-            result = try query.findObjects()
+            result = try query.findObjects() as! [Trip]
 
         }catch _ {
             

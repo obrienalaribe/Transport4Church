@@ -9,16 +9,13 @@
 import Parse
 
 class Rider : PFObject, PFSubclassing  {
-    var location : Address
-    var destination : Address
-    @NSManaged var userDetails : PFUser
+    //replace Address with PFGeopoint and only call location network worker in Confirm Controller
+    var location : Address!
+    @NSManaged var user : PFUser
+    @NSManaged var geopoint : PFGeoPoint
     
-
-    init(location: Address, destination: Address){
-        self.location = location
-        self.destination = destination
+    override init(){
         super.init()
-        self.userDetails = PFUser.currentUser()!
     }
     
     override class func initialize() {

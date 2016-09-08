@@ -7,16 +7,17 @@
 //
 
 //
-////TODO: Subclass PFObject and include destination
 
 import Parse
 
 class Trip : PFObject, PFSubclassing  {
     var rider: Rider {
+        //set rider on parse
         get { return objectForKey(Rider.parseClassName()) as! Rider }
         set {setObject(newValue, forKey: Rider.parseClassName())}
     }
-        
+    
+    
     var status : TripStatus {
         get { return TripStatus.reverse(objectForKey("status") as! String)!}
         set { self["status"] = newValue.rawValue }
@@ -24,10 +25,11 @@ class Trip : PFObject, PFSubclassing  {
     
     var extraRiders : Int = 0
     
+    //only set destination on this object then Rider will have location
     @NSManaged var pickupLocation : PFGeoPoint
 
     var pickupTime : NSDate {
-        get {return Helper.convertStringToDate(objectForKey("pickup_time") as! String)}
+        get { return Helper.convertStringToDate(objectForKey("pickup_time" ) as! String)}
         set { setObject(Helper.convertDateToString(newValue), forKey: "pickup_time") }
     }
 

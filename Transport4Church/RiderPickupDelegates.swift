@@ -37,6 +37,7 @@ extension RiderPickupController : GMSMapViewDelegate{
                 
             }
 
+            //TODO update rider geopoint details
             print(self.currentTrip.status)
             
             UIView.animateWithDuration(0.25) {

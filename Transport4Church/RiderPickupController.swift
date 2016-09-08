@@ -11,6 +11,7 @@ import GooglePlaces
 import Alamofire
 import SwiftyJSON
 import NVActivityIndicatorView
+import Parse
 
 class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
     
@@ -122,9 +123,10 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
         
         if let location = manager.location {
             
-            let fakeDest = CLLocationCoordinate2DMake(53.789607182624763, -1.5980678424239159) //remove this in prod
+            self.rider = Rider()
+            self.rider.location = Address(coordinate: location.coordinate)
             
-            self.rider = Rider(location: Address(coordinate: location.coordinate), destination: Address(coordinate: fakeDest))
+            self.rider.user = PFUser.currentUser()!
             
             self.currentTrip = Trip(rider: self.rider)
             self.currentTrip.status = TripStatus.NEW

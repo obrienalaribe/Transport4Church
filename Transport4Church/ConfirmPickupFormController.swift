@@ -21,6 +21,7 @@ class ConfirmPickupFormController: FormViewController {
     init(trip: Trip) {
         self.trip = trip
         super.init(nibName: nil, bundle: nil)
+        //Use location helper to get location details of PFGeopoint then set in fields
 
     }
  
@@ -94,15 +95,16 @@ class ConfirmPickupFormController: FormViewController {
         let valuesDictionary = form.values()
         let riderCoord = self.trip.rider.location.coordinate
 
-        self.trip.rider.saveEventually()
+        self.trip.rider.geopoint = PFGeoPoint(latitude: riderCoord.latitude, longitude: riderCoord.longitude)
 
         self.trip.status = TripStatus.REQUESTED
         
         self.trip.pickupLocation = PFGeoPoint(latitude: riderCoord.latitude, longitude: riderCoord.longitude)
         self.trip.pickupTime = valuesDictionary["pickup_time"] as! NSDate
+    
+      
         
-        print(self.trip.rider)
-
+       
         
         self.trip.saveInBackgroundWithBlock({ (success, error) in
             self.navigationController?.popViewControllerAnimated(true)

@@ -51,23 +51,23 @@ class ParseServer {
 //        }
 //        
         
-        for index in 0...10 {
-           
-            let rider = Rider(location: Address(coordinate: EFA_Coord), destination: Address(coordinate: EFA_Coord))
-            
-            let trip = Trip(rider: rider)
-            trip.pickupTime = NSDate().dateByAddingTimeInterval(-Double(index) * 60)
-            
-            fakeTrips.append(trip)
-            
-         }
-        
-        let rider = Rider(location: Address(coordinate: EFA_Coord), destination: Address(coordinate: EFA_Coord))
-        
-        let trip = Trip(rider: rider)
-        trip.pickupTime = NSDate().dateByAddingTimeInterval(-Double(1) * 60)
-        
-        fakeTrips.append(trip)
+//        for index in 0...10 {
+//           
+//            let rider = Rider(location: Address(coordinate: EFA_Coord), destination: Address(coordinate: EFA_Coord))
+//            
+//            let trip = Trip(rider: rider)
+//            trip.pickupTime = NSDate().dateByAddingTimeInterval(-Double(index) * 60)
+//            
+//            fakeTrips.append(trip)
+//            
+//         }
+//        
+//        let rider = Rider(location: Address(coordinate: EFA_Coord), destination: Address(coordinate: EFA_Coord))
+//        
+//        let trip = Trip(rider: rider)
+//        trip.pickupTime = NSDate().dateByAddingTimeInterval(-Double(1) * 60)
+//        
+//        fakeTrips.append(trip)
         
       
     }

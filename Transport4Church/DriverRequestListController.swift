@@ -11,14 +11,14 @@ import SCLAlertView
 
 let cellId = "cellId"
 var numberOfRequest = 3
-let EFA_Coord = CLLocationCoordinate2DMake(53.2232323, -3.32424232)
+let EFA_Coord = CLLocationCoordinate2DMake(53.78984874424867, -1.549763830503412)
 
 
 //TODO: Make all requests come from Parse
 
 class DriverRequestListController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
-//    var pickupRequests = TripRepo.fetchAllPickupRequests(EFA_Coord)
+    var pickupRequests = TripRepo.fetchAllPickupRequests(EFA_Coord)
     
     
     override func viewDidLoad() {
@@ -32,11 +32,12 @@ class DriverRequestListController: UICollectionViewController, UICollectionViewD
         collectionView?.alwaysBounceVertical = true
         collectionView?.backgroundColor = UIColor(white: 0.95, alpha: 1)
         collectionView?.registerClass(PickupRequestCell.self, forCellWithReuseIdentifier: cellId)
+        print(pickupRequests)
     }
     
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return fakeTrips.count
+        return pickupRequests.count
     }
     
     
@@ -46,7 +47,7 @@ class DriverRequestListController: UICollectionViewController, UICollectionViewD
         
         cell.doneButton.layer.setValue(indexPath, forKey: "indexPath")
         
-        cell.trip = fakeTrips[indexPath.row]
+        cell.trip = pickupRequests[indexPath.row] as! Trip
         
         return cell
     }
