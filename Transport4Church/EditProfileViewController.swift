@@ -1,5 +1,5 @@
 //
-//  CalendarEventFormViewController.swift
+//  EditProfileViewController.swift
 //  Transport4Church
 //
 //  Created by mac on 8/8/16.
@@ -8,19 +8,28 @@
 
 import Eureka
 
-class RegisterFormViewController : FormViewController {
+class EditProfileViewController : FormViewController {
     
     private var userRepo : UserRepo = UserRepo()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Register for Account"
+        title = "Edit Profile"
         
-        //TODO: Add section for login button and caption
+        ImageRow.defaultCellUpdate = { cell, row in
+            cell.accessoryView?.layer.cornerRadius = 17
+            cell.accessoryView?.frame = CGRectMake(0, 0, 40, 40)
+        }
         
-        
-        form +++ Section("Please fill in the details below")
+        form +++ Section()
+            <<< ImageRow(){
+                $0.title = "Select Profile Picture"
+                $0.cell.accessoryView = UIImageView(image: UIImage(named: "profile_dp"))
+
+            }
+            
+            +++ Section("Please fill in your details")
             <<< TextRow("Name"){ row in
                 row.title = "Fullname"
                 row.placeholder = "i.e Emma Smith"
@@ -32,20 +41,18 @@ class RegisterFormViewController : FormViewController {
                 $0.value = "Other"
             }
             
-            <<< EmailRow("Email"){
-                $0.title = "Email"
-                $0.placeholder = "i.e emmy23@gmail.com"
+            +++ Section("Number Driver will to contact you on")
+            <<< PhoneRow("Contact"){ row in
+                row.title = "Contact"
+                row.placeholder = ""
             }
             
-            <<< PasswordRow("Password"){
-                $0.title = "Password"
-            }
-            
+            +++ Section("Select your role")
             <<< ActionSheetRow<String>("Role") {
                 $0.title = "Rider or Driver ?"
                 $0.selectorTitle = "Rider or Driver ?"
                 $0.options = ["Rider","Driver"]
-                $0.value = "Rider"    // initially selected
+                $0.value = "Rider"
             }
             
             +++ Section() { section in

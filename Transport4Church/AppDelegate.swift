@@ -27,9 +27,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GMSPlacesClient.provideAPIKey(googleMapsApiKey)
         
 
-//        window?.rootViewController = UINavigationController(rootViewController:MenuViewController())
+//        window?.rootViewController = UINavigationController(rootViewController:ProfileViewController())
 //
-        window?.rootViewController = UINavigationController(rootViewController:RegisterFormViewController())
+        window?.rootViewController = UINavigationController(rootViewController:AuthViewController())
 
         
         let server = ParseServer()

@@ -7,6 +7,7 @@
 //
 
 import GooglePlaces
+import Parse
 
 // MARK: GMSMapViewDelegate
 
@@ -19,7 +20,6 @@ extension RiderPickupController : GMSMapViewDelegate{
         self.navigationController?.setNavigationBarHidden(true, animated: true)
 //        mapView.clear()
 
-        
     }
     
     func mapView(mapView: GMSMapView, idleAtCameraPosition cameraPosition: GMSCameraPosition) {
@@ -36,6 +36,10 @@ extension RiderPickupController : GMSMapViewDelegate{
                 self.locationTrackingLabel.text = helper.result[0]
                 
             }
+            
+            self.currentTrip.rider.location =  PFGeoPoint(latitude: cameraPosition.target.latitude, longitude: cameraPosition.target.longitude)
+            
+            self.currentTrip.rider.address = Address(result: helper.result, coordinate: cameraPosition.target)
 
             //TODO update rider geopoint details
             print(self.currentTrip.status)
