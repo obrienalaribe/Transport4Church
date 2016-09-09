@@ -64,7 +64,7 @@ class MenuViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         if indexPath.section == 0 {
-            let editProfileController = RegisterFormViewController()
+            let editProfileController = EditProfileViewController()
             editProfileController.title = "Edit Profile"
             navigationController?.pushViewController(editProfileController, animated: true)
             print("Value: \(userSection[indexPath.row])")

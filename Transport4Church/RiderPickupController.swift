@@ -124,7 +124,7 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
         if let location = manager.location {
             
             self.rider = Rider()
-            self.rider.location = Address(coordinate: location.coordinate)
+            self.rider.location = PFGeoPoint(location: location)
             
             self.rider.user = PFUser.currentUser()!
             
@@ -132,8 +132,9 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
             self.currentTrip.status = TripStatus.NEW
 
             self.userLocationPermissionEnabled = true
-            let riderLatitude = self.rider.location.coordinate.latitude
-            let riderLongitude = self.rider.location.coordinate.longitude
+            
+            let riderLatitude = self.rider.location.latitude
+            let riderLongitude = self.rider.location.longitude
             
             mapView.camera = GMSCameraPosition.cameraWithLatitude(riderLatitude, longitude: riderLongitude, zoom: 14.0)
            
@@ -160,7 +161,7 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
         driverLocation.icon = UIImage(named: "driver")!.imageWithRenderingMode(.AlwaysTemplate)
         driverLocation.map = mapView
       
-        let bounds = GMSCoordinateBounds(coordinate: self.rider.location.coordinate, coordinate: driverLocation.position)
+        let bounds = GMSCoordinateBounds(coordinate: self.rider.address.coordinate, coordinate: driverLocation.position)
         let camera = mapView.cameraForBounds(bounds, insets: UIEdgeInsets(top: 0, left: 50, bottom: 0, right: 50))!
         self.mapView.camera = camera
         
@@ -179,7 +180,7 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
         
         driverLocation.position = position
         
-        let riderLoc = CLLocation(latitude: self.rider.location.coordinate.latitude, longitude: self.rider.location.coordinate.longitude)
+        let riderLoc = CLLocation(latitude: self.rider.address.coordinate.latitude, longitude: self.rider.address.coordinate.longitude)
         let driverLoc = CLLocation(latitude: driverLocation.position.latitude, longitude: driverLocation.position.longitude)
         
         let distanceInMeters = riderLoc.distanceFromLocation(driverLoc)
@@ -305,7 +306,7 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
         self.mapPin.hidden = !self.mapPin.hidden
 
         if self.currentTrip!.status == TripStatus.CANCELLED {
-            mapView.animateToLocation(CLLocationCoordinate2D(latitude: self.rider.location.coordinate.latitude, longitude: self.rider.location.coordinate.longitude))
+            mapView.animateToLocation(CLLocationCoordinate2D(latitude: self.rider.address.coordinate.latitude, longitude: self.rider.address.coordinate.longitude))
         }
     }
     

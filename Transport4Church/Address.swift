@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Address : CustomStringConvertible {
+class Address {
     
     var streetName : String? = nil
     var city : String? = nil
@@ -16,27 +16,30 @@ class Address : CustomStringConvertible {
     var coordinate: CLLocationCoordinate2D
     var country : String? = nil
 //
-//    init(streetName : String?, city: String?, postcode: String){
+//    convenience init(coordinate: CLLocationCoordinate2D, streetName : String?, city: String?, postcode: String?, country: String?){
+//        self.init(coordinate: coordinate)
 //        self.streetName = streetName
 //        self.city = city
 //        self.postcode = postcode
+//        self.coordinate = coordinate
 //    }
+////
 //    
+//    init(coordinate:CLLocationCoordinate2D ) {
+//        self.coordinate = coordinate
+//        let helper : LocationHelper = LocationHelper()
+//        helper.reverseGeocodeCoordinate(coordinate)
+//        
+//        dispatch_group_notify(locationDispatchGroup, dispatch_get_main_queue(), {
+//            self.updateProperties(helper.result)
+//        })
+//    }
     
-    init(coordinate:CLLocationCoordinate2D ) {
-        self.coordinate = coordinate
-        let helper : LocationHelper = LocationHelper()
-        helper.reverseGeocodeCoordinate(coordinate)
-        
-        dispatch_group_notify(locationDispatchGroup, dispatch_get_main_queue(), {
-            self.updateProperties(helper.result)
-        })
-    }
-    
-    func updateProperties(result: [String]){
+    init(result: [String], coordinate: CLLocationCoordinate2D){
         self.streetName = result[0]
         var addressArr = result[1].characters.split{$0 == " "}.map(String.init)
         self.country = addressArr.removeLast() //pop region
+        self.coordinate = coordinate
         
         if addressArr.isEmpty{
             return
@@ -51,11 +54,7 @@ class Address : CustomStringConvertible {
             self.city = nil
             self.postcode = nil
         }
-               
     }
-    
-    var description : String {
-        return "[Address [Street:\(streetName)], City: [\(city)], Coord: [\(coordinate)]] \n"
-    }
+  
 }
 

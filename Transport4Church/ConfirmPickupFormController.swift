@@ -39,10 +39,10 @@ class ConfirmPickupFormController: FormViewController {
                 $0.cityPlaceholder = ""
                 
                 $0.value = PostalAddress(
-                    street: self.trip.rider.location.streetName,
-                    state: self.trip.rider.location.city,
-                    postalCode: self.trip.rider.location.postcode,
-                    city: self.trip.rider.location.country,
+                    street: self.trip.rider.address.streetName,
+                    state: self.trip.rider.address.city,
+                    postalCode: self.trip.rider.address.postcode,
+                    city: self.trip.rider.address.country,
                     country: ""
                 )
                 $0.disabled = true
@@ -93,9 +93,9 @@ class ConfirmPickupFormController: FormViewController {
     func handleFormSubmission(sender: UIButton!){
         
         let valuesDictionary = form.values()
-        let riderCoord = self.trip.rider.location.coordinate
+        let riderCoord = self.trip.rider.address.coordinate
 
-        self.trip.rider.geopoint = PFGeoPoint(latitude: riderCoord.latitude, longitude: riderCoord.longitude)
+//        self.trip.rider.location = PFGeoPoint(latitude: riderCoord.latitude, longitude: riderCoord.longitude)
 
         self.trip.status = TripStatus.REQUESTED
         
