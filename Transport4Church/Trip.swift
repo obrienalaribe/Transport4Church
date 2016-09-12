@@ -17,7 +17,6 @@ class Trip : PFObject, PFSubclassing  {
         set {setObject(newValue, forKey: Rider.parseClassName())}
     }
     
-    
     var status : TripStatus {
         get { return TripStatus.reverse(objectForKey("status") as! String)!}
         set { self["status"] = newValue.rawValue }
@@ -26,20 +25,13 @@ class Trip : PFObject, PFSubclassing  {
     var extraRiders : Int = 0
     
     //only set destination on this object then Rider will have location
-    @NSManaged var pickupLocation : PFGeoPoint
+    @NSManaged var destination : PFGeoPoint
 
     var pickupTime : NSDate {
         get { return Helper.convertStringToDate(objectForKey("pickup_time" ) as! String)}
         set { setObject(Helper.convertDateToString(newValue), forKey: "pickup_time") }
     }
 
-    
-    init (rider: Rider) {
-        super.init()
-        self.rider = rider
-        self.status = .NEW
-    }
-    
     override class func initialize() {
         struct Static {
             static var onceToken: dispatch_once_t = 0;

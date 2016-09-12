@@ -8,6 +8,7 @@
 
 
 import Eureka
+import SCLAlertView
 
 class AuthViewController : FormViewController {
     
@@ -32,7 +33,7 @@ class AuthViewController : FormViewController {
                 section.header = {
                     var header = HeaderFooterView<UIButton>(.Callback({
                         let button = FormButton(title: "Submit")
-                        button.addTarget(self, action: "handleFormSubmission:", forControlEvents: .TouchUpInside)
+                        button.addTarget(self, action: #selector(AuthViewController.handleFormSubmission(_:)), forControlEvents: .TouchUpInside)
                         return button
                     }))
                     header.height = { 50 }
@@ -40,13 +41,34 @@ class AuthViewController : FormViewController {
                 }()
         }
         
-        
     }
     
     func handleFormSubmission(sender: UIButton!){
-        
-        self.navigationController?.setViewControllers([EditProfileViewController()], animated: true)
+        let valuesDictionary = form.values()
 
+        let listOfEmptyFields = Helper.validateFormInputs(valuesDictionary)
+        
+        if listOfEmptyFields.isEmpty == false {
+            
+          let alertView = Helper.createAlert()
+           
+           alertView.showTitle(
+                "Empty Input", // Title of view
+                subTitle: "Please enter an email and password",
+                duration: 5.0,
+                completeText: "Okay",
+                style: .Error,
+                colorStyle: 0x00EE00,
+                colorTextButton: 0xFFFFFF
+            )
+            
+            
+        }else{
+            let credentials = Credentials(username: valuesDictionary["Email"] as! String, password: valuesDictionary["Password"] as! String)
+           
+            userRepo.authenticate(credentials, listener: self)
+            
+        }
         
     }
     

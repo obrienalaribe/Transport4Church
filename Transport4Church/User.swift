@@ -19,8 +19,7 @@ struct User {
     var username : String
     var password : String
     
-   
-//    
+//
 //    override var description: String {
 //        return "[User [Name: \(name), Gender: \(gender), Email: \(email), Role: \(role) ]] \n"
 //    }

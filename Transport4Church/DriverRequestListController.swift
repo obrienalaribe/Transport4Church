@@ -8,18 +8,19 @@
 
 import UIKit
 import SCLAlertView
+import Parse
 
 let cellId = "cellId"
 var numberOfRequest = 3
-let EFA_Coord = CLLocationCoordinate2DMake(53.78984874424867, -1.549763830503412)
+let EFA_Coord = CLLocationCoordinate2DMake(53.79096121417226, -1.552361008974449)
 
 
 //TODO: Make all requests come from Parse
 
 class DriverRequestListController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
-    var pickupRequests = TripRepo.fetchAllPickupRequests(EFA_Coord)
-    
+    var pickupRequests : [Trip]?
+    var tripRepo = TripRepo()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,12 +33,31 @@ class DriverRequestListController: UICollectionViewController, UICollectionViewD
         collectionView?.alwaysBounceVertical = true
         collectionView?.backgroundColor = UIColor(white: 0.95, alpha: 1)
         collectionView?.registerClass(PickupRequestCell.self, forCellWithReuseIdentifier: cellId)
-        print(pickupRequests)
+        collectionView?.delegate = self
+        collectionView?.dataSource = self
+        
+        tripRepo.fetchAllPickupRequests(EFA_Coord)
+        dispatch_group_notify(tripRepoGroup, dispatch_get_main_queue(), {
+            print("driver view retrieved trips")
+            self.pickupRequests = self.tripRepo.result
+            print(self.tripRepo.result)
+            self.collectionView?.reloadData()
+        })
+        
+
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+           }
     
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return pickupRequests.count
+        
+        if let requests = pickupRequests {
+            return requests.count
+        }
+        return 0
     }
     
     
@@ -47,7 +67,7 @@ class DriverRequestListController: UICollectionViewController, UICollectionViewD
         
         cell.doneButton.layer.setValue(indexPath, forKey: "indexPath")
         
-        cell.trip = pickupRequests[indexPath.row] as! Trip
+        cell.trip = pickupRequests?[indexPath.row]
         
         return cell
     }
@@ -63,14 +83,25 @@ class PickupRequestCell : BaseCollectionCell {
         didSet {
             fakeTrips.sort({$0.pickupTime.compare($1.pickupTime) == .OrderedAscending })
             
-         
-            if let pickupTime = trip?.pickupTime {
-                let dateFormatter = NSDateFormatter()
-                dateFormatter.dateFormat = "h:mm a"
-                
-                timeLabel.text = dateFormatter.stringFromDate(pickupTime)
-
-            }
+            
+            print(trip?.rider.user)
+           
+//            var query = PFUser.query()
+//            do {
+//                let user =  try query?.getObjectWithId((trip?.rider.user.objectId!)!)
+//                print(user)
+//
+//            } catch _ {
+//                
+//            }
+            
+        //            if let pickupTime = trip?.pickupTime {
+//                let dateFormatter = NSDateFormatter()
+//                dateFormatter.dateFormat = "h:mm a"
+//                
+//                timeLabel.text = dateFormatter.stringFromDate(pickupTime)
+//
+//            }
         }
     }
     
@@ -195,10 +226,10 @@ class PickupRequestCell : BaseCollectionCell {
         addConstraintsWithFormat("H:|-105-[v0]|", views: actionButtonContainer)
         addConstraintsWithFormat("V:[v0(40)]|", views: actionButtonContainer)
 
-        callButton.addTarget(self, action: "handleCallEvent", forControlEvents: .TouchUpInside)
+        callButton.addTarget(self, action: #selector(PickupRequestCell.handleCallEvent), forControlEvents: .TouchUpInside)
         actionButtonContainer.addSubview(callButton)
        
-        doneButton.addTarget(self, action: "handleCompleteEvent:", forControlEvents: .TouchUpInside)
+        doneButton.addTarget(self, action: #selector(PickupRequestCell.handleCompleteEvent(_:)), forControlEvents: .TouchUpInside)
         actionButtonContainer.addSubview(doneButton)
 
         actionButtonContainer.addConstraintsWithFormat("H:|[v0][v1(v0)]|", views: callButton, doneButton)

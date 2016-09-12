@@ -79,7 +79,7 @@ class ConfirmPickupFormController: FormViewController {
                 section.header = {
                     var header = HeaderFooterView<FormButton>(.Callback({
                         let button = FormButton(title: "Request Pickup")
-                        button.addTarget(self, action: "handleFormSubmission:", forControlEvents: .TouchUpInside)
+                        button.addTarget(self, action: #selector(ConfirmPickupFormController.handleFormSubmission(_:)), forControlEvents: .TouchUpInside)
                         return button
                     }))
                     header.height = { 50 }
@@ -93,28 +93,15 @@ class ConfirmPickupFormController: FormViewController {
     func handleFormSubmission(sender: UIButton!){
         
         let valuesDictionary = form.values()
-        let riderCoord = self.trip.rider.address.coordinate
-
-//        self.trip.rider.location = PFGeoPoint(latitude: riderCoord.latitude, longitude: riderCoord.longitude)
 
         self.trip.status = TripStatus.REQUESTED
         
-        self.trip.pickupLocation = PFGeoPoint(latitude: riderCoord.latitude, longitude: riderCoord.longitude)
+        self.trip.destination = PFGeoPoint(latitude: EFA_Coord.latitude, longitude: EFA_Coord.longitude)
         self.trip.pickupTime = valuesDictionary["pickup_time"] as! NSDate
-    
-      
-        
-       
-        
+
         self.trip.saveInBackgroundWithBlock({ (success, error) in
             self.navigationController?.popViewControllerAnimated(true)
-        })
-        
-        
-//
-
-//        
-        
+        })   
         
     }
 

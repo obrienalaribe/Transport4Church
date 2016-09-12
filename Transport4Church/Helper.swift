@@ -6,10 +6,20 @@
 //  Copyright © 2016 rccg. All rights reserved.
 //
 
-import Foundation
+import SCLAlertView
+
 
 class Helper {
     
+    static func createAlert() -> SCLAlertView {
+        let appearance = SCLAlertView.SCLAppearance(
+            kTitleFont: UIFont(name: "HelveticaNeue", size: 20)!,
+            kTextFont: UIFont(name: "HelveticaNeue", size: 17)!,
+            kButtonFont: UIFont(name: "HelveticaNeue-Bold", size: 15)!,
+            showCloseButton: true
+        )
+        return SCLAlertView(appearance: appearance)
+    }
     
     static func validateFormInputs(valuesDictionary: Dictionary<String, Any?>) -> [String]{
         var emptyFields = [String]()

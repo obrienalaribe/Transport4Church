@@ -38,7 +38,7 @@ class MenuViewController: UITableViewController {
         self.tableView.contentInset = UIEdgeInsetsMake(-dummyViewHeight, 0, 0, 0);
 
         //add close button
-        var closeBtn =  UIBarButtonItem(image: UIImage(named: "close"), style: .Plain, target: self, action: "closeMenu")
+        let closeBtn =  UIBarButtonItem(image: UIImage(named: "close"), style: .Plain, target: self, action: #selector(MenuViewController.closeMenu))
         closeBtn.tintColor = .blackColor()
         navigationItem.leftBarButtonItem = closeBtn
         
@@ -64,7 +64,7 @@ class MenuViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         if indexPath.section == 0 {
-            let editProfileController = EditProfileViewController()
+            let editProfileController = ProfileViewController()
             editProfileController.title = "Edit Profile"
             navigationController?.pushViewController(editProfileController, animated: true)
             print("Value: \(userSection[indexPath.row])")

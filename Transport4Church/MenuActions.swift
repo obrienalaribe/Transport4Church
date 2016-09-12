@@ -11,7 +11,7 @@ class MenuActions {
     
  
     static func openScheme(hook: String){
-        var facebookPageUrl = NSURL(string: hook)
+        let facebookPageUrl = NSURL(string: hook)
         if UIApplication.sharedApplication().canOpenURL(facebookPageUrl!)
         {
             UIApplication.sharedApplication().openURL(facebookPageUrl!)
