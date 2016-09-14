@@ -8,41 +8,37 @@
 
 import Parse
 
-var tripRepoGroup = dispatch_group_create()
-
 class TripRepo {
-    
-    var result = [Trip]()
-    
-    func fetchAllPickupRequests(location: CLLocationCoordinate2D) -> [Trip]{
         
+    func fetchAllPickupRequests(view : DriverRequestListController){
         
-        let tripDestination = PFGeoPoint.init(latitude: location.latitude, longitude: location.longitude)
-
+        let tripDestination = PFGeoPoint.init(latitude: EFA_Coord.latitude, longitude: EFA_Coord.longitude)
+        
         let query = PFQuery(className:"Trip")
         query.whereKey("destination", equalTo: tripDestination)
+        query.whereKey("status", equalTo: TripStatus.REQUESTED.rawValue)
         query.includeKey("Rider")
         query.includeKey("User")
-
-        dispatch_group_enter(tripRepoGroup)
-
+        query.cachePolicy = .CacheThenNetwork
+        query.orderByAscending("pickup_time")
+        query.limit = 100
+        
         print("making request")
-
+        
         query.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?) -> Void in
             
             if error == nil {
                 // The find succeeded.
-                print("Successfully retrieved \(objects?.count) object.")
-                self.result = objects as! [Trip]
-               
-                dispatch_group_leave(tripRepoGroup)
-
+                print("Successfully refreshed \(objects?.count) object.")
+                pickupRequests = objects as! [Trip]
+                view.collectionView?.reloadData()
+                
             } else {
                 // Log details of the failure
                 print("Error: \(error!) \(error!.userInfo)")
             }
         }
-        return result
+
     }
 }

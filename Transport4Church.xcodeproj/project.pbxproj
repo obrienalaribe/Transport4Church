@@ -37,6 +37,8 @@
 		43632A161D62154900AD3B75 /* Rider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43632A151D62154900AD3B75 /* Rider.swift */; };
 		43632A181D62155200AD3B75 /* Driver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43632A171D62155200AD3B75 /* Driver.swift */; };
 		43632A1A1D63269A00AD3B75 /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43632A191D63269A00AD3B75 /* LocationHelper.swift */; };
+		43973CE31D8976CF00C17C0B /* DriverTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43973CE21D8976CF00C17C0B /* DriverTripViewController.swift */; };
+		43973CE51D89777500C17C0B /* DriverTripViewDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43973CE41D89777500C17C0B /* DriverTripViewDelegates.swift */; };
 		43E383771D5A38EF0014DED2 /* LocationResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E383761D5A38EF0014DED2 /* LocationResultsController.swift */; };
 		4F49629DF8931134CADCF722 /* Pods_Transport4ChurchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF716B2146A8851D163AD3D9 /* Pods_Transport4ChurchUITests.framework */; };
 		59E6CC5AF3A827D98D24481B /* Pods_Transport4ChurchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD7BBFEB66CA5FE6FEB05CA2 /* Pods_Transport4ChurchTests.framework */; };
@@ -99,6 +101,8 @@
 		43632A171D62155200AD3B75 /* Driver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Driver.swift; sourceTree = "<group>"; };
 		43632A191D63269A00AD3B75 /* LocationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationHelper.swift; sourceTree = "<group>"; };
 		43674C7AFD10E409ECBAA189 /* Pods-Transport4ChurchUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transport4ChurchUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Transport4ChurchUITests/Pods-Transport4ChurchUITests.release.xcconfig"; sourceTree = "<group>"; };
+		43973CE21D8976CF00C17C0B /* DriverTripViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverTripViewController.swift; sourceTree = "<group>"; };
+		43973CE41D89777500C17C0B /* DriverTripViewDelegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverTripViewDelegates.swift; sourceTree = "<group>"; };
 		43A72E641D75BB54002F3B65 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "../../../Library/Developer/Xcode/DerivedData/Transport4Church-gccuimlyhmdulufbuospzakbdhuy/Build/Products/Debug-iphoneos/Parse/Parse.framework"; sourceTree = "<group>"; };
 		43E383711D5A1F2E0014DED2 /* Transport4Church-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Transport4Church-Bridging-Header.h"; sourceTree = "<group>"; };
 		43E383761D5A38EF0014DED2 /* LocationResultsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationResultsController.swift; sourceTree = "<group>"; };
@@ -162,6 +166,8 @@
 			isa = PBXGroup;
 			children = (
 				04283A341D5D1DB90053D1D2 /* DriverRequestListController.swift */,
+				43973CE21D8976CF00C17C0B /* DriverTripViewController.swift */,
+				43973CE41D89777500C17C0B /* DriverTripViewDelegates.swift */,
 			);
 			name = Driver;
 			sourceTree = "<group>";
@@ -594,6 +600,7 @@
 				43632A1A1D63269A00AD3B75 /* LocationHelper.swift in Sources */,
 				43632A051D5B62F700AD3B75 /* ConfirmPickupFormController.swift in Sources */,
 				43632A141D61F51100AD3B75 /* Address.swift in Sources */,
+				43973CE51D89777500C17C0B /* DriverTripViewDelegates.swift in Sources */,
 				04DD3C4B1D57A88E00DEBB32 /* UIViewExtension.swift in Sources */,
 				43632A121D61DB7700AD3B75 /* RiderPickupDelegates.swift in Sources */,
 				43632A0E1D5CCBCC00AD3B75 /* User.swift in Sources */,
@@ -605,6 +612,7 @@
 				04283A351D5D1DB90053D1D2 /* DriverRequestListController.swift in Sources */,
 				042B42391D68D908008CBFE0 /* UserRepo.swift in Sources */,
 				43632A091D5B811600AD3B75 /* FormButton.swift in Sources */,
+				43973CE31D8976CF00C17C0B /* DriverTripViewController.swift in Sources */,
 				4341B9301D82F6770092A633 /* ProfileViewController.swift in Sources */,
 				431CF3DC1D6F493200898CD7 /* MenuActions.swift in Sources */,
 				431CF3DA1D6EF2F500898CD7 /* MenuItem.swift in Sources */,

@@ -10,10 +10,11 @@ import Parse
 
 class Rider : PFObject, PFSubclassing  {
     //replace Address with PFGeopoint and only call location network worker in Confirm Controller
-    var address : Address!
+    var address : Address! 
     @NSManaged var user : PFUser
     @NSManaged var location : PFGeoPoint
-    
+    @NSManaged var addressDic : Dictionary<String, String>
+
     override init(){
         super.init()
     }
