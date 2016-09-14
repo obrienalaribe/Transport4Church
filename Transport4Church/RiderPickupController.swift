@@ -69,9 +69,9 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
         setupPickupButton()
         setupViewObservers()
         
-        let menuBtn = UIBarButtonItem(image: UIImage(named: "menu"), style: .Plain, target: self, action: "showMenu")
+        let menuBtn = UIBarButtonItem(image: UIImage(named: "menu"), style: .Plain, target: self, action: #selector(RiderPickupController.showMenu))
         menuBtn.tintColor = .blackColor()
-        let driverView = UIBarButtonItem(title: "DriverView", style: .Plain, target: self, action:"showDriverView")
+        let driverView = UIBarButtonItem(title: "DriverView", style: .Plain, target: self, action:#selector(RiderPickupController.showDriverView))
 
         navigationItem.leftBarButtonItem = menuBtn
         navigationItem.rightBarButtonItem = driverView
@@ -128,7 +128,8 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
             
             self.rider.user = PFUser.currentUser()!
             
-            self.currentTrip = Trip(rider: self.rider)
+            self.currentTrip = Trip()
+            self.currentTrip.rider = self.rider
             self.currentTrip.status = TripStatus.NEW
 
             self.userLocationPermissionEnabled = true
@@ -167,7 +168,7 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
         
         setupCancelButton()
         
-        var timer = NSTimer.scheduledTimerWithTimeInterval(1.5, target: self, selector: #selector(self.updateDriverMarker), userInfo: nil, repeats: true)
+        _ = NSTimer.scheduledTimerWithTimeInterval(1.5, target: self, selector: #selector(self.updateDriverMarker), userInfo: nil, repeats: true)
        
     }
     
@@ -332,8 +333,7 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
         pickupBtn.widthAnchor.constraintEqualToAnchor(view.widthAnchor, multiplier: 0.5).active = true
         pickupBtn.translatesAutoresizingMaskIntoConstraints = false
         
-        pickupBtn.addTarget(self, action: "createPickupRequest", forControlEvents: .TouchUpInside)
-        
+        pickupBtn.addTarget(self, action: #selector(RiderPickupController.createPickupRequest), forControlEvents: .TouchUpInside)
     }
     
     func createPickupRequest() {
@@ -348,16 +348,16 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
     
     func handleLocationAuthorizationState(){
         if !userLocationPermissionEnabled! {
-            var alertController = UIAlertController (title: "Location Required", message: "You have disabled location usage. Kindly visit your settings and turn it on ", preferredStyle: .Alert)
+            let alertController = UIAlertController (title: "Location Required", message: "You have disabled location usage. Kindly visit your settings and turn it on ", preferredStyle: .Alert)
             
-            var settingsAction = UIAlertAction(title: "Settings", style: .Default) { (_) -> Void in
+            let settingsAction = UIAlertAction(title: "Settings", style: .Default) { (_) -> Void in
                 let settingsUrl = NSURL(string: UIApplicationOpenSettingsURLString)
                 if let url = settingsUrl {
                     UIApplication.sharedApplication().openURL(url)
                 }
             }
             
-            var cancelAction = UIAlertAction(title: "Cancel", style: .Default, handler: nil)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .Default, handler: nil)
             alertController.addAction(settingsAction)
             alertController.addAction(cancelAction)
             

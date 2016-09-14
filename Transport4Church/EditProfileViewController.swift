@@ -18,21 +18,25 @@ class EditProfileViewController : FormViewController {
         title = "Edit Profile"
         
         ImageRow.defaultCellUpdate = { cell, row in
-            cell.accessoryView?.layer.cornerRadius = 17
-            cell.accessoryView?.frame = CGRectMake(0, 0, 40, 40)
+            cell.accessoryView?.layer.cornerRadius = 25
+            cell.accessoryView?.frame = CGRectMake(0, 0, 50, 50)
+            row.cell.height = {
+                return 60
+            }
         }
         
         form +++ Section()
-            <<< ImageRow(){
+            <<< ImageRow("Picture"){
                 $0.title = "Select Profile Picture"
                 $0.cell.accessoryView = UIImageView(image: UIImage(named: "profile_dp"))
-
-            }
+                }
             
             +++ Section("Please fill in your details")
             <<< TextRow("Name"){ row in
                 row.title = "Fullname"
                 row.placeholder = "i.e Emma Smith"
+                row.value = "Tommy Jack"
+
             }
             <<< ActionSheetRow<String>("Gender") {
                 $0.title = "Gender"
@@ -45,9 +49,11 @@ class EditProfileViewController : FormViewController {
             <<< PhoneRow("Contact"){ row in
                 row.title = "Contact"
                 row.placeholder = ""
+                row.value = "2342342"
+
             }
             
-            +++ Section("Select your role")
+            +++ Section()
             <<< ActionSheetRow<String>("Role") {
                 $0.title = "Rider or Driver ?"
                 $0.selectorTitle = "Rider or Driver ?"
@@ -58,11 +64,11 @@ class EditProfileViewController : FormViewController {
             +++ Section() { section in
                 section.header = {
                     var header = HeaderFooterView<UIButton>(.Callback({
-                        let button = FormButton(title: "Register")
-                        button.addTarget(self, action: "handleFormSubmission:", forControlEvents: .TouchUpInside)
+                        let button = FormButton(title: "Update")
+                        button.addTarget(self, action: #selector(EditProfileViewController.handleFormSubmission(_:)), forControlEvents: .TouchUpInside)
                         return button
                     }))
-                    header.height = { 50 }
+                    header.height = { 50  }
                     return header
                 }()
            }
@@ -73,40 +79,30 @@ class EditProfileViewController : FormViewController {
     func handleFormSubmission(sender: UIButton!){
        
         let valuesDictionary = form.values()
-
-        //TODO: create user struct here to pass on
+        
+        print(valuesDictionary)
         
         let listOfEmptyFields = Helper.validateFormInputs(valuesDictionary)
         
-        if listOfEmptyFields.isEmpty == false {
-            print("please provide \(listOfEmptyFields.joinWithSeparator(", "))")
+        if 1 == 0 {
+  
+         
 
         }else{
             
             if let role = valuesDictionary["Role"] {
                 let userRole = role as! String
+//                
+                let profile = Profile(image: valuesDictionary["Picture"] as? UIImage, name: valuesDictionary["Name"] as! String, gender: valuesDictionary["Gender"] as! String, contact: valuesDictionary["Contact"] as! String , role: valuesDictionary["Role"] as! String)
                 
-                var user = User(
-                    name: valuesDictionary["Name"] as! String,
-                    gender: valuesDictionary["Gender"] as! String,
-                    email: valuesDictionary["Email"] as! String,
-                    role: nil,
-                    username: valuesDictionary["Email"] as! String,
-                    password: valuesDictionary["Password"] as! String
-                )
+                userRepo.updateProfile(profile, listener: self)
                 
                 if userRole == UserRoles.Driver.rawValue {
-                    //driver registration
-                    user.role = .Driver
-                    userRepo.register(user)
-                    
-                    self.navigationController?.pushViewController(DriverRequestListController(collectionViewLayout: UICollectionViewFlowLayout()), animated: true)
+
+//                    self.navigationController?.pushViewController(DriverRequestListController(collectionViewLayout: UICollectionViewFlowLayout()), animated: true)
                 }else{
-                    //rider registration
-                    user.role = .Rider
-                    userRepo.register(user)
                     
-                    self.navigationController?.setViewControllers([RiderPickupController()], animated: true)
+//                    self.navigationController?.setViewControllers([RiderPickupController()], animated: true)
                 }
                 
             }
