@@ -41,6 +41,19 @@ class ProfileViewController : UIViewController {
         btn.setTitleColor(UIColor.purpleColor(), forState: .Normal)
         return btn
     }()
+    
+    let logoutBtn : UIButton = {
+        let btn = UIButton()
+        btn.setTitle("Logout", forState: .Normal)
+        btn.layer.cornerRadius = 5.0;
+        btn.layer.borderColor = UIColor.darkGrayColor().CGColor
+        btn.layer.borderWidth = 1.7
+        btn.titleLabel?.font = UIFont.boldSystemFontOfSize(16)
+        btn.backgroundColor = UIColor.whiteColor()
+        btn.setTitleColor(UIColor.darkGrayColor(), forState: .Normal)
+        btn.layer.zPosition = 2
+        return btn
+    }()
   
     var nameLabel : UILabel!
     var churchLabel : UILabel!
@@ -75,7 +88,7 @@ class ProfileViewController : UIViewController {
                                                              constant: -30.0).active = true
             
             profileContent.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor,
-                                                                constant: -40.0).active = true
+                                                                constant: -60.0).active = true
             
             profileContent.backgroundColor = .whiteColor()
             
@@ -84,6 +97,7 @@ class ProfileViewController : UIViewController {
             
             let profileContentMargin = profileContent.layoutMarginsGuide
             
+            setupLogoutBtn(profileContentMargin)
             setupEditBtn(profileContentMargin)
             setupNameLabel(profileContentMargin)
             setupChurchLabel(profileContentMargin)
@@ -95,12 +109,11 @@ class ProfileViewController : UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        userRepo.fetchAndUpdateProfileImage(currentUser, imageView: self.profileImageView)
+//        userRepo.fetchAndUpdateProfileImage(currentUser, imageView: self.profileImageView)
     }
     
     func setupEditBtn(parentMargin : UILayoutGuide){
         profileContent.addSubview(editBtn)
-        
         
         editBtn.topAnchor.constraintEqualToAnchor(profileContent.topAnchor, constant: 40).active = true
         
@@ -112,6 +125,7 @@ class ProfileViewController : UIViewController {
         
         editBtn.addTarget(self, action: #selector(ProfileViewController.editProfileAction), forControlEvents: .TouchUpInside)
     }
+   
     func editProfileAction(){
         self.navigationController?.pushViewController(EditProfileViewController(), animated: true)
     }
@@ -160,6 +174,26 @@ class ProfileViewController : UIViewController {
         roleLabel.translatesAutoresizingMaskIntoConstraints = false
     }
 
+    func setupLogoutBtn(parentMargin : UILayoutGuide){
+        view.addSubview(logoutBtn)
+        
+        logoutBtn.topAnchor.constraintEqualToAnchor(profileContent.bottomAnchor, constant: 10).active = true
+        
+        logoutBtn.leadingAnchor.constraintEqualToAnchor(parentMargin.leadingAnchor).active = true
+        
+        logoutBtn.trailingAnchor.constraintEqualToAnchor(parentMargin.trailingAnchor).active = true
+        
+        logoutBtn.translatesAutoresizingMaskIntoConstraints = false
+        
+        logoutBtn.addTarget(self, action: #selector(ProfileViewController.logout), forControlEvents: .TouchUpInside)
+        
+    }
+
+    func logout(){
+        PFUser.logOut()
+        print("user is \(PFUser.currentUser())")
+        self.navigationController?.setViewControllers([AuthViewController()], animated: true)
+    }
     
     private func createProfileLabel(title : String) -> UILabel{
         let label = UILabel()

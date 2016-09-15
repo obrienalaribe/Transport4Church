@@ -11,6 +11,7 @@ import Parse
 struct Credentials {
     var username : String
     var password : String
+    var role: String
 }
 
 struct Profile {
@@ -18,7 +19,6 @@ struct Profile {
     var name: String
     var gender: String
     var contact : String
-    var role: String
 }
 
 class UserRepo {
@@ -53,15 +53,15 @@ class UserRepo {
             currentUser["name"] = profile.name
             currentUser["gender"] = profile.gender
             currentUser["contact"] = profile.contact
-            currentUser["role"] = profile.role
 
             currentUser.saveInBackgroundWithBlock({ (success, error) in
+                
+                
                 if listener.navigationController?.viewControllers.count == 1 {
                     //registration stage
                     
-                    if profile.role == UserRoles.Driver.rawValue {
-                        
-                        listener.navigationController?.pushViewController(DriverRequestListController(collectionViewLayout: UICollectionViewFlowLayout()), animated: true)
+                    if currentUser["role"] as! String == UserRoles.Driver.rawValue {
+                        listener.navigationController?.setViewControllers([DriverRequestListController(collectionViewLayout: UICollectionViewFlowLayout())], animated: true)
                     }else{
                         listener.navigationController?.setViewControllers([RiderPickupController()], animated: true)
                     }
@@ -80,6 +80,7 @@ class UserRepo {
         user.username = credentials.username
         user.email = credentials.username
         user.password = credentials.password
+        user["role"] = credentials.role
         
         user.signUpInBackgroundWithBlock {
             (succeeded: Bool, error: NSError?) -> Void in
@@ -87,11 +88,15 @@ class UserRepo {
                 
                 if error.code == 202 {
                     print("user already exist so login and navigate to rider view")
-                    
-                    print(PFUser.currentUser()!)
-
-                    listener.navigationController?.setViewControllers([RiderPickupController()], animated: true)
-
+                   
+                    if let user = PFUser.currentUser() {
+                        print(PFUser.currentUser()!)
+                        listener.navigationController?.setViewControllers([RiderPickupController()], animated: true)
+                    }else{
+                        
+                        //TODO: User logged in with existing email but wrong password. USe alert 
+                    }
+                 
                 }else{
                     let errorString = error.userInfo["error"] as? NSString
                     print(" \(errorString)")

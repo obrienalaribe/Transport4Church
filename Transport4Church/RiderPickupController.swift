@@ -60,7 +60,7 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
         mapView.delegate = self
         mapView.myLocationEnabled = true
         mapView.settings.myLocationButton = true
-//        mapView.setMinZoom(12, maxZoom: 16)
+        mapView.setMinZoom(12, maxZoom: 16)
         
         view.addSubview(mapView)
         
@@ -71,20 +71,12 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
         
         let menuBtn = UIBarButtonItem(image: UIImage(named: "menu"), style: .Plain, target: self, action: #selector(RiderPickupController.showMenu))
         menuBtn.tintColor = .blackColor()
-        let driverView = UIBarButtonItem(title: "DriverView", style: .Plain, target: self, action:#selector(RiderPickupController.showDriverView))
-
         navigationItem.leftBarButtonItem = menuBtn
-        navigationItem.rightBarButtonItem = driverView
-        
     }
     
     func showMenu() {
         let menuNavCtrl = UINavigationController(rootViewController:MenuViewController())
         navigationController?.presentViewController(menuNavCtrl, animated: true, completion: nil)
-    }
-    
-    func showDriverView() {
-        navigationController?.pushViewController(DriverRequestListController(collectionViewLayout: UICollectionViewFlowLayout()), animated: true)
     }
     
     override func viewWillAppear(animated: Bool) {
