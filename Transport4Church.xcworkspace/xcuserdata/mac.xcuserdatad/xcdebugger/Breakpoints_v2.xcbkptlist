@@ -39,13 +39,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Transport4Church/RiderPickupController.swift"
-            timestampString = "495149474.425172"
+            timestampString = "495503466.783898"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "215"
-            endingLineNumber = "215"
-            landmarkName = "RiderPickupController"
-            landmarkType = "3">
+            startingLineNumber = "249"
+            endingLineNumber = "249"
+            landmarkName = "setupLocationTrackingLabel()"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -118,11 +118,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Transport4Church/RiderPickupController.swift"
-            timestampString = "495067249.172754"
+            timestampString = "495502914.055761"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
             landmarkName = "viewWillAppear(_:)"
             landmarkType = "5">
          </BreakpointContent>
