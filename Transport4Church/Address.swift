@@ -55,6 +55,29 @@ class Address {
             self.postcode = nil
         }
     }
+    
+    func getDictionary() -> Dictionary<String, String> {
+        
+        var result = Dictionary<String, String>()
+        
+        if let street = self.streetName {
+            result["street"] = street
+        }
+        
+        if let city = self.city {
+            result["city"] = city
+        }
+        
+        if let postcode = self.postcode {
+            result["postcode"] = postcode
+        }
+        
+        if let country = self.country {
+            result["country"] = country
+        }
+    
+        return result
+    }
   
 }
 

@@ -13,14 +13,15 @@ import Parse
 let cellId = "cellId"
 var numberOfRequest = 3
 let EFA_Coord = CLLocationCoordinate2DMake(53.79096121417226, -1.552361008974449)
+var pickupRequests : [Trip]?
 
 
 //TODO: Make all requests come from Parse
 
 class DriverRequestListController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
-    var pickupRequests : [Trip]?
     var tripRepo = TripRepo()
+    var listenerResult = [Trip]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,20 +37,23 @@ class DriverRequestListController: UICollectionViewController, UICollectionViewD
         collectionView?.delegate = self
         collectionView?.dataSource = self
         
-        tripRepo.fetchAllPickupRequests(EFA_Coord)
-        dispatch_group_notify(tripRepoGroup, dispatch_get_main_queue(), {
-            print("driver view retrieved trips")
-            self.pickupRequests = self.tripRepo.result
-            print(self.tripRepo.result)
-            self.collectionView?.reloadData()
-        })
+        let refreshBtn = UIBarButtonItem(image: UIImage(named: "refresh"), style: .Plain, target: self, action: #selector(DriverRequestListController.refresh))
+        refreshBtn.tintColor = .blackColor()
         
+        self.navigationItem.rightBarButtonItem = refreshBtn
 
+    }
+    
+    func refresh(){
+        tripRepo.fetchAllPickupRequests(self)
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-           }
+        
+        refresh()
+       
+    }
     
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -65,15 +69,31 @@ class DriverRequestListController: UICollectionViewController, UICollectionViewD
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellId, forIndexPath: indexPath) as! PickupRequestCell
         
-        cell.doneButton.layer.setValue(indexPath, forKey: "indexPath")
+        cell.doneButton.layer.setValue(indexPath.row, forKey: "index")
         
         cell.trip = pickupRequests?[indexPath.row]
+        
+        cell.doneButton.addTarget(self, action: #selector(DriverRequestListController.showDriverMode(_:)), forControlEvents: .TouchUpInside)
         
         return cell
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         return CGSizeMake(view.frame.width - 20, 140)
+    }
+    
+    func showDriverMode(sender: UIButton){
+        
+        let row = sender.layer.valueForKey("index") as! Int
+        let trip : Trip = pickupRequests![row]
+        
+        trip.status = TripStatus.ACCEPTED
+        
+        trip.saveEventually()
+        
+        self.navigationController?.setViewControllers([DriverTripViewController(trip: trip)], animated: true)
+        
+        
     }
 }
 
@@ -82,26 +102,25 @@ class PickupRequestCell : BaseCollectionCell {
     var trip : Trip? {
         didSet {
             fakeTrips.sort({$0.pickupTime.compare($1.pickupTime) == .OrderedAscending })
+
             
+            trip?.rider.user.fetchIfNeededInBackgroundWithBlock({ (user, error) in
+                self.nameLabel.text = (user)!["name"] as! String
+            })
             
-            print(trip?.rider.user)
-           
-//            var query = PFUser.query()
-//            do {
-//                let user =  try query?.getObjectWithId((trip?.rider.user.objectId!)!)
-//                print(user)
-//
-//            } catch _ {
-//                
-//            }
+            print(trip?.rider.addressDic)
             
-        //            if let pickupTime = trip?.pickupTime {
-//                let dateFormatter = NSDateFormatter()
-//                dateFormatter.dateFormat = "h:mm a"
-//                
-//                timeLabel.text = dateFormatter.stringFromDate(pickupTime)
-//
-//            }
+            if let street = trip?.rider.addressDic["street"], city = trip?.rider.addressDic["city"],  postcode = trip?.rider.addressDic["postcode"] {
+                self.addressLabel.text = "\(street)\n\(city)\n\(postcode)"
+
+                print("\(street) \n \(city) \n \(postcode)")
+            }
+
+            
+            let dateArr = (trip?["pickup_time"] as! String).characters.split{$0 == ","}.map(String.init)
+            
+            self.timeLabel.text = dateArr.last
+            
         }
     }
     
@@ -123,7 +142,7 @@ class PickupRequestCell : BaseCollectionCell {
 
     let nameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Emma Smith + 3"
+        label.text = ""
         label.textColor = UIColor.darkGrayColor()
         label.font = UIFont.boldSystemFontOfSize(18)
         return label
@@ -132,7 +151,7 @@ class PickupRequestCell : BaseCollectionCell {
     let addressLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 3
-        label.text = "10 William Street \n Hyde Park, Leeds \n SG2 9SL"
+        label.text = ""
         label.textColor = UIColor.darkGrayColor()
         label.font = UIFont.systemFontOfSize(16)
         return label
@@ -140,7 +159,7 @@ class PickupRequestCell : BaseCollectionCell {
     
     let timeLabel: UILabel = {
         let label = UILabel()
-        label.text = "12:05 pm"
+        label.text = ""
         label.font = UIFont.systemFontOfSize(16)
         label.textAlignment = .Right
         return label
@@ -161,7 +180,7 @@ class PickupRequestCell : BaseCollectionCell {
     
     let doneButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Done", forState: .Normal)
+        button.setTitle("Accept", forState: .Normal)
         button.setTitleColor(.darkGrayColor(), forState: .Normal)
         let image = UIImage(named: "Ok-48")
         button.titleLabel!.font = UIFont.boldSystemFontOfSize(18)
@@ -240,7 +259,7 @@ class PickupRequestCell : BaseCollectionCell {
     
     
     func handleCallEvent(){
-        let riderPhone: Int64 = 07778889077
+        let riderPhone: String = "07778889077"
         if let url = NSURL(string: "tel://\(riderPhone)") {
             UIApplication.sharedApplication().openURL(url)
         }
@@ -248,30 +267,13 @@ class PickupRequestCell : BaseCollectionCell {
     }
     
     func handleCompleteEvent(sender: UIButton!){
-        let buttonIndex : NSIndexPath = (sender.layer.valueForKey("indexPath")) as! NSIndexPath
         let parent = self.superview as! UICollectionView
 
-        numberOfRequest = numberOfRequest - 1
-
-        if numberOfRequest > 0 {
-            parent.deleteItemsAtIndexPaths([buttonIndex])
-        }else {
-            numberOfRequest = 0
-            parent.reloadData()
-            
-            SCLAlertView().showTitle(
-                "Congratulations", // Title of view
-                subTitle: "Pickup successfully completed", // String of view
-                duration: 5.0, // Duration to show before closing automatically, default: 0.0
-                completeText: "Done", // Optional button value, default: ""
-                style: .Success, // Styles - see below.
-                colorStyle: 0x00EE00,
-                colorTextButton: 0xFFFFFF
-            )
-        }
-
-        print(buttonIndex.row)
-        
+//        let indexPath = parent.indexPathForCell(self)
+//        pickupRequests?.removeAtIndex(indexPath!.row)
+//        parent.deleteItemsAtIndexPaths([indexPath!])
+//        parent.reloadData()
+       
     }
 
 }

@@ -39,7 +39,12 @@ extension RiderPickupController : GMSMapViewDelegate{
             
             self.currentTrip.rider.location =  PFGeoPoint(latitude: cameraPosition.target.latitude, longitude: cameraPosition.target.longitude)
             
-            self.currentTrip.rider.address = Address(result: helper.result, coordinate: cameraPosition.target)
+            let address = Address(result: helper.result, coordinate: cameraPosition.target)
+
+            self.currentTrip.rider.address = address
+            self.currentTrip.rider.addressDic = address.getDictionary()
+            
+            self.currentTrip.rider.saveInBackground()
 
             //TODO update rider geopoint details
             print(self.currentTrip.status)

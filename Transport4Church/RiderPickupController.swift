@@ -95,9 +95,7 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
             //initial state before trip is initialized
             setRiderLocationOnMap()
         }
-        
-        print(self.currentTrip)
-        
+                
         if let tripStatus = self.currentTrip?.status {
             if tripStatus == TripStatus.REQUESTED {
                 setupActiveTripModeView()
@@ -121,6 +119,7 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
         let manager = CLLocationManager()
         manager.delegate = self
         
+        print("seting up rider and trip")
         if let location = manager.location {
             
             self.rider = Rider()
