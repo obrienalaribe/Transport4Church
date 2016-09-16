@@ -7,6 +7,7 @@
 //
 
 import Eureka
+import Parse
 
 class EditProfileViewController : FormViewController {
     
@@ -53,13 +54,6 @@ class EditProfileViewController : FormViewController {
 
             }
             
-            +++ Section()
-            <<< ActionSheetRow<String>("Role") {
-                $0.title = "Rider or Driver ?"
-                $0.selectorTitle = "Rider or Driver ?"
-                $0.options = ["Rider","Driver"]
-                $0.value = "Rider"
-            }
             
             +++ Section() { section in
                 section.header = {
@@ -89,23 +83,10 @@ class EditProfileViewController : FormViewController {
          
 
         }else{
-            
-            if let role = valuesDictionary["Role"] {
-                let userRole = role as! String
-//                
-                let profile = Profile(image: valuesDictionary["Picture"] as? UIImage, name: valuesDictionary["Name"] as! String, gender: valuesDictionary["Gender"] as! String, contact: valuesDictionary["Contact"] as! String , role: valuesDictionary["Role"] as! String)
-                
-                userRepo.updateProfile(profile, listener: self)
-                
-                if userRole == UserRoles.Driver.rawValue {
 
-//                    self.navigationController?.pushViewController(DriverRequestListController(collectionViewLayout: UICollectionViewFlowLayout()), animated: true)
-                }else{
-                    
-//                    self.navigationController?.setViewControllers([RiderPickupController()], animated: true)
-                }
-                
-            }
+            let profile = Profile(image: valuesDictionary["Picture"] as? UIImage, name: valuesDictionary["Name"] as! String, gender: valuesDictionary["Gender"] as! String, contact: valuesDictionary["Contact"] as! String)
+            
+            userRepo.updateProfile(profile, listener: self)
         }
         
     }

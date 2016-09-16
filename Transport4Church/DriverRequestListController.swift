@@ -11,7 +11,6 @@ import SCLAlertView
 import Parse
 
 let cellId = "cellId"
-var numberOfRequest = 3
 let EFA_Coord = CLLocationCoordinate2DMake(53.79096121417226, -1.552361008974449)
 var pickupRequests : [Trip]?
 
@@ -42,6 +41,16 @@ class DriverRequestListController: UICollectionViewController, UICollectionViewD
         
         self.navigationItem.rightBarButtonItem = refreshBtn
 
+        let menuBtn = UIBarButtonItem(image: UIImage(named: "menu"), style: .Plain, target: self, action: #selector(DriverRequestListController.showMenu))
+        menuBtn.tintColor = .blackColor()
+        
+        navigationItem.leftBarButtonItem = menuBtn
+    }
+    
+    
+    func showMenu(){
+        let menuNavCtrl = UINavigationController(rootViewController:MenuViewController())
+        navigationController?.presentViewController(menuNavCtrl, animated: true, completion: nil)
     }
     
     func refresh(){
@@ -101,10 +110,8 @@ class PickupRequestCell : BaseCollectionCell {
     
     var trip : Trip? {
         didSet {
-            fakeTrips.sort({$0.pickupTime.compare($1.pickupTime) == .OrderedAscending })
-
             
-            trip?.rider.user.fetchIfNeededInBackgroundWithBlock({ (user, error) in
+            trip?.rider.user.fetchInBackgroundWithBlock({ (user, error) in
                 self.nameLabel.text = (user)!["name"] as! String
             })
             
@@ -151,7 +158,7 @@ class PickupRequestCell : BaseCollectionCell {
     let addressLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 3
-        label.text = ""
+        label.text = "--------------"
         label.textColor = UIColor.darkGrayColor()
         label.font = UIFont.systemFontOfSize(16)
         return label

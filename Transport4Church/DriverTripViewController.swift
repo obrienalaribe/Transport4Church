@@ -30,7 +30,6 @@ class DriverTripViewController: UIViewController {
         mapView = GMSMapView(frame: CGRectMake(0, 0, view.bounds.width, view.bounds.height ))
         mapView.mapType = kGMSTypeTerrain
         mapView.delegate = self
-        mapView.setMinZoom(12, maxZoom: 16)
         mapView.myLocationEnabled = true
         mapView.settings.myLocationButton = true
         
@@ -40,11 +39,15 @@ class DriverTripViewController: UIViewController {
         
         title = currentTrip?.rider.user["name"] as! String
    
-        let cancelTrip =  UIBarButtonItem(image: UIImage(named: "close"), style: .Plain, target: self, action: #selector(DriverTripViewController.cancelTrip))
+        let cancelTripBtn =  UIBarButtonItem(image: UIImage(named: "close"), style: .Plain, target: self, action: #selector(DriverTripViewController.cancelTrip))
         
-        cancelTrip.tintColor = .blackColor()
-        navigationItem.rightBarButtonItem = cancelTrip
+        cancelTripBtn.tintColor = .blackColor()
+        navigationItem.rightBarButtonItem = cancelTripBtn
         
+        let callRiderBtn =  UIBarButtonItem(image: UIImage(named: "plain_phone"), style: .Plain, target: self, action: #selector(DriverTripViewController.callRider))
+        
+        callRiderBtn.tintColor = .blackColor()
+        navigationItem.leftBarButtonItem = callRiderBtn
         
     }
     
@@ -62,15 +65,22 @@ class DriverTripViewController: UIViewController {
         presentViewController(alertController, animated: true, completion: nil)
     }
     
+    func callRider(){
+        let riderPhone = currentTrip?.rider.user["contact"] as! String
+        if let url = NSURL(string: "tel://\(riderPhone)") {
+            UIApplication.sharedApplication().openURL(url)
+        }
+    }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewDidAppear(true)
         
         setDriverLocationOnMap()
         
         
-        let mockRiderPosition = CLLocationCoordinate2D(latitude: 53.787302434358566, longitude: -1.5659943222999573)
+        let riderPosition = CLLocationCoordinate2D(latitude: (currentTrip?.rider.location.latitude)!, longitude: (currentTrip?.rider.location.longitude)!)
         
-        let riderLocation = GMSMarker(position: mockRiderPosition)
+        let riderLocation = GMSMarker(position: riderPosition)
         
         if let rider = currentTrip?.rider  {
             riderLocation.snippet = "\(rider.addressDic["street"]!) \(rider.addressDic["postcode"]!)"

@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 import GooglePlaces
-
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -27,14 +27,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GMSPlacesClient.provideAPIKey(googleMapsApiKey)
         
 
+//
 //        window?.rootViewController = UINavigationController(rootViewController:AuthViewController())
-//
-//        window?.rootViewController = UINavigationController(rootViewController:DriverTripViewController())
         
-        _ = ParseServer()        
+        _ = ParseServer()
         
-        window?.rootViewController = UINavigationController(rootViewController: DriverRequestListController(collectionViewLayout: UICollectionViewFlowLayout()))
-//
+        if let loggedInUser = PFUser.currentUser(){
+            
+            print("user logged in ")
+            if loggedInUser["role"] as! String == UserRoles.Rider.rawValue {
+                window?.rootViewController = UINavigationController(rootViewController:RiderPickupController())
+
+            }else{
+                window?.rootViewController = UINavigationController(rootViewController: DriverRequestListController(collectionViewLayout: UICollectionViewFlowLayout()))
+            }
+
+        }else{
+            print("user not logged in ")
+
+            window?.rootViewController = UINavigationController(rootViewController:AuthViewController())
+        }
         return true
     }
     

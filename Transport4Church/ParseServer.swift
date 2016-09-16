@@ -8,8 +8,6 @@
 
 import Parse
 
-var fakeTrips : [Trip] = [Trip]()
-
 class ParseServer {
     init(){
         registerSubClasses()
@@ -32,7 +30,9 @@ class ParseServer {
         })
         
         Parse.initializeWithConfiguration(parseConfiguration)
-                
+        
+        PFUser.logOut()
+
     }
     
    
