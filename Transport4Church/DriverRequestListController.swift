@@ -82,7 +82,7 @@ class DriverRequestListController: UICollectionViewController, UICollectionViewD
         
         cell.trip = pickupRequests?[indexPath.row]
         
-        cell.doneButton.addTarget(self, action: #selector(DriverRequestListController.showDriverMode(_:)), forControlEvents: .TouchUpInside)
+        cell.doneButton.addTarget(self, action: #selector(DriverRequestListController.showDriverTripMode(_:)), forControlEvents: .TouchUpInside)
         
         return cell
     }
@@ -91,13 +91,15 @@ class DriverRequestListController: UICollectionViewController, UICollectionViewD
         return CGSizeMake(view.frame.width - 20, 140)
     }
     
-    func showDriverMode(sender: UIButton){
+  
+    
+    func showDriverTripMode(sender: UIButton){
         
         let row = sender.layer.valueForKey("index") as! Int
         let trip : Trip = pickupRequests![row]
         
         trip.status = TripStatus.ACCEPTED
-        
+        trip.driver = PFUser.currentUser()!
         trip.saveEventually()
         
         self.navigationController?.setViewControllers([DriverTripViewController(trip: trip)], animated: true)

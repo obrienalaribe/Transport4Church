@@ -31,8 +31,7 @@ class ParseServer {
         
         Parse.initializeWithConfiguration(parseConfiguration)
         
-        PFUser.logOut()
-
+//        PFUser.logOut()
     }
     
    

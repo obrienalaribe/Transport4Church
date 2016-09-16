@@ -141,6 +141,7 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
     }
     
     func setupActiveTripModeView(){
+        setupPushNotification()
         toggleTripMode()
         previousDistanceInMiles = 0.0
         
@@ -375,6 +376,16 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
     func delayedStopActivity() {
         stopActivityAnimating()
     }
+    
+    func setupPushNotification(){
+        let types: UIUserNotificationType = [.Alert, .Badge, .Sound]
+        let settings = UIUserNotificationSettings(forTypes: types, categories: nil)
+        let application = UIApplication.sharedApplication()
+        application.registerUserNotificationSettings(settings)
+        application.registerForRemoteNotifications()
+        
+    }
+
 }
 
 

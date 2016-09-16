@@ -10,6 +10,7 @@
 import UIKit
 
 class MenuViewController: UITableViewController {
+    let userRepo = UserRepo()
 
     private let userSection: [MenuItem] = [.Profile]
     private let enquirySection: [MenuItem] = [.Rate, .Like, .Copyright, .Terms, .Privacy, .FAQ, .Contact]

@@ -17,7 +17,6 @@ class DriverTripViewController: UIViewController {
 
     init(trip: Trip){
         self.currentTrip = trip
-        print(currentTrip!.rider)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -34,27 +33,26 @@ class DriverTripViewController: UIViewController {
         mapView.settings.myLocationButton = true
         
         
-        
         view.addSubview(mapView)
         
         title = currentTrip?.rider.user["name"] as! String
    
-        let cancelTripBtn =  UIBarButtonItem(image: UIImage(named: "close"), style: .Plain, target: self, action: #selector(DriverTripViewController.cancelTrip))
+        let completeTripBtn =  UIBarButtonItem(image: UIImage(named: "close"), style: .Plain, target: self, action: #selector(DriverTripViewController.completeTrip))
         
-        cancelTripBtn.tintColor = .blackColor()
-        navigationItem.rightBarButtonItem = cancelTripBtn
+        completeTripBtn.tintColor = .blackColor()
+        navigationItem.rightBarButtonItem = completeTripBtn
         
         let callRiderBtn =  UIBarButtonItem(image: UIImage(named: "plain_phone"), style: .Plain, target: self, action: #selector(DriverTripViewController.callRider))
         
         callRiderBtn.tintColor = .blackColor()
         navigationItem.leftBarButtonItem = callRiderBtn
-        
+
     }
     
-    func cancelTrip(){
-        let alertController = UIAlertController (title: "Cancel Pickup", message: "Are you sure you want to cancel this pickup ?", preferredStyle: .Alert )
+    func completeTrip(){
+        let alertController = UIAlertController (title: "Pickup Complete", message: "Has this rider been picked up ?", preferredStyle: .Alert )
         
-        let yesAction = UIAlertAction(title: "Yes, Cancel", style: .Default) { (_) -> Void in
+        let yesAction = UIAlertAction(title: "Yes, Complete", style: .Default) { (_) -> Void in
               self.navigationController?.setViewControllers([DriverRequestListController(collectionViewLayout: UICollectionViewFlowLayout())], animated: true)
         }
         

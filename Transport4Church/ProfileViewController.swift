@@ -109,7 +109,7 @@ class ProfileViewController : UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-//        userRepo.fetchAndUpdateProfileImage(currentUser, imageView: self.profileImageView)
+        userRepo.fetchAndUpdateProfileImage(currentUser, imageView: self.profileImageView)
     }
     
     func setupEditBtn(parentMargin : UILayoutGuide){
@@ -131,7 +131,7 @@ class ProfileViewController : UIViewController {
     }
     
     func setupNameLabel(parentMargin : UILayoutGuide){
-        nameLabel = createProfileLabel(currentUser["name"] as! String)
+        nameLabel = createProfileLabel(userRepo.extractUserField("name"))
         
         profileContent.addSubview(nameLabel)
         
@@ -160,7 +160,7 @@ class ProfileViewController : UIViewController {
     }
     
     func setupRoleLabel(parentMargin : UILayoutGuide){
-        roleLabel = createProfileLabel("Joined as \(currentUser["role"]) \n \(Helper.convertDateToString(currentUser.createdAt!))")
+        roleLabel = createProfileLabel("Joined as \(userRepo.extractUserField("role")) \n \(Helper.convertDateToString(currentUser.createdAt!))")
         roleLabel.numberOfLines = 2
 
         profileContent.addSubview(roleLabel)
@@ -204,20 +204,7 @@ class ProfileViewController : UIViewController {
         return label
     }
     
-    static func resizeImage(image:UIImage, toTheSize size:CGSize) -> UIImage{
-        let scale = CGFloat(max(size.width/image.size.width,
-            size.height/image.size.height))
-        let width:CGFloat  = image.size.width * scale
-        let height:CGFloat = image.size.height * scale;
-        
-        let rr:CGRect = CGRectMake( 0, 0, width, height);
-        
-        UIGraphicsBeginImageContextWithOptions(size, false, 0);
-        image.drawInRect(rr)
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext();
-        return newImage
-    }
+ 
     
 }
 

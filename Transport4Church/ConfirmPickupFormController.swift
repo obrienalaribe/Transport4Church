@@ -57,7 +57,7 @@ class ConfirmPickupFormController: FormViewController {
             //try and do test call to verify number given
             <<< TextRow("contact"){ row in
                 row.title = "Contact"
-                row.value = "07950412921"
+                row.value = self.trip.rider.user["contact"] as! String
                 row.highlightCell()
             }
             
@@ -100,10 +100,11 @@ class ConfirmPickupFormController: FormViewController {
         self.trip.pickupTime = valuesDictionary["pickup_time"] as! NSDate
 
         self.trip.saveInBackgroundWithBlock({ (success, error) in
-            self.navigationController?.popViewControllerAnimated(true)
-        })   
+//            self.navigationController?.popViewControllerAnimated(true)
+            self.navigationController?.setViewControllers([RiderTripDetailController()], animated: true)
+
+        })
         
     }
-
-
+   
 }

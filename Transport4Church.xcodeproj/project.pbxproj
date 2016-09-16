@@ -39,6 +39,7 @@
 		43632A1A1D63269A00AD3B75 /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43632A191D63269A00AD3B75 /* LocationHelper.swift */; };
 		43973CE31D8976CF00C17C0B /* DriverTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43973CE21D8976CF00C17C0B /* DriverTripViewController.swift */; };
 		43973CE51D89777500C17C0B /* DriverTripViewDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43973CE41D89777500C17C0B /* DriverTripViewDelegates.swift */; };
+		439EF20A1D8C3DD700304BD4 /* RiderTripDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439EF2091D8C3DD700304BD4 /* RiderTripDetailController.swift */; };
 		43E383771D5A38EF0014DED2 /* LocationResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E383761D5A38EF0014DED2 /* LocationResultsController.swift */; };
 		4F49629DF8931134CADCF722 /* Pods_Transport4ChurchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF716B2146A8851D163AD3D9 /* Pods_Transport4ChurchUITests.framework */; };
 		59E6CC5AF3A827D98D24481B /* Pods_Transport4ChurchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD7BBFEB66CA5FE6FEB05CA2 /* Pods_Transport4ChurchTests.framework */; };
@@ -103,6 +104,7 @@
 		43674C7AFD10E409ECBAA189 /* Pods-Transport4ChurchUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transport4ChurchUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Transport4ChurchUITests/Pods-Transport4ChurchUITests.release.xcconfig"; sourceTree = "<group>"; };
 		43973CE21D8976CF00C17C0B /* DriverTripViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverTripViewController.swift; sourceTree = "<group>"; };
 		43973CE41D89777500C17C0B /* DriverTripViewDelegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverTripViewDelegates.swift; sourceTree = "<group>"; };
+		439EF2091D8C3DD700304BD4 /* RiderTripDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RiderTripDetailController.swift; sourceTree = "<group>"; };
 		43A72E641D75BB54002F3B65 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "../../../Library/Developer/Xcode/DerivedData/Transport4Church-gccuimlyhmdulufbuospzakbdhuy/Build/Products/Debug-iphoneos/Parse/Parse.framework"; sourceTree = "<group>"; };
 		43E383711D5A1F2E0014DED2 /* Transport4Church-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Transport4Church-Bridging-Header.h"; sourceTree = "<group>"; };
 		43E383761D5A38EF0014DED2 /* LocationResultsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationResultsController.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				43632A041D5B62F700AD3B75 /* ConfirmPickupFormController.swift */,
 				04DD3C4E1D591C8500DEBB32 /* RiderPickupController.swift */,
 				43632A111D61DB7700AD3B75 /* RiderPickupDelegates.swift */,
+				439EF2091D8C3DD700304BD4 /* RiderTripDetailController.swift */,
 			);
 			name = Rider;
 			sourceTree = "<group>";
@@ -594,6 +597,7 @@
 				43632A181D62155200AD3B75 /* Driver.swift in Sources */,
 				048552841D7DEF8D00F7B9B6 /* Helper.swift in Sources */,
 				43E383771D5A38EF0014DED2 /* LocationResultsController.swift in Sources */,
+				439EF20A1D8C3DD700304BD4 /* RiderTripDetailController.swift in Sources */,
 				43632A071D5B786800AD3B75 /* Trip.swift in Sources */,
 				04DD3C4F1D591C8500DEBB32 /* RiderPickupController.swift in Sources */,
 				4341B9321D8304140092A633 /* AuthViewController.swift in Sources */,

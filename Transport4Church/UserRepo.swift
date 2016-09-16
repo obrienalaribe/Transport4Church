@@ -19,43 +19,73 @@ struct Profile {
     var name: String
     var gender: String
     var contact : String
+    var church : String
 }
 
 class UserRepo {
     
     func updateProfile(profile: Profile, listener: UIViewController){
-        let user = PFUser.currentUser()
         
-        if let currentUser = user {
+        if let currentUser = getCurrentUser() {
             if let image = profile.image {
                 let imageData = UIImagePNGRepresentation(image)
                 
                 if let data = imageData {
-                    let avatarObject  = PFObject(className: "Picture")
-                    let imageFile = PFFile(name: "image.png", data: data)
                     
-                    avatarObject.setObject(currentUser, forKey: "owner")
+                    //check if user already has profile pic
+                    let pictureQuery = PFQuery(className: "Picture")
+                    
+                    pictureQuery.whereKey("owner", equalTo: currentUser)
+                    pictureQuery.includeKey("owner")
 
-                    imageFile?.saveInBackgroundWithBlock({ (success, error) in
-                        if let error = error {
-                            let errorString = error.userInfo["error"] as? NSString
-                            print(errorString)
-                        } else {
-                            avatarObject.setObject(imageFile!, forKey: "image")
-                            avatarObject.saveInBackground()
+                    pictureQuery.getFirstObjectInBackgroundWithBlock({ (user, error) in
+                        if user != nil {
+                            print("SO WHY THE HELL ARE YOU SAVING A NEW PICTURE ? ")
+                            
+                            print(user)
+                            
+                            let query = PFQuery(className: "Picture")
+                            query.whereKey("owner", equalTo: user!)
+                            
+                            //update the existing user's dp
+                            query.findObjectsInBackgroundWithBlock({ (pictureObject, error) in
+                                print("found \(pictureObject) to update on server")
+                            })
+                        }else{
+                            
+                            let pictureObject  = PFObject(className: "Picture")
+                            
+                            let pictureFile = PFFile(name: "image.png", data: data)
+                            
+                            pictureObject.setObject(currentUser, forKey: "owner")
+                            
+                            //Save image file on server first
+                            pictureFile?.saveInBackgroundWithBlock({ (success, error) in
+                                if let error = error {
+                                    let errorString = error.userInfo["error"] as? NSString
+                                    print(errorString)
+                                } else {
+                                    //set pointer to file on picture object
+                                    pictureObject.setObject(pictureFile!, forKey: "image")
+                                    pictureObject.saveInBackground()
+                                    
+                                }
+                            })
 
-//                            currentUser.setObject(imageFile!, forKey: "avatar")
                         }
                     })
+              
+                    
+                    
                 }
             }
             
             currentUser["name"] = profile.name
             currentUser["gender"] = profile.gender
             currentUser["contact"] = profile.contact
+            currentUser["church"] = profile.church
 
             currentUser.saveInBackgroundWithBlock({ (success, error) in
-                
                 
                 if listener.navigationController?.viewControllers.count == 1 {
                     //registration stage
@@ -139,7 +169,12 @@ class UserRepo {
                                     imageView.clipsToBounds = true
                                     
                                     let size = CGSize(width: imageView.bounds.width, height: imageView.bounds.height)
-                                    imageView.image = ProfileViewController.resizeImage(image!, toTheSize: size)
+                                    
+                                    let portraitImage  : UIImage = UIImage(CGImage: image!.CGImage! ,
+                                        scale: 1.0 ,
+                                        orientation: UIImageOrientation.Right)
+                                    
+                                    imageView.image = Helper.resizeImage(portraitImage, toTheSize: size)
                                 }
                             })
                         }
@@ -152,4 +187,19 @@ class UserRepo {
         }
 
     }
+    
+    func getCurrentUser() -> PFUser? {
+        return PFUser.currentUser()
+    }
+    
+    func extractUserField(field : String) -> String{
+        if let user = getCurrentUser() {
+            if let field = user[field] {
+                return field as! String
+            }
+        }
+        return ""
+    }
+    
+   
 }

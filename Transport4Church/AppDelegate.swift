@@ -25,16 +25,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GMSServices.provideAPIKey(googleMapsApiKey)
         
         GMSPlacesClient.provideAPIKey(googleMapsApiKey)
-        
 
-//
-//        window?.rootViewController = UINavigationController(rootViewController:AuthViewController())
         
         _ = ParseServer()
         
         if let loggedInUser = PFUser.currentUser(){
             
-            print("user logged in ")
+            print("user logged in \(loggedInUser)")
             if loggedInUser["role"] as! String == UserRoles.Rider.rawValue {
                 window?.rootViewController = UINavigationController(rootViewController:RiderPickupController())
 
@@ -47,8 +44,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
             window?.rootViewController = UINavigationController(rootViewController:AuthViewController())
         }
+
+        window?.rootViewController = UINavigationController(rootViewController:RiderTripDetailController())
+
         return true
     }
+    
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        let installation = PFInstallation.currentInstallation()
+        
+        if let deviceInstallation = installation {
+            print("installation done: push notification registered")
+            deviceInstallation.setDeviceTokenFromData(deviceToken)
+            deviceInstallation.saveInBackground()
+        }
+       
+    }
+    
+    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+        if error.code == 3010 {
+            print("Push notifications are not supported in the iOS Simulator.")
+        } else {
+            print("application:didFailToRegisterForRemoteNotificationsWithError: %@", error)
+        }
+    }
+    
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        PFPush.handlePush(userInfo)
+    }
+    
     
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

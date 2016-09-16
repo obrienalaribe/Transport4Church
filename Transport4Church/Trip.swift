@@ -27,6 +27,8 @@ class Trip : PFObject, PFSubclassing  {
     //only set destination on this object then Rider will have location
     @NSManaged var destination : PFGeoPoint
 
+    @NSManaged var driver : PFObject
+    
     var pickupTime : NSDate {
         get { return Helper.convertStringToDate(objectForKey("pickup_time" ) as! String)}
         set { setObject(Helper.convertDateToString(newValue), forKey: "pickup_time") }

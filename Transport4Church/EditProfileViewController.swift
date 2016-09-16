@@ -24,36 +24,48 @@ class EditProfileViewController : FormViewController {
             row.cell.height = {
                 return 60
             }
+            
         }
         
         form +++ Section()
             <<< ImageRow("Picture"){
                 $0.title = "Select Profile Picture"
-                $0.cell.accessoryView = UIImageView(image: UIImage(named: "profile_dp"))
-                }
+                
+                }.cellSetup({ (cell, row) in
+//                    cell.imageView?.image = UIImage(named: "user")
+//                    cell.accessoryView = UIImageView(image: UIImage(image: "user"))
+                })
             
             +++ Section("Please fill in your details")
             <<< TextRow("Name"){ row in
                 row.title = "Fullname"
                 row.placeholder = "i.e Emma Smith"
-                row.value = "Tommy Jack"
+                row.value = userRepo.extractUserField("name")
 
-            }
+                }
+            
             <<< ActionSheetRow<String>("Gender") {
                 $0.title = "Gender"
                 $0.selectorTitle = "Select Gender"
                 $0.options = ["Male","Female", "Other"]
-                $0.value = "Other"
+                $0.value = userRepo.extractUserField("gender")
+            }
+            
+            +++ Section()
+            <<< PushRow<String>("Church") {
+                $0.title = "Church"
+                $0.selectorTitle = "Choose your church"
+                $0.options = ["EFA RCCG Leeds"]
+                $0.value = userRepo.extractUserField("church")
             }
             
             +++ Section("Number Driver will to contact you on")
             <<< PhoneRow("Contact"){ row in
                 row.title = "Contact"
                 row.placeholder = ""
-                row.value = "2342342"
+                row.value = userRepo.extractUserField("contact")
 
             }
-            
             
             +++ Section() { section in
                 section.header = {
@@ -74,17 +86,14 @@ class EditProfileViewController : FormViewController {
        
         let valuesDictionary = form.values()
         
-        print(valuesDictionary)
-        
         let listOfEmptyFields = Helper.validateFormInputs(valuesDictionary)
         
         if 1 == 0 {
-  
-         
+           
 
         }else{
 
-            let profile = Profile(image: valuesDictionary["Picture"] as? UIImage, name: valuesDictionary["Name"] as! String, gender: valuesDictionary["Gender"] as! String, contact: valuesDictionary["Contact"] as! String)
+            let profile = Profile(image: valuesDictionary["Picture"] as? UIImage, name: valuesDictionary["Name"] as! String, gender: valuesDictionary["Gender"] as! String, contact: valuesDictionary["Contact"] as! String, church: valuesDictionary["Church"] as! String)
             
             userRepo.updateProfile(profile, listener: self)
         }
