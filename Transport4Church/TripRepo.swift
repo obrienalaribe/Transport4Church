@@ -10,19 +10,21 @@ import Parse
 
 class TripRepo {
         
-    func fetchAllPickupRequests(view : DriverRequestListController){
+    func fetchAllPickupRequests(view : DriverRequestListController, tripStatus: TripStatus){
         
         let tripDestination = PFGeoPoint.init(latitude: EFA_Coord.latitude, longitude: EFA_Coord.longitude)
         
         let query = PFQuery(className:"Trip")
         query.whereKey("destination", equalTo: tripDestination)
-        query.whereKey("status", equalTo: TripStatus.REQUESTED.rawValue)
+        query.whereKey("status", equalTo: tripStatus.rawValue)
         query.includeKey("Rider")
         query.includeKey("User")
+        query.addDescendingOrder("pickup_time")
         query.cachePolicy = .CacheThenNetwork
         query.orderByAscending("pickup_time")
         query.limit = 100
         
+
         print("making request")
         
         query.findObjectsInBackgroundWithBlock {

@@ -109,7 +109,7 @@ class ProfileViewController : UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        userRepo.fetchAndUpdateProfileImage(currentUser, imageView: self.profileImageView)
+        userRepo.fetchAndSetUsersProfileImage(currentUser, imageView: self.profileImageView)
     }
     
     func setupEditBtn(parentMargin : UILayoutGuide){
@@ -191,7 +191,6 @@ class ProfileViewController : UIViewController {
 
     func logout(){
         PFUser.logOut()
-        print("user is \(PFUser.currentUser())")
         self.navigationController?.setViewControllers([AuthViewController()], animated: true)
     }
     

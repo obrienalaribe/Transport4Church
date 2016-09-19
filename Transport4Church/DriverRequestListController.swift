@@ -22,6 +22,47 @@ class DriverRequestListController: UICollectionViewController, UICollectionViewD
     var tripRepo = TripRepo()
     var listenerResult = [Trip]()
     
+    let items = ["New", "Completed", "Cancelled"]
+    let status = [TripStatus.REQUESTED, TripStatus.COMPLETED, TripStatus.CANCELLED]
+    var tripStatusToggle : UISegmentedControl!
+    
+    override func loadView() {
+        super.loadView()
+        tripStatusToggle = UISegmentedControl(items: items)
+        tripStatusToggle.selectedSegmentIndex = 0
+        
+        // Set up Frame and SegmentedControl
+        let frame = UIScreen.mainScreen().bounds
+        tripStatusToggle.frame = CGRectMake(frame.minX + 10, frame.minY + 70,
+                                    frame.width - 20, frame.height*0.1)
+        
+        // Style the Segmented Control
+        tripStatusToggle.layer.cornerRadius = 5.0  // Don't let background bleed
+        tripStatusToggle.backgroundColor = UIColor.darkGrayColor()
+        tripStatusToggle.tintColor = UIColor.whiteColor()
+        
+        // Add target action method
+        tripStatusToggle.addTarget(self, action: #selector(DriverRequestListController.changeView(_:)), forControlEvents: .ValueChanged)
+        
+        // Add this custom Segmented Control to our view
+        self.view.addSubview(tripStatusToggle)
+        
+    }
+    
+    
+    func changeView(sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 1:
+            refresh()
+        case 2:
+            refresh()
+        default:
+            refresh()
+        }
+    }
+
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -45,6 +86,7 @@ class DriverRequestListController: UICollectionViewController, UICollectionViewD
         menuBtn.tintColor = .blackColor()
         
         navigationItem.leftBarButtonItem = menuBtn
+        
     }
     
     
@@ -54,13 +96,15 @@ class DriverRequestListController: UICollectionViewController, UICollectionViewD
     }
     
     func refresh(){
-        tripRepo.fetchAllPickupRequests(self)
+        tripRepo.fetchAllPickupRequests(self, tripStatus: status[tripStatusToggle.selectedSegmentIndex])
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
         refresh()
+        
+        print(tripStatusToggle.selectedSegmentIndex)
        
     }
     
@@ -91,6 +135,9 @@ class DriverRequestListController: UICollectionViewController, UICollectionViewD
         return CGSizeMake(view.frame.width - 20, 140)
     }
     
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+        return UIEdgeInsetsMake(75, 0, 0, 0)
+    }
   
     
     func showDriverTripMode(sender: UIButton){

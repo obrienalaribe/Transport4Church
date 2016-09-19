@@ -32,7 +32,6 @@ class DriverTripViewController: UIViewController {
         mapView.myLocationEnabled = true
         mapView.settings.myLocationButton = true
         
-        
         view.addSubview(mapView)
         
         title = currentTrip?.rider.user["name"] as! String
@@ -53,7 +52,9 @@ class DriverTripViewController: UIViewController {
         let alertController = UIAlertController (title: "Pickup Complete", message: "Has this rider been picked up ?", preferredStyle: .Alert )
         
         let yesAction = UIAlertAction(title: "Yes, Complete", style: .Default) { (_) -> Void in
-              self.navigationController?.setViewControllers([DriverRequestListController(collectionViewLayout: UICollectionViewFlowLayout())], animated: true)
+            self.currentTrip?.status = TripStatus.COMPLETED
+            self.currentTrip?.saveEventually()
+            self.navigationController?.setViewControllers([DriverRequestListController(collectionViewLayout: UICollectionViewFlowLayout())], animated: true)
         }
         
         let cancelAction = UIAlertAction(title: "No", style: .Default, handler: nil)

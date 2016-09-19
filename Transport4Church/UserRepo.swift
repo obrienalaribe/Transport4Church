@@ -67,7 +67,12 @@ class UserRepo {
                                 } else {
                                     //set pointer to file on picture object
                                     pictureObject.setObject(pictureFile!, forKey: "image")
-                                    pictureObject.saveInBackground()
+                                    pictureObject.saveInBackgroundWithBlock({ (success, error) in
+                                        print("saved image through network and pinning to background")
+//                                        pictureObject.pinInBackground()
+                                        print(pictureObject)
+                                    })
+                                    
                                     
                                 }
                             })
@@ -145,46 +150,74 @@ class UserRepo {
 
     }
     
-    func fetchAndUpdateProfileImage(user: PFUser, imageView: UIImageView){
+    func fetchAndSetUsersProfileImage(user: PFUser, imageView: UIImageView){
         let query = PFQuery(className:"Picture")
         query.whereKey("owner", equalTo: user)
+//        query.cachePolicy = .CacheOnly
         
-        query.findObjectsInBackgroundWithBlock {
-            (objects: [PFObject]?, error: NSError?) -> Void in
+        query.getFirstObjectInBackgroundWithBlock { (result, error) in
             
-            if error == nil {
-                // The find succeeded.
-                print("Successfully retrieved \(objects!.count) pics.")
-                // Do something with the found objects
-                if let objects = objects {
-                    for object in objects {
-                        if let userPicture = object.valueForKey("image") {
-                            let picture = userPicture as! PFFile
-                            //TODO: optimize this to only use and fetch one image object
-                            picture.getDataInBackgroundWithBlock({
-                                (imageData: NSData?, error: NSError?) -> Void in
-                                if (error == nil) {
-                                    let image = UIImage(data:imageData!)
-                                    imageView.contentMode = .ScaleAspectFit
-                                    imageView.clipsToBounds = true
-                                    
-                                    let size = CGSize(width: imageView.bounds.width, height: imageView.bounds.height)
-                                    
-                                    let portraitImage  : UIImage = UIImage(CGImage: image!.CGImage! ,
-                                        scale: 1.0 ,
-                                        orientation: UIImageOrientation.Right)
-                                    
-                                    imageView.image = Helper.resizeImage(portraitImage, toTheSize: size)
-                                }
-                            })
+            if let pictureObject = result {
+                if let userPicture = pictureObject.valueForKey("image") {
+                    let picture = userPicture as! PFFile
+                    //TODO: optimize this to only use and fetch one image object
+                    picture.getDataInBackgroundWithBlock({
+                        (imageData: NSData?, error: NSError?) -> Void in
+                        if (error == nil) {
+                            let image = UIImage(data:imageData!)
+                            imageView.contentMode = .ScaleAspectFit
+                            imageView.clipsToBounds = true
+                            
+                            let size = CGSize(width: imageView.bounds.width, height: imageView.bounds.height)
+                            
+                            let portraitImage  : UIImage = UIImage(CGImage: image!.CGImage! ,
+                                scale: 1.0 ,
+                                orientation: UIImageOrientation.Right)
+                            
+                            imageView.image = Helper.resizeImage(portraitImage, toTheSize: size)
                         }
-                    }
+                    })
                 }
-            } else {
-                // Log details of the failure
-                print("Error: \(error!) \(error!.userInfo)")
+
             }
+            
         }
+//        query.findObjectsInBackgroundWithBlock {
+//            (objects: [PFObject]?, error: NSError?) -> Void in
+//            
+//            if error == nil {
+//                // The find succeeded.
+//                print("Successfully retrieved \(objects!.count) pics.")
+//                // Do something with the found objects
+//                if let objects = objects {
+//                    for object in objects {
+//                        if let userPicture = object.valueForKey("image") {
+//                            let picture = userPicture as! PFFile
+//                            //TODO: optimize this to only use and fetch one image object
+//                            picture.getDataInBackgroundWithBlock({
+//                                (imageData: NSData?, error: NSError?) -> Void in
+//                                if (error == nil) {
+//                                    let image = UIImage(data:imageData!)
+//                                    imageView.contentMode = .ScaleAspectFit
+//                                    imageView.clipsToBounds = true
+//                                    
+//                                    let size = CGSize(width: imageView.bounds.width, height: imageView.bounds.height)
+//                                    
+//                                    let portraitImage  : UIImage = UIImage(CGImage: image!.CGImage! ,
+//                                        scale: 1.0 ,
+//                                        orientation: UIImageOrientation.Right)
+//                                    
+//                                    imageView.image = Helper.resizeImage(portraitImage, toTheSize: size)
+//                                }
+//                            })
+//                        }
+//                    }
+//                }
+//            } else {
+//                // Log details of the failure
+//                print("Error: \(error!) \(error!.userInfo)")
+//            }
+//        }
 
     }
     
