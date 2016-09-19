@@ -23,12 +23,13 @@ extension RiderPickupController : GMSMapViewDelegate{
     }
     
     func mapView(mapView: GMSMapView, idleAtCameraPosition cameraPosition: GMSCameraPosition) {
+        
         let helper = LocationHelper()
         helper.reverseGeocodeCoordinate(cameraPosition.target)
         
         dispatch_group_notify(locationDispatchGroup, dispatch_get_main_queue(), {
-            print("hence \(helper.result)")
-//            self.rider.location.updateProperties(helper.result)
+            print("location changed from : \(helper.result)")
+            //            self.rider.location.updateProperties(helper.result)
             self.pickupBtn.userInteractionEnabled = true
             
             if self.currentTrip.status == TripStatus.NEW || self.currentTrip.status == TripStatus.CANCELLED {
@@ -37,28 +38,43 @@ extension RiderPickupController : GMSMapViewDelegate{
                 
             }
             
-            self.currentTrip.rider.location =  PFGeoPoint(latitude: cameraPosition.target.latitude, longitude: cameraPosition.target.longitude)
+            
+            self.currentTrip.rider.location = PFGeoPoint(latitude: cameraPosition.target.latitude, longitude: cameraPosition.target.longitude)
             
             let address = Address(result: helper.result, coordinate: cameraPosition.target)
-
+            
             self.currentTrip.rider.address = address
             self.currentTrip.rider.addressDic = address.getDictionary()
             
             self.currentTrip.rider.saveInBackground()
-
-            //TODO update rider geopoint details
+            
             print(self.currentTrip.status)
             
             UIView.animateWithDuration(0.25) {
                 self.view.layoutIfNeeded()
             }
         })
+        
 
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         
     }
     
+    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+        
+        if keyPath == "myLocation" && (object?.isKindOfClass(GMSMapView))!{
+            self.locationTrackingLabel.text = "update from observer"
+            let riderCoord = self.mapView.myLocation!.coordinate
 
+            //trigger after 10 secs
+            let triggerTime = (Int64(NSEC_PER_SEC) * 3)
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
+                self.mapView.animateToLocation(CLLocationCoordinate2D(latitude: riderCoord.latitude, longitude: riderCoord.longitude))
+            })
+            
+        }
+    }
+ 
 }
 
 // MARK: GMSAutocompleteViewControllerDelegate

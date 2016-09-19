@@ -85,13 +85,14 @@ class DriverTripViewController: UIViewController {
             riderLocation.snippet = "\(rider.addressDic["street"]!) \(rider.addressDic["postcode"]!)"
 
             riderLocation.title = rider.user["name"] as! String
-
         }
+        
         riderLocation.flat = true
         
         riderLocation.icon = UIImage(named: "user")!.imageWithRenderingMode(.AlwaysTemplate)
         riderLocation.map = mapView
         
+
         let driverCoordinates = CLLocationCoordinate2D(latitude: (driverLocation?.coordinate.latitude)!, longitude: (driverLocation?.coordinate.longitude)!)
         let bounds = GMSCoordinateBounds(coordinate: driverCoordinates, coordinate: riderLocation.position)
         let camera = mapView.cameraForBounds(bounds, insets: UIEdgeInsets(top: 0, left: 50, bottom: 0, right: 50))!

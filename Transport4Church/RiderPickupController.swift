@@ -62,7 +62,11 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
         mapView.settings.myLocationButton = true
         mapView.setMinZoom(12, maxZoom: 16)
         
+        mapView.addObserver(self, forKeyPath: "myLocation", options: [.New], context: nil)
+        
         view.addSubview(mapView)
+        
+        print(self.mapView.myLocation)
         
         setupLocationTrackingLabel()
         setupMapPin()
@@ -72,7 +76,9 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
         let menuBtn = UIBarButtonItem(image: UIImage(named: "menu"), style: .Plain, target: self, action: #selector(RiderPickupController.showMenu))
         menuBtn.tintColor = .blackColor()
         navigationItem.leftBarButtonItem = menuBtn
+         
     }
+    
     
     func showMenu() {
         let menuNavCtrl = UINavigationController(rootViewController:MenuViewController())
@@ -105,6 +111,12 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
         
     
 //
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        mapView.removeObserver(self, forKeyPath: "myLocation")
+        
     }
 
     func setRiderLocationOnMap(){
@@ -383,8 +395,11 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
         let application = UIApplication.sharedApplication()
         application.registerUserNotificationSettings(settings)
         application.registerForRemoteNotifications()
-        
     }
+    
+    
+    
+    
 
 }
 

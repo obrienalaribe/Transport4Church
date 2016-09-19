@@ -49,7 +49,6 @@ class DriverRequestListController: UICollectionViewController, UICollectionViewD
         
     }
     
-    
     func changeView(sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 1:
@@ -60,8 +59,6 @@ class DriverRequestListController: UICollectionViewController, UICollectionViewD
             refresh()
         }
     }
-
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -136,7 +133,7 @@ class DriverRequestListController: UICollectionViewController, UICollectionViewD
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
-        return UIEdgeInsetsMake(75, 0, 0, 0)
+        return UIEdgeInsetsMake(tripStatusToggle.frame.height + 17, 0, 0, 0)
     }
   
     
