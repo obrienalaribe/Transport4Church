@@ -9,18 +9,7 @@
 import UIKit
 
 class RiderTripDetailController: UIViewController {
-    let profileImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .ScaleAspectFill
-        imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 40
-        imageView.layer.masksToBounds = true
-        imageView.backgroundColor = UIColor(white: 0.95, alpha: 1)
-        imageView.image = UIImage(named: "user_male")
-        imageView.layer.zPosition = 2
-        return imageView
-    }()
-    
+
     let tripDetails: UIView = {
         let view = UIView()
         view.layer.zPosition = 1
@@ -50,42 +39,27 @@ class RiderTripDetailController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Request Sent"
-        view.addSubview(profileImageView)
         view.backgroundColor = UIColor(white: 0.97, alpha: 1)
         
-        profileImageView.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor).active = true
-        
-        profileImageView.centerYAnchor.constraintEqualToAnchor(view.centerYAnchor, constant:  -150).active = true
-        
-        profileImageView.translatesAutoresizingMaskIntoConstraints = false
-        
+        tripDetails.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor).active = true
+        tripDetails.centerYAnchor.constraintEqualToAnchor(view.centerYAnchor, constant:  -150).active = true
         view.addSubview(tripDetails)
         
         let margins = view.layoutMarginsGuide
         
         tripDetails.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor).active = true
         tripDetails.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor).active = true
-        tripDetails.topAnchor.constraintEqualToAnchor(profileImageView.bottomAnchor,
-                                                      constant: -30.0).active = true
         
-        tripDetails.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor,
-                                                         constant: -60.0).active = true
+        tripDetails.heightAnchor.constraintEqualToConstant(60)
         
         tripDetails.backgroundColor = .whiteColor()
         
         tripDetails.translatesAutoresizingMaskIntoConstraints = false
         
-        
         let profileContentMargin = tripDetails.layoutMarginsGuide
         
-        setupFromLabel(profileContentMargin)
-        setupCancelPickupBtn()
- 
+    
         
-        let menuBtn = UIBarButtonItem(image: UIImage(named: "menu"), style: .Plain, target: self, action: #selector(RiderPickupController.showMenu))
-        menuBtn.tintColor = .blackColor()
-        navigationItem.leftBarButtonItem = menuBtn
     }
     
     func showMenu() {
@@ -129,9 +103,7 @@ class RiderTripDetailController: UIViewController {
         
         destinationLabel.addBottomBorder(originLabel, parentMargin: parentMargin)
         
-        
     }
-
     
     func setupCancelPickupBtn(){
         view.addSubview(cancelPickupBtn)

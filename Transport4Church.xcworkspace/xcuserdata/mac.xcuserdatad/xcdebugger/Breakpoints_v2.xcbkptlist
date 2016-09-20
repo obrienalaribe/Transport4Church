@@ -39,11 +39,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Transport4Church/RiderPickupController.swift"
-            timestampString = "496017162.964664"
+            timestampString = "496088353.763278"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "253"
-            endingLineNumber = "253"
+            startingLineNumber = "250"
+            endingLineNumber = "250"
             landmarkName = "setupLocationTrackingLabel()"
             landmarkType = "5">
          </BreakpointContent>
@@ -118,11 +118,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Transport4Church/RiderPickupController.swift"
-            timestampString = "496017162.964664"
+            timestampString = "496088353.763278"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
             landmarkName = "viewWillAppear(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -150,11 +150,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Transport4Church/UserRepo.swift"
-            timestampString = "495674490.80594"
+            timestampString = "496091057.766216"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
             landmarkName = "updateProfile(_:listener:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -166,11 +166,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Transport4Church/ProfileViewController.swift"
-            timestampString = "495671895.538536"
+            timestampString = "496092724.283437"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "189"
-            endingLineNumber = "189"
+            startingLineNumber = "195"
+            endingLineNumber = "195"
             landmarkName = "setupLogoutBtn(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -182,11 +182,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Transport4Church/ProfileViewController.swift"
-            timestampString = "495671667.791266"
+            timestampString = "496092724.283437"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "130"
-            endingLineNumber = "130"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
             landmarkName = "editProfileAction()"
             landmarkType = "5">
          </BreakpointContent>
@@ -198,27 +198,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Transport4Church/UserRepo.swift"
-            timestampString = "495674490.80594"
+            timestampString = "496091057.766216"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
-            landmarkName = "updateProfile(_:listener:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Transport4Church/UserRepo.swift"
-            timestampString = "495674490.80594"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
             landmarkName = "updateProfile(_:listener:)"
             landmarkType = "5">
          </BreakpointContent>

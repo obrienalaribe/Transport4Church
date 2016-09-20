@@ -101,10 +101,26 @@ class ConfirmPickupFormController: FormViewController {
 
         self.trip.saveInBackgroundWithBlock({ (success, error) in
 //            self.navigationController?.popViewControllerAnimated(true)
-            self.navigationController?.setViewControllers([RiderTripDetailController()], animated: true)
-
+//            self.navigationController?.setViewControllers([RiderTripDetailController()], animated: true)
+            
+            let tripDetailsController = RiderTripDetailController()
+            
+            self.addChildViewController(tripDetailsController)
+            
+            tripDetailsController.view.frame = self.view.frame;
+            self.view.addSubview(tripDetailsController.view)
+            
+            tripDetailsController.view.alpha = 0
+            tripDetailsController.didMoveToParentViewController(self)
+            
+            UIView.animateWithDuration(0.2, animations: {
+                tripDetailsController.view.alpha = 0.6
+                }, completion: {
+                    (value: Bool) in
+                    print("complete")
+            })
+            
         })
-        
     }
    
 }

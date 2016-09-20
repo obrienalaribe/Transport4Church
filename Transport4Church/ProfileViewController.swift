@@ -61,6 +61,11 @@ class ProfileViewController : UIViewController {
     
     var currentUser : PFUser!
     let userRepo = UserRepo()
+    
+    override func loadView() {
+        super.loadView()
+
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,6 +107,7 @@ class ProfileViewController : UIViewController {
             setupNameLabel(profileContentMargin)
             setupChurchLabel(profileContentMargin)
             setupRoleLabel(profileContentMargin)
+            
         }
         
         

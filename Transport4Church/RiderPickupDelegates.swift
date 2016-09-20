@@ -53,6 +53,8 @@ extension RiderPickupController : GMSMapViewDelegate{
             UIView.animateWithDuration(0.25) {
                 self.view.layoutIfNeeded()
             }
+            
+        
         })
         
 
@@ -60,21 +62,6 @@ extension RiderPickupController : GMSMapViewDelegate{
         
     }
     
-    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
-        
-        if keyPath == "myLocation" && (object?.isKindOfClass(GMSMapView))!{
-            self.locationTrackingLabel.text = "update from observer"
-            let riderCoord = self.mapView.myLocation!.coordinate
-
-            //trigger after 10 secs
-            let triggerTime = (Int64(NSEC_PER_SEC) * 3)
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
-                self.mapView.animateToLocation(CLLocationCoordinate2D(latitude: riderCoord.latitude, longitude: riderCoord.longitude))
-            })
-            
-        }
-    }
- 
 }
 
 // MARK: GMSAutocompleteViewControllerDelegate

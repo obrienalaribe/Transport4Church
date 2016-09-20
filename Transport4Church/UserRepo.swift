@@ -38,50 +38,17 @@ class UserRepo {
                     pictureQuery.whereKey("owner", equalTo: currentUser)
                     pictureQuery.includeKey("owner")
 
-                    pictureQuery.getFirstObjectInBackgroundWithBlock({ (user, error) in
-                        if user != nil {
-                            print("SO WHY THE HELL ARE YOU SAVING A NEW PICTURE ? ")
+                    pictureQuery.getFirstObjectInBackgroundWithBlock({ (pictureObject, error) in
+                        if pictureObject != nil {
+                            self.createOrUpdateUserAvatar(pictureObject!, data: data)
                             
-                            print(user)
-                            
-                            let query = PFQuery(className: "Picture")
-                            query.whereKey("owner", equalTo: user!)
-                            
-                            //update the existing user's dp
-                            query.findObjectsInBackgroundWithBlock({ (pictureObject, error) in
-                                print("found \(pictureObject) to update on server")
-                            })
                         }else{
-                            
                             let pictureObject  = PFObject(className: "Picture")
-                            
-                            let pictureFile = PFFile(name: "image.png", data: data)
-                            
-                            pictureObject.setObject(currentUser, forKey: "owner")
-                            
-                            //Save image file on server first
-                            pictureFile?.saveInBackgroundWithBlock({ (success, error) in
-                                if let error = error {
-                                    let errorString = error.userInfo["error"] as? NSString
-                                    print(errorString)
-                                } else {
-                                    //set pointer to file on picture object
-                                    pictureObject.setObject(pictureFile!, forKey: "image")
-                                    pictureObject.saveInBackgroundWithBlock({ (success, error) in
-                                        print("saved image through network and pinning to background")
-//                                        pictureObject.pinInBackground()
-                                        print(pictureObject)
-                                    })
-                                    
-                                    
-                                }
-                            })
+                            self.createOrUpdateUserAvatar(pictureObject, data: data)
 
                         }
                     })
               
-                    
-                    
                 }
             }
             
@@ -152,11 +119,10 @@ class UserRepo {
     
     func fetchAndSetUsersProfileImage(user: PFUser, imageView: UIImageView){
         let query = PFQuery(className:"Picture")
+        query.cachePolicy = .CacheElseNetwork
         query.whereKey("owner", equalTo: user)
-//        query.cachePolicy = .CacheOnly
         
         query.getFirstObjectInBackgroundWithBlock { (result, error) in
-            
             if let pictureObject = result {
                 if let userPicture = pictureObject.valueForKey("image") {
                     let picture = userPicture as! PFFile
@@ -182,43 +148,6 @@ class UserRepo {
             }
             
         }
-//        query.findObjectsInBackgroundWithBlock {
-//            (objects: [PFObject]?, error: NSError?) -> Void in
-//            
-//            if error == nil {
-//                // The find succeeded.
-//                print("Successfully retrieved \(objects!.count) pics.")
-//                // Do something with the found objects
-//                if let objects = objects {
-//                    for object in objects {
-//                        if let userPicture = object.valueForKey("image") {
-//                            let picture = userPicture as! PFFile
-//                            //TODO: optimize this to only use and fetch one image object
-//                            picture.getDataInBackgroundWithBlock({
-//                                (imageData: NSData?, error: NSError?) -> Void in
-//                                if (error == nil) {
-//                                    let image = UIImage(data:imageData!)
-//                                    imageView.contentMode = .ScaleAspectFit
-//                                    imageView.clipsToBounds = true
-//                                    
-//                                    let size = CGSize(width: imageView.bounds.width, height: imageView.bounds.height)
-//                                    
-//                                    let portraitImage  : UIImage = UIImage(CGImage: image!.CGImage! ,
-//                                        scale: 1.0 ,
-//                                        orientation: UIImageOrientation.Right)
-//                                    
-//                                    imageView.image = Helper.resizeImage(portraitImage, toTheSize: size)
-//                                }
-//                            })
-//                        }
-//                    }
-//                }
-//            } else {
-//                // Log details of the failure
-//                print("Error: \(error!) \(error!.userInfo)")
-//            }
-//        }
-
     }
     
     func getCurrentUser() -> PFUser? {
@@ -232,6 +161,23 @@ class UserRepo {
             }
         }
         return ""
+    }
+    
+    private func createOrUpdateUserAvatar(pictureObject: PFObject, data: NSData){
+     
+        let pictureFile = PFFile(name: "image.png", data: data)
+        
+        pictureObject.setObject(PFUser.currentUser()!, forKey: "owner")
+        
+        pictureObject.setObject(pictureFile!, forKey: "image")
+        pictureObject.saveInBackgroundWithBlock({ (success, error) in
+            print("saved image through network and pinning to background")
+            print(pictureObject)
+            pictureObject.pinInBackground()
+
+        })
+        
+
     }
     
    

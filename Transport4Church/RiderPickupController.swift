@@ -61,9 +61,7 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
         mapView.myLocationEnabled = true
         mapView.settings.myLocationButton = true
         mapView.setMinZoom(12, maxZoom: 16)
-        
-        mapView.addObserver(self, forKeyPath: "myLocation", options: [.New], context: nil)
-        
+                
         view.addSubview(mapView)
         
         print(self.mapView.myLocation)
@@ -115,7 +113,6 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
     
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
-        mapView.removeObserver(self, forKeyPath: "myLocation")
         
     }
 
