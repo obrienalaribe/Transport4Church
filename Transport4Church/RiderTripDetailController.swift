@@ -39,27 +39,65 @@ class RiderTripDetailController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor(white: 0.97, alpha: 1)
+        view.backgroundColor = UIColor.clearColor()
         
-        tripDetails.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor).active = true
-        tripDetails.centerYAnchor.constraintEqualToAnchor(view.centerYAnchor, constant:  -150).active = true
         view.addSubview(tripDetails)
         
+        title = "Request"
+
         let margins = view.layoutMarginsGuide
+//  
         
-        tripDetails.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor).active = true
+        tripDetails.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor).active = true
+        tripDetails.centerYAnchor.constraintEqualToAnchor(view.centerYAnchor).active = true
+
         tripDetails.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor).active = true
-        
-        tripDetails.heightAnchor.constraintEqualToConstant(60)
-        
+              tripDetails.translatesAutoresizingMaskIntoConstraints = false
         tripDetails.backgroundColor = .whiteColor()
+        tripDetails.heightAnchor.constraintEqualToAnchor(view.heightAnchor,
+                                                                   multiplier: 0.5).active = true
         
-        tripDetails.translatesAutoresizingMaskIntoConstraints = false
         
-        let profileContentMargin = tripDetails.layoutMarginsGuide
+        let originView = UIView()
+        originView.backgroundColor = UIColor.orangeColor()
+        tripDetails.addSubview(originView)
         
+        tripDetails.addConstraintsWithFormat("H:|-20-[v0]-20-|", views: originView)
+        tripDetails.addConstraintsWithFormat("V:|-10-[v0(60)]", views: originView)
+        
+        createLineView(originView, leftTitle: "Origin", rightTitle: "15-15 Walter Street")
+
+        let destinationView = UIView()
+        destinationView.backgroundColor = UIColor.orangeColor()
+        tripDetails.addSubview(destinationView)
+
+        tripDetails.addConstraintsWithFormat("H:|-20-[v0]-20-|", views: destinationView)
+        tripDetails.addConstraintsWithFormat("V:|-70-[v0(60)]", views: destinationView)
+
+        createLineView(destinationView, leftTitle: "Destin", rightTitle: "15-15 Walter Street")
+       
+    }
     
+    func createLineView(lineView: UIView, leftTitle: String, rightTitle: String){
+        let leftLabel = createLabel(leftTitle)
+        let rightLabel = createLabel(rightTitle)
         
+        lineView.addSubview(leftLabel)
+        lineView.addSubview(rightLabel)
+        
+        let bottomBorderLine = UIView()
+        lineView.addSubview(bottomBorderLine)
+        
+        bottomBorderLine.backgroundColor = UIColor(white: 0.5, alpha: 0.5)
+        
+        lineView.addConstraintsWithFormat("H:|[v0(80)]-10-[v1]|", views: leftLabel, rightLabel)
+        lineView.addConstraintsWithFormat("H:|-90-[v0]|", views: bottomBorderLine)
+        
+        lineView.addConstraintsWithFormat("V:|[v0]|", views: leftLabel)
+        lineView.addConstraintsWithFormat("V:|[v0]|", views: rightLabel)
+        lineView.addConstraintsWithFormat("V:|-50-[v0(5)]", views: bottomBorderLine)
+        
+
     }
     
     func showMenu() {
@@ -67,43 +105,6 @@ class RiderTripDetailController: UIViewController {
         navigationController?.presentViewController(menuNavCtrl, animated: true, completion: nil)
     }
     
-    
-    func setupFromLabel(parentMargin : UILayoutGuide) {
-        originLabel = createLabel("From: 12 Baddeley Close SG2 9SL")
-        
-        tripDetails.addSubview(originLabel)
-        
-        originLabel.topAnchor.constraintEqualToAnchor(tripDetails.topAnchor, constant: 40).active = true
-        
-        originLabel.leadingAnchor.constraintEqualToAnchor(parentMargin.leadingAnchor).active = true
-        
-        originLabel.trailingAnchor.constraintEqualToAnchor(parentMargin.trailingAnchor).active = true
-        
-        originLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-
-        originLabel.addBottomBorder(tripDetails, parentMargin: parentMargin)
-       
-
-    }
-    
-    func setupToLabel(parentMargin : UILayoutGuide) {
-        destinationLabel = createLabel("To: 12 Baddeley Close SG2 9SL")
-        
-        tripDetails.addSubview(originLabel)
-        
-        destinationLabel.topAnchor.constraintEqualToAnchor(tripDetails.topAnchor, constant: 40).active = true
-        
-        destinationLabel.leadingAnchor.constraintEqualToAnchor(parentMargin.leadingAnchor).active = true
-        
-        destinationLabel.trailingAnchor.constraintEqualToAnchor(parentMargin.trailingAnchor).active = true
-        
-        destinationLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        
-        destinationLabel.addBottomBorder(originLabel, parentMargin: parentMargin)
-        
-    }
     
     func setupCancelPickupBtn(){
         view.addSubview(cancelPickupBtn)
@@ -124,18 +125,21 @@ class RiderTripDetailController: UIViewController {
         self.navigationController?.setViewControllers([RiderPickupController()], animated: true)
     }
     
-    private func createLabel(title : String) -> UILabel{
+    func createLabel(title : String) -> UILabel{
         let label = UILabel()
         label.font = UIFont.boldSystemFontOfSize(18)
         label.textColor = UIColor.darkGrayColor()
         label.text = title
-        label.textAlignment = .Center
+        label.textAlignment = .Left
+        label.backgroundColor = UIColor.yellowColor()
         
         return label
     }
     
+    
 
 }
+
 
 extension UIView {
     func addBottomBorder(parent: UIView, parentMargin : UILayoutGuide){

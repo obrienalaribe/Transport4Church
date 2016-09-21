@@ -34,7 +34,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("user logged in \(loggedInUser)")
             if loggedInUser["role"] as! String == UserRoles.Rider.rawValue {
                 window?.rootViewController = UINavigationController(rootViewController:RiderPickupController())
-
             }else{
                 window?.rootViewController = UINavigationController(rootViewController: DriverRequestListController(collectionViewLayout: UICollectionViewFlowLayout()))
             }
