@@ -8,6 +8,7 @@
 
 
 import UIKit
+import Parse
 
 class MenuViewController: UITableViewController {
     let userRepo = UserRepo()
@@ -50,6 +51,11 @@ class MenuViewController: UITableViewController {
         navigationController?.dismissViewControllerAnimated(false, completion: nil)
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+
+    }
+    
     // return the number of sections
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return sections.count
@@ -65,10 +71,9 @@ class MenuViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         if indexPath.section == 0 {
-            let editProfileController = ProfileViewController()
-            editProfileController.title = "Edit Profile"
-            navigationController?.pushViewController(editProfileController, animated: true)
-            print("Value: \(userSection[indexPath.row])")
+            let profileController = ProfileViewController()
+            profileController.title = "Edit Profile"
+            navigationController?.pushViewController(profileController, animated: true)
             
         } else if indexPath.section == 1 {
             
