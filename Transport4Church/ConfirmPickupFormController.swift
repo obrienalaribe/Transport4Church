@@ -100,30 +100,9 @@ class ConfirmPickupFormController: FormViewController {
         self.trip.pickupTime = valuesDictionary["pickup_time"] as! NSDate
 
         self.trip.saveInBackgroundWithBlock({ (success, error) in
-//            self.navigationController?.popViewControllerAnimated(true)
-//            self.navigationController?.setViewControllers([RiderTripDetailController()], animated: true)
-
+            self.navigationController?.popViewControllerAnimated(true)
             
         })
-        
-        var controller = RiderTripDetailController()
-//        addChildViewController(controller)
-//        controller.view.frame = self.view.frame
-//        controller.willMoveToParentViewController(self)
-//        view.addSubview(controller.view)
-//        self.addChildViewController(controller)
-//        controller.didMoveToParentViewController(self)
-//        controller.modalPresentationStyle = .OverCurrentContext
-//        
-//        self.view.alpha = 0.5
-//        controller.view.layer.zPosition = 3
-//        self.view.opaque = false
-        
-//        controller.view.backgroundColor = .clearColor()
-//        controller.modalPresentationStyle = .Popover
-//        
-//        self.presentationController(controller, animated: false, completion:nil)
-        
         
     }
    

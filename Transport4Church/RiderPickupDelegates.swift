@@ -64,6 +64,13 @@ extension RiderPickupController : GMSMapViewDelegate{
     
 }
 
+extension RiderPickupController: RiderTripDetailControllerDelegate {
+    
+    func riderDidCancelTrip() {
+        self.view.alpha = 1
+    }
+}
+
 // MARK: GMSAutocompleteViewControllerDelegate
 
 extension RiderPickupController: GMSAutocompleteViewControllerDelegate {
