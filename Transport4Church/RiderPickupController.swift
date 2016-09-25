@@ -86,16 +86,32 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
     override func viewWillAppear(animated: Bool) {
         super.viewDidAppear(true)
         
-        
+        print("IN RIDER VIEW CONTROLLER")
         if self.currentTrip == nil {
             //initial state before trip is initialized
             setRiderLocationOnMap()
         }
                 
         if let tripStatus = self.currentTrip?.status {
-            if tripStatus == TripStatus.REQUESTED {
+            if tripStatus == TripStatus.ACCEPTED {
                 setupActiveTripModeView()
             }
+            
+            if tripStatus == TripStatus.REQUESTED {
+                var controller = RiderTripDetailController()
+                controller.delegate = self
+                controller.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
+                controller.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+                self.presentViewController(controller, animated: true, completion: nil)
+                self.view.alpha  = 0.5
+                self.view.opaque = false
+                
+                
+                //setup delegate here to
+                
+            }
+            
+            
         }
     }
     

@@ -66,7 +66,7 @@ class ConfirmPickupFormController: FormViewController {
                 $0.title = "Extra riders"
                 $0.selectorTitle = ""
                 $0.options = ["None", "One","Two","Three"]
-                $0.value = "None"    // initially selected
+                $0.value = "None"
             }
             
             +++ Section()
@@ -87,7 +87,6 @@ class ConfirmPickupFormController: FormViewController {
                 }()
         }
         
-        
     }
     
     func handleFormSubmission(sender: UIButton!){
@@ -99,32 +98,10 @@ class ConfirmPickupFormController: FormViewController {
         self.trip.destination = PFGeoPoint(latitude: EFA_Coord.latitude, longitude: EFA_Coord.longitude)
         self.trip.pickupTime = valuesDictionary["pickup_time"] as! NSDate
 
-//        self.trip.saveInBackgroundWithBlock({ (success, error) in
-//            self.navigationController?.popViewControllerAnimated(true)
-//            self.navigationController?.setViewControllers([RiderTripDetailController()], animated: true)
-
+        self.trip.saveInBackgroundWithBlock({ (success, error) in
+            self.navigationController?.popViewControllerAnimated(true)
             
-//        })
-        
-
-        var controller = RiderTripDetailController()
-        controller.view.alpha = 0.5
-        controller.modalPresentationStyle = .OverCurrentContext
-        controller.view.opaque = false
-        controller.view.backgroundColor = .clearColor()
-
-        self.navigationController?.pushViewController(controller, animated: true)
-//        
-//        addChildViewController(controller)
-//        controller.view.frame = self.view.frame
-//        controller.willMoveToParentViewController(self)
-//        view.addSubview(controller.view)
-//        self.addChildViewController(controller)
-//        controller.didMoveToParentViewController(self)
-        
-        
- 
-        
+        })
         
     }
    
