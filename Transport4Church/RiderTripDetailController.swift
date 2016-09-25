@@ -57,7 +57,6 @@ class RiderTripDetailController: UIViewController {
         tripDetails.heightAnchor.constraintEqualToAnchor(view.heightAnchor,
                                                                    multiplier: 0.5).active = true
         
-        
         let originView = UIView()
         originView.backgroundColor = UIColor.orangeColor()
         tripDetails.addSubview(originView)
