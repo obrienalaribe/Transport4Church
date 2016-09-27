@@ -13,6 +13,7 @@ target 'Transport4Church' do
     pod 'SwiftyJSON'
     pod 'NVActivityIndicatorView'
     pod 'Parse'
+    pod 'Socket.IO-Client-Swift'
 end
 
 target 'Transport4ChurchTests' do

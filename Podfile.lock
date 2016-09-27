@@ -16,6 +16,7 @@ PODS:
   - Parse (1.14.2):
     - Bolts/Tasks (~> 1.8)
   - SCLAlertView (0.6.0)
+  - Socket.IO-Client-Swift (7.0.3)
   - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
@@ -27,6 +28,7 @@ DEPENDENCIES:
   - NVActivityIndicatorView
   - Parse
   - SCLAlertView
+  - Socket.IO-Client-Swift
   - SwiftyJSON
 
 SPEC CHECKSUMS:
@@ -39,6 +41,9 @@ SPEC CHECKSUMS:
   NVActivityIndicatorView: 5568608c3511690a42c4dd02f7a1de4361d670ae
   Parse: 4335d65f40cb3d43190d723144bbe1afb9c38230
   SCLAlertView: 0f6b3c23a48b4993564ff1dd3c065782e4b2b687
+  Socket.IO-Client-Swift: cca640f81f8856278c8bcd56ea42d1d070a011b6
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 0bb3366285366875923d04db59f1f3ad5a3166ce
+
+COCOAPODS: 1.1.0.rc.1
