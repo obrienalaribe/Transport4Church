@@ -41,14 +41,11 @@ class SocketIOViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        #if (arch(i386) || arch(x86_64))
-            socket = SocketIOClient(socketURL: NSURL(string:"https://t4cserver.herokuapp.com/")!)
-            addHandlers()
-            socket!.connect()
-            
-        #else
-            promptUserOnDevice()
-        #endif
+
+        socket = SocketIOClient(socketURL: NSURL(string:"https://t4cserver.herokuapp.com/")!)
+        addHandlers()
+        socket!.connect()
+
         
     }
     
@@ -63,6 +60,7 @@ class SocketIOViewController: UIViewController {
     }
     
     func emitUpdate(){
+        print("emitting ...")
         socket?.emit("driverChangedLocation", 122, 3232)
         
     }
