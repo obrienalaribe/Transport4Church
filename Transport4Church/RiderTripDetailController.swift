@@ -81,9 +81,7 @@ class RiderTripDetailController: UIViewController {
         container.backgroundColor = .whiteColor()
         container.heightAnchor.constraintEqualToAnchor(view.heightAnchor,
                                                                    multiplier: 0.5).active = true
-        
-<<<<<<< HEAD
-=======
+
         //setup info line
         container.addSubview(infoLabel)
         infoLabel.topAnchor.constraintEqualToAnchor(container.topAnchor, constant: 5).active = true
@@ -112,7 +110,6 @@ class RiderTripDetailController: UIViewController {
    
 
         //setup origin line
->>>>>>> 44a660289151ef7ab81a1c6f245bdf58e88f2aeb
         let originView = UIView()
         tripDetails.addSubview(originView)
         
@@ -148,7 +145,6 @@ class RiderTripDetailController: UIViewController {
         container.addConstraintsWithFormat("H:|-10-[v0]-10-|", views: cancelPickupBtn)
 
         cancelPickupBtn.addTarget(self, action: #selector(RiderTripDetailController.cancelRequest), forControlEvents: .TouchUpInside)
-
     }
     
     private func createLineView(lineView: UIView, leftTitle: String, rightTitle: String){
