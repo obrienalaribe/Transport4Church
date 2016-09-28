@@ -12,6 +12,7 @@ import Alamofire
 import SwiftyJSON
 import NVActivityIndicatorView
 import Parse
+import BRYXBanner
 
 class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
     
@@ -86,6 +87,36 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
     override func viewWillAppear(animated: Bool) {
         super.viewDidAppear(true)
         
+        
+        SocketIOManager.sharedInstance.getDriverLocation { (locationInfo) in
+            print("location event fetched in the rightf place")
+            
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                //run ui updates
+                print("location info from rider view controller: \(locationInfo)")
+                let banner = Banner(title: "Pickup Request Accepted!!", subtitle: "The church bus is on its way to pick you", image: UIImage(named: "user"), backgroundColor: UIColor(red:0.03, green:0.79, blue:0.49, alpha:1.0))
+                
+                banner.dismissesOnTap = false
+                
+                banner.show(duration: 3.0)
+                
+                self.dismissViewControllerAnimated(true) {
+                    //removed trip details view and undim
+                    self.view.alpha = 1
+                    
+                    if self.currentTrip.status == .REQUESTED {
+                        self.currentTrip.status = .ACCEPTED
+                        self.currentTrip.saveEventually()
+                        self.setupActiveTripModeView()
+                        
+                    }
+                }
+               
+            })
+            
+        }
+        
+        
         print("IN RIDER VIEW CONTROLLER")
         if self.currentTrip == nil {
             //initial state before trip is initialized
@@ -93,9 +124,6 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
         }
                 
         if let tripStatus = self.currentTrip?.status {
-            if tripStatus == TripStatus.ACCEPTED {
-                setupActiveTripModeView()
-            }
             
             if tripStatus == TripStatus.REQUESTED {
                 var controller = RiderTripDetailController()
@@ -176,7 +204,7 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
         driverLocation.title = "EFA Church Bus"
         driverLocation.flat = true
         
-        driverLocation.icon = UIImage(named: "driver")!.imageWithRenderingMode(.AlwaysTemplate)
+        driverLocation.icon = UIImage(named: "bus")!.imageWithRenderingMode(.AlwaysTemplate)
         driverLocation.map = mapView
       
         let bounds = GMSCoordinateBounds(coordinate: self.rider.address.coordinate, coordinate: driverLocation.position)

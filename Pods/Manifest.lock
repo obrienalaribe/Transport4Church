@@ -1,6 +1,9 @@
 PODS:
   - Alamofire (3.4.2)
   - Bolts/Tasks (1.8.4)
+  - BRYXBanner (0.5.2):
+    - BRYXBanner/Core (= 0.5.2)
+  - BRYXBanner/Core (0.5.2)
   - Eureka (1.7.0)
   - GoogleMaps (2.0.1):
     - GoogleMaps/Maps (= 2.0.1)
@@ -21,6 +24,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - BRYXBanner
   - Eureka (~> 1.7)
   - GoogleMaps
   - GooglePlacePicker
@@ -34,6 +38,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Alamofire: 6aa33201d20d069e1598891cf928883ff1888c7a
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  BRYXBanner: 5f0911d52e0a77e088f7ea7ddcdebd02afb7828a
   Eureka: 2020d9faeef7b7e9adeb9e3d8af779e5931c1897
   GoogleMaps: f09da64fc987c1aa29394567c3cab5a3df83c402
   GooglePlacePicker: e7b11b732e40dbe76e8ab4c5fc2f4a7c32b96578
@@ -44,6 +49,6 @@ SPEC CHECKSUMS:
   Socket.IO-Client-Swift: cca640f81f8856278c8bcd56ea42d1d070a011b6
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
-PODFILE CHECKSUM: 0bb3366285366875923d04db59f1f3ad5a3166ce
+PODFILE CHECKSUM: 5e95b33142d06ec00fa3ab279e903f7838424b26
 
-COCOAPODS: 1.1.0.rc.1
+COCOAPODS: 1.0.1

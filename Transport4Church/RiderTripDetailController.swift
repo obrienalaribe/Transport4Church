@@ -147,6 +147,12 @@ class RiderTripDetailController: UIViewController {
         cancelPickupBtn.addTarget(self, action: #selector(RiderTripDetailController.cancelRequest), forControlEvents: .TouchUpInside)
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
+    
+    
     private func createLineView(lineView: UIView, leftTitle: String, rightTitle: String){
         let leftLabel = createLabel(leftTitle)
         let rightLabel = createLabel(rightTitle)

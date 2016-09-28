@@ -41,6 +41,7 @@
 		43973CE31D8976CF00C17C0B /* DriverTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43973CE21D8976CF00C17C0B /* DriverTripViewController.swift */; };
 		43973CE51D89777500C17C0B /* DriverTripViewDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43973CE41D89777500C17C0B /* DriverTripViewDelegates.swift */; };
 		439EF20A1D8C3DD700304BD4 /* RiderTripDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439EF2091D8C3DD700304BD4 /* RiderTripDetailController.swift */; };
+		43C62DA41D9BBD6900D56657 /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C62DA31D9BBD6900D56657 /* SocketIOManager.swift */; };
 		43E383771D5A38EF0014DED2 /* LocationResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E383761D5A38EF0014DED2 /* LocationResultsController.swift */; };
 		5C8FD09C1C5742BD4E1A1B3A /* Pods_Transport4ChurchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A06AC66EA98212B148B5F9F3 /* Pods_Transport4ChurchUITests.framework */; };
 		EEBA8C5F48F313FF8D8F2C13 /* Pods_Transport4ChurchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A037E83601376A66496BDCA1 /* Pods_Transport4ChurchTests.framework */; };
@@ -106,6 +107,7 @@
 		43973CE41D89777500C17C0B /* DriverTripViewDelegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverTripViewDelegates.swift; sourceTree = "<group>"; };
 		439EF2091D8C3DD700304BD4 /* RiderTripDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RiderTripDetailController.swift; sourceTree = "<group>"; };
 		43A72E641D75BB54002F3B65 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "../../../Library/Developer/Xcode/DerivedData/Transport4Church-gccuimlyhmdulufbuospzakbdhuy/Build/Products/Debug-iphoneos/Parse/Parse.framework"; sourceTree = "<group>"; };
+		43C62DA31D9BBD6900D56657 /* SocketIOManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
 		43E383711D5A1F2E0014DED2 /* Transport4Church-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Transport4Church-Bridging-Header.h"; sourceTree = "<group>"; };
 		43E383761D5A38EF0014DED2 /* LocationResultsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationResultsController.swift; sourceTree = "<group>"; };
 		4D097C7AEE7071D7C1A8762B /* Pods-Transport4ChurchUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transport4ChurchUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Transport4ChurchUITests/Pods-Transport4ChurchUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				042B42351D68BDD5008CBFE0 /* Dao */,
 				042B42331D6887BE008CBFE0 /* ParseServer.swift */,
 				04986AE41D9888AF00796E9E /* SocketIOViewController.swift */,
+				43C62DA31D9BBD6900D56657 /* SocketIOManager.swift */,
 			);
 			name = Backend;
 			sourceTree = "<group>";
@@ -479,7 +482,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		7F14C98AA05AE97420256186 /* [CP] Copy Pods Resources */ = {
@@ -509,7 +512,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		9EEC6326AA74BF70AF39F4F9 /* [CP] Embed Pods Frameworks */ = {
@@ -584,7 +587,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -610,6 +613,7 @@
 				43632A141D61F51100AD3B75 /* Address.swift in Sources */,
 				43973CE51D89777500C17C0B /* DriverTripViewDelegates.swift in Sources */,
 				04DD3C4B1D57A88E00DEBB32 /* UIViewExtension.swift in Sources */,
+				43C62DA41D9BBD6900D56657 /* SocketIOManager.swift in Sources */,
 				43632A121D61DB7700AD3B75 /* RiderPickupDelegates.swift in Sources */,
 				43632A0E1D5CCBCC00AD3B75 /* User.swift in Sources */,
 				431CF3D81D67269A00898CD7 /* MenuViewController.swift in Sources */,

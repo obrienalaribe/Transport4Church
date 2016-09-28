@@ -14,6 +14,7 @@ target 'Transport4Church' do
     pod 'NVActivityIndicatorView'
     pod 'Parse'
     pod 'Socket.IO-Client-Swift'
+    pod 'BRYXBanner'
 end
 
 target 'Transport4ChurchTests' do

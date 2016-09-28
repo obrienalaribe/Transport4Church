@@ -8,9 +8,9 @@
 
 import UIKit
 import SocketIO
+import BRYXBanner
 
 class SocketIOViewController: UIViewController {
-    var socket: SocketIOClient?
     
     let update : UIButton = {
         let btn = UIButton()
@@ -41,28 +41,22 @@ class SocketIOViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-
-        socket = SocketIOClient(socketURL: NSURL(string:"https://t4cserver.herokuapp.com/")!)
-        addHandlers()
-        socket!.connect()
-
-        
     }
     
     
-    func addHandlers() {
-        print(socket)
-        socket?.on("driverLocationUpdate") {[weak self] data, ack in
-            print("driver location update is \(data)")
-            return
-        }
-        socket?.onAny {print("Got event: \($0.event), with items: \($0.items)")}
-    }
+//    func addHandlers() {
+//        socket?.on("driverLocationUpdate") {[weak self] data, ack in
+//            print("driver location update is \(data)")
+//            return
+//        }
+//        socket?.onAny {print("Got event: \($0.event), with items: \($0.items)")}
+//    }
     
     func emitUpdate(){
         print("emitting ...")
-        socket?.emit("driverChangedLocation", 122, 3232)
-        
+         SocketIOManager.sharedInstance.sendDriverLocation("123") { 
+            print("location sent sucessefully ")
+        }
     }
     
     
