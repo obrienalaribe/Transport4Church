@@ -48,8 +48,6 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
     var currentTrip : Trip!
     
     var driverLocation : GMSMarker!
-    var previousDistanceInMiles: Double!
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,35 +86,37 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
         
         
         SocketIOManager.sharedInstance.getDriverLocation { (locationInfo) in
-            print("location event fetched in the rightf place")
             
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 //run ui updates
-                print("location info from rider view controller: \(locationInfo)")
-                let banner = Banner(title: "Pickup Request Accepted!!", subtitle: "The church bus is on its way now", image: UIImage(named: "bus"), backgroundColor: UIColor(red:0.03, green:0.79, blue:0.49, alpha:1.0))
-                
-                banner.dismissesOnTap = false
-                
-                banner.show(duration: 3.0)
-                
+               
                 self.dismissViewControllerAnimated(true) {
                     //removed trip details view and undim
                     self.view.alpha = 1
                     
                     if self.currentTrip.status == .REQUESTED {
-                        self.currentTrip.status = .ACCEPTED
+                        let banner = Banner(title: "Pickup Request Accepted!!", subtitle: "The church bus is on its way now", image: UIImage(named: "bus"), backgroundColor: BrandColours.PRIMARY.color)
+                        banner.dismissesOnTap = false
+                        banner.show(duration: 3.0)
+                        
+                        self.currentTrip.status = .STARTED
                         self.currentTrip.saveEventually()
-                        self.setupActiveTripModeView()
+                        self.setupActiveTripModeView(locationInfo)
                         
                     }
                 }
+                
+                if self.currentTrip.status == .STARTED {
+                    self.updateDriverMarker(locationInfo)
+                }
+                
+                
                
             })
             
         }
         
         
-        print("IN RIDER VIEW CONTROLLER")
         if self.currentTrip == nil {
             //initial state before trip is initialized
             setRiderLocationOnMap()
@@ -190,12 +190,11 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
        
     }
     
-    func setupActiveTripModeView(){
-        setupPushNotification()
-        toggleTripMode()
-        previousDistanceInMiles = 0.0
+    func setupActiveTripModeView(position: CLLocationCoordinate2D){
+//        setupPushNotification()
         
-        let position = CLLocationCoordinate2D(latitude: 53.787302434358566, longitude: -1.5659943222999573)
+        print("trip mode activated ")
+        toggleTripMode()
     
         driverLocation = GMSMarker(position: position)
         driverLocation.title = "EFA Church Bus"
@@ -208,19 +207,13 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
         let camera = mapView.cameraForBounds(bounds, insets: UIEdgeInsets(top: 0, left: 50, bottom: 0, right: 50))!
         self.mapView.camera = camera
         
-        setupCancelButton()
-        
-        _ = NSTimer.scheduledTimerWithTimeInterval(1.5, target: self, selector: #selector(self.updateDriverMarker), userInfo: nil, repeats: true)
-       
+        setupCallDriverButton()
+    
     }
     
-    func updateDriverMarker(timer: NSTimer){
-        let padLat : Double = driverLocation.position.latitude - 0.0001
-        let padLong : Double = driverLocation.position.longitude  + 0.0001
-        self.locationTrackingLabel.textColor = .redColor()
-
-        let position = CLLocationCoordinate2D(latitude: (padLat), longitude: (padLong))
-        
+    func updateDriverMarker(position: CLLocationCoordinate2D){
+      
+        print("updating driver location on map")
         driverLocation.position = position
         
         let riderLoc = CLLocation(latitude: self.currentTrip.rider.address.coordinate.latitude, longitude: self.currentTrip.rider.address.coordinate.longitude)
@@ -232,26 +225,9 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
         
         driverLocation.snippet = distanceString
 
+//        updateArrivalTime()
+        
         print(distanceInMiles)
-        
-        if previousDistanceInMiles == 0.0 {
-            //set initial value of previousDistanceInMiles to current distance
-            previousDistanceInMiles = distanceInMiles
-            updateArrivalTime()
-            self.locationTrackingLabel.hidden = false
-        }
-        
-        if previousDistanceInMiles.roundToPlaces(1) != distanceInMiles.roundToPlaces(1) {
-            //driver made signficant change in distance
-            updateArrivalTime()
-            previousDistanceInMiles = distanceInMiles
-        }
-        
-        if driverLocation.map == nil {
-            //trip was cancelled
-            timer.invalidate()
-            self.locationTrackingLabel.textColor = .blackColor()
-        }
         
     }
     
@@ -297,7 +273,7 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
         
     }
     
-    private func setupCancelButton(){
+    private func setupCallDriverButton(){
         callDriverBtn = UIButton()
         callDriverBtn.setTitle("Call Driver", forState: .Normal)
         callDriverBtn.backgroundColor = .whiteColor()

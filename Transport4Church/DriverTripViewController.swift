@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import BRYXBanner
 
 class DriverTripViewController: UIViewController {
     
     var mapView : GMSMapView!
 
     var currentTrip : Trip?
-    var driverLocation : CLLocation?
+    var driverLocation : CLLocation!
 
     init(trip: Trip){
         self.currentTrip = trip
@@ -76,7 +77,6 @@ class DriverTripViewController: UIViewController {
         
         setDriverLocationOnMap()
         
-        
         let riderPosition = CLLocationCoordinate2D(latitude: (currentTrip?.rider.location.latitude)!, longitude: (currentTrip?.rider.location.longitude)!)
         
         let riderLocation = GMSMarker(position: riderPosition)
@@ -100,12 +100,11 @@ class DriverTripViewController: UIViewController {
  
         mapView.settings.myLocationButton = false
 
+          _ = NSTimer.scheduledTimerWithTimeInterval(1.5, target: self, selector: #selector(self.sendDriverLocation), userInfo: nil, repeats: true)
+        
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(true)
 
-    }
     
     func setDriverLocationOnMap(){
         let manager = CLLocationManager()
@@ -119,7 +118,44 @@ class DriverTripViewController: UIViewController {
             
             mapView.camera = GMSCameraPosition.cameraWithLatitude(driverLatitude, longitude: driverLongitude, zoom: 14.0)
             
+        }else{
+            //mock driver location on simulator
+            let driverLatitude = EFA_Coord.latitude
+            let driverLongitude = EFA_Coord.longitude
+            
+            driverLocation = CLLocation(latitude: driverLatitude, longitude: driverLongitude)
+            
+            mapView.camera = GMSCameraPosition.cameraWithLatitude(driverLatitude, longitude: driverLongitude, zoom: 14.0)
+
         }
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
+        //start timer to emit driver location
+        
+    }
+    
+    
+    func sendDriverLocation(timer: NSTimer){
+        let padLat : Double = (driverLocation.coordinate.latitude) - 0.0001
+        let padLong : Double = (driverLocation.coordinate.longitude)  + 0.0001
+        
+        driverLocation = CLLocation(latitude: padLat, longitude: padLong)
+        
+        let riderLoc = CLLocation(latitude: self.currentTrip!.rider.location.latitude, longitude: self.currentTrip!.rider.location.longitude)
+        
+        let distanceInMeters = riderLoc.distanceFromLocation(driverLocation)
+        let distanceInMiles = distanceInMeters/1609.344
+        let distanceString = String(format: "%.1f miles away from you", distanceInMiles)
+        
+        //send driver location through socket
+        SocketIOManager.sharedInstance.sendDriverLocation(driverLocation) {
+            print("location sent sucessefully ")
+        }
+        
+    }
+    
+    
    
 }
