@@ -42,11 +42,10 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
     }()
     
     var pickupBtn : UIButton!
-    var cancelTripButton : UIButton!
+    var callDriverBtn : UIButton!
     var userLocationPermissionEnabled : Bool? = nil
     
     var currentTrip : Trip!
-    var rider: Rider!
     
     var driverLocation : GMSMarker!
     var previousDistanceInMiles: Double!
@@ -94,7 +93,7 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 //run ui updates
                 print("location info from rider view controller: \(locationInfo)")
-                let banner = Banner(title: "Pickup Request Accepted!!", subtitle: "The church bus is on its way to pick you", image: UIImage(named: "user"), backgroundColor: UIColor(red:0.03, green:0.79, blue:0.49, alpha:1.0))
+                let banner = Banner(title: "Pickup Request Accepted!!", subtitle: "The church bus is on its way now", image: UIImage(named: "bus"), backgroundColor: UIColor(red:0.03, green:0.79, blue:0.49, alpha:1.0))
                 
                 banner.dismissesOnTap = false
                 
@@ -134,9 +133,7 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
                 self.view.alpha  = 0.5
                 self.view.opaque = false
                 
-                
-                //setup delegate here to
-                
+                                
             }
             
             
@@ -167,19 +164,19 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
         print("seting up rider and trip")
         if let location = manager.location {
             
-            self.rider = Rider()
-            self.rider.location = PFGeoPoint(location: location)
+            let rider = Rider()
+            rider.location = PFGeoPoint(location: location)
             
-            self.rider.user = PFUser.currentUser()!
+            rider.user = PFUser.currentUser()!
             
             self.currentTrip = Trip()
-            self.currentTrip.rider = self.rider
+            self.currentTrip.rider = rider
             self.currentTrip.status = TripStatus.NEW
 
             self.userLocationPermissionEnabled = true
             
-            let riderLatitude = self.rider.location.latitude
-            let riderLongitude = self.rider.location.longitude
+            let riderLatitude = self.currentTrip.rider.location.latitude
+            let riderLongitude = self.currentTrip.rider.location.longitude
             
             mapView.camera = GMSCameraPosition.cameraWithLatitude(riderLatitude, longitude: riderLongitude, zoom: 14.0)
            
@@ -207,7 +204,7 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
         driverLocation.icon = UIImage(named: "bus")!.imageWithRenderingMode(.AlwaysTemplate)
         driverLocation.map = mapView
       
-        let bounds = GMSCoordinateBounds(coordinate: self.rider.address.coordinate, coordinate: driverLocation.position)
+        let bounds = GMSCoordinateBounds(coordinate: self.currentTrip.rider.address.coordinate, coordinate: driverLocation.position)
         let camera = mapView.cameraForBounds(bounds, insets: UIEdgeInsets(top: 0, left: 50, bottom: 0, right: 50))!
         self.mapView.camera = camera
         
@@ -226,7 +223,7 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
         
         driverLocation.position = position
         
-        let riderLoc = CLLocation(latitude: self.rider.address.coordinate.latitude, longitude: self.rider.address.coordinate.longitude)
+        let riderLoc = CLLocation(latitude: self.currentTrip.rider.address.coordinate.latitude, longitude: self.currentTrip.rider.address.coordinate.longitude)
         let driverLoc = CLLocation(latitude: driverLocation.position.latitude, longitude: driverLocation.position.longitude)
         
         let distanceInMeters = riderLoc.distanceFromLocation(driverLoc)
@@ -301,49 +298,46 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
     }
     
     private func setupCancelButton(){
-        cancelTripButton = UIButton()
-        cancelTripButton.setTitle("Cancel Pickup", forState: .Normal)
-        cancelTripButton.backgroundColor = .whiteColor()
-        cancelTripButton.setTitleColor(UIColor.darkGrayColor(), forState: .Normal)
+        callDriverBtn = UIButton()
+        callDriverBtn.setTitle("Call Driver", forState: .Normal)
+        callDriverBtn.backgroundColor = .whiteColor()
+        callDriverBtn.setTitleColor(UIColor.darkGrayColor(), forState: .Normal)
         
-        cancelTripButton.alpha = 0.4
+        callDriverBtn.alpha = 0.4
         
-        view.addSubview(cancelTripButton)
+        view.addSubview(callDriverBtn)
 
-        cancelTripButton.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor).active = true
-        cancelTripButton.heightAnchor.constraintEqualToAnchor(view.heightAnchor,
+        callDriverBtn.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor).active = true
+        callDriverBtn.heightAnchor.constraintEqualToAnchor(view.heightAnchor,
                                                               multiplier: 0.1).active = true
         
-        cancelTripButton.widthAnchor.constraintEqualToAnchor(view.widthAnchor,
+        callDriverBtn.widthAnchor.constraintEqualToAnchor(view.widthAnchor,
                                                              multiplier: 0.5).active = true
         
-        cancelTripButton.bottomAnchor.constraintEqualToAnchor(mapView.bottomAnchor, constant: -10).active = true
+        callDriverBtn.bottomAnchor.constraintEqualToAnchor(mapView.bottomAnchor, constant: -10).active = true
         
-        cancelTripButton.translatesAutoresizingMaskIntoConstraints = false
+        callDriverBtn.translatesAutoresizingMaskIntoConstraints = false
         
-        cancelTripButton.userInteractionEnabled = true
-
-        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(cancelTrip))
-        cancelTripButton.addGestureRecognizer(longPressRecognizer)
+        callDriverBtn.addTarget(self, action: "callDriver", forControlEvents: .TouchUpInside)
         
     }
     
-    func cancelTrip(sender : UIGestureRecognizer){
-        if sender.state == .Ended {
-            self.cancelTripButton.hidden = !self.cancelTripButton.hidden
-            driverLocation.map = nil
-            self.currentTrip.status = TripStatus.CANCELLED
-            
-            self.currentTrip.saveInBackgroundWithBlock({ (success, error) in
-                self.toggleTripMode()
-            })
+    func callDriver(){
+        let alertController = UIAlertController (title: "Call Driver", message: "Would you like to call the driver?", preferredStyle: .Alert)
+        
+        let settingsAction = UIAlertAction(title: "Yes, Call Driver", style: .Default) { (_) -> Void in
+            let driverContact: String = "07778889077"
+            if let url = NSURL(string: "tel://\(driverContact)") {
+                UIApplication.sharedApplication().openURL(url)
+            }
         }
-        else if sender.state == .Began {
-            self.cancelTripButton.alpha = 1
-            self.locationTrackingLabel.text = "Cancelling Pickup ... "
-            startNetworkActivity(sender)
-            
-        }
+        
+        let cancelAction = UIAlertAction(title: "No, Cancel", style: .Default, handler: nil)
+        alertController.addAction(settingsAction)
+        alertController.addAction(cancelAction)
+        
+        presentViewController(alertController, animated: true, completion: nil)
+
     }
     
     private func toggleTripMode(){
@@ -352,7 +346,7 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
         self.mapPin.hidden = !self.mapPin.hidden
 
         if self.currentTrip!.status == TripStatus.CANCELLED {
-            mapView.animateToLocation(CLLocationCoordinate2D(latitude: self.rider.address.coordinate.latitude, longitude: self.rider.address.coordinate.longitude))
+            mapView.animateToLocation(CLLocationCoordinate2D(latitude: self.currentTrip.rider.address.coordinate.latitude, longitude: self.currentTrip.rider.address.coordinate.longitude))
         }
     }
     

@@ -9,6 +9,7 @@
 import UIKit
 import SCLAlertView
 import Parse
+import BRYXBanner
 
 let cellId = "cellId"
 let EFA_Coord = CLLocationCoordinate2DMake(53.79096121417226, -1.552361008974449)
@@ -100,9 +101,6 @@ class DriverRequestListController: UICollectionViewController, UICollectionViewD
         super.viewWillAppear(animated)
         
         refresh()
-        
-        print(tripStatusToggle.selectedSegmentIndex)
-       
     }
     
     
@@ -138,6 +136,9 @@ class DriverRequestListController: UICollectionViewController, UICollectionViewD
   
     
     func showDriverTripMode(sender: UIButton){
+        SocketIOManager.sharedInstance.sendDriverLocation("123") {
+            print("location sent sucessefully ")
+        }
         
         let row = sender.layer.valueForKey("index") as! Int
         let trip : Trip = pickupRequests![row]
@@ -145,6 +146,7 @@ class DriverRequestListController: UICollectionViewController, UICollectionViewD
         trip.status = TripStatus.ACCEPTED
         trip.driver = PFUser.currentUser()!
         trip.saveEventually()
+        
         
         self.navigationController?.setViewControllers([DriverTripViewController(trip: trip)], animated: true)
         
@@ -183,7 +185,8 @@ class PickupRequestCell : BaseCollectionCell {
         imageView.layer.cornerRadius = 40
         imageView.layer.masksToBounds = true
         imageView.backgroundColor = UIColor(white: 0.95, alpha: 1)
-        imageView.image = UIImage(named: "user_male")
+        imageView.image = UIImage(named: "user_male")?.imageWithInsets(10)
+
         return imageView
     }()
     
