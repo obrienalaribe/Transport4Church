@@ -47,9 +47,7 @@ extension RiderPickupController : GMSMapViewDelegate{
                 self.currentTrip.rider.address = address
                 self.currentTrip.rider.addressDic = address.getDictionary()
                 
-                self.currentTrip.rider.saveInBackground()
-                print(self.currentTrip.status)
-                
+                self.currentTrip.rider.saveInBackground()                
             }
             
             

@@ -9,9 +9,11 @@
 import UIKit
 import SocketIO
 import BRYXBanner
+import Parse
 
 class SocketIOViewController: UIViewController {
-    
+    let socket = SocketIOClient(socketURL: NSURL(string:"https://t4cserver.herokuapp.com/")!)
+
     let update : UIButton = {
         let btn = UIButton()
         btn.setTitle("Update Location", forState: .Normal)
@@ -54,9 +56,16 @@ class SocketIOViewController: UIViewController {
     
     func emitUpdate(){
         print("emitting ...")
-         SocketIOManager.sharedInstance.sendDriverLocation("123") { 
+        let driverLatitude = EFA_Coord.latitude
+        let driverLongitude = EFA_Coord.longitude
+        
+        let driverLocation = CLLocation(latitude: driverLatitude, longitude: driverLongitude)
+        
+         SocketIOManager.sharedInstance.sendDriverLocation(driverLocation, completionHandler: {
             print("location sent sucessefully ")
-        }
+            
+         })
+
     }
     
     

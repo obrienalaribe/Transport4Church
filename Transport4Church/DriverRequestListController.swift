@@ -12,7 +12,7 @@ import Parse
 import BRYXBanner
 
 let cellId = "cellId"
-let EFA_Coord = CLLocationCoordinate2DMake(53.79096121417226, -1.552361008974449)
+let EFA_Coord = CLLocationCoordinate2DMake(53.804489, -1.578694)
 var pickupRequests : [Trip]?
 
 
@@ -136,9 +136,6 @@ class DriverRequestListController: UICollectionViewController, UICollectionViewD
   
     
     func showDriverTripMode(sender: UIButton){
-        SocketIOManager.sharedInstance.sendDriverLocation("123") {
-            print("location sent sucessefully ")
-        }
         
         let row = sender.layer.valueForKey("index") as! Int
         let trip : Trip = pickupRequests![row]
