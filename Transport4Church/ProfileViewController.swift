@@ -17,8 +17,10 @@ class ProfileViewController : UIViewController {
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 40
         imageView.layer.masksToBounds = true
+        imageView.layer.borderColor = UIColor.whiteColor().CGColor
+        imageView.layer.borderWidth = 3.5
         imageView.backgroundColor = UIColor(white: 0.95, alpha: 1)
-        imageView.image = UIImage(named: "user_male")
+        imageView.image = UIImage(named: "user_male")?.imageWithInsets(20)
         imageView.layer.zPosition = 2
         return imageView
     }()
@@ -33,12 +35,12 @@ class ProfileViewController : UIViewController {
         let btn = UIButton()
         btn.setTitle("Edit Profile", forState: .Normal)
         btn.layer.cornerRadius = 5.0;
-        btn.layer.borderColor = UIColor.purpleColor().CGColor
+        btn.layer.borderColor = BrandColours.PRIMARY.color.CGColor
         btn.layer.borderWidth = 1.7
         btn.titleLabel?.font = UIFont.boldSystemFontOfSize(16)
         btn.backgroundColor = UIColor.whiteColor()
         btn.tintColor = .purpleColor()
-        btn.setTitleColor(UIColor.purpleColor(), forState: .Normal)
+        btn.setTitleColor(BrandColours.PRIMARY.color, forState: .Normal)
         return btn
     }()
     
@@ -212,4 +214,5 @@ class ProfileViewController : UIViewController {
  
     
 }
+
 

@@ -121,7 +121,7 @@ class MenuViewController: UITableViewController {
         
         if indexPath.section == 0 {
             cell.textLabel?.text = "\(userSection[indexPath.row])"
-            cell.imageView?.image = UIImage(named: menuIcons[userSection[indexPath.row]]!)
+            cell.imageView?.image = UIImage(named: menuIcons[userSection[indexPath.row]]!)?.imageWithInsets(10)
             cell.imageView?.layer.cornerRadius = 40
             cell.imageView?.layer.masksToBounds = true
             cell.imageView?.backgroundColor = UIColor(white: 0.95, alpha: 1)
@@ -139,7 +139,7 @@ class MenuViewController: UITableViewController {
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if (indexPath.section == 0) {
             if (indexPath.row == 0) {
-                return 90;
+                return 95;
             }
         }
         return 44;
