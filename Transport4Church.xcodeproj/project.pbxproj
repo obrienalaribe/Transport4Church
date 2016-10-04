@@ -394,7 +394,7 @@
 				TargetAttributes = {
 					04DD3C151D57A72C00DEBB32 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 7289W83XQQ;
+						DevelopmentTeam = ND37B5VWDX;
 					};
 					04DD3C2C1D57A72C00DEBB32 = {
 						CreatedOnToolsVersion = 7.3;
@@ -759,7 +759,7 @@
 					"-ObjC",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.rccg.TransportForChurch;
+				PRODUCT_BUNDLE_IDENTIFIER = org.rccg.Transport4Church;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Transport4Church-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -779,7 +779,7 @@
 					"-ObjC",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.rccg.TransportForChurch;
+				PRODUCT_BUNDLE_IDENTIFIER = org.rccg.Transport4Church;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Transport4Church-Bridging-Header.h";
 			};

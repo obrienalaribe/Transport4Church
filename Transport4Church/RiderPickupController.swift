@@ -49,11 +49,16 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
     
     var pickupBtn : UIButton!
     var callDriverBtn : UIButton!
+    var cancelTripBtn : UIBarButtonItem!
+    
     var riderMapViewDidInitialiseWithLocation : Bool? = nil
     
     var currentTrip : Trip!
     
     var driverLocation : GMSMarker!
+    
+    var tripDetailController: RiderTripDetailController!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,7 +84,13 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
         let menuBtn = UIBarButtonItem(image: UIImage(named: "menu"), style: .Plain, target: self, action: #selector(RiderPickupController.showMenu))
         menuBtn.tintColor = .blackColor()
         navigationItem.leftBarButtonItem = menuBtn
-         
+        
+        cancelTripBtn =  UIBarButtonItem(image: UIImage(named: "close"), style: .Plain, target: self, action: #selector(RiderPickupController.cancelTripAlert))
+        
+        cancelTripBtn.tintColor = .clearColor()
+        navigationItem.rightBarButtonItem = cancelTripBtn
+        cancelTripBtn.enabled = false
+        
     }
     
     
@@ -94,29 +105,29 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
         SocketIOManager.sharedInstance.getDriverLocation { (locationInfo) in
             
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                //run ui updates
+                //run ui updates on main thread
                 
-                if self.navigationController?.presentedViewController is RiderTripDetailController {
-                    self.dismissViewControllerAnimated(true) {
-                        //removed trip details view and undim
-                        
-                        print("RUNNING DISMISS VIEW CONTROLLER")
-                        self.view.alpha = 1
-                        
-                        if self.currentTrip.status == .REQUESTED {
-                            let banner = Banner(title: "Pickup Request Accepted!!", subtitle: "The church bus is on its way now", image: UIImage(named: "bus"), backgroundColor: BrandColours.PRIMARY.color)
-                            banner.dismissesOnTap = false
-                            banner.show(duration: 3.0)
-                            
-                            self.currentTrip.status = .STARTED
-                            self.currentTrip.saveEventually()
-                            self.setupActiveTripModeView(locationInfo)
-                            
-                        }
-                    }
- 
+                self.toggleViewForCurrentTripMode()
+                
+                if self.currentTrip.status == .REQUESTED {
+
+                    let dispatchTime: dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, Int64(0.9 * Double(NSEC_PER_SEC)))
+                    dispatch_after(dispatchTime, dispatch_get_main_queue(), {
+                        let banner = Banner(title: "Pickup Request Accepted!!", subtitle: "The church bus is on its way now", image: UIImage(named: "bus"), backgroundColor: BrandColours.PRIMARY.color)
+                        banner.dismissesOnTap = false
+                        banner.show(duration: 3.0)
+
+                    })
+                    
+                    self.mapView.alpha = 1
+                    self.locationTrackingLabel.alpha = 1
+
+                    self.currentTrip.status = .STARTED
+                    self.currentTrip.saveEventually()
+                    self.setupActiveTripModeView(locationInfo)
+                    
                 }
-                
+
                 if self.currentTrip.status == .STARTED {
                     self.updateDriverMarker(locationInfo)
                 }
@@ -124,6 +135,8 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
                 
                
             })
+            //TODO: Need to stop socket on driver
+            print("Socket receiving driver location ... ")
             
         }
         
@@ -138,28 +151,13 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
         if let tripStatus = self.currentTrip?.status {
             
             if tripStatus == TripStatus.REQUESTED {
-                var controller = RiderTripDetailController()
-                controller.delegate = self
-                controller.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
-                controller.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
-                self.presentViewController(controller, animated: true, completion: nil)
-                self.view.alpha  = 0.5
-                self.view.opaque = false
-                
+                modallyDisplayTripDetails()
             }
             
             
         }
     }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(true)
 
-        
-        
-    
-//
-    }
 
     func setRiderLocationOnMap(){
         self.locationManager.delegate = self
@@ -183,11 +181,10 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
             let riderLatitude = self.currentTrip.rider.location.latitude
             let riderLongitude = self.currentTrip.rider.location.longitude
             
-            print(riderLatitude)
-            
-            mapView.camera = GMSCameraPosition.cameraWithLatitude(riderLatitude, longitude: riderLongitude, zoom: 14.0)
+//            mapView.camera = GMSCameraPosition.cameraWithLatitude(riderLatitude, longitude: riderLongitude, zoom: 14.0)
            
-//            mapView.animateToLocation(CLLocationCoordinate2D(latitude: riderLatitude, longitude: riderLongitude))
+            mapView.animateToLocation(CLLocationCoordinate2D(latitude: riderLatitude, longitude: riderLongitude))
+            mapView.animateToZoom(14)
             
         }else{
             self.riderMapViewDidInitialiseWithLocation = false
@@ -203,7 +200,7 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
 //        setupPushNotification()
         
         print("trip mode activated ")
-        toggleTripMode()
+        toggleViewForCurrentTripMode()
     
         driverLocation = GMSMarker(position: position)
         driverLocation.title = "EFA Church Bus"
@@ -338,14 +335,37 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
 
     }
     
-    private func toggleTripMode(){
-        self.locationTrackingLabel.userInteractionEnabled = !self.locationTrackingLabel.userInteractionEnabled
-        self.pickupBtn.hidden = !self.pickupBtn.hidden
-        self.mapPin.hidden = !self.mapPin.hidden
-
-        if self.currentTrip!.status == TripStatus.CANCELLED {
-            mapView.animateToLocation(CLLocationCoordinate2D(latitude: self.currentTrip.rider.address.coordinate.latitude, longitude: self.currentTrip.rider.address.coordinate.longitude))
+    func toggleViewForCurrentTripMode(){
+        if self.currentTrip.status == .REQUESTED {
+            
+            self.tripDetailController.removeFromParentViewController()
+            self.tripDetailController.view.removeFromSuperview()
         }
+        
+        if self.currentTrip.status == .STARTED {
+            self.locationTrackingLabel.userInteractionEnabled = false
+            self.pickupBtn.hidden = true
+            self.mapPin.hidden = true
+            self.cancelTripBtn.enabled = true
+            self.cancelTripBtn.tintColor = .blackColor()
+        }
+       
+        if self.currentTrip.status == TripStatus.CANCELLED {
+            self.locationTrackingLabel.userInteractionEnabled = true
+            self.pickupBtn.hidden = false
+            self.mapPin.hidden = false
+            self.cancelTripBtn.enabled = false
+            self.cancelTripBtn.tintColor = .clearColor()
+            
+            if driverLocation != nil {
+                //remove driver marker from map
+                driverLocation.map = nil
+                self.callDriverBtn.hidden = true
+            }
+            
+           setRiderLocationOnMap()
+        }
+        
     }
     
     private func setupMapPin(){
@@ -378,7 +398,6 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
         navigationController?.pushViewController(ConfirmPickupFormController(trip: self.currentTrip), animated: true)
     }
     
-    
     func setupViewObservers() -> Void {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(handleLocationAuthorizationState), name: UIApplicationWillEnterForegroundNotification, object: nil)
     }
@@ -409,7 +428,7 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
     
 
     
-    func startNetworkActivity(sender: UIGestureRecognizer){
+    func startNetworkActivity(){
         let size = CGSize(width: 30, height:30)
         
         startActivityAnimating(size, message: "Please wait", type: NVActivityIndicatorType(rawValue: 17)!)
@@ -420,6 +439,8 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
     
     func delayedStopActivity() {
         stopActivityAnimating()
+        self.locationTrackingLabel.alpha = 1
+        self.mapView.alpha = 1
     }
     
     func setupPushNotification(){
@@ -430,8 +451,45 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
         application.registerForRemoteNotifications()
     }
     
+    func modallyDisplayTripDetails(){
+
+        tripDetailController = RiderTripDetailController(trip: currentTrip)
+        tripDetailController.delegate = self
+        tripDetailController.willMoveToParentViewController(self)
+        self.view.addSubview(tripDetailController.view)
+        self.addChildViewController(tripDetailController)
+        tripDetailController.didMoveToParentViewController(self)
+        self.mapView.alpha = 0.5
+        self.locationTrackingLabel.alpha = 0.1
+
+        tripDetailController.view.alpha = 1
+        
+    }
     
+    func cancelTripAlert(){
+        let alertController = UIAlertController (title: "Cancel Pickup", message: "Are you sure you would like to cancel your pickup? The driver would not be able to pick you up", preferredStyle: .Alert)
+        
+        let confirmAction = UIAlertAction(title: "Yes, Cancel Pickup", style: .Default) { (_) -> Void in
+            //TODO: Send socket request to notify the driver
+            
+            self.currentTrip.status = .CANCELLED
+            self.currentTrip.saveInBackgroundWithBlock({ (success, error) in
+                self.startNetworkActivity()
+
+            })
+        }
+        
+        let cancelAction = UIAlertAction(title: "Exit", style: .Default) { (_) -> Void in
+            
+        }
+        
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+        
+        presentViewController(alertController, animated: true, completion: nil)
+    }
     
+ 
     
 
 }

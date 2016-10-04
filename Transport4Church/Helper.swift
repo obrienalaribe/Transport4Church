@@ -75,6 +75,11 @@ class Helper {
         return newImage
     }
     
-    
+    static func performWithDelay(selector: Selector, delay: Double){
+        let dispatchTime: dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC)))
+        dispatch_after(dispatchTime, dispatch_get_main_queue(), {
+        // your function here
+        })
+    }
     
 }
