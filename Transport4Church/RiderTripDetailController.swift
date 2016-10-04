@@ -9,7 +9,7 @@
 import UIKit
 
 protocol RiderTripDetailControllerDelegate {
-    func riderDidCancelTrip()
+    func riderWillCancelTrip()
 }
 
 class RiderTripDetailController: UIViewController {
@@ -46,7 +46,7 @@ class RiderTripDetailController: UIViewController {
     
     let cancelPickupBtn : UIButton = {
         let btn = UIButton()
-        btn.setTitle("Cancel Request", forState: .Normal)
+        btn.setTitle("Contact Driver", forState: .Normal)
         btn.layer.cornerRadius = 5.0;
         btn.layer.borderColor = UIColor(red:0.90, green:0.90, blue:0.90, alpha:1.0).CGColor
         btn.layer.borderWidth = 1.7
@@ -63,9 +63,21 @@ class RiderTripDetailController: UIViewController {
 
     var delegate: RiderTripDetailControllerDelegate!
     
+    var trip : Trip
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    init(trip: Trip) {
+        self.trip = trip
+        super.init(nibName: nil, bundle: nil)        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+              
         view.backgroundColor = UIColor.clearColor()
         
         view.addSubview(container)
@@ -116,7 +128,7 @@ class RiderTripDetailController: UIViewController {
         tripDetails.addConstraintsWithFormat("H:|-10-[v0]-10-|", views: originView)
         tripDetails.addConstraintsWithFormat("V:|-10-[v0(35)]", views: originView)
         
-        createLineView(originView, leftTitle: "Origin", rightTitle: "15-15 Walter Street")
+        createLineView(originView, leftTitle: "Origin", rightTitle: self.trip.rider.address.streetName!)
 
         //setup destination line
         let destinationView = UIView()
@@ -126,7 +138,7 @@ class RiderTripDetailController: UIViewController {
         tripDetails.addConstraintsWithFormat("H:|-10-[v0]-10-|", views: destinationView)
         tripDetails.addConstraintsWithFormat("V:|-50-[v0(35)]", views: destinationView)
 
-        createLineView(destinationView, leftTitle: "Destination", rightTitle: "15-15 Walter Street")
+        createLineView(destinationView, leftTitle: "Destination", rightTitle: "RCCG EFA Leeds")
        
         //setup pickup time line
         let timeView = UIView()
@@ -135,7 +147,9 @@ class RiderTripDetailController: UIViewController {
         tripDetails.addConstraintsWithFormat("H:|-10-[v0]-10-|", views: timeView)
         tripDetails.addConstraintsWithFormat("V:|-90-[v0(35)]", views: timeView)
         
-        createLineView(timeView, leftTitle: "Pickup time", rightTitle: Helper.convertDateToString(NSDate()))
+        let dateArr = (trip["pickup_time"] as! String).characters.split{$0 == ","}.map(String.init)
+
+        createLineView(timeView, leftTitle: "Pickup time", rightTitle: ("\(dateArr.first!) \(dateArr.last!)"))
         
         //setup cancel button
     
@@ -175,10 +189,8 @@ class RiderTripDetailController: UIViewController {
     }
 
     
-    func cancelRequest(){        
-        self.dismissViewControllerAnimated(true) {
-            self.delegate.riderDidCancelTrip()
-        }
+    func cancelRequest(){
+        self.delegate.riderWillCancelTrip()
     }
     
     func createLabel(title : String) -> UILabel{

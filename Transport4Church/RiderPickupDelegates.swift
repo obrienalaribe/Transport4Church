@@ -116,9 +116,6 @@ extension RiderPickupController : GMSMapViewDelegate{
             
         })
         
-        
-        
-        
     }
     
 }
@@ -127,8 +124,39 @@ extension RiderPickupController : GMSMapViewDelegate{
 
 extension RiderPickupController: RiderTripDetailControllerDelegate {
     
-    func riderDidCancelTrip() {
-        self.view.alpha = 1
+    func riderWillCancelTrip() {
+        let alertController = UIAlertController (title: "Contact Driver", message: "Please choose what action you would like to take", preferredStyle: .Alert)
+        
+        let callDriverAction = UIAlertAction(title: "Speak to Driver", style: .Default) { (_) -> Void in
+            let driverPhoneNum = "07411411590"
+            if let url = NSURL(string: "tel://\(driverPhoneNum)") {
+                UIApplication.sharedApplication().openURL(url)
+            }
+        }
+        
+        let confirmAction = UIAlertAction(title: "Cancel Pickup", style: .Default) { (_) -> Void in
+            //TODO: Send socket request to notify the driver
+            
+            self.tripDetailController.removeFromParentViewController()
+            self.tripDetailController.view.removeFromSuperview()
+            self.toggleViewForCurrentTripMode()
+
+             self.currentTrip.status = .CANCELLED
+             self.currentTrip.saveInBackgroundWithBlock({ (success, error) in
+                self.startNetworkActivity()
+             })
+        }
+        
+        let cancelAction = UIAlertAction(title: "Exit", style: .Default) { (_) -> Void in
+           
+        }
+        
+        alertController.addAction(callDriverAction)
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+        
+        presentViewController(alertController, animated: true, completion: nil)
+
     }
 }
 

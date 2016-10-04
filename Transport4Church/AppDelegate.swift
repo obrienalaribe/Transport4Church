@@ -43,8 +43,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
             window?.rootViewController = UINavigationController(rootViewController:AuthViewController())
         }
-
-//        window?.rootViewController = UINavigationController(rootViewController:RiderTripDetailController())
+        
+//        window?.rootViewController = UINavigationController(rootViewController:RiderTripDetailController(trip: trip))
 
         UserRepo.configureAppLaunchCount()
         
