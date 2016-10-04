@@ -44,8 +44,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.rootViewController = UINavigationController(rootViewController:AuthViewController())
         }
 
-//        window?.rootViewController = UINavigationController(rootViewController:SocketIOViewController())
+//        window?.rootViewController = UINavigationController(rootViewController:RiderTripDetailController())
 
+        UserRepo.configureAppLaunchCount()
+        
         return true
     }
     
@@ -57,7 +59,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             deviceInstallation.setDeviceTokenFromData(deviceToken)
             deviceInstallation.saveInBackground()
         }
-       
     }
     
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
@@ -74,7 +75,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func applicationWillResignActive(application: UIApplication) {
-     
+//        SocketIOManager.sharedInstance.closeConnection()
+
     }
     
     func applicationDidEnterBackground(application: UIApplication) {

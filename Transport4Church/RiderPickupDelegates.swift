@@ -17,7 +17,11 @@ extension RiderPickupController : GMSMapViewDelegate{
     }
     
     func mapView(mapView: GMSMapView, willMove gesture: Bool) {
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        print(gesture)
+        if gesture {
+            self.navigationController?.setNavigationBarHidden(true, animated: true)
+            print("HIDING NAV BAR --------")
+        }
         //        mapView.clear()
         
     }
@@ -119,6 +123,8 @@ extension RiderPickupController : GMSMapViewDelegate{
     
 }
 
+// MARK: RiderTripDetailControllerDelegate
+
 extension RiderPickupController: RiderTripDetailControllerDelegate {
     
     func riderDidCancelTrip() {
@@ -165,12 +171,12 @@ extension RiderPickupController: GMSAutocompleteViewControllerDelegate {
 
 extension RiderPickupController : CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        
         if (status == CLAuthorizationStatus.Denied) {
             // The user denied authorization
             print("why did you decline ?")
             
             manager.requestWhenInUseAuthorization()
-            
             
         } else if (status == CLAuthorizationStatus.AuthorizedAlways) {
             // The user accepted authorization
@@ -180,6 +186,12 @@ extension RiderPickupController : CLLocationManagerDelegate {
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("location managaer updated \(locations)")
+        if self.riderMapViewDidInitialiseWithLocation == false {
+            //first app launch when they is a delay with map update
+            setRiderLocationOnMap()
+        }
+
     }
+    
+    
 }

@@ -14,10 +14,16 @@ import NVActivityIndicatorView
 import Parse
 import BRYXBanner
 
+let appLaunchCount = "count"
+
 class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
     
     var mapView : GMSMapView!
-    
+    var locationManager = CLLocationManager()
+    var driverPreviousDistanceInMiles = 0.0
+
+    var mockJourneyCheckpoint = 3
+
     //http://ashishkakkad.com/2015/09/create-your-own-slider-menu-drawer-in-swift-2-ios-9/
     
     var locationTrackingLabel : UILabel = {
@@ -43,7 +49,7 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
     
     var pickupBtn : UIButton!
     var callDriverBtn : UIButton!
-    var userLocationPermissionEnabled : Bool? = nil
+    var riderMapViewDidInitialiseWithLocation : Bool? = nil
     
     var currentTrip : Trip!
     
@@ -59,6 +65,7 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
         mapView.myLocationEnabled = true
         mapView.settings.myLocationButton = true
         mapView.setMinZoom(12, maxZoom: 16)
+        
                 
         view.addSubview(mapView)
         
@@ -84,32 +91,36 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
     override func viewWillAppear(animated: Bool) {
         super.viewDidAppear(true)
         
-        
         SocketIOManager.sharedInstance.getDriverLocation { (locationInfo) in
             
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 //run ui updates
-               
-                self.dismissViewControllerAnimated(true) {
-                    //removed trip details view and undim
-                    self.view.alpha = 1
-                    
-                    if self.currentTrip.status == .REQUESTED {
-                        let banner = Banner(title: "Pickup Request Accepted!!", subtitle: "The church bus is on its way now", image: UIImage(named: "bus"), backgroundColor: BrandColours.PRIMARY.color)
-                        banner.dismissesOnTap = false
-                        banner.show(duration: 3.0)
+                
+                if self.navigationController?.presentedViewController is RiderTripDetailController {
+                    self.dismissViewControllerAnimated(true) {
+                        //removed trip details view and undim
                         
-                        self.currentTrip.status = .STARTED
-                        self.currentTrip.saveEventually()
-                        self.setupActiveTripModeView(locationInfo)
+                        print("RUNNING DISMISS VIEW CONTROLLER")
+                        self.view.alpha = 1
                         
+                        if self.currentTrip.status == .REQUESTED {
+                            let banner = Banner(title: "Pickup Request Accepted!!", subtitle: "The church bus is on its way now", image: UIImage(named: "bus"), backgroundColor: BrandColours.PRIMARY.color)
+                            banner.dismissesOnTap = false
+                            banner.show(duration: 3.0)
+                            
+                            self.currentTrip.status = .STARTED
+                            self.currentTrip.saveEventually()
+                            self.setupActiveTripModeView(locationInfo)
+                            
+                        }
                     }
+ 
                 }
                 
                 if self.currentTrip.status == .STARTED {
                     self.updateDriverMarker(locationInfo)
                 }
-                
+//
                 
                
             })
@@ -121,6 +132,8 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
             //initial state before trip is initialized
             setRiderLocationOnMap()
         }
+        
+        //TODO: use Socket to detect when trip is complete and then ToggleTripMode
                 
         if let tripStatus = self.currentTrip?.status {
             
@@ -133,7 +146,6 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
                 self.view.alpha  = 0.5
                 self.view.opaque = false
                 
-                                
             }
             
             
@@ -143,27 +155,21 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
 
-        //start an animations or the loading of external data from an API or checks for location permission
         
-        //TODO: Check if user is connected to the internet first
-//                handleLocationAuthorizationState()
         
     
 //
     }
-    
-    override func viewDidDisappear(animated: Bool) {
-        super.viewDidDisappear(animated)
-        
-    }
 
     func setRiderLocationOnMap(){
-        let manager = CLLocationManager()
-        manager.delegate = self
+        self.locationManager.delegate = self
+        self.locationManager.requestAlwaysAuthorization()
+        self.locationManager.startUpdatingLocation()
         
         print("seting up rider and trip")
-        if let location = manager.location {
-            
+        if let location = locationManager.location {
+            self.riderMapViewDidInitialiseWithLocation = true
+
             let rider = Rider()
             rider.location = PFGeoPoint(location: location)
             
@@ -173,18 +179,21 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
             self.currentTrip.rider = rider
             self.currentTrip.status = TripStatus.NEW
 
-            self.userLocationPermissionEnabled = true
             
             let riderLatitude = self.currentTrip.rider.location.latitude
             let riderLongitude = self.currentTrip.rider.location.longitude
+            
+            print(riderLatitude)
             
             mapView.camera = GMSCameraPosition.cameraWithLatitude(riderLatitude, longitude: riderLongitude, zoom: 14.0)
            
 //            mapView.animateToLocation(CLLocationCoordinate2D(latitude: riderLatitude, longitude: riderLongitude))
             
         }else{
-            //            manager.requestWhenInUseAuthorization()
-            self.userLocationPermissionEnabled = false
+            self.riderMapViewDidInitialiseWithLocation = false
+            
+            print("location service not enabled")
+
         }
         
        
@@ -223,30 +232,43 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
         let distanceInMiles = distanceInMeters/1609.344
         let distanceString = String(format: "%.1f miles away from you", distanceInMiles)
         
+        
         driverLocation.snippet = distanceString
 
-//        updateArrivalTime()
         
-        print(distanceInMiles)
+        if driverPreviousDistanceInMiles.roundToPlaces(0) != distanceInMiles.roundToPlaces(0) {
+            //driver made signficant change in distance
+            updateArrivalTime()
+            print("previous: \(driverPreviousDistanceInMiles) vs new \(distanceInMiles)")
+            driverPreviousDistanceInMiles = distanceInMiles
+            print("driver made signficant change in distance")
+        }
         
     }
     
     //TODO: could move this to location helper
-    private func updateArrivalTime(){
-        let requestUrl = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=ls29aa&destinations=ls119bn&mode=driving"
-        Alamofire.request(.GET, requestUrl, parameters: ["foo": "bar"])
-            .validate()
-            .responseJSON { response in
-                switch response.result {
-                case .Success:
-                    if let result = response.result.value {
-                        let time: String = ("\(JSON(result)["rows"][0]["elements"][0]["duration"]["text"])")
-                        self.locationTrackingLabel.text = "Pickup time: \(time)"
-                    }
-                case .Failure(let error):
-                    print(error)
-                }
-        }
+    func updateArrivalTime(){
+        //leeds aiport, church, manor mills
+        
+        let locationMock = [[53.86794339999999, -1.6615305999999919] , [53.801277 , -1.548567], [53.789478,-1.549928]]
+//        
+//        let requestUrl = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=ls29aa&destinations=ls119bn&mode=driving"
+//        Alamofire.request(.GET, requestUrl, parameters: ["foo": "bar"])
+//            .validate()
+//            .responseJSON { response in
+//                switch response.result {
+//                case .Success:
+//                    if let result = response.result.value {
+//                        let time: String = ("\(JSON(result)["rows"][0]["elements"][0]["duration"]["text"])")
+//                        self.locationTrackingLabel.text = "Pickup time: \(time)"
+//                    }
+//                case .Failure(let error):
+//                    print(error)
+//                }
+//        }
+//        
+        self.locationTrackingLabel.text = "Driver will arrive in \(driverPreviousDistanceInMiles.roundToPlaces(0)) mins"
+        
     }
     
     private func setupLocationTrackingLabel() {
@@ -362,7 +384,7 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
     }
     
     func handleLocationAuthorizationState(){
-        if !userLocationPermissionEnabled! {
+        if !riderMapViewDidInitialiseWithLocation! {
             let alertController = UIAlertController (title: "Location Required", message: "You have disabled location usage. Kindly visit your settings and turn it on ", preferredStyle: .Alert)
             
             let settingsAction = UIAlertAction(title: "Settings", style: .Default) { (_) -> Void in

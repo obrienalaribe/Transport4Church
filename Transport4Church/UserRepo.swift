@@ -90,7 +90,17 @@ class UserRepo {
                 
                 if error.code == 202 {
                     print("user already exist so login and navigate to rider view")
-                   
+                    
+                    PFUser.logInWithUsernameInBackground(credentials.username, password: credentials.password) {(user: PFUser?, error: NSError?) -> Void in
+                        if user != nil {
+                            print(PFUser.currentUser()!)
+                            listener.navigationController?.setViewControllers([RiderPickupController()], animated: true)
+                            
+                        } else {
+                            print("user log in failed")
+                        }
+                    }
+                    
                     if let user = PFUser.currentUser() {
                         print(PFUser.currentUser()!)
                         listener.navigationController?.setViewControllers([RiderPickupController()], animated: true)
@@ -178,6 +188,30 @@ class UserRepo {
         })
         
 
+    }
+    
+    static func configureAppLaunchCount(){
+        
+        //set up user default to detect fresh user
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        if let count = defaults.stringForKey(appLaunchCount) {
+            let newCount = Int(count)! + 1
+            print("launch count is \(count) incrementing to \(newCount) ")
+            defaults.setObject(newCount, forKey: appLaunchCount)
+        }else{
+            //new user
+            defaults.setObject(1, forKey: appLaunchCount)
+        }
+    }
+    
+    static func getAppLaunchCount() -> Int {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if let count = defaults.stringForKey(appLaunchCount) {
+            return Int(count)!
+        }
+        return 0
     }
     
    

@@ -18,12 +18,12 @@
 		04DD3C1A1D57A72C00DEBB32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD3C191D57A72C00DEBB32 /* AppDelegate.swift */; };
 		04DD3C221D57A72C00DEBB32 /* Transport4Church.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04DD3C201D57A72C00DEBB32 /* Transport4Church.xcdatamodeld */; };
 		04DD3C241D57A72C00DEBB32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04DD3C231D57A72C00DEBB32 /* Assets.xcassets */; };
-		04DD3C271D57A72C00DEBB32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04DD3C251D57A72C00DEBB32 /* LaunchScreen.storyboard */; };
 		04DD3C321D57A72C00DEBB32 /* Transport4ChurchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD3C311D57A72C00DEBB32 /* Transport4ChurchTests.swift */; };
 		04DD3C3D1D57A72C00DEBB32 /* Transport4ChurchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD3C3C1D57A72C00DEBB32 /* Transport4ChurchUITests.swift */; };
 		04DD3C4B1D57A88E00DEBB32 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD3C4A1D57A88E00DEBB32 /* UIViewExtension.swift */; };
 		04DD3C4D1D5909B700DEBB32 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD3C4C1D5909B700DEBB32 /* EditProfileViewController.swift */; };
 		04DD3C4F1D591C8500DEBB32 /* RiderPickupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD3C4E1D591C8500DEBB32 /* RiderPickupController.swift */; };
+		04E04DA31DA1C82700E2FFF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04E04DA21DA1C82700E2FFF8 /* LaunchScreen.storyboard */; };
 		431CF3D81D67269A00898CD7 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431CF3D71D67269A00898CD7 /* MenuViewController.swift */; };
 		431CF3DA1D6EF2F500898CD7 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431CF3D91D6EF2F500898CD7 /* MenuItem.swift */; };
 		431CF3DC1D6F493200898CD7 /* MenuActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431CF3DB1D6F493200898CD7 /* MenuActions.swift */; };
@@ -76,7 +76,6 @@
 		04DD3C191D57A72C00DEBB32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04DD3C211D57A72C00DEBB32 /* Transport4Church.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Transport4Church.xcdatamodel; sourceTree = "<group>"; };
 		04DD3C231D57A72C00DEBB32 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		04DD3C261D57A72C00DEBB32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04DD3C281D57A72C00DEBB32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04DD3C2D1D57A72C00DEBB32 /* Transport4ChurchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Transport4ChurchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04DD3C311D57A72C00DEBB32 /* Transport4ChurchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transport4ChurchTests.swift; sourceTree = "<group>"; };
@@ -87,6 +86,7 @@
 		04DD3C4A1D57A88E00DEBB32 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		04DD3C4C1D5909B700DEBB32 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		04DD3C4E1D591C8500DEBB32 /* RiderPickupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RiderPickupController.swift; sourceTree = "<group>"; };
+		04E04DA21DA1C82700E2FFF8 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ../LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1D141164A79898C712AAD20F /* Pods-Transport4Church.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transport4Church.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Transport4Church/Pods-Transport4Church.debug.xcconfig"; sourceTree = "<group>"; };
 		39419231E5C68A0756CEB512 /* Pods-Transport4ChurchTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transport4ChurchTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Transport4ChurchTests/Pods-Transport4ChurchTests.release.xcconfig"; sourceTree = "<group>"; };
 		431CF3D71D67269A00898CD7 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -245,7 +245,6 @@
 				04283A371D5D1E530053D1D2 /* Utils */,
 				43632A0C1D5CCBB100AD3B75 /* Models */,
 				04DD3C231D57A72C00DEBB32 /* Assets.xcassets */,
-				04DD3C251D57A72C00DEBB32 /* LaunchScreen.storyboard */,
 				04DD3C281D57A72C00DEBB32 /* Info.plist */,
 				04DD3C201D57A72C00DEBB32 /* Transport4Church.xcdatamodeld */,
 				43E383761D5A38EF0014DED2 /* LocationResultsController.swift */,
@@ -309,6 +308,7 @@
 			isa = PBXGroup;
 			children = (
 				43632A061D5B786800AD3B75 /* Trip.swift */,
+				04E04DA21DA1C82700E2FFF8 /* LaunchScreen.storyboard */,
 				43632A0D1D5CCBCC00AD3B75 /* User.swift */,
 				43632A131D61F51100AD3B75 /* Address.swift */,
 				43632A151D62154900AD3B75 /* Rider.swift */,
@@ -433,7 +433,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04DD3C271D57A72C00DEBB32 /* LaunchScreen.storyboard in Resources */,
+				04E04DA31DA1C82700E2FFF8 /* LaunchScreen.storyboard in Resources */,
 				04DD3C241D57A72C00DEBB32 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -661,17 +661,6 @@
 			targetProxy = 04DD3C391D57A72C00DEBB32 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		04DD3C251D57A72C00DEBB32 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				04DD3C261D57A72C00DEBB32 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		04DD3C3F1D57A72C00DEBB32 /* Debug */ = {
