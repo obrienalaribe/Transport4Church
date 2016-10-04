@@ -15,6 +15,8 @@ class DriverTripViewController: UIViewController {
 
     var currentTrip : Trip?
     var driverLocation : CLLocation!
+    
+    var driverMockTimer : NSTimer!
 
     init(trip: Trip){
         self.currentTrip = trip
@@ -56,6 +58,7 @@ class DriverTripViewController: UIViewController {
             self.currentTrip?.status = TripStatus.COMPLETED
             self.currentTrip?.saveEventually()
             self.navigationController?.setViewControllers([DriverRequestListController(collectionViewLayout: UICollectionViewFlowLayout())], animated: true)
+            
         }
         
         let cancelAction = UIAlertAction(title: "No", style: .Default, handler: nil)
@@ -71,6 +74,7 @@ class DriverTripViewController: UIViewController {
             UIApplication.sharedApplication().openURL(url)
         }
     }
+    
     
     override func viewWillAppear(animated: Bool) {
         super.viewDidAppear(true)
@@ -100,11 +104,18 @@ class DriverTripViewController: UIViewController {
  
         mapView.settings.myLocationButton = false
 
-          _ = NSTimer.scheduledTimerWithTimeInterval(1.5, target: self, selector: #selector(self.sendDriverLocation), userInfo: nil, repeats: true)
+        driverMockTimer = NSTimer.scheduledTimerWithTimeInterval(1.5, target: self, selector: #selector(self.sendDriverLocation), userInfo: nil, repeats: true)
         
     }
     
 
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("stopping location sending socket ...")
+        
+        driverMockTimer.invalidate()
+        
+    }
     
     func setDriverLocationOnMap(){
         let manager = CLLocationManager()

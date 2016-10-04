@@ -7,7 +7,6 @@
 //
 
 
-
 enum MenuItem : CustomStringConvertible {
     case Profile
     case Rate
