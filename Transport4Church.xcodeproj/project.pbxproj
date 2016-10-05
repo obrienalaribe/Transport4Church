@@ -13,6 +13,7 @@
 		042B42371D68BE0F008CBFE0 /* DaoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B42361D68BE0F008CBFE0 /* DaoManager.swift */; };
 		042B42391D68D908008CBFE0 /* UserRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B42381D68D908008CBFE0 /* UserRepo.swift */; };
 		042B423B1D6B6D86008CBFE0 /* TripRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B423A1D6B6D86008CBFE0 /* TripRepo.swift */; };
+		046765001DA42CBF00E0D02C /* NotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046764FF1DA42CBF00E0D02C /* NotificationHelper.swift */; };
 		048552841D7DEF8D00F7B9B6 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048552831D7DEF8D00F7B9B6 /* Helper.swift */; };
 		04986AE51D9888AF00796E9E /* SocketIOViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04986AE41D9888AF00796E9E /* SocketIOViewController.swift */; };
 		04DD3C1A1D57A72C00DEBB32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD3C191D57A72C00DEBB32 /* AppDelegate.swift */; };
@@ -70,6 +71,7 @@
 		042B42361D68BE0F008CBFE0 /* DaoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DaoManager.swift; sourceTree = "<group>"; };
 		042B42381D68D908008CBFE0 /* UserRepo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRepo.swift; sourceTree = "<group>"; };
 		042B423A1D6B6D86008CBFE0 /* TripRepo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripRepo.swift; sourceTree = "<group>"; };
+		046764FF1DA42CBF00E0D02C /* NotificationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationHelper.swift; sourceTree = "<group>"; };
 		048552831D7DEF8D00F7B9B6 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		04986AE41D9888AF00796E9E /* SocketIOViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketIOViewController.swift; sourceTree = "<group>"; };
 		04DD3C161D57A72C00DEBB32 /* Transport4Church.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Transport4Church.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -161,6 +163,7 @@
 		04283A371D5D1E530053D1D2 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				046764FF1DA42CBF00E0D02C /* NotificationHelper.swift */,
 				43632A081D5B811600AD3B75 /* FormButton.swift */,
 				04DD3C4A1D57A88E00DEBB32 /* UIViewExtension.swift */,
 				43632A191D63269A00AD3B75 /* LocationHelper.swift */,
@@ -394,7 +397,7 @@
 				TargetAttributes = {
 					04DD3C151D57A72C00DEBB32 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = ND37B5VWDX;
+						DevelopmentTeam = 7289W83XQQ;
 					};
 					04DD3C2C1D57A72C00DEBB32 = {
 						CreatedOnToolsVersion = 7.3;
@@ -607,6 +610,7 @@
 				04986AE51D9888AF00796E9E /* SocketIOViewController.swift in Sources */,
 				43632A071D5B786800AD3B75 /* Trip.swift in Sources */,
 				04DD3C4F1D591C8500DEBB32 /* RiderPickupController.swift in Sources */,
+				046765001DA42CBF00E0D02C /* NotificationHelper.swift in Sources */,
 				4341B9321D8304140092A633 /* AuthViewController.swift in Sources */,
 				43632A1A1D63269A00AD3B75 /* LocationHelper.swift in Sources */,
 				43632A051D5B62F700AD3B75 /* ConfirmPickupFormController.swift in Sources */,
@@ -759,7 +763,7 @@
 					"-ObjC",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.rccg.Transport4Church;
+				PRODUCT_BUNDLE_IDENTIFIER = org.rccg.TransportForChurch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Transport4Church-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -779,7 +783,7 @@
 					"-ObjC",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.rccg.Transport4Church;
+				PRODUCT_BUNDLE_IDENTIFIER = org.rccg.TransportForChurch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Transport4Church-Bridging-Header.h";
 			};

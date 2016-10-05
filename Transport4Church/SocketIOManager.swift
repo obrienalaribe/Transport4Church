@@ -29,7 +29,6 @@ class SocketIOManager: NSObject {
     
     func closeConnection() {
         print("Disconnecting socket connection ... ")
-        print("You should check the user role: Driver should always have a socket connection while trip is active")
         socket.disconnect()
     }    
     

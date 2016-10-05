@@ -91,6 +91,8 @@ class ConfirmPickupFormController: FormViewController {
     
     func handleFormSubmission(sender: UIButton!){
         
+        NotificationHelper.setupNotification()
+
         let valuesDictionary = form.values()
 
         self.trip.status = TripStatus.REQUESTED
@@ -100,7 +102,6 @@ class ConfirmPickupFormController: FormViewController {
 
         self.trip.saveInBackgroundWithBlock({ (success, error) in
             self.navigationController?.popViewControllerAnimated(true)
-            
         })
         
     }

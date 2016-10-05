@@ -47,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        window?.rootViewController = UINavigationController(rootViewController:RiderTripDetailController(trip: trip))
 
         UserRepo.configureAppLaunchCount()
-        
+      
         return true
     }
     
@@ -75,12 +75,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func applicationWillResignActive(application: UIApplication) {
-//        SocketIOManager.sharedInstance.closeConnection()
-
+        SocketIOManager.sharedInstance.closeConnection()
     }
     
     func applicationDidEnterBackground(application: UIApplication) {
-      
+
     }
     
     func applicationWillEnterForeground(application: UIApplication) {

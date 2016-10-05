@@ -102,60 +102,21 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
     override func viewWillAppear(animated: Bool) {
         super.viewDidAppear(true)
         
-        SocketIOManager.sharedInstance.getDriverLocation { (locationInfo) in
-            
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                //run ui updates on main thread
-                
-                self.toggleViewForCurrentTripMode()
-                
-                if self.currentTrip.status == .REQUESTED {
-
-                    let dispatchTime: dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, Int64(0.9 * Double(NSEC_PER_SEC)))
-                    dispatch_after(dispatchTime, dispatch_get_main_queue(), {
-                        let banner = Banner(title: "Pickup Request Accepted!!", subtitle: "The church bus is on its way now", image: UIImage(named: "bus"), backgroundColor: BrandColours.PRIMARY.color)
-                        banner.dismissesOnTap = false
-                        banner.show(duration: 3.0)
-
-                    })
-                    
-                    self.mapView.alpha = 1
-                    self.locationTrackingLabel.alpha = 1
-
-                    self.currentTrip.status = .STARTED
-                    self.currentTrip.saveEventually()
-                    self.setupActiveTripModeView(locationInfo)
-                    
-                }
-
-                if self.currentTrip.status == .STARTED {
-                    self.updateDriverMarker(locationInfo)
-                }
-//
-                
-               
-            })
-            //TODO: Need to stop socket on driver
-            print("Socket receiving driver location ... ")
-            
-        }
-        
-        
         if self.currentTrip == nil {
             //initial state before trip is initialized
             setRiderLocationOnMap()
-        }
-        
-        //TODO: use Socket to detect when trip is complete and then ToggleTripMode
-                
-        if let tripStatus = self.currentTrip?.status {
+        }else{
             
-            if tripStatus == TripStatus.REQUESTED {
+            if self.currentTrip?.status == TripStatus.REQUESTED {
                 modallyDisplayTripDetails()
             }
             
-            
+            listenForSocketConnection()
         }
+        
+        //TODO: use Socket to detect when trip is complete and then ToggleTripMode
+
+        
     }
 
 
@@ -443,14 +404,6 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
         self.mapView.alpha = 1
     }
     
-    func setupPushNotification(){
-        let types: UIUserNotificationType = [.Alert, .Badge, .Sound]
-        let settings = UIUserNotificationSettings(forTypes: types, categories: nil)
-        let application = UIApplication.sharedApplication()
-        application.registerUserNotificationSettings(settings)
-        application.registerForRemoteNotifications()
-    }
-    
     func modallyDisplayTripDetails(){
 
         tripDetailController = RiderTripDetailController(trip: currentTrip)
@@ -489,9 +442,46 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
         presentViewController(alertController, animated: true, completion: nil)
     }
     
- 
-    
+    func listenForSocketConnection(){
+        SocketIOManager.sharedInstance.getDriverLocation { (locationInfo) in
+            
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                //run ui updates on main thread
+                
+                self.toggleViewForCurrentTripMode()
+                
+                if self.currentTrip.status == .REQUESTED {
+                    
+                    let dispatchTime: dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, Int64(0.9 * Double(NSEC_PER_SEC)))
+                    dispatch_after(dispatchTime, dispatch_get_main_queue(), {
+                        let banner = Banner(title: "Pickup Request Accepted!!", subtitle: "The church bus is on its way now", image: UIImage(named: "bus"), backgroundColor: BrandColours.PRIMARY.color)
+                        banner.dismissesOnTap = false
+                        banner.show(duration: 3.0)
+                        
+                    })
+                    
+                    self.mapView.alpha = 1
+                    self.locationTrackingLabel.alpha = 1
+                    
+                    self.currentTrip.status = .STARTED
+                    self.currentTrip.saveEventually()
+                    self.setupActiveTripModeView(locationInfo)
+                    
+                    NotificationHelper.scheduleLocal("The church bus is on its way", status: "accepted", alertDate: NSDate())
+                }
+                
+                if self.currentTrip.status == .STARTED {
+                    self.updateDriverMarker(locationInfo)
+                }
+                //
+                
+            })
+            //TODO: Need to stop socket on driver
+            print("Socket receiving driver location ... ")
+            
+        }
 
+    }
 }
 
 

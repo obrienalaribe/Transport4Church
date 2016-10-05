@@ -17,13 +17,9 @@ extension RiderPickupController : GMSMapViewDelegate{
     }
     
     func mapView(mapView: GMSMapView, willMove gesture: Bool) {
-        print(gesture)
         if gesture {
             self.navigationController?.setNavigationBarHidden(true, animated: true)
-            print("HIDING NAV BAR --------")
         }
-        //        mapView.clear()
-        
     }
     
     func mapView(mapView: GMSMapView, idleAtCameraPosition cameraPosition: GMSCameraPosition) {
@@ -63,59 +59,9 @@ extension RiderPickupController : GMSMapViewDelegate{
     
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         if keyPath! == "myLocation" {
-            
-            let address =  PFGeoPoint(latitude: (self.mapView.myLocation?.coordinate.latitude)!, longitude: (self.mapView.myLocation?.coordinate.longitude)!)
-            
-            if self.currentTrip != nil {
-                let oldLocation = CLLocation(latitude: self.currentTrip.rider.location.latitude, longitude: self.currentTrip.rider.location.longitude)
-                
-                var newLocation : CLLocation? = nil
-                
-                
-                newLocation = CLLocation(latitude: (self.mapView.myLocation?.coordinate.latitude)!, longitude: (self.mapView.myLocation?.coordinate.longitude)!)
-                
-                if let distance = newLocation?.distanceFromLocation(oldLocation) {
-                    let distanceInMeters = (newLocation?.distanceFromLocation(oldLocation))! / 1609.344
-                    print("distance in miles \(distanceInMeters)")
-                    
-                    if distanceInMeters >= 0.009 {
-                        //rider physical just moved from their previous location (so update location label)
-                        self.updateLocationLabel(CLLocationCoordinate2D(latitude: (newLocation?.coordinate.latitude)!, longitude: (newLocation?.coordinate.longitude)!))
-                        
-                    }else{
-                        
-                    }
-                    
-                }
-                
-            }
-            
+           
             
         }
-    }
-    
-    func updateLocationLabel(location: CLLocationCoordinate2D) -> Void {
-        let helper = LocationHelper()
-        helper.reverseGeocodeCoordinate(location)
-        
-        dispatch_group_notify(locationDispatchGroup, dispatch_get_main_queue(), {
-            print("location from function : \(helper.result)")
-            //            self.rider.location.updateProperties(helper.result)
-            self.pickupBtn.userInteractionEnabled = true
-            
-            if self.currentTrip != nil {
-                if self.currentTrip.status == TripStatus.NEW || self.currentTrip.status == TripStatus.CANCELLED {
-                    //only update rider location on view during pickup mode
-                    self.locationTrackingLabel.text = helper.result[0]
-                    print(helper.result[0])
-                    self.locationTrackingLabel.textColor = .greenColor()
-                }
-                
-            }
-            
-            
-        })
-        
     }
     
 }

@@ -40,6 +40,7 @@ class SocketIOViewController: UIViewController {
     }
     
     
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -56,18 +57,10 @@ class SocketIOViewController: UIViewController {
     
     func emitUpdate(){
         print("emitting ...")
-        let driverLatitude = EFA_Coord.latitude
-        let driverLongitude = EFA_Coord.longitude
+       
         
-        let driverLocation = CLLocation(latitude: driverLatitude, longitude: driverLongitude)
-        
-         SocketIOManager.sharedInstance.sendDriverLocation(driverLocation, completionHandler: {
-            print("location sent sucessefully ")
-            
-         })
 
     }
-    
     
     
 }

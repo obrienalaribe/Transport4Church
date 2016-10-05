@@ -40,7 +40,7 @@
                   moduleName = "Transport4Church"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Desktop/MobileApps/Transport4Church/Transport4Church/AppDelegate.swift"
-                  timestampString = "492372387.296613"
+                  timestampString = "497394010.155748"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -55,12 +55,12 @@
                   moduleName = "Transport4Church"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Desktop/MobileApps/Transport4Church/Transport4Church/AppDelegate.swift"
-                  timestampString = "492372387.296817"
+                  timestampString = "497394010.15629"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "15"
-                  endingLineNumber = "15"
-                  offsetFromSymbolStart = "24">
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "43">
                </Location>
                <Location
                   shouldBeEnabled = "No"
@@ -70,11 +70,11 @@
                   moduleName = "Transport4Church"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Desktop/MobileApps/Transport4Church/Transport4Church/AppDelegate.swift"
-                  timestampString = "492372387.296954"
+                  timestampString = "497394010.156411"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "13"
-                  endingLineNumber = "13"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
                   offsetFromSymbolStart = "22">
                </Location>
             </Locations>
