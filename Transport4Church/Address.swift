@@ -47,8 +47,8 @@ class Address {
         
         if addressArr.count >= 2 {
             self.city = addressArr.removeFirst() //pop city
-            let postcode = addressArr.joinWithSeparator(" ") //join remaining index to string
-            self.postcode = postcode.substringToIndex(postcode.endIndex.predecessor()) //remove comma at end index
+            let postcode = addressArr.joined(separator: " ") //join remaining index to string
+            self.postcode = postcode.substring(to: postcode.characters.index(before: postcode.endIndex)) //remove comma at end index
         }else{
             //clear values to reflect new current location has no city/postcode returned from Google
             self.city = nil

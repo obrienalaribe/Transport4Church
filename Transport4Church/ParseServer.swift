@@ -28,7 +28,7 @@ class ParseServer {
             ParseMutableClientConfiguration.server = "https://insta231.herokuapp.com/parse"
         })
         
-        Parse.initializeWithConfiguration(parseConfiguration)
+        Parse.initialize(with: parseConfiguration)
         
 //        PFUser.logOut()
     }

@@ -8,26 +8,26 @@
 
 
 enum MenuItem : CustomStringConvertible {
-    case Profile
-    case Rate
-    case Like
-    case Copyright
-    case Terms
-    case Privacy
-    case FAQ
-    case Contact
+    case profile
+    case rate
+    case like
+    case copyright
+    case terms
+    case privacy
+    case faq
+    case contact
     
     var description : String {
         switch self {
             // Use Internationalization, as appropriate.
-            case .Profile : return "Profile"
-            case .Rate: return "Rate us in the App Store"
-            case .Like: return "Like us on Facebook"
-            case .Copyright: return "Copyright"
-            case .Terms: return "Terms & Conditions"
-            case .Privacy: return "Privacy Policy"
-            case .FAQ: return "FAQ"
-            case .Contact: return "Contact Us"
+            case .profile : return "Profile"
+            case .rate: return "Rate us in the App Store"
+            case .like: return "Like us on Facebook"
+            case .copyright: return "Copyright"
+            case .terms: return "Terms & Conditions"
+            case .privacy: return "Privacy Policy"
+            case .faq: return "FAQ"
+            case .contact: return "Contact Us"
         }
     }
     

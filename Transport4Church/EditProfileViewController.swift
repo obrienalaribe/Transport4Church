@@ -8,10 +8,11 @@
 
 import Eureka
 import Parse
+import ImageRow
 
 class EditProfileViewController : FormViewController {
     
-    private var userRepo : UserRepo = UserRepo()
+    fileprivate var userRepo : UserRepo = UserRepo()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +21,7 @@ class EditProfileViewController : FormViewController {
         
         ImageRow.defaultCellUpdate = { cell, row in
             cell.accessoryView?.layer.cornerRadius = 25
-            cell.accessoryView?.frame = CGRectMake(0, 0, 50, 50)
+            cell.accessoryView?.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
             row.cell.height = {
                 return 60
             }
@@ -32,8 +33,8 @@ class EditProfileViewController : FormViewController {
                 $0.title = "Select Profile Picture"
                 
                 }.cellSetup({ (cell, row) in
-//                    cell.imageView?.image = UIImage(named: "user")
-//                    cell.accessoryView = UIImageView(image: UIImage(image: "user"))
+                    cell.imageView?.image = UIImage(named: "user")
+                    cell.accessoryView = UIImageView(image: UIImage(named:"user"))
                 })
             
             +++ Section("Please fill in your details")
@@ -69,9 +70,9 @@ class EditProfileViewController : FormViewController {
             
             +++ Section() { section in
                 section.header = {
-                    var header = HeaderFooterView<UIButton>(.Callback({
+                    var header = HeaderFooterView<UIButton>(.callback({
                         let button = FormButton(title: "Update")
-                        button.addTarget(self, action: #selector(EditProfileViewController.handleFormSubmission(_:)), forControlEvents: .TouchUpInside)
+                        button.addTarget(self, action: #selector(EditProfileViewController.handleFormSubmission(_:)), for: .touchUpInside)
                         return button
                     }))
                     header.height = { 50  }
@@ -82,7 +83,7 @@ class EditProfileViewController : FormViewController {
         
     }
     
-    func handleFormSubmission(sender: UIButton!){
+    func handleFormSubmission(_ sender: UIButton!){
        
         let valuesDictionary = form.values()
         

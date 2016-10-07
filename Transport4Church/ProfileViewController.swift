@@ -13,11 +13,11 @@ class ProfileViewController : UIViewController {
     
     let profileImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .ScaleAspectFill
+        imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 40
         imageView.layer.masksToBounds = true
-        imageView.layer.borderColor = UIColor.whiteColor().CGColor
+        imageView.layer.borderColor = UIColor.white.cgColor
         imageView.layer.borderWidth = 3.5
         imageView.backgroundColor = UIColor(white: 0.95, alpha: 1)
         imageView.image = UIImage(named: "user_male")?.imageWithInsets(20)
@@ -33,26 +33,25 @@ class ProfileViewController : UIViewController {
     
     let editBtn : UIButton = {
         let btn = UIButton()
-        btn.setTitle("Edit Profile", forState: .Normal)
+        btn.setTitle("Edit Profile", for: UIControlState())
         btn.layer.cornerRadius = 5.0;
-        btn.layer.borderColor = BrandColours.PRIMARY.color.CGColor
+        btn.layer.borderColor = BrandColours.primary.color.cgColor
         btn.layer.borderWidth = 1.7
-        btn.titleLabel?.font = UIFont.boldSystemFontOfSize(16)
-        btn.backgroundColor = UIColor.whiteColor()
-        btn.tintColor = .purpleColor()
-        btn.setTitleColor(BrandColours.PRIMARY.color, forState: .Normal)
+        btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        btn.backgroundColor = UIColor.white
+        btn.setTitleColor(BrandColours.primary.color, for: UIControlState())
         return btn
     }()
     
     let logoutBtn : UIButton = {
         let btn = UIButton()
-        btn.setTitle("Logout", forState: .Normal)
+        btn.setTitle("Logout", for: UIControlState())
         btn.layer.cornerRadius = 5.0;
-        btn.layer.borderColor = UIColor.darkGrayColor().CGColor
+        btn.layer.borderColor = UIColor.darkGray.cgColor
         btn.layer.borderWidth = 1.7
-        btn.titleLabel?.font = UIFont.boldSystemFontOfSize(16)
-        btn.backgroundColor = UIColor.whiteColor()
-        btn.setTitleColor(UIColor.darkGrayColor(), forState: .Normal)
+        btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        btn.backgroundColor = UIColor.white
+        btn.setTitleColor(UIColor.darkGray, for: UIControlState())
         btn.layer.zPosition = 2
         return btn
     }()
@@ -73,15 +72,15 @@ class ProfileViewController : UIViewController {
         super.viewDidLoad()
         
         title = "Profile"
-        if let user = PFUser.currentUser() {
+        if let user = PFUser.current() {
             currentUser = user
           
             view.addSubview(profileImageView)
             view.backgroundColor = UIColor(white: 0.97, alpha: 1)
             
-            profileImageView.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor).active = true
+            profileImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
             
-            profileImageView.centerYAnchor.constraintEqualToAnchor(view.centerYAnchor, constant:  -150).active = true
+            profileImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant:  -150).isActive = true
             
             profileImageView.translatesAutoresizingMaskIntoConstraints = false
             
@@ -89,15 +88,15 @@ class ProfileViewController : UIViewController {
             
             let margins = view.layoutMarginsGuide
             
-            profileContent.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor).active = true
-            profileContent.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor).active = true
-            profileContent.topAnchor.constraintEqualToAnchor(profileImageView.bottomAnchor,
-                                                             constant: -30.0).active = true
+            profileContent.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
+            profileContent.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
+            profileContent.topAnchor.constraint(equalTo: profileImageView.bottomAnchor,
+                                                             constant: -30.0).isActive = true
             
-            profileContent.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor,
-                                                                constant: -60.0).active = true
+            profileContent.bottomAnchor.constraint(equalTo: view.bottomAnchor,
+                                                                constant: -60.0).isActive = true
             
-            profileContent.backgroundColor = .whiteColor()
+            profileContent.backgroundColor = UIColor.white
             
             profileContent.translatesAutoresizingMaskIntoConstraints = false
             
@@ -116,84 +115,84 @@ class ProfileViewController : UIViewController {
         
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         userRepo.fetchAndSetUsersProfileImage(currentUser, imageView: self.profileImageView)
     }
     
-    func setupEditBtn(parentMargin : UILayoutGuide){
+    func setupEditBtn(_ parentMargin : UILayoutGuide){
         profileContent.addSubview(editBtn)
         
-        editBtn.topAnchor.constraintEqualToAnchor(profileContent.topAnchor, constant: 40).active = true
+        editBtn.topAnchor.constraint(equalTo: profileContent.topAnchor, constant: 40).isActive = true
         
-        editBtn.leadingAnchor.constraintEqualToAnchor(parentMargin.leadingAnchor).active = true
+        editBtn.leadingAnchor.constraint(equalTo: parentMargin.leadingAnchor).isActive = true
         
-        editBtn.trailingAnchor.constraintEqualToAnchor(parentMargin.trailingAnchor).active = true
+        editBtn.trailingAnchor.constraint(equalTo: parentMargin.trailingAnchor).isActive = true
         
         editBtn.translatesAutoresizingMaskIntoConstraints = false
         
-        editBtn.addTarget(self, action: #selector(ProfileViewController.editProfileAction), forControlEvents: .TouchUpInside)
+        editBtn.addTarget(self, action: #selector(ProfileViewController.editProfileAction), for: .touchUpInside)
     }
    
     func editProfileAction(){
         self.navigationController?.pushViewController(EditProfileViewController(), animated: true)
     }
     
-    func setupNameLabel(parentMargin : UILayoutGuide){
+    func setupNameLabel(_ parentMargin : UILayoutGuide){
         nameLabel = createProfileLabel(userRepo.extractUserField("name"))
         
         profileContent.addSubview(nameLabel)
         
-        nameLabel.topAnchor.constraintEqualToAnchor(editBtn.bottomAnchor, constant: 20).active = true
+        nameLabel.topAnchor.constraint(equalTo: editBtn.bottomAnchor, constant: 20).isActive = true
         
-        nameLabel.leadingAnchor.constraintEqualToAnchor(parentMargin.leadingAnchor).active = true
+        nameLabel.leadingAnchor.constraint(equalTo: parentMargin.leadingAnchor).isActive = true
         
-        nameLabel.trailingAnchor.constraintEqualToAnchor(parentMargin.trailingAnchor).active = true
+        nameLabel.trailingAnchor.constraint(equalTo: parentMargin.trailingAnchor).isActive = true
         
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    func setupChurchLabel(parentMargin : UILayoutGuide){
+    func setupChurchLabel(_ parentMargin : UILayoutGuide){
         churchLabel = createProfileLabel("Church: EFA RCCG Leeds \n 13-17 Walter Street \n Leeds, LS3 4BB")
         churchLabel.numberOfLines = 3
         
         profileContent.addSubview(churchLabel)
         
-        churchLabel.topAnchor.constraintEqualToAnchor(nameLabel.bottomAnchor, constant: 10).active = true
+        churchLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 10).isActive = true
         
-        churchLabel.leadingAnchor.constraintEqualToAnchor(parentMargin.leadingAnchor).active = true
+        churchLabel.leadingAnchor.constraint(equalTo: parentMargin.leadingAnchor).isActive = true
         
-        churchLabel.trailingAnchor.constraintEqualToAnchor(parentMargin.trailingAnchor).active = true
+        churchLabel.trailingAnchor.constraint(equalTo: parentMargin.trailingAnchor).isActive = true
         
         churchLabel.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    func setupRoleLabel(parentMargin : UILayoutGuide){
+    func setupRoleLabel(_ parentMargin : UILayoutGuide){
         roleLabel = createProfileLabel("Joined as \(userRepo.extractUserField("role")) \n \(Helper.convertDateToString(currentUser.createdAt!))")
         roleLabel.numberOfLines = 2
 
         profileContent.addSubview(roleLabel)
         
-        roleLabel.topAnchor.constraintEqualToAnchor(churchLabel.bottomAnchor, constant: 10).active = true
+        roleLabel.topAnchor.constraint(equalTo: churchLabel.bottomAnchor, constant: 10).isActive = true
         
-        roleLabel.leadingAnchor.constraintEqualToAnchor(parentMargin.leadingAnchor).active = true
+        roleLabel.leadingAnchor.constraint(equalTo: parentMargin.leadingAnchor).isActive = true
         
-        roleLabel.trailingAnchor.constraintEqualToAnchor(parentMargin.trailingAnchor).active = true
+        roleLabel.trailingAnchor.constraint(equalTo: parentMargin.trailingAnchor).isActive = true
         
         roleLabel.translatesAutoresizingMaskIntoConstraints = false
     }
 
-    func setupLogoutBtn(parentMargin : UILayoutGuide){
+    func setupLogoutBtn(_ parentMargin : UILayoutGuide){
         view.addSubview(logoutBtn)
         
-        logoutBtn.topAnchor.constraintEqualToAnchor(profileContent.bottomAnchor, constant: 10).active = true
+        logoutBtn.topAnchor.constraint(equalTo: profileContent.bottomAnchor, constant: 10).isActive = true
         
-        logoutBtn.leadingAnchor.constraintEqualToAnchor(parentMargin.leadingAnchor).active = true
+        logoutBtn.leadingAnchor.constraint(equalTo: parentMargin.leadingAnchor).isActive = true
         
-        logoutBtn.trailingAnchor.constraintEqualToAnchor(parentMargin.trailingAnchor).active = true
+        logoutBtn.trailingAnchor.constraint(equalTo: parentMargin.trailingAnchor).isActive = true
         
         logoutBtn.translatesAutoresizingMaskIntoConstraints = false
         
-        logoutBtn.addTarget(self, action: #selector(ProfileViewController.logout), forControlEvents: .TouchUpInside)
+        logoutBtn.addTarget(self, action: #selector(ProfileViewController.logout), for: .touchUpInside)
         
     }
 
@@ -202,12 +201,12 @@ class ProfileViewController : UIViewController {
         self.navigationController?.setViewControllers([AuthViewController()], animated: true)
     }
     
-    private func createProfileLabel(title : String) -> UILabel{
+    fileprivate func createProfileLabel(_ title : String) -> UILabel{
         let label = UILabel()
-        label.font = UIFont.boldSystemFontOfSize(18)
-        label.textColor = UIColor.darkGrayColor()
+        label.font = UIFont.boldSystemFont(ofSize: 18)
+        label.textColor = UIColor.darkGray
         label.text = title
-        label.textAlignment = .Center
+        label.textAlignment = .center
         return label
     }
     

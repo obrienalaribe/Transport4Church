@@ -16,7 +16,7 @@ class DriverTripViewController: UIViewController {
     var currentTrip : Trip?
     var driverLocation : CLLocation!
     
-    var driverMockTimer : NSTimer!
+    var driverMockTimer : Timer!
 
     init(trip: Trip){
         self.currentTrip = trip
@@ -29,54 +29,54 @@ class DriverTripViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        mapView = GMSMapView(frame: CGRectMake(0, 0, view.bounds.width, view.bounds.height ))
+        mapView = GMSMapView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height ))
         mapView.mapType = kGMSTypeTerrain
         mapView.delegate = self
-        mapView.myLocationEnabled = true
+        mapView.isMyLocationEnabled = true
         mapView.settings.myLocationButton = true
         
         view.addSubview(mapView)
         
         title = currentTrip?.rider.user["name"] as! String
    
-        let completeTripBtn =  UIBarButtonItem(image: UIImage(named: "close"), style: .Plain, target: self, action: #selector(DriverTripViewController.completeTrip))
+        let completeTripBtn =  UIBarButtonItem(image: UIImage(named: "close"), style: .plain, target: self, action: #selector(DriverTripViewController.completeTrip))
         
-        completeTripBtn.tintColor = .blackColor()
+        completeTripBtn.tintColor = UIColor.black
         navigationItem.rightBarButtonItem = completeTripBtn
         
-        let callRiderBtn =  UIBarButtonItem(image: UIImage(named: "plain_phone"), style: .Plain, target: self, action: #selector(DriverTripViewController.callRider))
+        let callRiderBtn =  UIBarButtonItem(image: UIImage(named: "plain_phone"), style: .plain, target: self, action: #selector(DriverTripViewController.callRider))
         
-        callRiderBtn.tintColor = .blackColor()
+        callRiderBtn.tintColor = UIColor.black
         navigationItem.leftBarButtonItem = callRiderBtn
 
     }
     
     func completeTrip(){
-        let alertController = UIAlertController (title: "Pickup Complete", message: "Has this rider been picked up ?", preferredStyle: .Alert )
+        let alertController = UIAlertController (title: "Pickup Complete", message: "Has this rider been picked up ?", preferredStyle: .alert )
         
-        let yesAction = UIAlertAction(title: "Yes, Complete", style: .Default) { (_) -> Void in
+        let yesAction = UIAlertAction(title: "Yes, Complete", style: .default) { (_) -> Void in
             self.currentTrip?.status = TripStatus.COMPLETED
             self.currentTrip?.saveEventually()
             self.navigationController?.setViewControllers([DriverRequestListController(collectionViewLayout: UICollectionViewFlowLayout())], animated: true)
             
         }
         
-        let cancelAction = UIAlertAction(title: "No", style: .Default, handler: nil)
+        let cancelAction = UIAlertAction(title: "No", style: .default, handler: nil)
         alertController.addAction(yesAction)
         alertController.addAction(cancelAction)
         
-        presentViewController(alertController, animated: true, completion: nil)
+        present(alertController, animated: true, completion: nil)
     }
     
     func callRider(){
         let riderPhone = currentTrip?.rider.user["contact"] as! String
-        if let url = NSURL(string: "tel://\(riderPhone)") {
-            UIApplication.sharedApplication().openURL(url)
+        if let url = URL(string: "tel://\(riderPhone)") {
+            UIApplication.shared.openURL(url)
         }
     }
     
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
         setDriverLocationOnMap()
@@ -91,25 +91,25 @@ class DriverTripViewController: UIViewController {
             riderLocation.title = rider.user["name"] as! String
         }
         
-        riderLocation.flat = true
+        riderLocation.isFlat = true
         
-        riderLocation.icon = UIImage(named: "user")!.imageWithRenderingMode(.AlwaysTemplate)
+        riderLocation.icon = UIImage(named: "user")!.withRenderingMode(.alwaysTemplate)
         riderLocation.map = mapView
         
 
         let driverCoordinates = CLLocationCoordinate2D(latitude: (driverLocation?.coordinate.latitude)!, longitude: (driverLocation?.coordinate.longitude)!)
         let bounds = GMSCoordinateBounds(coordinate: driverCoordinates, coordinate: riderLocation.position)
-        let camera = mapView.cameraForBounds(bounds, insets: UIEdgeInsets(top: 0, left: 50, bottom: 0, right: 50))!
+        let camera = mapView.camera(for: bounds, insets: UIEdgeInsets(top: 0, left: 50, bottom: 0, right: 50))!
         self.mapView.camera = camera
  
         mapView.settings.myLocationButton = false
 
-        driverMockTimer = NSTimer.scheduledTimerWithTimeInterval(1.5, target: self, selector: #selector(self.sendDriverLocation), userInfo: nil, repeats: true)
+        driverMockTimer = Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(self.sendDriverLocation), userInfo: nil, repeats: true)
         
     }
     
 
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         print("stopping location sending socket ...")
         
@@ -127,7 +127,7 @@ class DriverTripViewController: UIViewController {
             
             driverLocation = CLLocation(latitude: driverLatitude, longitude: driverLongitude)
             
-            mapView.camera = GMSCameraPosition.cameraWithLatitude(driverLatitude, longitude: driverLongitude, zoom: 14.0)
+            mapView.camera = GMSCameraPosition.camera(withLatitude: driverLatitude, longitude: driverLongitude, zoom: 14.0)
             
         }else{
             //mock driver location on simulator
@@ -136,19 +136,19 @@ class DriverTripViewController: UIViewController {
             
             driverLocation = CLLocation(latitude: driverLatitude, longitude: driverLongitude)
             
-            mapView.camera = GMSCameraPosition.cameraWithLatitude(driverLatitude, longitude: driverLongitude, zoom: 14.0)
+            mapView.camera = GMSCameraPosition.camera(withLatitude: driverLatitude, longitude: driverLongitude, zoom: 14.0)
 
         }
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         //start timer to emit driver location
         
     }
     
     
-    func sendDriverLocation(timer: NSTimer){
+    func sendDriverLocation(_ timer: Timer){
         let padLat : Double = (driverLocation.coordinate.latitude) - 0.0001
         let padLong : Double = (driverLocation.coordinate.longitude)  + 0.0001
         
@@ -156,7 +156,7 @@ class DriverTripViewController: UIViewController {
         
         let riderLoc = CLLocation(latitude: self.currentTrip!.rider.location.latitude, longitude: self.currentTrip!.rider.location.longitude)
         
-        let distanceInMeters = riderLoc.distanceFromLocation(driverLocation)
+        let distanceInMeters = riderLoc.distance(from: driverLocation)
         let distanceInMiles = distanceInMeters/1609.344
         let distanceString = String(format: "%.1f miles away from you", distanceInMiles)
         

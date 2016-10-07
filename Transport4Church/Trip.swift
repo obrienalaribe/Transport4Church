@@ -11,14 +11,17 @@
 import Parse
 
 class Trip : PFObject, PFSubclassing  {
+    private static var __once: () = {
+            registerSubclass()
+        }()
     var rider: Rider {
         //set rider on parse
-        get { return objectForKey(Rider.parseClassName()) as! Rider }
+        get { return object(forKey: Rider.parseClassName()) as! Rider }
         set {setObject(newValue, forKey: Rider.parseClassName())}
     }
     
     var status : TripStatus {
-        get { return TripStatus.reverse(objectForKey("status") as! String)!}
+        get { return TripStatus.reverse(object(forKey: "status") as! String)!}
         set { self["status"] = newValue.rawValue }
     }
     
@@ -29,18 +32,16 @@ class Trip : PFObject, PFSubclassing  {
 
     @NSManaged var driver : PFObject
     
-    var pickupTime : NSDate {
-        get { return Helper.convertStringToDate(objectForKey("pickup_time" ) as! String)}
+    var pickupTime : Date {
+        get { return Helper.convertStringToDate(object(forKey: "pickup_time" ) as! String)}
         set { setObject(Helper.convertDateToString(newValue), forKey: "pickup_time") }
     }
 
     override class func initialize() {
         struct Static {
-            static var onceToken: dispatch_once_t = 0;
+            static var onceToken: Int = 0;
         }
-        dispatch_once(&Static.onceToken) {
-            self.registerSubclass()
-        }
+        _ = Trip.__once
     }
     
     
@@ -58,7 +59,7 @@ enum TripStatus : String {
     case STARTED = "Started"
     case COMPLETED = "Completed"
     
-    static func reverse(status: String) -> TripStatus? {
+    static func reverse(_ status: String) -> TripStatus? {
         switch(status){
             case "New" :
                 return .NEW

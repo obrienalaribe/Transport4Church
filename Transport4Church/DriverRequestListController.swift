@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SCLAlertView
 import Parse
 import BRYXBanner
 
@@ -33,24 +32,24 @@ class DriverRequestListController: UICollectionViewController, UICollectionViewD
         tripStatusToggle.selectedSegmentIndex = 0
         
         // Set up Frame and SegmentedControl
-        let frame = UIScreen.mainScreen().bounds
-        tripStatusToggle.frame = CGRectMake(frame.minX + 10, frame.minY + 70,
-                                    frame.width - 20, frame.height*0.1)
+        let frame = UIScreen.main.bounds
+        tripStatusToggle.frame = CGRect(x: frame.minX + 10, y: frame.minY + 70,
+                                    width: frame.width - 20, height: frame.height*0.1)
         
         // Style the Segmented Control
         tripStatusToggle.layer.cornerRadius = 5.0  // Don't let background bleed
-        tripStatusToggle.backgroundColor = UIColor.darkGrayColor()
-        tripStatusToggle.tintColor = UIColor.whiteColor()
+        tripStatusToggle.backgroundColor = UIColor.darkGray
+        tripStatusToggle.tintColor = UIColor.white
         
         // Add target action method
-        tripStatusToggle.addTarget(self, action: #selector(DriverRequestListController.changeView(_:)), forControlEvents: .ValueChanged)
+        tripStatusToggle.addTarget(self, action: #selector(DriverRequestListController.changeView(_:)), for: .valueChanged)
         
         // Add this custom Segmented Control to our view
         self.view.addSubview(tripStatusToggle)
         
     }
     
-    func changeView(sender: UISegmentedControl) {
+    func changeView(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 1:
             refresh()
@@ -71,17 +70,17 @@ class DriverRequestListController: UICollectionViewController, UICollectionViewD
         
         collectionView?.alwaysBounceVertical = true
         collectionView?.backgroundColor = UIColor(white: 0.95, alpha: 1)
-        collectionView?.registerClass(PickupRequestCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView?.register(PickupRequestCell.self, forCellWithReuseIdentifier: cellId)
         collectionView?.delegate = self
         collectionView?.dataSource = self
         
-        let refreshBtn = UIBarButtonItem(image: UIImage(named: "refresh"), style: .Plain, target: self, action: #selector(DriverRequestListController.refresh))
-        refreshBtn.tintColor = .blackColor()
+        let refreshBtn = UIBarButtonItem(image: UIImage(named: "refresh"), style: .plain, target: self, action: #selector(DriverRequestListController.refresh))
+        refreshBtn.tintColor = UIColor.black
         
         self.navigationItem.rightBarButtonItem = refreshBtn
 
-        let menuBtn = UIBarButtonItem(image: UIImage(named: "menu"), style: .Plain, target: self, action: #selector(DriverRequestListController.showMenu))
-        menuBtn.tintColor = .blackColor()
+        let menuBtn = UIBarButtonItem(image: UIImage(named: "menu"), style: .plain, target: self, action: #selector(DriverRequestListController.showMenu))
+        menuBtn.tintColor = UIColor.black
         
         navigationItem.leftBarButtonItem = menuBtn
         
@@ -90,21 +89,21 @@ class DriverRequestListController: UICollectionViewController, UICollectionViewD
     
     func showMenu(){
         let menuNavCtrl = UINavigationController(rootViewController:MenuViewController())
-        navigationController?.presentViewController(menuNavCtrl, animated: true, completion: nil)
+        navigationController?.present(menuNavCtrl, animated: true, completion: nil)
     }
     
     func refresh(){
         tripRepo.fetchAllPickupRequests(self, tripStatus: status[tripStatusToggle.selectedSegmentIndex])
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         refresh()
     }
     
     
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if let requests = pickupRequests {
             return requests.count
@@ -113,35 +112,35 @@ class DriverRequestListController: UICollectionViewController, UICollectionViewD
     }
     
     
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellId, forIndexPath: indexPath) as! PickupRequestCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! PickupRequestCell
         
-        cell.doneButton.layer.setValue(indexPath.row, forKey: "index")
+        cell.doneButton.layer.setValue((indexPath as NSIndexPath).row, forKey: "index")
         
-        cell.trip = pickupRequests?[indexPath.row]
+        cell.trip = pickupRequests?[(indexPath as NSIndexPath).row]
         
-        cell.doneButton.addTarget(self, action: #selector(DriverRequestListController.showDriverTripMode(_:)), forControlEvents: .TouchUpInside)
+        cell.doneButton.addTarget(self, action: #selector(DriverRequestListController.showDriverTripMode(_:)), for: .touchUpInside)
         
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSizeMake(view.frame.width - 20, 140)
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.frame.width - 20, height: 140)
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsetsMake(tripStatusToggle.frame.height + 17, 0, 0, 0)
     }
   
     
-    func showDriverTripMode(sender: UIButton){
+    func showDriverTripMode(_ sender: UIButton){
         
-        let row = sender.layer.valueForKey("index") as! Int
+        let row = sender.layer.value(forKey: "index") as! Int
         let trip : Trip = pickupRequests![row]
         
         trip.status = TripStatus.ACCEPTED
-        trip.driver = PFUser.currentUser()!
+        trip.driver = PFUser.current()!
         trip.saveEventually()
         
         
@@ -156,13 +155,13 @@ class PickupRequestCell : BaseCollectionCell {
     var trip : Trip? {
         didSet {
             
-            trip?.rider.user.fetchInBackgroundWithBlock({ (user, error) in
+            trip?.rider.user.fetchInBackground(block: { (user, error) in
                 self.nameLabel.text = (user)!["name"] as! String
             })
             
             print(trip?.rider.addressDic)
             
-            if let street = trip?.rider.addressDic["street"], city = trip?.rider.addressDic["city"],  postcode = trip?.rider.addressDic["postcode"] {
+            if let street = trip?.rider.addressDic["street"], let city = trip?.rider.addressDic["city"],  let postcode = trip?.rider.addressDic["postcode"] {
                 self.addressLabel.text = "\(street)\n\(city)\n\(postcode)"
 
                 print("\(street) \n \(city) \n \(postcode)")
@@ -178,7 +177,7 @@ class PickupRequestCell : BaseCollectionCell {
     
     let profileImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .ScaleAspectFill
+        imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = 40
         imageView.layer.masksToBounds = true
         imageView.backgroundColor = UIColor(white: 0.95, alpha: 1)
@@ -196,8 +195,8 @@ class PickupRequestCell : BaseCollectionCell {
     let nameLabel: UILabel = {
         let label = UILabel()
         label.text = ""
-        label.textColor = UIColor.darkGrayColor()
-        label.font = UIFont.boldSystemFontOfSize(18)
+        label.textColor = UIColor.darkGray
+        label.font = UIFont.boldSystemFont(ofSize: 18)
         return label
     }()
     
@@ -205,62 +204,62 @@ class PickupRequestCell : BaseCollectionCell {
         let label = UILabel()
         label.numberOfLines = 3
         label.text = "--------------"
-        label.textColor = UIColor.darkGrayColor()
-        label.font = UIFont.systemFontOfSize(16)
+        label.textColor = UIColor.darkGray
+        label.font = UIFont.systemFont(ofSize: 16)
         return label
     }()
     
     let timeLabel: UILabel = {
         let label = UILabel()
         label.text = ""
-        label.font = UIFont.systemFontOfSize(16)
-        label.textAlignment = .Right
+        label.font = UIFont.systemFont(ofSize: 16)
+        label.textAlignment = .right
         return label
     }()
     
     let callButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Call", forState: .Normal)
-        button.setTitleColor(.darkGrayColor(), forState: .Normal)
+        button.setTitle("Call", for: UIControlState())
+        button.setTitleColor(UIColor.darkGray, for: UIControlState())
         let image = UIImage(named: "Phone-48")
-        button.titleLabel!.font = UIFont.boldSystemFontOfSize(18)
-        button.setImage(image, forState: .Normal)
+        button.titleLabel!.font = UIFont.boldSystemFont(ofSize: 18)
+        button.setImage(image, for: UIControlState())
 //        button.backgroundColor = .purpleColor()
         button.titleEdgeInsets = UIEdgeInsetsMake(0, 5, 0, 0)
-        button.contentHorizontalAlignment = .Left
+        button.contentHorizontalAlignment = .left
         return button
     }()
     
     let doneButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Accept", forState: .Normal)
-        button.setTitleColor(.darkGrayColor(), forState: .Normal)
+        button.setTitle("Accept", for: UIControlState())
+        button.setTitleColor(UIColor.darkGray, for: UIControlState())
         let image = UIImage(named: "Ok-48")
-        button.titleLabel!.font = UIFont.boldSystemFontOfSize(18)
-        button.setImage(image, forState: .Normal)
+        button.titleLabel!.font = UIFont.boldSystemFont(ofSize: 18)
+        button.setImage(image, for: UIControlState())
 //        button.backgroundColor = .blackColor()
         button.titleEdgeInsets = UIEdgeInsetsMake(0, 5, 0, 0)
-        button.contentHorizontalAlignment = .Left
+        button.contentHorizontalAlignment = .left
         
         return button
     }()
     
     override func setupViews() {
-        backgroundColor = .whiteColor()
+        backgroundColor = UIColor.white
         
         addSubview(profileImageView)
 
         addConstraintsWithFormat("H:|-12-[v0(80)]", views: profileImageView)
         addConstraintsWithFormat("V:[v0(80)]", views: profileImageView)
         
-        addConstraint(NSLayoutConstraint(item: profileImageView, attribute: .CenterY, relatedBy: .Equal, toItem: self, attribute: .CenterY, multiplier: 1, constant: 0))
+        addConstraint(NSLayoutConstraint(item: profileImageView, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: 0))
        
         setupDetailView()
         setupActionButtons()
 
     }
     
-    private func setupDetailView() {
+    fileprivate func setupDetailView() {
         let detailView = UIView()
         addSubview(detailView)
         
@@ -290,7 +289,7 @@ class PickupRequestCell : BaseCollectionCell {
     }
 
     
-    private func setupActionButtons(){
+    fileprivate func setupActionButtons(){
         let actionButtonContainer = UIView()
         addSubview(actionButtonContainer)
 //        actionButtonContainer.backgroundColor = .purpleColor()
@@ -298,10 +297,10 @@ class PickupRequestCell : BaseCollectionCell {
         addConstraintsWithFormat("H:|-105-[v0]|", views: actionButtonContainer)
         addConstraintsWithFormat("V:[v0(40)]|", views: actionButtonContainer)
 
-        callButton.addTarget(self, action: #selector(PickupRequestCell.handleCallEvent), forControlEvents: .TouchUpInside)
+        callButton.addTarget(self, action: #selector(PickupRequestCell.handleCallEvent), for: .touchUpInside)
         actionButtonContainer.addSubview(callButton)
        
-        doneButton.addTarget(self, action: #selector(PickupRequestCell.handleCompleteEvent(_:)), forControlEvents: .TouchUpInside)
+        doneButton.addTarget(self, action: #selector(PickupRequestCell.handleCompleteEvent(_:)), for: .touchUpInside)
         actionButtonContainer.addSubview(doneButton)
 
         actionButtonContainer.addConstraintsWithFormat("H:|[v0][v1(v0)]|", views: callButton, doneButton)
@@ -313,13 +312,13 @@ class PickupRequestCell : BaseCollectionCell {
     
     func handleCallEvent(){
         let riderPhone: String = "07778889077"
-        if let url = NSURL(string: "tel://\(riderPhone)") {
-            UIApplication.sharedApplication().openURL(url)
+        if let url = URL(string: "tel://\(riderPhone)") {
+            UIApplication.shared.openURL(url)
         }
         print("calling \(riderPhone)")
     }
     
-    func handleCompleteEvent(sender: UIButton!){
+    func handleCompleteEvent(_ sender: UIButton!){
         let parent = self.superview as! UICollectionView
 
 //        let indexPath = parent.indexPathForCell(self)

@@ -10,7 +10,7 @@ import Parse
 
 class TripRepo {
         
-    func fetchAllPickupRequests(view : DriverRequestListController, tripStatus: TripStatus){
+    func fetchAllPickupRequests(_ view : DriverRequestListController, tripStatus: TripStatus){
         
         let tripDestination = PFGeoPoint.init(latitude: EFA_Coord.latitude, longitude: EFA_Coord.longitude)
         
@@ -20,25 +20,25 @@ class TripRepo {
         query.includeKey("Rider")
         query.includeKey("User")
         query.addDescendingOrder("pickup_time")
-        query.cachePolicy = .CacheThenNetwork
-        query.orderByAscending("pickup_time")
+        query.cachePolicy = .cacheThenNetwork
+        query.order(byAscending: "pickup_time")
         query.limit = 100
         
 
         print("making request")
         
-        query.findObjectsInBackgroundWithBlock {
-            (objects: [PFObject]?, error: NSError?) -> Void in
+        query.findObjectsInBackground {
+            (objects: [PFObject]?, error: Error?) -> Void in
             
             if error == nil {
                 // The find succeeded.
                 print("Successfully refreshed \(objects?.count) object.")
-                pickupRequests = objects as! [Trip]
+                pickupRequests = objects as? [Trip]
                 view.collectionView?.reloadData()
                 
             } else {
                 // Log details of the failure
-                print("Error: \(error!) \(error!.userInfo)")
+                print("Error: \(error!)")
             }
         }
 

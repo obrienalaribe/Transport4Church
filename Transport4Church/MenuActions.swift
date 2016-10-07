@@ -10,11 +10,11 @@ class MenuActions {
 //    "itms://itunes.apple.com/us/app/apple-store/id375380948?mt=8"
     
  
-    static func openScheme(hook: String){
-        let facebookPageUrl = NSURL(string: hook)
-        if UIApplication.sharedApplication().canOpenURL(facebookPageUrl!)
+    static func openScheme(_ hook: String){
+        let facebookPageUrl = URL(string: hook)
+        if UIApplication.shared.canOpenURL(facebookPageUrl!)
         {
-            UIApplication.sharedApplication().openURL(facebookPageUrl!)
+            UIApplication.shared.openURL(facebookPageUrl!)
         }else{
             print("cannont open")
         }

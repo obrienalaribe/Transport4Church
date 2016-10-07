@@ -8,21 +8,21 @@
 
 import Foundation
 
-var locationDispatchGroup = dispatch_group_create()
+var locationDispatchGroup = DispatchGroup()
 
 class LocationHelper {
    
     var result : [String] = [String]()
     
-    func reverseGeocodeCoordinate(coordinate: CLLocationCoordinate2D) -> Void {
+    func reverseGeocodeCoordinate(_ coordinate: CLLocationCoordinate2D) -> Void {
         let geocoder = GMSGeocoder()
         
-        dispatch_group_enter(locationDispatchGroup)
+        locationDispatchGroup.enter()
 
         geocoder.reverseGeocodeCoordinate(coordinate) { response, error in
             if let address = response?.firstResult() {
                 self.result = address.lines!
-                dispatch_group_leave(locationDispatchGroup)
+                locationDispatchGroup.leave()
 
             }
         }
@@ -32,8 +32,11 @@ class LocationHelper {
 
 extension Double {
     /// Rounds the double to decimal places value
-    func roundToPlaces(places:Int) -> Double {
+    func roundToPlaces(_ places:Int) -> Double {
         let divisor = pow(10.0, Double(places))
-        return round(self * divisor) / divisor
+        let result : Double = 0.1
+//        (self * divisor).rounded / divisor
+    
+        return result
     }
 }

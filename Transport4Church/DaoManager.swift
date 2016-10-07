@@ -10,6 +10,6 @@ import Foundation
 
 protocol DaoManager {
 
-    func create(object: NSObject) -> Bool
+    func create(_ object: NSObject) -> Bool
     
 }

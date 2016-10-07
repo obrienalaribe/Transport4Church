@@ -8,11 +8,10 @@
 
 
 import Eureka
-import SCLAlertView
 
 class AuthViewController : FormViewController {
     
-    private var userRepo : UserRepo = UserRepo()
+    fileprivate var userRepo : UserRepo = UserRepo()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,9 +38,9 @@ class AuthViewController : FormViewController {
             
             +++ Section() { section in
                 section.header = {
-                    var header = HeaderFooterView<UIButton>(.Callback({
+                    var header = HeaderFooterView<UIButton>(.callback({
                         let button = FormButton(title: "Submit")
-                        button.addTarget(self, action: #selector(AuthViewController.handleFormSubmission(_:)), forControlEvents: .TouchUpInside)
+                        button.addTarget(self, action: #selector(AuthViewController.handleFormSubmission(_:)), for: .touchUpInside)
                         return button
                     }))
                     header.height = { 50 }
@@ -51,25 +50,16 @@ class AuthViewController : FormViewController {
         
     }
     
-    func handleFormSubmission(sender: UIButton!){
+    func handleFormSubmission(_ sender: UIButton!){
         let valuesDictionary = form.values()
 
         let listOfEmptyFields = Helper.validateFormInputs(valuesDictionary)
         
         if listOfEmptyFields.isEmpty == false {
             
-          let alertView = Helper.createAlert()
-           
-           alertView.showTitle(
-                "Empty Input", // Title of view
-                subTitle: "Please enter an email and password",
-                duration: 5.0,
-                completeText: "Okay",
-                style: .Error,
-                colorStyle: 0x00EE00,
-                colorTextButton: 0xFFFFFF
-            )
+         print("Could not authenticate")
             
+//            NSLog("sdfsf", nil)
             
         }else{
             let credentials = Credentials(username: valuesDictionary["Email"] as! String, password: valuesDictionary["Password"] as! String, role: valuesDictionary["Role"] as! String)

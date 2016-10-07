@@ -24,7 +24,7 @@ struct Profile {
 
 class UserRepo {
     
-    func updateProfile(profile: Profile, listener: UIViewController){
+    func updateProfile(_ profile: Profile, listener: UIViewController){
         
         if let currentUser = getCurrentUser() {
             if let image = profile.image {
@@ -38,7 +38,7 @@ class UserRepo {
                     pictureQuery.whereKey("owner", equalTo: currentUser)
                     pictureQuery.includeKey("owner")
 
-                    pictureQuery.getFirstObjectInBackgroundWithBlock({ (pictureObject, error) in
+                    pictureQuery.getFirstObjectInBackground(block: { (pictureObject, error) in
                         if pictureObject != nil {
                             self.createOrUpdateUserAvatar(pictureObject!, data: data)
                             
@@ -57,7 +57,7 @@ class UserRepo {
             currentUser["contact"] = profile.contact
             currentUser["church"] = profile.church
 
-            currentUser.saveInBackgroundWithBlock({ (success, error) in
+            currentUser.saveInBackground(block: { (success, error) in
                 
                 if listener.navigationController?.viewControllers.count == 1 {
                     //registration stage
@@ -69,7 +69,7 @@ class UserRepo {
                     }
                 }else{
                     //was accessed through settings
-                    listener.navigationController?.popViewControllerAnimated(true)
+                    listener.navigationController?.popViewController(animated: true)
                 }
             })
         }
@@ -77,23 +77,23 @@ class UserRepo {
 
     }
     
-    func authenticate(credentials: Credentials, listener: UIViewController) {
+    func authenticate(_ credentials: Credentials, listener: UIViewController) {
         let user = PFUser()
         user.username = credentials.username
         user.email = credentials.username
         user.password = credentials.password
         user["role"] = credentials.role
         
-        user.signUpInBackgroundWithBlock {
-            (succeeded: Bool, error: NSError?) -> Void in
+        user.signUpInBackground {
+            (succeeded: Bool, error: Error?) -> Void in
             if let error = error {
                 
-                if error.code == 202 {
+                if error._code == 202 {
                     print("user already exist so login and navigate to rider view")
                     
-                    PFUser.logInWithUsernameInBackground(credentials.username, password: credentials.password) {(user: PFUser?, error: NSError?) -> Void in
+                    PFUser.logInWithUsername(inBackground: credentials.username, password: credentials.password) {(user: PFUser?, error: Error?) -> Void in
                         if user != nil {
-                            print(PFUser.currentUser()!)
+                            print(PFUser.current()!)
                             listener.navigationController?.setViewControllers([RiderPickupController()], animated: true)
                             
                         } else {
@@ -101,8 +101,8 @@ class UserRepo {
                         }
                     }
                     
-                    if let user = PFUser.currentUser() {
-                        print(PFUser.currentUser()!)
+                    if let user = PFUser.current() {
+                        print(PFUser.current()!)
                         listener.navigationController?.setViewControllers([RiderPickupController()], animated: true)
                     }else{
                         
@@ -110,14 +110,13 @@ class UserRepo {
                     }
                  
                 }else{
-                    let errorString = error.userInfo["error"] as? NSString
-                    print(" \(errorString)")
+                    print(" \(error)")
                 }
                 
             } else {
                 print("saved new user")
 
-                print(PFUser.currentUser()!)                
+                print(PFUser.current()!)                
                 listener.navigationController?.setViewControllers([EditProfileViewController()], animated: true)
                 
                 
@@ -127,28 +126,28 @@ class UserRepo {
 
     }
     
-    func fetchAndSetUsersProfileImage(user: PFUser, imageView: UIImageView){
+    func fetchAndSetUsersProfileImage(_ user: PFUser, imageView: UIImageView){
         let query = PFQuery(className:"Picture")
-        query.cachePolicy = .CacheElseNetwork
+        query.cachePolicy = .cacheElseNetwork
         query.whereKey("owner", equalTo: user)
         
-        query.getFirstObjectInBackgroundWithBlock { (result, error) in
+        query.getFirstObjectInBackground { (result, error) in
             if let pictureObject = result {
-                if let userPicture = pictureObject.valueForKey("image") {
+                if let userPicture = pictureObject.value(forKey: "image") {
                     let picture = userPicture as! PFFile
                     //TODO: optimize this to only use and fetch one image object
-                    picture.getDataInBackgroundWithBlock({
-                        (imageData: NSData?, error: NSError?) -> Void in
+                    picture.getDataInBackground(block: {
+                        (imageData: Data?, error: Error?) -> Void in
                         if (error == nil) {
                             let image = UIImage(data:imageData!)
-                            imageView.contentMode = .ScaleAspectFit
+                            imageView.contentMode = .scaleAspectFit
                             imageView.clipsToBounds = true
                             
                             let size = CGSize(width: imageView.bounds.width, height: imageView.bounds.height)
                             
-                            let portraitImage  : UIImage = UIImage(CGImage: image!.CGImage! ,
+                            let portraitImage  : UIImage = UIImage(cgImage: image!.cgImage! ,
                                 scale: 1.0 ,
-                                orientation: UIImageOrientation.Right)
+                                orientation: UIImageOrientation.right)
                             
                             imageView.image = Helper.resizeImage(portraitImage, toTheSize: size)
                         }
@@ -161,10 +160,10 @@ class UserRepo {
     }
     
     func getCurrentUser() -> PFUser? {
-        return PFUser.currentUser()
+        return PFUser.current()
     }
     
-    func extractUserField(field : String) -> String{
+    func extractUserField(_ field : String) -> String{
         if let user = getCurrentUser() {
             if let field = user[field] {
                 return field as! String
@@ -173,14 +172,14 @@ class UserRepo {
         return ""
     }
     
-    private func createOrUpdateUserAvatar(pictureObject: PFObject, data: NSData){
+    fileprivate func createOrUpdateUserAvatar(_ pictureObject: PFObject, data: Data){
      
         let pictureFile = PFFile(name: "image.png", data: data)
         
-        pictureObject.setObject(PFUser.currentUser()!, forKey: "owner")
+        pictureObject.setObject(PFUser.current()!, forKey: "owner")
         
         pictureObject.setObject(pictureFile!, forKey: "image")
-        pictureObject.saveInBackgroundWithBlock({ (success, error) in
+        pictureObject.saveInBackground(block: { (success, error) in
             print("saved image through network and pinning to background")
             print(pictureObject)
             pictureObject.pinInBackground()
@@ -194,21 +193,21 @@ class UserRepo {
         
         //set up user default to detect fresh user
         
-        let defaults = NSUserDefaults.standardUserDefaults()
+        let defaults = UserDefaults.standard
         
-        if let count = defaults.stringForKey(appLaunchCount) {
+        if let count = defaults.string(forKey: appLaunchCount) {
             let newCount = Int(count)! + 1
             print("launch count is \(count) incrementing to \(newCount) ")
-            defaults.setObject(newCount, forKey: appLaunchCount)
+            defaults.set(newCount, forKey: appLaunchCount)
         }else{
             //new user
-            defaults.setObject(1, forKey: appLaunchCount)
+            defaults.set(1, forKey: appLaunchCount)
         }
     }
     
     static func getAppLaunchCount() -> Int {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        if let count = defaults.stringForKey(appLaunchCount) {
+        let defaults = UserDefaults.standard
+        if let count = defaults.string(forKey: appLaunchCount) {
             return Int(count)!
         }
         return 0

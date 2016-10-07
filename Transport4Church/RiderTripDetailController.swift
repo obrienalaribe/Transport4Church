@@ -27,32 +27,32 @@ class RiderTripDetailController: UIViewController {
     
     let infoLabel : UILabel = {
         let label = UILabel()
-        label.font = UIFont.boldSystemFontOfSize(18)
+        label.font = UIFont.boldSystemFont(ofSize: 18)
         label.textColor = UIColor(red:0.03, green:0.79, blue:0.49, alpha:1.0)
         label.text = "Request Sent"
-        label.textAlignment = .Center
+        label.textAlignment = .center
         return label
     }()
     
     let infoDetailLabel : UILabel = {
         let label = UILabel()
-        label.font = UIFont.boldSystemFontOfSize(14)
+        label.font = UIFont.boldSystemFont(ofSize: 14)
         label.textColor = UIColor(red:0.76, green:0.80, blue:0.78, alpha:1.0)
         label.text = "* The driver will soon be on their way *"
-        label.textAlignment = .Center
+        label.textAlignment = .center
         label.backgroundColor = UIColor(red:0.98, green:0.98, blue:0.98, alpha:0.6)
         return label
     }()
     
     let cancelPickupBtn : UIButton = {
         let btn = UIButton()
-        btn.setTitle("Contact Driver", forState: .Normal)
+        btn.setTitle("Contact Driver", for: UIControlState())
         btn.layer.cornerRadius = 5.0;
-        btn.layer.borderColor = UIColor(red:0.90, green:0.90, blue:0.90, alpha:1.0).CGColor
+        btn.layer.borderColor = UIColor(red:0.90, green:0.90, blue:0.90, alpha:1.0).cgColor
         btn.layer.borderWidth = 1.7
-        btn.titleLabel?.font = UIFont.boldSystemFontOfSize(16)
-        btn.backgroundColor = UIColor.whiteColor()
-        btn.setTitleColor(UIColor.darkGrayColor(), forState: .Normal)
+        btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        btn.backgroundColor = UIColor.white
+        btn.setTitleColor(UIColor.darkGray, for: UIControlState())
         btn.layer.zPosition = 2
         return btn
     }()
@@ -78,46 +78,46 @@ class RiderTripDetailController: UIViewController {
         super.viewDidLoad()
         
               
-        view.backgroundColor = UIColor.clearColor()
+        view.backgroundColor = UIColor.clear
         
         view.addSubview(container)
         
         let margins = view.layoutMarginsGuide
 
         //setup middle container
-        container.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor).active = true
-        container.centerYAnchor.constraintEqualToAnchor(view.centerYAnchor).active = true
+        container.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        container.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
 
-        container.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor).active = true
+        container.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
         container.translatesAutoresizingMaskIntoConstraints = false
-        container.backgroundColor = .whiteColor()
-        container.heightAnchor.constraintEqualToAnchor(view.heightAnchor,
-                                                                   multiplier: 0.5).active = true
+        container.backgroundColor = UIColor.white
+        container.heightAnchor.constraint(equalTo: view.heightAnchor,
+                                                                   multiplier: 0.5).isActive = true
 
         //setup info line
         container.addSubview(infoLabel)
-        infoLabel.topAnchor.constraintEqualToAnchor(container.topAnchor, constant: 5).active = true
-        infoLabel.trailingAnchor.constraintEqualToAnchor(container.trailingAnchor).active = true
-        infoLabel.leadingAnchor.constraintEqualToAnchor(container.leadingAnchor).active = true
+        infoLabel.topAnchor.constraint(equalTo: container.topAnchor, constant: 5).isActive = true
+        infoLabel.trailingAnchor.constraint(equalTo: container.trailingAnchor).isActive = true
+        infoLabel.leadingAnchor.constraint(equalTo: container.leadingAnchor).isActive = true
         infoLabel.translatesAutoresizingMaskIntoConstraints = false
         
         //setup info detail line
         container.addSubview(infoDetailLabel)
-        infoDetailLabel.topAnchor.constraintEqualToAnchor(infoLabel.topAnchor, constant: 30).active = true
-        infoDetailLabel.trailingAnchor.constraintEqualToAnchor(container.trailingAnchor).active = true
-        infoDetailLabel.leadingAnchor.constraintEqualToAnchor(container.leadingAnchor).active = true
+        infoDetailLabel.topAnchor.constraint(equalTo: infoLabel.topAnchor, constant: 30).isActive = true
+        infoDetailLabel.trailingAnchor.constraint(equalTo: container.trailingAnchor).isActive = true
+        infoDetailLabel.leadingAnchor.constraint(equalTo: container.leadingAnchor).isActive = true
         infoDetailLabel.translatesAutoresizingMaskIntoConstraints = false
 
         //setup trip details container
         container.addSubview(tripDetails)
-        tripDetails.centerXAnchor.constraintEqualToAnchor(container.centerXAnchor).active = true
-        tripDetails.centerYAnchor.constraintEqualToAnchor(container.centerYAnchor, constant: -10).active = true
+        tripDetails.centerXAnchor.constraint(equalTo: container.centerXAnchor).isActive = true
+        tripDetails.centerYAnchor.constraint(equalTo: container.centerYAnchor, constant: -10).isActive = true
 
-        tripDetails.trailingAnchor.constraintEqualToAnchor(container.trailingAnchor).active = true
+        tripDetails.trailingAnchor.constraint(equalTo: container.trailingAnchor).isActive = true
         tripDetails.translatesAutoresizingMaskIntoConstraints = false
-        tripDetails.backgroundColor = .whiteColor()
-        tripDetails.heightAnchor.constraintEqualToAnchor(container.heightAnchor,
-                                                         multiplier: 0.5).active = true
+        tripDetails.backgroundColor = UIColor.white
+        tripDetails.heightAnchor.constraint(equalTo: container.heightAnchor,
+                                                         multiplier: 0.5).isActive = true
 //        tripDetails.backgroundColor = .redColor()
    
 
@@ -154,20 +154,20 @@ class RiderTripDetailController: UIViewController {
         //setup cancel button
     
         container.addSubview(cancelPickupBtn)
-        cancelPickupBtn.bottomAnchor.constraintEqualToAnchor(container.bottomAnchor, constant: -10).active = true
+        cancelPickupBtn.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -10).isActive = true
         container.addConstraintsWithFormat("V:[v0(60)]", views: cancelPickupBtn)
         container.addConstraintsWithFormat("H:|-10-[v0]-10-|", views: cancelPickupBtn)
 
-        cancelPickupBtn.addTarget(self, action: #selector(RiderTripDetailController.cancelRequest), forControlEvents: .TouchUpInside)
+        cancelPickupBtn.addTarget(self, action: #selector(RiderTripDetailController.cancelRequest), for: .touchUpInside)
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
     }
     
     
-    private func createLineView(lineView: UIView, leftTitle: String, rightTitle: String){
+    fileprivate func createLineView(_ lineView: UIView, leftTitle: String, rightTitle: String){
         let leftLabel = createLabel(leftTitle)
         let rightLabel = createLabel(rightTitle)
         
@@ -193,12 +193,12 @@ class RiderTripDetailController: UIViewController {
         self.delegate.riderWillCancelTrip()
     }
     
-    func createLabel(title : String) -> UILabel{
+    func createLabel(_ title : String) -> UILabel{
         let label = UILabel()
-        label.font = UIFont.boldSystemFontOfSize(18)
-        label.textColor = UIColor.darkGrayColor()
+        label.font = UIFont.boldSystemFont(ofSize: 18)
+        label.textColor = UIColor.darkGray
         label.text = title
-        label.textAlignment = .Left
+        label.textAlignment = .left
         label.backgroundColor = UIColor(red:0.99, green:0.99, blue:1, alpha:1.0)
         return label
     }

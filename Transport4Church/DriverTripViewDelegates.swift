@@ -20,25 +20,25 @@ import Parse
 // MARK: GMSMapViewDelegate
 
 extension DriverTripViewController : GMSMapViewDelegate{
-    func mapView(mapView: GMSMapView, didTapAtCoordinate coordinate: CLLocationCoordinate2D) {
+    func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
         //        print("You tapped at \(coordinate.latitude), \(coordinate.longitude)")
     }
     
-    func mapView(mapView: GMSMapView, willMove gesture: Bool) {
+    func mapView(_ mapView: GMSMapView, willMove gesture: Bool) {
 
     }
     
-    func mapView(mapView: GMSMapView, idleAtCameraPosition cameraPosition: GMSCameraPosition) {
+    func mapView(_ mapView: GMSMapView, idleAt cameraPosition: GMSCameraPosition) {
         let helper = LocationHelper()
         helper.reverseGeocodeCoordinate(cameraPosition.target)
         
-        dispatch_group_notify(locationDispatchGroup, dispatch_get_main_queue(), {
+        locationDispatchGroup.notify(queue: DispatchQueue.main, execute: {
             print("hence \(helper.result)")
             
             
-            UIView.animateWithDuration(0.25) {
+            UIView.animate(withDuration: 0.25, animations: {
                 self.view.layoutIfNeeded()
-            }
+            }) 
         })
                 
     }

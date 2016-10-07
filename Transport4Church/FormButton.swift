@@ -12,12 +12,12 @@ import Foundation
 class FormButton: UIButton {
     init(title: String) {
         super.init(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
-        self.setTitle(title, forState: .Normal)
+        self.setTitle(title, for: UIControlState())
         self.layer.cornerRadius = 5.0;
-        self.layer.borderColor = UIColor.whiteColor().CGColor
+        self.layer.borderColor = UIColor.white.cgColor
         self.layer.borderWidth = 1.0
-        self.backgroundColor = BrandColours.PRIMARY.color
-        self.tintColor = UIColor.whiteColor()
+        self.backgroundColor = BrandColours.primary.color
+        self.tintColor = UIColor.white
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -26,10 +26,10 @@ class FormButton: UIButton {
 }
 
 enum BrandColours {
-    case PRIMARY
+    case primary
     
-    private static let associatedValues = [
-        PRIMARY: (color: UIColor(red:0.03, green:0.79, blue:0.49, alpha:1.0), value: "primary")
+    fileprivate static let associatedValues = [
+        primary: (color: UIColor(red:0.03, green:0.79, blue:0.49, alpha:1.0), value: "primary")
     ]
     
     var color: UIColor {

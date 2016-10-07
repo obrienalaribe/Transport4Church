@@ -12,26 +12,26 @@ import Parse
 // MARK: GMSMapViewDelegate
 
 extension RiderPickupController : GMSMapViewDelegate{
-    func mapView(mapView: GMSMapView, didTapAtCoordinate coordinate: CLLocationCoordinate2D) {
+    func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
         //        print("You tapped at \(coordinate.latitude), \(coordinate.longitude)")
     }
     
-    func mapView(mapView: GMSMapView, willMove gesture: Bool) {
+    func mapView(_ mapView: GMSMapView, willMove gesture: Bool) {
         if gesture {
             self.navigationController?.setNavigationBarHidden(true, animated: true)
         }
     }
     
-    func mapView(mapView: GMSMapView, idleAtCameraPosition cameraPosition: GMSCameraPosition) {
+    func mapView(_ mapView: GMSMapView, idleAt cameraPosition: GMSCameraPosition) {
         
         let helper = LocationHelper()
         helper.reverseGeocodeCoordinate(cameraPosition.target)
         
-        dispatch_group_notify(locationDispatchGroup, dispatch_get_main_queue(), {
+        locationDispatchGroup.notify(queue: DispatchQueue.main, execute: {
             print("location from camera : \(helper.result)")
-            self.locationTrackingLabel.textColor = .blackColor()
+            self.locationTrackingLabel.textColor = UIColor.black
             
-            self.pickupBtn.userInteractionEnabled = true
+            self.pickupBtn.isUserInteractionEnabled = true
             
             if self.currentTrip != nil {
                 if self.currentTrip.status == TripStatus.NEW || self.currentTrip.status == TripStatus.CANCELLED {
@@ -57,7 +57,7 @@ extension RiderPickupController : GMSMapViewDelegate{
         
     }
     
-    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath! == "myLocation" {
            
             
@@ -71,16 +71,16 @@ extension RiderPickupController : GMSMapViewDelegate{
 extension RiderPickupController: RiderTripDetailControllerDelegate {
     
     func riderWillCancelTrip() {
-        let alertController = UIAlertController (title: "Contact Driver", message: "Please choose what action you would like to take", preferredStyle: .Alert)
+        let alertController = UIAlertController (title: "Contact Driver", message: "Please choose what action you would like to take", preferredStyle: .alert)
         
-        let callDriverAction = UIAlertAction(title: "Speak to Driver", style: .Default) { (_) -> Void in
+        let callDriverAction = UIAlertAction(title: "Speak to Driver", style: .default) { (_) -> Void in
             let driverPhoneNum = "07411411590"
-            if let url = NSURL(string: "tel://\(driverPhoneNum)") {
-                UIApplication.sharedApplication().openURL(url)
+            if let url = URL(string: "tel://\(driverPhoneNum)") {
+                UIApplication.shared.openURL(url)
             }
         }
         
-        let confirmAction = UIAlertAction(title: "Cancel Pickup", style: .Default) { (_) -> Void in
+        let confirmAction = UIAlertAction(title: "Cancel Pickup", style: .default) { (_) -> Void in
             //TODO: Send socket request to notify the driver
             
             self.tripDetailController.removeFromParentViewController()
@@ -88,12 +88,12 @@ extension RiderPickupController: RiderTripDetailControllerDelegate {
             self.toggleViewForCurrentTripMode()
 
              self.currentTrip.status = .CANCELLED
-             self.currentTrip.saveInBackgroundWithBlock({ (success, error) in
+             self.currentTrip.saveInBackground(block: { (success, error) in
                 self.startNetworkActivity()
              })
         }
         
-        let cancelAction = UIAlertAction(title: "Exit", style: .Default) { (_) -> Void in
+        let cancelAction = UIAlertAction(title: "Exit", style: .default) { (_) -> Void in
            
         }
         
@@ -101,7 +101,7 @@ extension RiderPickupController: RiderTripDetailControllerDelegate {
         alertController.addAction(confirmAction)
         alertController.addAction(cancelAction)
         
-        presentViewController(alertController, animated: true, completion: nil)
+        present(alertController, animated: true, completion: nil)
 
     }
 }
@@ -109,34 +109,48 @@ extension RiderPickupController: RiderTripDetailControllerDelegate {
 // MARK: GMSAutocompleteViewControllerDelegate
 
 extension RiderPickupController: GMSAutocompleteViewControllerDelegate {
+    /**
+     * Called when a non-retryable error occurred when retrieving autocomplete predictions or place
+     * details. A non-retryable error is defined as one that is unlikely to be fixed by immediately
+     * retrying the operation.
+     * <p>
+     * Only the following values of |GMSPlacesErrorCode| are retryable:
+     * <ul>
+     * <li>kGMSPlacesNetworkError
+     * <li>kGMSPlacesServerError
+     * <li>kGMSPlacesInternalError
+     * </ul>
+     * All other error codes are non-retryable.
+     * @param viewController The |GMSAutocompleteViewController| that generated the event.
+     * @param error The |NSError| that was returned.
+     */
+    public func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
+        print("Error: ", error.localizedDescription)
+    }
+
     
     // Handle the user's selection.
-    func viewController(viewController: GMSAutocompleteViewController, didAutocompleteWithPlace place: GMSPlace) {
+    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
         //        print("Place name: ", place.name)
         //        print("Place address: ", place.formattedAddress)
         //        print("Place coordinates: ", place.coordinate)
         self.locationTrackingLabel.text = place.name
-        mapView.camera = GMSCameraPosition.cameraWithLatitude(place.coordinate.latitude, longitude: place.coordinate.longitude, zoom: 16.0)
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    func viewController(viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: NSError) {
-        // TODO: handle the error.
-        print("Error: ", error.description)
+        mapView.camera = GMSCameraPosition.camera(withLatitude: place.coordinate.latitude, longitude: place.coordinate.longitude, zoom: 16.0)
+        self.dismiss(animated: true, completion: nil)
     }
     
     // User canceled the operation.
-    func wasCancelled(viewController: GMSAutocompleteViewController) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     // Turn the network activity indicator on and off again.
-    func didRequestAutocompletePredictions(viewController: GMSAutocompleteViewController) {
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+    func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
     }
     
-    func didUpdateAutocompletePredictions(viewController: GMSAutocompleteViewController) {
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+    func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
     
 }
@@ -144,22 +158,22 @@ extension RiderPickupController: GMSAutocompleteViewControllerDelegate {
 // MARK: CLLocationManagerDelegate
 
 extension RiderPickupController : CLLocationManagerDelegate {
-    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         
-        if (status == CLAuthorizationStatus.Denied) {
+        if (status == CLAuthorizationStatus.denied) {
             // The user denied authorization
             print("why did you decline ?")
             
             manager.requestWhenInUseAuthorization()
             
-        } else if (status == CLAuthorizationStatus.AuthorizedAlways) {
+        } else if (status == CLAuthorizationStatus.authorizedAlways) {
             // The user accepted authorization
             print("thanks for accepting ")
             
         }
     }
     
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if self.riderMapViewDidInitialiseWithLocation == false {
             //first app launch when they is a delay with map update
             setRiderLocationOnMap()

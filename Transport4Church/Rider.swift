@@ -9,6 +9,9 @@
 import Parse
 
 class Rider : PFObject, PFSubclassing  {
+    private static var __once: () = {
+            registerSubclass()
+        }()
     //replace Address with PFGeopoint and only call location network worker in Confirm Controller
     var address : Address! 
     @NSManaged var user : PFUser
@@ -21,11 +24,9 @@ class Rider : PFObject, PFSubclassing  {
     
     override class func initialize() {
         struct Static {
-            static var onceToken: dispatch_once_t = 0;
+            static var onceToken: Int = 0;
         }
-        dispatch_once(&Static.onceToken) {
-            self.registerSubclass()
-        }
+        _ = Rider.__once
     }
     
     static func parseClassName() -> String {

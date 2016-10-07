@@ -13,71 +13,71 @@ import Parse
 class MenuViewController: UITableViewController {
     let userRepo = UserRepo()
 
-    private let userSection: [MenuItem] = [.Profile]
-    private let enquirySection: [MenuItem] = [.Rate, .Like, .Copyright, .Terms, .Privacy, .FAQ, .Contact]
-    private let menuIcons: Dictionary<MenuItem, String> = [.Profile : "user_male", .Rate : "rate", .Like : "like", .Copyright : "copyright", .Terms: "terms", .Privacy: "privacy", .FAQ : "faq", .Contact : "contact"]
+    fileprivate let userSection: [MenuItem] = [.profile]
+    fileprivate let enquirySection: [MenuItem] = [.rate, .like, .copyright, .terms, .privacy, .faq, .contact]
+    fileprivate let menuIcons: Dictionary<MenuItem, String> = [.profile : "user_male", .rate : "rate", .like : "like", .copyright : "copyright", .terms: "terms", .privacy: "privacy", .faq : "faq", .contact : "contact"]
     
-    private let sections: NSArray = [" ", " "]
+    fileprivate let sections: NSArray = [" ", " "]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Settings"
-        self.tableView.separatorStyle = .SingleLine
+        self.tableView.separatorStyle = .singleLine
         
         view.backgroundColor = UIColor(white: 0.95, alpha: 1)
         tableView.backgroundColor = UIColor(white: 0.95, alpha: 1)
         
-        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
        
         //remove extra cells in footer
-        let footer = UIView(frame: CGRectMake(0, 0, self.tableView.frame.size.width, 1))
+        let footer = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.frame.size.width, height: 1))
         self.tableView.tableFooterView = footer
         
         //remove sticky header
         let dummyViewHeight : CGFloat = 40;
-        let dummyView = UIView(frame:CGRectMake(0, 0, self.tableView.bounds.size.width, dummyViewHeight))
+        let dummyView = UIView(frame:CGRect(x: 0, y: 0, width: self.tableView.bounds.size.width, height: dummyViewHeight))
         self.tableView.tableHeaderView = dummyView;
         self.tableView.contentInset = UIEdgeInsetsMake(-dummyViewHeight, 0, 0, 0);
 
         //add close button
-        let closeBtn =  UIBarButtonItem(image: UIImage(named: "close"), style: .Plain, target: self, action: #selector(MenuViewController.closeMenu))
-        closeBtn.tintColor = .blackColor()
+        let closeBtn =  UIBarButtonItem(image: UIImage(named: "close"), style: .plain, target: self, action: #selector(MenuViewController.closeMenu))
+        closeBtn.tintColor = UIColor.black
         navigationItem.leftBarButtonItem = closeBtn
         
 
     }
     
     func closeMenu(){
-        navigationController?.dismissViewControllerAnimated(false, completion: nil)
+        navigationController?.dismiss(animated: false, completion: nil)
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
     }
     
     // return the number of sections
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return sections.count
     }
     
     // return the title of sections
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 
         return sections[section] as? String
     }
     
        // called when the cell is selected.
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if indexPath.section == 0 {
+        if (indexPath as NSIndexPath).section == 0 {
             let profileController = ProfileViewController()
             profileController.title = "Edit Profile"
             navigationController?.pushViewController(profileController, animated: true)
             
-        } else if indexPath.section == 1 {
+        } else if (indexPath as NSIndexPath).section == 1 {
             
-            switch(indexPath.row) {
+            switch((indexPath as NSIndexPath).row) {
                 case 0:
                     MenuActions.openScheme("itms://itunes.apple.com/us/app/apple-store/id375380948?mt=8")
                     break
@@ -96,7 +96,7 @@ class MenuViewController: UITableViewController {
                     return
                 }
             
-            print("Value: \(enquirySection[indexPath.row])")
+            print("Value: \(enquirySection[(indexPath as NSIndexPath).row])")
             
         }
     }
@@ -104,7 +104,7 @@ class MenuViewController: UITableViewController {
     // MARK: - Tableview Data Source
     
     override  // return the number of cells each section.
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return userSection.count
         } else if section == 1 {
@@ -115,30 +115,30 @@ class MenuViewController: UITableViewController {
     }
     
     // return cells
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
-        if indexPath.section == 0 {
-            cell.textLabel?.text = "\(userSection[indexPath.row])"
-            cell.imageView?.image = UIImage(named: menuIcons[userSection[indexPath.row]]!)?.imageWithInsets(10)
+        if (indexPath as NSIndexPath).section == 0 {
+            cell.textLabel?.text = "\(userSection[(indexPath as NSIndexPath).row])"
+            cell.imageView?.image = UIImage(named: menuIcons[userSection[(indexPath as NSIndexPath).row]]!)?.imageWithInsets(10)
             cell.imageView?.layer.cornerRadius = 40
             cell.imageView?.layer.masksToBounds = true
             cell.imageView?.backgroundColor = UIColor(white: 0.95, alpha: 1)
 
-        } else if indexPath.section == 1 {
-            cell.textLabel?.text = "\(enquirySection[indexPath.row])"
-            cell.imageView?.image = UIImage(named: menuIcons[enquirySection[indexPath.row]]!)
+        } else if (indexPath as NSIndexPath).section == 1 {
+            cell.textLabel?.text = "\(enquirySection[(indexPath as NSIndexPath).row])"
+            cell.imageView?.image = UIImage(named: menuIcons[enquirySection[(indexPath as NSIndexPath).row]]!)
         }
         
-        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+        cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
 
         return cell
     }
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if (indexPath.section == 0) {
-            if (indexPath.row == 0) {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if ((indexPath as NSIndexPath).section == 0) {
+            if ((indexPath as NSIndexPath).row == 0) {
                 return 95;
             }
         }

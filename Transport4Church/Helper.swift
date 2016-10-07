@@ -6,22 +6,10 @@
 //  Copyright © 2016 rccg. All rights reserved.
 //
 
-import SCLAlertView
-
 
 class Helper {
     
-    static func createAlert() -> SCLAlertView {
-        let appearance = SCLAlertView.SCLAppearance(
-            kTitleFont: UIFont(name: "HelveticaNeue", size: 20)!,
-            kTextFont: UIFont(name: "HelveticaNeue", size: 17)!,
-            kButtonFont: UIFont(name: "HelveticaNeue-Bold", size: 15)!,
-            showCloseButton: true
-        )
-        return SCLAlertView(appearance: appearance)
-    }
-    
-    static func validateFormInputs(valuesDictionary: Dictionary<String, Any?>) -> [String]{
+    static func validateFormInputs(_ valuesDictionary: Dictionary<String, Any?>) -> [String]{
         var emptyFields = [String]()
         for key in valuesDictionary.keys {
             if unwrap(valuesDictionary[key]) == nil {
@@ -32,7 +20,7 @@ class Helper {
         return emptyFields
     }
     
-    static func unwrap(value: Any?) -> String? {
+    static func unwrap(_ value: Any?) -> String? {
         if let result = value {
             return result as? String
         }
@@ -40,39 +28,39 @@ class Helper {
     }
 
     
-    static func convertDateToString(date : NSDate) -> String{
+    static func convertDateToString(_ date : Date) -> String{
         // format the NSDate to a NSString
-        let dateFormat = NSDateFormatter()
+        let dateFormat = DateFormatter()
         dateFormat.dateFormat = "cccc, MMM d, hh:mm aa"
-        let dateString = dateFormat.stringFromDate(date)
+        let dateString = dateFormat.string(from: date)
         return dateString
     }
     
     
     
-    static func convertStringToDate (date : String) -> NSDate{
+    static func convertStringToDate (_ date : String) -> Date{
         // format the NSDate to a NSString
-        let dateFormatter = NSDateFormatter()
+        let dateFormatter = DateFormatter()
         
         dateFormatter.dateFormat = "dd-MM-yyyy"
-        var dateFromString = NSDate()
-        dateFromString = dateFormatter.dateFromString(date)!
+        var dateFromString = Date()
+        dateFromString = dateFormatter.date(from: date)!
         return dateFromString
     }
 
-    static func resizeImage(image:UIImage, toTheSize size:CGSize) -> UIImage{
+    static func resizeImage(_ image:UIImage, toTheSize size:CGSize) -> UIImage{
         let scale = CGFloat(max(size.width/image.size.width,
             size.height/image.size.height))
         let width:CGFloat  = image.size.width * scale
         let height:CGFloat = image.size.height * scale;
         
-        let rr:CGRect = CGRectMake( 0, 0, width, height);
+        let rr:CGRect = CGRect( x: 0, y: 0, width: width, height: height);
         
         UIGraphicsBeginImageContextWithOptions(size, false, 0);
-        image.drawInRect(rr)
+        image.draw(in: rr)
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext();
-        return newImage
+        return newImage!
     }
     
   
