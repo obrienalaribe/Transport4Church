@@ -63,3 +63,17 @@ extension UIImage {
     }
     
 }
+
+extension Date
+{
+    
+    init(dateString:String) {
+        let dateStringFormatter = DateFormatter()
+        dateStringFormatter.dateFormat = "yyyy-MM-dd"
+        dateStringFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale!
+        let d = dateStringFormatter.date(from: dateString)!
+        self.init(timeInterval:0, since:d)
+    }
+}
+
+//Date(dateString:"2014-06-06")

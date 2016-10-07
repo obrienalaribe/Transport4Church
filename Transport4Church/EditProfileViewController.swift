@@ -28,14 +28,14 @@ class EditProfileViewController : FormViewController {
             
         }
         
-        form +++ Section()
-            <<< ImageRow("Picture"){
-                $0.title = "Select Profile Picture"
+        form
+        //    <<< ImageRow("Picture"){
+          //      $0.title = "Select Profile Picture"
                 
-                }.cellSetup({ (cell, row) in
-                    cell.imageView?.image = UIImage(named: "user")
-                    cell.accessoryView = UIImageView(image: UIImage(named:"user"))
-                })
+            //    }.cellSetup({ (cell, row) in
+              //      cell.imageView?.image = UIImage(named: "user")
+                //    cell.accessoryView = UIImageView(image: UIImage(named:"user"))
+               // })
             
             +++ Section("Please fill in your details")
             <<< TextRow("Name"){ row in

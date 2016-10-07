@@ -147,7 +147,7 @@ class RiderTripDetailController: UIViewController {
         tripDetails.addConstraintsWithFormat("H:|-10-[v0]-10-|", views: timeView)
         tripDetails.addConstraintsWithFormat("V:|-90-[v0(35)]", views: timeView)
         
-        let dateArr = (trip["pickup_time"] as! String).characters.split{$0 == ","}.map(String.init)
+        let dateArr = (Helper.convertDateToString(trip.pickupTime)).characters.split{$0 == ","}.map(String.init)
 
         createLineView(timeView, leftTitle: "Pickup time", rightTitle: ("\(dateArr.first!) \(dateArr.last!)"))
         

@@ -112,6 +112,8 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
             }
             
             listenForSocketConnection()
+            
+           
         }
         
         //TODO: use Socket to detect when trip is complete and then ToggleTripMode
@@ -158,13 +160,11 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
     }
     
     func setupActiveTripModeView(_ position: CLLocationCoordinate2D){
-//        setupPushNotification()
-        
+
         print("trip mode activated ")
         toggleViewForCurrentTripMode()
     
         driverLocation = GMSMarker(position: position)
-        driverLocation.title = "EFA Church Bus"
         driverLocation.isFlat = true
         
         driverLocation.icon = UIImage(named: "bus")!.withRenderingMode(.alwaysTemplate)
@@ -282,10 +282,13 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
         let alertController = UIAlertController (title: "Call Driver", message: "Would you like to call the driver?", preferredStyle: .alert)
         
         let settingsAction = UIAlertAction(title: "Yes, Call Driver", style: .default) { (_) -> Void in
-            let driverContact: String = "07778889077"
-            if let url = URL(string: "tel://\(driverContact)") {
-                UIApplication.shared.openURL(url)
+            if let driver = self.currentTrip.driver {
+                let driverContact = driver["contact"] as! String
+                if let url = URL(string: "tel://\(driverContact)") {
+                    UIApplication.shared.openURL(url)
+                }
             }
+           
         }
         
         let cancelAction = UIAlertAction(title: "No, Cancel", style: .default, handler: nil)
@@ -326,6 +329,8 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
             
            setRiderLocationOnMap()
         }
+        
+        self.tripDetailController.view.isHidden = true
         
     }
     
@@ -396,6 +401,7 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
         perform(#selector(delayedStopActivity),
                         with: nil,
                         afterDelay: 2.5)
+        toggleViewForCurrentTripMode()
     }
     
     func delayedStopActivity() {
@@ -472,12 +478,26 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
                 
                 if self.currentTrip.status == .STARTED {
                     self.updateDriverMarker(locationInfo)
+                    
+                    // TODO: Use PARSE CODE (execute on block for both android and ios)
+                    //fetch driver details once trip has started
+                    if self.currentTrip.driver == nil {
+                        self.currentTrip.fetchInBackground { (trip, error) in
+                            if let updatedTrip = trip as? Trip {
+                                updatedTrip.driver!.fetchIfNeededInBackground(block: { (object, error) in
+                                    print(updatedTrip.driver!["name"])
+                                    self.driverLocation.title = updatedTrip.driver!["name"] as! String?
+                                })
+                            }
+                        }
+                    }
                 }
-                //
                 
             })
             //TODO: Need to stop socket on driver
             print("Socket receiving driver location ... ")
+          
+            
             
         }
 

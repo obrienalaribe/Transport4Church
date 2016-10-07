@@ -9,14 +9,14 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Transport4Church/DriverRequestListController.swift"
-            timestampString = "495993136.330289"
+            filePath = "Transport4Church/RiderPickupDelegates.swift"
+            timestampString = "497526904.320549"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
-            landmarkName = "collectionView(_:cellForItemAtIndexPath:)"
-            landmarkType = "5">
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "riderWillCancelTrip()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -25,61 +25,14 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Transport4Church/EditProfileViewController.swift"
-            timestampString = "495718639.349492"
+            filePath = "Transport4Church/RiderPickupController.swift"
+            timestampString = "497527171.70092"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
             landmarkName = "viewDidLoad()"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Transport4Church.EditProfileViewController.viewDidLoad () -&gt; ()"
-                  moduleName = "Transport4Church"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/oalaribe/Documents/Swift/Transport4Church/Transport4Church/EditProfileViewController.swift"
-                  timestampString = "495718143.319383"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "34"
-                  endingLineNumber = "34"
-                  offsetFromSymbolStart = "728">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Transport4Church.EditProfileViewController.(viewDidLoad () -&gt; ()).(closure #2)"
-                  moduleName = "Transport4Church"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/oalaribe/Documents/Swift/Transport4Church/Transport4Church/EditProfileViewController.swift"
-                  timestampString = "495718143.319584"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "34"
-                  endingLineNumber = "34"
-                  offsetFromSymbolStart = "140">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Transport4Church.EditProfileViewController.(viewDidLoad () -&gt; ()).(closure #3)"
-                  moduleName = "Transport4Church"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/oalaribe/Documents/Swift/Transport4Church/Transport4Church/EditProfileViewController.swift"
-                  timestampString = "495718143.319679"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "35"
-                  endingLineNumber = "35"
-                  offsetFromSymbolStart = "36">
-               </Location>
-            </Locations>
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -88,14 +41,14 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Transport4Church/EditProfileViewController.swift"
-            timestampString = "495723873.78845"
+            filePath = "Transport4Church/RiderPickupController.swift"
+            timestampString = "497541094.763939"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "5">
+            startingLineNumber = "305"
+            endingLineNumber = "305"
+            landmarkName = "toggleViewForCurrentTripMode()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -104,14 +57,14 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Transport4Church/UserRepo.swift"
-            timestampString = "495727488.938482"
+            filePath = "Transport4Church/RiderPickupController.swift"
+            timestampString = "497541094.763939"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "updateProfile(_:listener:)"
-            landmarkType = "5">
+            startingLineNumber = "408"
+            endingLineNumber = "408"
+            landmarkName = "delayedStopActivity()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -120,14 +73,14 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Transport4Church/DriverTripViewController.swift"
-            timestampString = "496848498.225078"
+            filePath = "Transport4Church/RiderPickupController.swift"
+            timestampString = "497541094.763939"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148"
-            landmarkName = "viewDidAppear(_:)"
-            landmarkType = "5">
+            startingLineNumber = "407"
+            endingLineNumber = "407"
+            landmarkName = "delayedStopActivity()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -136,14 +89,30 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Transport4Church/SocketIOManager.swift"
-            timestampString = "496845072.121804"
+            filePath = "Transport4Church/RiderPickupDelegates.swift"
+            timestampString = "497527264.954139"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "getDriverLocation(_:)"
-            landmarkType = "5">
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "riderWillCancelTrip()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Transport4Church/ConfirmPickupFormController.swift"
+            timestampString = "497533863.009529"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "handleFormSubmission(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

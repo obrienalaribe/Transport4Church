@@ -30,12 +30,9 @@ class Trip : PFObject, PFSubclassing  {
     //only set destination on this object then Rider will have location
     @NSManaged var destination : PFGeoPoint
 
-    @NSManaged var driver : PFObject
+    @NSManaged var driver : PFObject?
     
-    var pickupTime : Date {
-        get { return Helper.convertStringToDate(object(forKey: "pickup_time" ) as! String)}
-        set { setObject(Helper.convertDateToString(newValue), forKey: "pickup_time") }
-    }
+    @NSManaged var pickupTime : Date
 
     override class func initialize() {
         struct Static {

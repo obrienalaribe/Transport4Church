@@ -48,15 +48,19 @@ class ConfirmPickupFormController: FormViewController {
 //                $0.disabled = true
 //            }
             
+            <<< TextRow("location"){ row in
+                row.title = "From"
+                row.value = "\(self.trip.rider.address.streetName!), \(self.trip.rider.address.postcode!)"
+                row.disabled = true
+            }
+            
             <<< TextRow("destination"){ row in
                 row.title = "To"
                 row.value = "RCCG EFA Leeds, LS4 2BB"
                 row.disabled = true
             }
             
-            //TODO: check if it is the users first trip then ask for contact
-            //try and do test call to verify number given
-            <<< TextRow("contact"){ row in
+            <<< PhoneRow("contact"){ row in
                 row.title = "Contact"
                 row.value = self.trip.rider.user["contact"] as! String
             }
@@ -100,9 +104,17 @@ class ConfirmPickupFormController: FormViewController {
         self.trip.destination = PFGeoPoint(latitude: EFA_Coord.latitude, longitude: EFA_Coord.longitude)
         self.trip.pickupTime = valuesDictionary["pickup_time"] as! Date
 
+        if let contactNumber = valuesDictionary["contact"] as? String {
+            let user = PFUser.current()
+            user?["contact"] = contactNumber
+            user?.saveEventually()
+        }
+        
         self.trip.saveInBackground(block: { (success, error) in
             self.navigationController?.popViewController(animated: true)
         })
+        
+        
         
     }
    

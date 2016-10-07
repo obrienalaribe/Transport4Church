@@ -46,7 +46,7 @@ class DriverRequestListController: UICollectionViewController, UICollectionViewD
         
         // Add this custom Segmented Control to our view
         self.view.addSubview(tripStatusToggle)
-        
+
     }
     
     func changeView(_ sender: UISegmentedControl) {
@@ -116,11 +116,16 @@ class DriverRequestListController: UICollectionViewController, UICollectionViewD
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! PickupRequestCell
         
-        cell.doneButton.layer.setValue((indexPath as NSIndexPath).row, forKey: "index")
-        
+        cell.acceptBtn.layer.setValue((indexPath as NSIndexPath).row, forKey: "index")
+        cell.acceptBtn.addTarget(self, action: #selector(DriverRequestListController.showDriverTripMode(_:)), for: .touchUpInside)
+
         cell.trip = pickupRequests?[(indexPath as NSIndexPath).row]
-        
-        cell.doneButton.addTarget(self, action: #selector(DriverRequestListController.showDriverTripMode(_:)), for: .touchUpInside)
+ 
+        if tripStatusToggle.selectedSegmentIndex != 0 {
+            cell.tripDisabledMode = true
+        }else{
+            cell.tripDisabledMode = false
+        }
         
         return cell
     }
@@ -135,6 +140,8 @@ class DriverRequestListController: UICollectionViewController, UICollectionViewD
   
     
     func showDriverTripMode(_ sender: UIButton){
+        
+        print("showing trip view")
         
         let row = sender.layer.value(forKey: "index") as! Int
         let trip : Trip = pickupRequests![row]
@@ -152,11 +159,27 @@ class DriverRequestListController: UICollectionViewController, UICollectionViewD
 
 class PickupRequestCell : BaseCollectionCell {
     
+    var tripDisabledMode : Bool? {
+        didSet {
+            if tripDisabledMode == true {
+                acceptBtn.isUserInteractionEnabled = false
+                acceptBtn.setTitleColor(UIColor(red:0.89, green:0.83, blue:0.83, alpha:1.0), for: UIControlState())
+                acceptBtn.setImage(UIImage(named: "ok-disabled"), for: UIControlState())
+
+            }else{
+                acceptBtn.isUserInteractionEnabled = true
+                acceptBtn.setTitleColor(UIColor.darkGray, for: UIControlState())
+                acceptBtn.setImage(UIImage(named: "Ok-48"), for: UIControlState())
+            }
+        }
+    }
+    
     var trip : Trip? {
         didSet {
             
             trip?.rider.user.fetchInBackground(block: { (user, error) in
                 self.nameLabel.text = (user)!["name"] as! String
+                self.callButton.layer.setValue((user)!["contact"], forKey: "contact")
             })
             
             print(trip?.rider.addressDic)
@@ -167,10 +190,12 @@ class PickupRequestCell : BaseCollectionCell {
                 print("\(street) \n \(city) \n \(postcode)")
             }
 
+            let dateString : String = Helper.convertDateToString((trip?.pickupTime)!)
             
-            let dateArr = (trip?["pickup_time"] as! String).characters.split{$0 == ","}.map(String.init)
+            let dateArr = (dateString).characters.split{$0 == ","}.map(String.init)
             
             self.timeLabel.text = dateArr.last
+            
             
         }
     }
@@ -224,20 +249,18 @@ class PickupRequestCell : BaseCollectionCell {
         let image = UIImage(named: "Phone-48")
         button.titleLabel!.font = UIFont.boldSystemFont(ofSize: 18)
         button.setImage(image, for: UIControlState())
-//        button.backgroundColor = .purpleColor()
         button.titleEdgeInsets = UIEdgeInsetsMake(0, 5, 0, 0)
         button.contentHorizontalAlignment = .left
         return button
     }()
     
-    let doneButton: UIButton = {
+    let acceptBtn: UIButton = {
         let button = UIButton()
         button.setTitle("Accept", for: UIControlState())
         button.setTitleColor(UIColor.darkGray, for: UIControlState())
         let image = UIImage(named: "Ok-48")
         button.titleLabel!.font = UIFont.boldSystemFont(ofSize: 18)
         button.setImage(image, for: UIControlState())
-//        button.backgroundColor = .blackColor()
         button.titleEdgeInsets = UIEdgeInsetsMake(0, 5, 0, 0)
         button.contentHorizontalAlignment = .left
         
@@ -292,30 +315,33 @@ class PickupRequestCell : BaseCollectionCell {
     fileprivate func setupActionButtons(){
         let actionButtonContainer = UIView()
         addSubview(actionButtonContainer)
-//        actionButtonContainer.backgroundColor = .purpleColor()
         
         addConstraintsWithFormat("H:|-105-[v0]|", views: actionButtonContainer)
         addConstraintsWithFormat("V:[v0(40)]|", views: actionButtonContainer)
 
         callButton.addTarget(self, action: #selector(PickupRequestCell.handleCallEvent), for: .touchUpInside)
         actionButtonContainer.addSubview(callButton)
-       
-        doneButton.addTarget(self, action: #selector(PickupRequestCell.handleCompleteEvent(_:)), for: .touchUpInside)
-        actionButtonContainer.addSubview(doneButton)
 
-        actionButtonContainer.addConstraintsWithFormat("H:|[v0][v1(v0)]|", views: callButton, doneButton)
+        actionButtonContainer.addSubview(acceptBtn)
+
+        actionButtonContainer.addConstraintsWithFormat("H:|[v0][v1(v0)]|", views: callButton, acceptBtn)
         actionButtonContainer.addConstraintsWithFormat("V:|[v0]|", views: callButton)
-        actionButtonContainer.addConstraintsWithFormat("V:|[v0]|", views: doneButton)
-        
+        actionButtonContainer.addConstraintsWithFormat("V:|[v0]|", views: acceptBtn)
+ 
     }
     
     
     func handleCallEvent(){
-        let riderPhone: String = "07778889077"
-        if let url = URL(string: "tel://\(riderPhone)") {
-            UIApplication.shared.openURL(url)
+        
+        if let riderPhone = callButton.layer.value(forKey: "contact") {
+            if let url = URL(string: "tel://\(riderPhone)") {
+                UIApplication.shared.openURL(url)
+            }
+            print("calling \(riderPhone)")
         }
-        print("calling \(riderPhone)")
+        
+        print(callButton.layer.value(forKey: "contact"))
+        
     }
     
     func handleCompleteEvent(_ sender: UIButton!){

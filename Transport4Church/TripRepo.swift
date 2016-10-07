@@ -14,18 +14,23 @@ class TripRepo {
         
         let tripDestination = PFGeoPoint.init(latitude: EFA_Coord.latitude, longitude: EFA_Coord.longitude)
         
+        let today = Date()
+        let cal = Calendar(identifier: .gregorian)
+        let startOfToday = cal.startOfDay(for: today)
+        let tomorrow = Calendar.current
+            .date(byAdding: .day, value: 1, to: today)
+        let startOfTmrw = cal.startOfDay(for: tomorrow!)
+
         let query = PFQuery(className:"Trip")
         query.whereKey("destination", equalTo: tripDestination)
         query.whereKey("status", equalTo: tripStatus.rawValue)
+        query.whereKey("pickupTime", greaterThanOrEqualTo: startOfToday)
+        query.whereKey("pickupTime", lessThanOrEqualTo: startOfTmrw)
         query.includeKey("Rider")
         query.includeKey("User")
-        query.addDescendingOrder("pickup_time")
-        query.cachePolicy = .cacheThenNetwork
-        query.order(byAscending: "pickup_time")
+        query.addAscendingOrder("pickupTime")
         query.limit = 100
         
-
-        print("making request")
         
         query.findObjectsInBackground {
             (objects: [PFObject]?, error: Error?) -> Void in
