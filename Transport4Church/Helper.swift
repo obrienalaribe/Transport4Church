@@ -64,4 +64,12 @@ class Helper {
     }
     
   
+    static func userHasGoogleMapsInstalled() -> Bool{
+        let googleMapsAppURL = URL(string: "comgooglemaps-x-callback://")!
+        if UIApplication.shared.canOpenURL(googleMapsAppURL) {
+          return true
+        } else {
+            return false
+        }
+    }
 }
