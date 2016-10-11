@@ -150,9 +150,8 @@ class DriverRequestListController: UICollectionViewController, UICollectionViewD
         trip.driver = PFUser.current()!
         trip.saveEventually()
         
-        
+        CloudFunctions.notifyRiderForAcceptedTrip(userId: trip.rider.user.objectId!)
         self.navigationController?.setViewControllers([DriverTripViewController(trip: trip)], animated: true)
-        
         
     }
 }

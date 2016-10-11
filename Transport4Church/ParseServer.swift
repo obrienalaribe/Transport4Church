@@ -26,6 +26,8 @@ class ParseServer {
             ParseMutableClientConfiguration.applicationId = "myAppId"
             ParseMutableClientConfiguration.clientKey = "myMasterKey"
             ParseMutableClientConfiguration.server = "https://insta231.herokuapp.com/parse"
+//            ParseMutableClientConfiguration.server = "http://localhost:1337/parse"
+
         })
         
         Parse.initialize(with: parseConfiguration)

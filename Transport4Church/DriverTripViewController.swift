@@ -161,7 +161,7 @@ class DriverTripViewController: UIViewController {
         let distanceString = String(format: "%.1f miles away from you", distanceInMiles)
         
         //send driver location through socket
-        SocketIOManager.sharedInstance.sendDriverLocation(driverLocation) {
+        SocketIOManager.sharedInstance.sendDriverLocation(driverLocation, to: self.currentTrip!.rider.user.objectId!) {
             print("location sent sucessefully ")
         }
         

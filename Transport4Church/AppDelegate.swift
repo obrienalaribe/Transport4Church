@@ -44,8 +44,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.rootViewController = UINavigationController(rootViewController:AuthViewController())
         }
         
-//        window?.rootViewController = UINavigationController(rootViewController:RiderTripDetailController(trip: trip))
+//        window?.rootViewController = UINavigationController(rootViewController:SocketIOViewController())
 
+    
+//        NotificationHelper.setupNotification()
         UserRepo.configureAppLaunchCount()
       
         return true
@@ -55,13 +57,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let installation = PFInstallation.current()
         
         if let deviceInstallation = installation {
-            print("installation done: push notification registered")
             deviceInstallation.setDeviceTokenFrom(deviceToken)
-            deviceInstallation.channels = ["global"]
-            deviceInstallation.saveInBackground()
+            //register user on a channel with their ID
+            if let user = PFUser.current() {
+                deviceInstallation.channels = [user.objectId!]
+            }
+            
+            deviceInstallation.saveInBackground(block: { (success, error) in
+                if error != nil {
+                    print(error)
+                }else{
+                    print("installation done: push notification registered with token \(deviceToken)")
+                }
+            })
         }
-        
-
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
@@ -74,6 +83,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
         PFPush.handle(userInfo)
+        print("RECEIVED REMOTE NOTIFICATION")
     }
     
     
