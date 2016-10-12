@@ -12,7 +12,7 @@ import BRYXBanner
 import Parse
 
 class SocketIOViewController: UIViewController {
-    let socket = SocketIOClient(socketURL: URL(string:"https://t4cserver.herokuapp.com/")!)
+    let socket = SocketIOClient(socketURL: URL(string:"http://localhost:3000/")!)
 
     let update : UIButton = {
         let btn = UIButton()
@@ -41,12 +41,38 @@ class SocketIOViewController: UIViewController {
     
     
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        addHandlers()
+        socket.connect()
     }
-
     
+    
+    func addHandlers() {
+        socket.on("driverLocationUpdateFor:ABC") {[weak self] data, ack in
+            print("driver location update is \(data)")
+            return
+        }
+        
+        socket.on("userConnectUpdate") { (dataArray, socketAck) -> Void in
+           print("User connected successfully ...")
+        }
+        
+//        socket.onAny {print("Got event: \($0.event), with items: \($0.items)")}
+    }
+    
+    func emitUpdate(){
+
+        //CONNECT USER by userid
+        socket.emit("connectUser", "ABC")
+        
+        let dispatchTime: DispatchTime = DispatchTime.now() + Double(Int64(0.6 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+        DispatchQueue.main.asyncAfter(deadline: dispatchTime, execute: {
+            let dataDictionary = ["userID": "ABC", "lat": "123", "long" : "345"]
+            self.socket.emit("driverChangedLocation", dataDictionary)
+
+        })
+
     func emitUpdate(){
         print("emitting ...")
        
@@ -79,11 +105,9 @@ class SocketIOViewController: UIViewController {
             
             present(alertController, animated: true, completion: nil)
 
-            
-           
-            
+        }
+        
         }
     }
-    
-    
+
 }

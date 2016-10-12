@@ -31,7 +31,6 @@ class TripRepo {
         query.addAscendingOrder("pickupTime")
         query.limit = 100
         
-        
         query.findObjectsInBackground {
             (objects: [PFObject]?, error: Error?) -> Void in
             

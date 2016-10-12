@@ -31,8 +31,6 @@ extension RiderPickupController : GMSMapViewDelegate{
             print("location from camera : \(helper.result)")
             self.locationTrackingLabel.textColor = UIColor.black
             
-            self.pickupBtn.isUserInteractionEnabled = true
-            
             if self.currentTrip != nil {
                 if self.currentTrip.status == TripStatus.NEW || self.currentTrip.status == TripStatus.CANCELLED {
                     //only update rider location on view during pickup mode
@@ -47,10 +45,15 @@ extension RiderPickupController : GMSMapViewDelegate{
                 self.currentTrip.rider.address = address
                 self.currentTrip.rider.addressDic = address.getDictionary()
                 
-                self.currentTrip.rider.saveInBackground()                
+                self.pickupBtn.isUserInteractionEnabled = true
+
+                self.currentTrip.rider.saveInBackground()
+                
+//                if self.pickupBtn.isUserInteractionEnabled {
+//                    
+//                    self.animatePickupBtn()
+//                }
             }
-            
-            
         })
         
         self.navigationController?.setNavigationBarHidden(false, animated: true)
@@ -62,6 +65,16 @@ extension RiderPickupController : GMSMapViewDelegate{
            
             
         }
+    }
+    
+    func animatePickupBtn(){
+        DispatchQueue.main.async(execute: { () -> Void in
+            //run ui updates on main thread
+            self.pickupBtn.transform = CGAffineTransform(scaleX: 0.05, y: 0.05)
+            
+            UIView.animate(withDuration: 2.0, delay: 0,usingSpringWithDamping: 0.20, initialSpringVelocity: 4.00, options: UIViewAnimationOptions.allowUserInteraction,animations: {self.pickupBtn.transform = CGAffineTransform.identity
+                }, completion: nil)
+        })
     }
     
 }
@@ -82,14 +95,12 @@ extension RiderPickupController: RiderTripDetailControllerDelegate {
         
         let confirmAction = UIAlertAction(title: "Cancel Pickup", style: .default) { (_) -> Void in
             //TODO: Send socket request to notify the driver
-            
-            self.tripDetailController.removeFromParentViewController()
-            self.tripDetailController.view.removeFromSuperview()
-            self.toggleViewForCurrentTripMode()
+
+            self.toggleViewForCurrentTripMode(state: .REQUESTED)
 
              self.currentTrip.status = .CANCELLED
              self.currentTrip.saveInBackground(block: { (success, error) in
-                self.startNetworkActivity()
+                self.startNetworkActivityForCancelledTrip()
              })
         }
         
@@ -109,26 +120,11 @@ extension RiderPickupController: RiderTripDetailControllerDelegate {
 // MARK: GMSAutocompleteViewControllerDelegate
 
 extension RiderPickupController: GMSAutocompleteViewControllerDelegate {
-    /**
-     * Called when a non-retryable error occurred when retrieving autocomplete predictions or place
-     * details. A non-retryable error is defined as one that is unlikely to be fixed by immediately
-     * retrying the operation.
-     * <p>
-     * Only the following values of |GMSPlacesErrorCode| are retryable:
-     * <ul>
-     * <li>kGMSPlacesNetworkError
-     * <li>kGMSPlacesServerError
-     * <li>kGMSPlacesInternalError
-     * </ul>
-     * All other error codes are non-retryable.
-     * @param viewController The |GMSAutocompleteViewController| that generated the event.
-     * @param error The |NSError| that was returned.
-     */
+ 
     public func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
         print("Error: ", error.localizedDescription)
     }
 
-    
     // Handle the user's selection.
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
         //        print("Place name: ", place.name)
@@ -177,6 +173,7 @@ extension RiderPickupController : CLLocationManagerDelegate {
         if self.riderMapViewDidInitialiseWithLocation == false {
             //first app launch when they is a delay with map update
             setRiderLocationOnMap()
+            animatePickupBtn()
         }
 
     }

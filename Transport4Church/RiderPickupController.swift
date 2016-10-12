@@ -126,28 +126,30 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
         self.locationManager.delegate = self
         self.locationManager.requestAlwaysAuthorization()
         self.locationManager.startUpdatingLocation()
+        self.pickupBtn.isUserInteractionEnabled = false
         
         print("seting up rider and trip")
         if let location = locationManager.location {
             self.riderMapViewDidInitialiseWithLocation = true
 
+            //TODO: You should not create a new rider everytime (use optional)
             let rider = Rider()
-            rider.location = PFGeoPoint(location: location)
             
             rider.user = PFUser.current()!
             
             self.currentTrip = Trip()
             self.currentTrip.rider = rider
+            self.currentTrip.rider.location = PFGeoPoint(location: location)
             self.currentTrip.status = TripStatus.NEW
-
             
             let riderLatitude = self.currentTrip.rider.location.latitude
             let riderLongitude = self.currentTrip.rider.location.longitude
             
 //            mapView.camera = GMSCameraPosition.cameraWithLatitude(riderLatitude, longitude: riderLongitude, zoom: 14.0)
-           
+       
             mapView.animate(toLocation: CLLocationCoordinate2D(latitude: riderLatitude, longitude: riderLongitude))
-            mapView.animate(toZoom: 14)
+            mapView.animate(toZoom: 15)
+            
             
         }else{
             self.riderMapViewDidInitialiseWithLocation = false
@@ -162,7 +164,7 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
     func setupActiveTripModeView(_ position: CLLocationCoordinate2D){
 
         print("trip mode activated ")
-        toggleViewForCurrentTripMode()
+        toggleViewForCurrentTripMode(state: .STARTED)
     
         driverLocation = GMSMarker(position: position)
         driverLocation.isFlat = true
@@ -299,14 +301,16 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
 
     }
     
-    func toggleViewForCurrentTripMode(){
-        if self.currentTrip.status == .REQUESTED {
-            
+    func toggleViewForCurrentTripMode(state: TripStatus){
+        //TODO: You should pass in the state of the trip rather than use
+        // the global state to execute view changes- BAD PRACTICE
+        
+        if state == TripStatus.REQUESTED {
             self.tripDetailController.removeFromParentViewController()
             self.tripDetailController.view.removeFromSuperview()
         }
         
-        if self.currentTrip.status == .STARTED {
+        if state == TripStatus.STARTED {
             self.locationTrackingLabel.isUserInteractionEnabled = false
             self.pickupBtn.isHidden = true
             self.mapPin.isHidden = true
@@ -314,7 +318,7 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
             self.cancelTripBtn.tintColor = UIColor.black
         }
        
-        if self.currentTrip.status == TripStatus.CANCELLED {
+        if state == TripStatus.CANCELLED {
             self.locationTrackingLabel.isUserInteractionEnabled = true
             self.pickupBtn.isHidden = false
             self.mapPin.isHidden = false
@@ -330,8 +334,6 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
            setRiderLocationOnMap()
         }
         
-        self.tripDetailController.view.isHidden = true
-        
     }
     
     fileprivate func setupMapPin(){
@@ -343,7 +345,6 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
     
     fileprivate func setupPickupButton(){
         pickupBtn = UIButton()
-        pickupBtn.isUserInteractionEnabled = false //disable till user location is determined
         pickupBtn.layer.cornerRadius = 12
         pickupBtn.setTitleColor(UIColor.darkGray, for: UIControlState())
         pickupBtn.setTitle("Pick me up here", for: UIControlState())
@@ -365,7 +366,7 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
     }
     
     func setupViewObservers() -> Void {
-        NotificationCenter.default.addObserver(self, selector: #selector(handleLocationAuthorizationState), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleViewStateFromBackground), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
     }
     
     func handleLocationAuthorizationState(){
@@ -394,20 +395,21 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
     
 
     
-    func startNetworkActivity(){
+    func startNetworkActivityForCancelledTrip(){
         let size = CGSize(width: 30, height:30)
         
         startAnimating(size, message: "Please wait", type: NVActivityIndicatorType(rawValue: 17)!)
         perform(#selector(delayedStopActivity),
                         with: nil,
                         afterDelay: 2.5)
-        toggleViewForCurrentTripMode()
+        toggleViewForCurrentTripMode(state: .CANCELLED)
     }
     
     func delayedStopActivity() {
         stopAnimating()
         self.locationTrackingLabel.alpha = 1
         self.mapView.alpha = 1
+        self.animatePickupBtn()
     }
     
     func modallyDisplayTripDetails(){
@@ -433,7 +435,7 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
             
             self.currentTrip.status = .CANCELLED
             self.currentTrip.saveInBackground(block: { (success, error) in
-                self.startNetworkActivity()
+                self.startNetworkActivityForCancelledTrip()
 
             })
         }
@@ -449,15 +451,15 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
     }
     
     func listenForSocketConnection(){
-        SocketIOManager.sharedInstance.getDriverLocation { (locationInfo) in
+        let userID = self.currentTrip.rider.user.objectId!
+        SocketIOManager.sharedInstance.getDriverLocationUpdate(forUser: userID) { (locationInfo) in
             
             DispatchQueue.main.async(execute: { () -> Void in
                 //run ui updates on main thread
                 
-                self.toggleViewForCurrentTripMode()
-                
                 if self.currentTrip.status == .REQUESTED {
-                    
+                    self.toggleViewForCurrentTripMode(state: .REQUESTED)
+
                     let dispatchTime: DispatchTime = DispatchTime.now() + Double(Int64(0.9 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
                     DispatchQueue.main.asyncAfter(deadline: dispatchTime, execute: {
                         let banner = Banner(title: "Pickup Request Accepted!!", subtitle: "The church bus is on its way now", image: UIImage(named: "bus"), backgroundColor: BrandColours.primary.color)
@@ -474,6 +476,7 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
                     self.currentTrip.saveEventually()
                     self.setupActiveTripModeView(locationInfo)
                     
+                    //TODO: Schedule from remote notification
                     NotificationHelper.scheduleLocal("The church bus is on its way", status: "accepted", alertDate: Date())
                 }
                 
@@ -485,9 +488,10 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
                     if self.currentTrip.driver == nil {
                         self.currentTrip.fetchInBackground { (trip, error) in
                             if let updatedTrip = trip as? Trip {
-                                updatedTrip.driver!.fetchIfNeededInBackground(block: { (object, error) in
-                                    print(updatedTrip.driver!["name"])
-                                    self.driverLocation.title = updatedTrip.driver!["name"] as! String?
+                                updatedTrip.driver?.fetchIfNeededInBackground(block: { (object, error) in
+                                    if let driverName = updatedTrip.driver?["name"] as? String {
+                                        self.driverLocation.title = driverName
+                                    }
                                 })
                             }
                         }
@@ -497,11 +501,16 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
             })
             //TODO: Need to stop socket on driver
             print("Socket receiving driver location ... ")
-          
-            
             
         }
 
+    }
+    
+    
+    func handleViewStateFromBackground(){
+        if self.currentTrip.status == .STARTED {
+        }
+        
     }
 }
 

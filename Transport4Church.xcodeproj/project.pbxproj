@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		012A8EE77D6542FA88FD35DA /* Pods_Transport4Church.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F73B70F7C5683DCD966CE3CB /* Pods_Transport4Church.framework */; };
+		041CA9811DAAE2CE00792045 /* CloudFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041CA9801DAAE2CE00792045 /* CloudFunctions.swift */; };
 		04283A351D5D1DB90053D1D2 /* DriverRequestListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04283A341D5D1DB90053D1D2 /* DriverRequestListController.swift */; };
 		042B42341D6887BE008CBFE0 /* ParseServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B42331D6887BE008CBFE0 /* ParseServer.swift */; };
 		042B42371D68BE0F008CBFE0 /* DaoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B42361D68BE0F008CBFE0 /* DaoManager.swift */; };
@@ -66,6 +67,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		041CA9801DAAE2CE00792045 /* CloudFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudFunctions.swift; sourceTree = "<group>"; };
 		04283A341D5D1DB90053D1D2 /* DriverRequestListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverRequestListController.swift; sourceTree = "<group>"; };
 		042B42331D6887BE008CBFE0 /* ParseServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseServer.swift; sourceTree = "<group>"; };
 		042B42361D68BE0F008CBFE0 /* DaoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DaoManager.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				04DD3C4A1D57A88E00DEBB32 /* UIViewExtension.swift */,
 				43632A191D63269A00AD3B75 /* LocationHelper.swift */,
 				048552831D7DEF8D00F7B9B6 /* Helper.swift */,
+				041CA9801DAAE2CE00792045 /* CloudFunctions.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -401,6 +404,7 @@
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = 7289W83XQQ;
 						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -639,6 +643,7 @@
 				042B42371D68BE0F008CBFE0 /* DaoManager.swift in Sources */,
 				04DD3C4D1D5909B700DEBB32 /* EditProfileViewController.swift in Sources */,
 				04283A351D5D1DB90053D1D2 /* DriverRequestListController.swift in Sources */,
+				041CA9811DAAE2CE00792045 /* CloudFunctions.swift in Sources */,
 				042B42391D68D908008CBFE0 /* UserRepo.swift in Sources */,
 				43632A091D5B811600AD3B75 /* FormButton.swift in Sources */,
 				43973CE31D8976CF00C17C0B /* DriverTripViewController.swift in Sources */,
@@ -771,6 +776,8 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Transport4Church/Transport4Church.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 7289W83XQQ;
 				INFOPLIST_FILE = Transport4Church/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -779,6 +786,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.rccg.TransportForChurch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Transport4Church-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -793,7 +801,8 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Transport4Church/Transport4Church.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Push Services: org.rccg.TransportForChurch";
+				DEVELOPMENT_TEAM = 7289W83XQQ;
 				INFOPLIST_FILE = Transport4Church/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -802,6 +811,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.rccg.TransportForChurch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Transport4Church-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};

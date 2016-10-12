@@ -11,10 +11,11 @@ import Foundation
 import UIKit
 import SocketIO
 
-class SocketIOManager: NSObject {
-    
-    static let sharedInstance = SocketIOManager()
-    let socket = SocketIOClient(socketURL: URL(string:"https://t4cserver.herokuapp.com/")!)
+
+open class SocketIOManager: NSObject {
+    let userRepo = UserRepo()
+    open static let sharedInstance = SocketIOManager()
+    let socket = SocketIOClient(socketURL: URL(string:"https://t4cserver.herokuapp.com")!)
 
     //This prevents others from using the default '()' initializer for this class.
     fileprivate override init() {
@@ -23,7 +24,17 @@ class SocketIOManager: NSObject {
     
     func establishConnection() {
         print("Establishing socket connection ... ")
+        addHandlers()
         socket.connect()
+        
+        let dispatchTime: DispatchTime = DispatchTime.now() + Double(Int64(0.6 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+        DispatchQueue.main.asyncAfter(deadline: dispatchTime, execute: {
+            if let currentUser = self.userRepo.getCurrentUser() {
+                print("Sending user details to socket ... ")
+                self.socket.emit("connectUser", currentUser.objectId!)
+            }
+        })
+
     }
     
     
@@ -33,25 +44,27 @@ class SocketIOManager: NSObject {
     }    
     
     func addHandlers() -> Void {
-        
+        socket.on("userConnectUpdate") { (dataArray, socketAck) -> Void in
+            print("User connected successfully ... \(dataArray)")
+        }
+
     }
-    
-//    func sendDriverLocation(location: String, completionHandler: () -> Void) {
-//        socket.emit("driverChangedLocation", location)
-//        completionHandler()
-//    }
-//    
-    func sendDriverLocation(_ location: CLLocation, completionHandler: () -> Void) {
-        let locationDictionary = ["lat": location.coordinate.latitude, "long" : location.coordinate.longitude]
-        socket.emit("driverChangedLocation", locationDictionary)
+
+    func sendDriverLocation(_ location: CLLocation, to userID: String, completionHandler: () -> Void) {
+        let dataDictionary = ["userID": userID, "lat": location.coordinate.latitude, "long" : location.coordinate.longitude] as [String : Any]
+        socket.emit("driverChangedLocation", dataDictionary)
         completionHandler()
     }
     
-    func getDriverLocation(_ completionHandler: @escaping (_ location: CLLocationCoordinate2D) -> Void) {
-        socket.on("driverLocationUpdate") {(dataArray, socketAck) -> Void in
+    func getDriverLocationUpdate(forUser: String, completionHandler: @escaping (_ location: CLLocationCoordinate2D) -> Void) {
+        socket.on("driverLocationUpdateFor:\(forUser)") {(dataArray, socketAck) -> Void in
             let result = dataArray[0] as! Dictionary<String,Double>
             completionHandler(CLLocationCoordinate2D(latitude: result["lat"]!, longitude: result["long"]!))
         }
+    }
+    
+    func endDriverLocationUpdate(){
+        //TODO: send message to driver to stop i.e from cancel/complete trip action
     }
 
 }

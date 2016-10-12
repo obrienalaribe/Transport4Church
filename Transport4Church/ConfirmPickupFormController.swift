@@ -21,8 +21,6 @@ class ConfirmPickupFormController: FormViewController {
     init(trip: Trip) {
         self.trip = trip
         super.init(nibName: nil, bundle: nil)
-        //Use location helper to get location details of PFGeopoint then set in fields
-
     }
  
     

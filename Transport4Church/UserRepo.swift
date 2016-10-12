@@ -119,7 +119,6 @@ class UserRepo {
                 print(PFUser.current()!)                
                 listener.navigationController?.setViewControllers([EditProfileViewController()], animated: true)
                 
-                
             }
             
         }

@@ -34,13 +34,12 @@ class NotificationHelper: NSObject {
     }
     
     static func setupNotification(){
-        let types: UIUserNotificationType = [.alert, .badge, .sound]
+        let types: UIUserNotificationType = [.badge, .sound]
         let settings = UIUserNotificationSettings(types: types, categories: nil)
         let application = UIApplication.shared
         application.registerUserNotificationSettings(settings)
         application.registerForRemoteNotifications()
     }
-    
     
     static func scheduleLocal(_ message: String, status: String, alertDate: Date) {
         let notification = UILocalNotification()
