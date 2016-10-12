@@ -100,8 +100,10 @@ class DriverRequestListController: UICollectionViewController, UICollectionViewD
         super.viewWillAppear(animated)
         
         refresh()
+        self.downloadGoogleMapsIfNeeded()
+       
     }
-    
+
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -152,8 +154,32 @@ class DriverRequestListController: UICollectionViewController, UICollectionViewD
         
         CloudFunctions.notifyRiderForAcceptedTrip(userId: trip.rider.user.objectId!)
         self.navigationController?.setViewControllers([DriverTripViewController(trip: trip)], animated: true)
+
+    }
+    
+    func downloadGoogleMapsIfNeeded(){
+        if Helper.userHasGoogleMapsInstalled() == false {
+            //Prompt to download Google maps
+            let alertController = UIAlertController (title: "Download Google Maps", message: "Please download Google Maps to help you get navigation to a rider's location", preferredStyle: .alert)
+            
+            let downloadAction = UIAlertAction(title: "Download", style: .default) { (_) -> Void in
+                let googleMapsDownloadURL = URL(string: "itms://itunes.apple.com/us/app/google-maps-navigation-transit/id585027354")
+                if UIApplication.shared.canOpenURL(googleMapsDownloadURL!) {
+                    UIApplication.shared.openURL(googleMapsDownloadURL!)
+                }
+            }
+            
+            let cancelAction = UIAlertAction(title: "Ignore", style: .default, handler: nil)
+            
+            alertController.addAction(cancelAction)
+            alertController.addAction(downloadAction)
+            
+            self.navigationController?.present(alertController, animated: true, completion: nil)
+            
+        }
         
     }
+    
 }
 
 class PickupRequestCell : BaseCollectionCell {
@@ -177,7 +203,7 @@ class PickupRequestCell : BaseCollectionCell {
         didSet {
             
             trip?.rider.user.fetchInBackground(block: { (user, error) in
-                self.nameLabel.text = (user)!["name"] as! String
+                self.nameLabel.text = (user)!["name"] as? String
                 self.callButton.layer.setValue((user)!["contact"], forKey: "contact")
             })
             
