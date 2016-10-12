@@ -464,6 +464,7 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
                         banner.dismissesOnTap = false
                         banner.show(duration: 3.0)
                         
+                        banner.didTapBlock?(())
                     })
                     
                     self.mapView.alpha = 1
