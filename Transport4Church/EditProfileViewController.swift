@@ -87,10 +87,19 @@ class EditProfileViewController : FormViewController {
        
         let valuesDictionary = form.values()
         
-        let listOfEmptyFields = Helper.validateFormInputs(valuesDictionary)
+        var emptyFields = [String]()
+        for key in valuesDictionary.keys {
+            if let value = valuesDictionary[key] as? String {
+                emptyFields.append(key)
+            }else{
+                print(valuesDictionary[key])
+            }
+        }
+
+        print(valuesDictionary)
         
-        if 1 == 0 {
-           
+        if 1 == 1 {
+            Helper.showErrorMessage(title: "Incomplete Fields", subtitle: "Please fill in the following fields \(emptyFields)")
 
         }else{
 
@@ -100,5 +109,7 @@ class EditProfileViewController : FormViewController {
         }
         
     }
+    
+    
       
 }

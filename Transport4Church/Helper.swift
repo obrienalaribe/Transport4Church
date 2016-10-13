@@ -6,6 +6,7 @@
 //  Copyright © 2016 rccg. All rights reserved.
 //
 
+import BRYXBanner
 
 class Helper {
     
@@ -14,6 +15,8 @@ class Helper {
         for key in valuesDictionary.keys {
             if unwrap(valuesDictionary[key]) == nil {
                 emptyFields.append(key)
+            }else{
+                print(valuesDictionary[key])
             }
         }
         
@@ -71,5 +74,13 @@ class Helper {
         } else {
             return false
         }
+    }
+    
+    static func showErrorMessage(title: String, subtitle: String){
+        let banner = Banner(title: title, subtitle: subtitle, image: UIImage(named: "close"), backgroundColor: UIColor.white)
+        banner.textColor = UIColor.red
+        banner.dismissesOnTap = true
+        banner.show(duration: 3.0)
+
     }
 }
