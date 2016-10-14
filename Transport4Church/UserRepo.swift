@@ -89,7 +89,6 @@ class UserRepo {
             if let error = error {
                 
                 if error._code == 202 {
-                    print("user already exist so login and navigate to rider view")
                     
                     PFUser.logInWithUsername(inBackground: credentials.username, password: credentials.password) {(user: PFUser?, error: Error?) -> Void in
                         if user != nil {
@@ -98,19 +97,17 @@ class UserRepo {
                             
                         } else {
                             print("user log in failed")
+                            Helper.showErrorMessage(title: "Login failed", subtitle: "The login credentials provided for this account are incorrect")
                         }
                     }
                     
                     if let user = PFUser.current() {
                         print(PFUser.current()!)
                         listener.navigationController?.setViewControllers([RiderPickupController()], animated: true)
-                    }else{
-                        
-                        //TODO: User logged in with existing email but wrong password. USe alert 
                     }
                  
                 }else{
-                    print(" \(error)")
+                    print(" this is case \(error)")
                 }
                 
             } else {
@@ -124,6 +121,7 @@ class UserRepo {
         }
 
     }
+    
     
     func fetchAndSetUsersProfileImage(_ user: PFUser, imageView: UIImageView){
         let query = PFQuery(className:"Picture")

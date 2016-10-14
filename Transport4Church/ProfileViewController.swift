@@ -65,7 +65,7 @@ class ProfileViewController : UIViewController {
     
     override func loadView() {
         super.loadView()
-
+        NotificationCenter.default.addObserver(self, selector: #selector(ProfileViewController.actOnProfileUpdate(notification:)), name: NSNotification.Name(rawValue: "transport4Church.profileUpdated"), object: nil)
     }
 
     override func viewDidLoad() {
@@ -116,7 +116,8 @@ class ProfileViewController : UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        userRepo.fetchAndSetUsersProfileImage(currentUser, imageView: self.profileImageView)
+//        userRepo.fetchAndSetUsersProfileImage(currentUser, imageView: self.profileImageView)
+
     }
     
     func setupEditBtn(_ parentMargin : UILayoutGuide){
@@ -194,6 +195,24 @@ class ProfileViewController : UIViewController {
         
         logoutBtn.addTarget(self, action: #selector(ProfileViewController.logout), for: .touchUpInside)
         
+    }
+    
+    /**
+     This function is an observer method that listens for when a profile is updated. It is called on EditProfileViewController.willDisapper()
+     */
+    func actOnProfileUpdate(notification: NSNotification){
+        Helper.showSuccessMessage(title: nil, subtitle: "Profile updated successfully")
+        
+        if let profile = notification.userInfo?["update"] as? Profile {
+            self.nameLabel.text = profile.name
+        }
+        print("profile view controller received Profile update Notification")
+        
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+        print("profile view stopped observing for profile updates")
     }
 
     func logout(){
