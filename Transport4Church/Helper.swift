@@ -16,7 +16,6 @@ class Helper {
                 emptyFields.append(key)
             }
         }
-        
         return emptyFields
     }
     
@@ -27,7 +26,6 @@ class Helper {
         return nil
     }
 
-    
     static func convertDateToString(_ date : Date) -> String{
         // format the NSDate to a NSString
         let dateFormat = DateFormatter()
@@ -35,8 +33,6 @@ class Helper {
         let dateString = dateFormat.string(from: date)
         return dateString
     }
-    
-    
     
     static func convertStringToDate (_ date : String) -> Date{
         // format the NSDate to a NSString

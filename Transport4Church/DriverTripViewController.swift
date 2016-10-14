@@ -39,10 +39,10 @@ class DriverTripViewController: UIViewController {
         
         title = currentTrip?.rider.user["name"] as! String
    
-        let completeTripBtn =  UIBarButtonItem(image: UIImage(named: "close"), style: .plain, target: self, action: #selector(DriverTripViewController.completeTrip))
+        let closeTripBtn =  UIBarButtonItem(image: UIImage(named: "close"), style: .plain, target: self, action: #selector(DriverTripViewController.closeActiveTrip))
         
-        completeTripBtn.tintColor = UIColor.black
-        navigationItem.rightBarButtonItem = completeTripBtn
+        closeTripBtn.tintColor = UIColor.black
+        navigationItem.rightBarButtonItem = closeTripBtn
         
         let callRiderBtn =  UIBarButtonItem(image: UIImage(named: "plain_phone"), style: .plain, target: self, action: #selector(DriverTripViewController.callRider))
         
@@ -51,19 +51,30 @@ class DriverTripViewController: UIViewController {
 
     }
     
-    func completeTrip(){
-        let alertController = UIAlertController (title: "Pickup Complete", message: "Has this rider been picked up ?", preferredStyle: .alert )
+    func closeActiveTrip(){
+        let alertController = UIAlertController (title: "Close Active Trip", message: "Please select an action you would like to take", preferredStyle: .alert )
         
-        let yesAction = UIAlertAction(title: "Yes, Complete", style: .default) { (_) -> Void in
+        let completeTripAction = UIAlertAction(title: "Complete pickup", style: .default) { (_) -> Void in
             self.currentTrip?.status = TripStatus.COMPLETED
             self.currentTrip?.saveEventually()
             self.navigationController?.setViewControllers([DriverRequestListController(collectionViewLayout: UICollectionViewFlowLayout())], animated: true)
             
         }
         
-        let cancelAction = UIAlertAction(title: "No", style: .default, handler: nil)
-        alertController.addAction(yesAction)
-        alertController.addAction(cancelAction)
+        let cancelTripAction = UIAlertAction(title: "Cancel pickup", style: .default) { (_) -> Void in
+            self.currentTrip?.status = TripStatus.CANCELLED
+            self.currentTrip?.saveEventually()
+            self.navigationController?.setViewControllers([DriverRequestListController(collectionViewLayout: UICollectionViewFlowLayout())], animated: true)
+            
+            SocketIOManager.sharedInstance.sendTripStatusUpdate(toUser: (self.currentTrip?.rider.user.objectId)!, status: "cancel")
+        }
+        
+        let continueAction = UIAlertAction(title: "Continue", style: .default, handler: nil)
+        
+        
+        alertController.addAction(completeTripAction)
+        alertController.addAction(cancelTripAction)
+        alertController.addAction(continueAction)
         
         present(alertController, animated: true, completion: nil)
     }

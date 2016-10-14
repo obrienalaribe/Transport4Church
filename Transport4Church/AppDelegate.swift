@@ -26,7 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         GMSPlacesClient.provideAPIKey(googleMapsApiKey)
 
-        
         _ = ParseServer()
         
         if let loggedInUser = PFUser.current(){
@@ -44,7 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.rootViewController = UINavigationController(rootViewController:AuthViewController())
         }
         
-//        window?.rootViewController = UINavigationController(rootViewController:SocketIOViewController())
+        window?.rootViewController = UINavigationController(rootViewController:SocketIOViewController())
 
     
 //        NotificationHelper.setupNotification()
