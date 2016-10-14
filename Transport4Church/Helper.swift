@@ -13,10 +13,11 @@ class Helper {
     static func validateFormInputs(_ valuesDictionary: Dictionary<String, Any?>) -> [String]{
         var emptyFields = [String]()
         for key in valuesDictionary.keys {
-            if unwrap(valuesDictionary[key]) == nil {
-                emptyFields.append(key)
-            }else{
-                print(valuesDictionary[key])
+            if let field = unwrap(valuesDictionary[key]) {
+                if unwrap(field)!.isEmpty {
+                    emptyFields.append(key)
+                    print("\(key) is empty \(unwrap(field)!.isEmpty)")
+                }
             }
         }
         
@@ -81,6 +82,14 @@ class Helper {
         banner.textColor = UIColor.red
         banner.dismissesOnTap = true
         banner.show(duration: 3.0)
-
     }
+    
+    static func showSuccessMessage(title: String?, subtitle: String?){
+        let banner = Banner(title: title, subtitle: subtitle, image: UIImage(named: "tick"), backgroundColor: UIColor.white)
+        banner.textColor = BrandColours.primary.color
+        banner.dismissesOnTap = true
+        banner.show(duration: 3.0)
+    }
+
+    
 }

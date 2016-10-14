@@ -53,19 +53,12 @@ class AuthViewController : FormViewController {
     func handleFormSubmission(_ sender: UIButton!){
         let valuesDictionary = form.values()
 
-        let listOfEmptyFields = Helper.validateFormInputs(valuesDictionary)
-        
-        if listOfEmptyFields.isEmpty == false {
+        if let email = valuesDictionary["Email"] as? String, let password = valuesDictionary["Password"] as? String {
+            let credentials = Credentials(username: email, password: password, role: valuesDictionary["Role"] as! String)
             
-         print("Could not authenticate")
-            
-//            NSLog("sdfsf", nil)
-            
-        }else{
-            let credentials = Credentials(username: valuesDictionary["Email"] as! String, password: valuesDictionary["Password"] as! String, role: valuesDictionary["Role"] as! String)
-           
             userRepo.authenticate(credentials, listener: self)
-            
+        }else{
+            Helper.showErrorMessage(title: "Invalid Entry", subtitle: "Please enter a username and password to login or register with")
         }
         
     }

@@ -475,9 +475,7 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
                     self.currentTrip.status = .STARTED
                     self.currentTrip.saveEventually()
                     self.setupActiveTripModeView(locationInfo)
-                    
-                    //TODO: Schedule from remote notification
-                    NotificationHelper.scheduleLocal("The church bus is on its way", status: "accepted", alertDate: Date())
+            
                 }
                 
                 if self.currentTrip.status == .STARTED {

@@ -13,6 +13,7 @@ import ImageRow
 class EditProfileViewController : FormViewController {
     
     fileprivate var userRepo : UserRepo = UserRepo()
+    fileprivate var profile : Profile?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,30 +87,29 @@ class EditProfileViewController : FormViewController {
     func handleFormSubmission(_ sender: UIButton!){
        
         let valuesDictionary = form.values()
+        let empytFields = Helper.validateFormInputs(valuesDictionary)
         
-        var emptyFields = [String]()
-        for key in valuesDictionary.keys {
-            if let value = valuesDictionary[key] as? String {
-                emptyFields.append(key)
-            }else{
-                print(valuesDictionary[key])
-            }
-        }
-
-        print(valuesDictionary)
-        
-        if 1 == 1 {
-            Helper.showErrorMessage(title: "Incomplete Fields", subtitle: "Please fill in the following fields \(emptyFields)")
+        if empytFields.isEmpty == false {
+            Helper.showErrorMessage(title: "Incomplete Fields", subtitle: "Please fill in the following fields: \(empytFields.joined(separator: ", "))")
 
         }else{
 
-            let profile = Profile(image: valuesDictionary["Picture"] as? UIImage, name: valuesDictionary["Name"] as! String, gender: valuesDictionary["Gender"] as! String, contact: valuesDictionary["Contact"] as! String, church: valuesDictionary["Church"] as! String)
+            profile = Profile(image: valuesDictionary["Picture"] as? UIImage, name: valuesDictionary["Name"] as! String, gender: valuesDictionary["Gender"] as! String, contact: valuesDictionary["Contact"] as! String, church: valuesDictionary["Church"] as! String)
             
-            userRepo.updateProfile(profile, listener: self)
+            userRepo.updateProfile(profile!, listener: self)
         }
         
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        if let userProfile = profile {
+          NotificationCenter.default.post(name: Notification.Name(rawValue: "transport4Church.profileUpdated"), object: self, userInfo: ["update":userProfile])
+        }
+        
+       
+    }
     
-      
+    
+    
 }

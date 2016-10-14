@@ -64,7 +64,7 @@ class ConfirmPickupFormController: FormViewController {
             }
             
             +++ Section()
-            <<< PushRow<String>("extraRider") {
+            <<< PushRow<String>("extra_riders") {
                 $0.title = "Extra riders"
                 $0.selectorTitle = ""
                 $0.options = ["None", "One","Two","Three"]
@@ -101,7 +101,8 @@ class ConfirmPickupFormController: FormViewController {
         
         self.trip.destination = PFGeoPoint(latitude: EFA_Coord.latitude, longitude: EFA_Coord.longitude)
         self.trip.pickupTime = valuesDictionary["pickup_time"] as! Date
-
+        self.trip.extraRiders = getInteger(of: valuesDictionary["extra_riders"] as! String)
+        
         if let contactNumber = valuesDictionary["contact"] as? String {
             let user = PFUser.current()
             user?["contact"] = contactNumber
@@ -112,8 +113,13 @@ class ConfirmPickupFormController: FormViewController {
             self.navigationController?.popViewController(animated: true)
         })
         
-        
-        
+    }
+    
+    
+    func getInteger(of stringNumber: String) -> Int {
+        var values = ["None" : 0, "One": 1, "Two" : 2, "Three" : 3]
+        print("Exra riders: \(values[stringNumber]!)")
+        return values[stringNumber]!
     }
    
 }

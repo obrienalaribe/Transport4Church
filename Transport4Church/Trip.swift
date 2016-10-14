@@ -25,7 +25,7 @@ class Trip : PFObject, PFSubclassing  {
         set { self["status"] = newValue.rawValue }
     }
     
-    var extraRiders : Int = 0
+    @NSManaged var extraRiders : Int
     
     //only set destination on this object then Rider will have location
     @NSManaged var destination : PFGeoPoint

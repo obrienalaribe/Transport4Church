@@ -152,6 +152,7 @@ class DriverRequestListController: UICollectionViewController, UICollectionViewD
         trip.driver = PFUser.current()!
         trip.saveEventually()
         
+        //TODO: Pass in the notification message from here not on the server
         CloudFunctions.notifyRiderForAcceptedTrip(userId: trip.rider.user.objectId!)
         self.navigationController?.setViewControllers([DriverTripViewController(trip: trip)], animated: true)
 
@@ -203,16 +204,23 @@ class PickupRequestCell : BaseCollectionCell {
         didSet {
             
             trip?.rider.user.fetchInBackground(block: { (user, error) in
-                self.nameLabel.text = (user)!["name"] as? String
+                self.nameLabel.text = ((user)!["name"] as? String)!
                 self.callButton.layer.setValue((user)!["contact"], forKey: "contact")
+                
+                if let extraRiders = self.trip?.extraRiders {
+                    if extraRiders > 0 {
+                        self.nameLabel.text = self.nameLabel.text!.trunc(by: 13 ) + " + " + String(extraRiders)
+                    }
+                }
+              
             })
             
             print(trip?.rider.addressDic)
             
-            if let street = trip?.rider.addressDic["street"], let city = trip?.rider.addressDic["city"],  let postcode = trip?.rider.addressDic["postcode"] {
+            if let street = trip?.rider.addressDic["street"], let city = trip?.rider.addressDic["city"],  let postcode = trip?.rider.addressDic["postcode"]{
                 self.addressLabel.text = "\(street)\n\(city)\n\(postcode)"
 
-                print("\(street) \n \(city) \n \(postcode)")
+              
             }
 
             let dateString : String = Helper.convertDateToString((trip?.pickupTime)!)

@@ -77,3 +77,15 @@ extension Date
 }
 
 //Date(dateString:"2014-06-06")
+
+extension String {
+    func trunc(by value: Int) -> String {
+        if self.characters.count > value {
+            let index = self.index(self.startIndex, offsetBy: value)
+            return self.substring(to: index) + " ..."
+        } else {
+            return self
+        }
+    }
+}
+
