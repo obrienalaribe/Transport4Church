@@ -12,6 +12,7 @@ protocol RiderTripDetailControllerDelegate {
     func riderWillCancelTrip()
 }
 
+
 class RiderTripDetailController: UIViewController {
     
     let tripDetails: UIView = {

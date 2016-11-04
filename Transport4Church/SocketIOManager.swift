@@ -35,9 +35,7 @@ open class SocketIOManager: NSObject {
                 self.socket.emit("connectUser", currentUser.objectId!)
             }
         })
-
     }
-    
     
     func closeConnection() {
         print("Disconnecting socket connection ... ")
@@ -48,17 +46,21 @@ open class SocketIOManager: NSObject {
         socket.on("userConnectUpdate") { (dataArray, socketAck) -> Void in
             print("User connected successfully ... \(dataArray)")
         }
-        
-        
+        self.listenForDirectConnections(){ Void in
+            
+        }
     }
     
     func listenForDirectConnections(completionHandler: @escaping () -> Void) {
         if let currentUser = self.userRepo.getCurrentUser() {
             print("Setting up user socket channel ... ")
             socket.on("userChannel:\(currentUser.objectId!)") {[weak self] data, ack in
-                NotificationCenter.default().post(name: RiderPickupController., object: nil, userInfo: "hello")
+                
+            let dataDictionary = data[0] as! Dictionary<String,String>
 
-                completionHandler()
+            if dataDictionary["status"] == "cancel" {
+                Helper.showInfoMessage(title: "Trip cancelled", subtitle: "The driver cancelled this trip")
+            }
             }
         }
     }

@@ -65,7 +65,7 @@ class ProfileViewController : UIViewController {
     
     override func loadView() {
         super.loadView()
-        NotificationCenter.default.addObserver(self, selector: #selector(ProfileViewController.actOnProfileUpdate(notification:)), name: NSNotification.Name(rawValue: "transport4Church.profileUpdated"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ProfileViewController.actOnProfileUpdate(notification:)), name: NSNotification.Name(rawValue: Constants.NotificationNamespace.profileUpdated), object: nil)
     }
 
     override func viewDidLoad() {

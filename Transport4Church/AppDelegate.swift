@@ -43,7 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.rootViewController = UINavigationController(rootViewController:AuthViewController())
         }
         
-        window?.rootViewController = UINavigationController(rootViewController:SocketIOViewController())
+        window?.rootViewController = UINavigationController(rootViewController:RiderMapClusterController())
 
     
 //        NotificationHelper.setupNotification()
@@ -81,10 +81,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
-        PFPush.handle(userInfo)
-        print("RECEIVED REMOTE NOTIFICATION")
+        
+        if application.applicationState == .background {
+//            PFPush.handle(userInfo)
+        }
+        
+        print("RECEIVED REMOTE NOTIFICATION \(userInfo)")
     }
-    
     
     func applicationWillResignActive(_ application: UIApplication) {
         SocketIOManager.sharedInstance.closeConnection()
@@ -100,7 +103,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationDidBecomeActive(_ application: UIApplication) {
         SocketIOManager.sharedInstance.establishConnection()
-
     }
     
     func applicationWillTerminate(_ application: UIApplication) {

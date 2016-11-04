@@ -192,19 +192,19 @@ class UserRepo {
         
         let defaults = UserDefaults.standard
         
-        if let count = defaults.string(forKey: appLaunchCount) {
+        if let count = defaults.string(forKey: Constants.Config.appLaunchCount) {
             let newCount = Int(count)! + 1
             print("launch count is \(count) incrementing to \(newCount) ")
-            defaults.set(newCount, forKey: appLaunchCount)
+            defaults.set(newCount, forKey: Constants.Config.appLaunchCount)
         }else{
             //new user
-            defaults.set(1, forKey: appLaunchCount)
+            defaults.set(1, forKey: Constants.Config.appLaunchCount)
         }
     }
     
     static func getAppLaunchCount() -> Int {
         let defaults = UserDefaults.standard
-        if let count = defaults.string(forKey: appLaunchCount) {
+        if let count = defaults.string(forKey: Constants.Config.appLaunchCount) {
             return Int(count)!
         }
         return 0

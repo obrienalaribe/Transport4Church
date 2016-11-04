@@ -66,7 +66,11 @@ class DriverTripViewController: UIViewController {
             self.currentTrip?.saveEventually()
             self.navigationController?.setViewControllers([DriverRequestListController(collectionViewLayout: UICollectionViewFlowLayout())], animated: true)
             
-            SocketIOManager.sharedInstance.sendTripStatusUpdate(toUser: (self.currentTrip?.rider.user.objectId)!, status: "cancel")
+            let userId = self.currentTrip?.rider.user.objectId!
+            
+            SocketIOManager.sharedInstance.sendTripStatusUpdate(toUser: userId!, status: "cancel")
+            
+            CloudFunctions.notifyUserAboutTrip(receiverId: userId!, status: "cancel", message: "Driver cancelled Trip")
         }
         
         let continueAction = UIAlertAction(title: "Continue", style: .default, handler: nil)

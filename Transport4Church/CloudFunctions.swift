@@ -14,9 +14,9 @@ open class CloudFunctions {
     //VERBOSE = 1
     
     //        let cloudParams : [AnyHashable:Any?] = [:]
-    static func notifyRiderForAcceptedTrip(userId: String){
+    static func notifyUserAboutTrip(receiverId: String, status:String, message: String){
         
-        PFCloud.callFunction(inBackground: "notifyRiderForAcceptedTrip", withParameters:  ["userId" : userId], block: {
+        PFCloud.callFunction(inBackground: "notifyUserAboutTrip", withParameters:  ["receiverId" : receiverId, "status": status, "message": message], block: {
             (result: Any?, error: Error?) -> Void in
             if error != nil {
                 print(error)

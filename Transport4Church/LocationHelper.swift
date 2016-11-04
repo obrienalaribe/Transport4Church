@@ -23,7 +23,6 @@ class LocationHelper {
             if let address = response?.firstResult() {
                 self.result = address.lines!
                 locationDispatchGroup.leave()
-
             }
         }
     }

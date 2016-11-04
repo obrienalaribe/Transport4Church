@@ -14,7 +14,7 @@ import NVActivityIndicatorView
 import Parse
 import BRYXBanner
 
-let appLaunchCount = "count"
+
 
 class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
     
@@ -22,10 +22,6 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
     var locationManager = CLLocationManager()
     var driverPreviousDistanceInMiles = 0.0
 
-    var mockJourneyCheckpoint = 3
-
-    //http://ashishkakkad.com/2015/09/create-your-own-slider-menu-drawer-in-swift-2-ios-9/
-    
     var locationTrackingLabel : UILabel = {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 40))
         label.textAlignment = NSTextAlignment.center
@@ -112,7 +108,6 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
             }
             
             listenForSocketConnection()
-            
            
         }
         
@@ -208,12 +203,11 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
     
     //TODO: could move this to location helper
     func updateArrivalTime(){
-        //leeds aiport, church, manor mills
         
         let locationMock = [[53.86794339999999, -1.6615305999999919] , [53.801277 , -1.548567], [53.789478,-1.549928]]
 //        
 //        let requestUrl = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=ls29aa&destinations=ls119bn&mode=driving"
-//        Alamofire.request(.GET, requestUrl, parameters: ["foo": "bar"])
+//        Alamofire.request(.GET, requestUrl, parameters: ["origin": "ls29aa"])
 //            .validate()
 //            .responseJSON { response in
 //                switch response.result {

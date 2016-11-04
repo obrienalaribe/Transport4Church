@@ -86,6 +86,12 @@ class Helper {
         banner.dismissesOnTap = true
         banner.show(duration: 3.0)
     }
-
+    
+    static func showInfoMessage(title: String?, subtitle: String?){
+        let banner = Banner(title: title, subtitle: subtitle, image: UIImage(named: "info"), backgroundColor: UIColor.white)
+        banner.textColor = UIColor(red:0.00, green:0.41, blue:1.00, alpha:1.0)
+        banner.dismissesOnTap = true
+        banner.show(duration: 3.0)
+    }
     
 }

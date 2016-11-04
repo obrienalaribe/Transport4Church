@@ -153,7 +153,7 @@ class DriverRequestListController: UICollectionViewController, UICollectionViewD
         trip.saveEventually()
         
         //TODO: Pass in the notification message from here not on the server
-        CloudFunctions.notifyRiderForAcceptedTrip(userId: trip.rider.user.objectId!)
+        CloudFunctions.notifyUserAboutTrip(receiverId: trip.rider.user.objectId!, status: TripStatus.ACCEPTED.rawValue, message: "Driver is on his way")
         self.navigationController?.setViewControllers([DriverTripViewController(trip: trip)], animated: true)
 
     }

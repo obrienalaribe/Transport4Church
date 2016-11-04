@@ -104,7 +104,7 @@ class EditProfileViewController : FormViewController {
     override func viewWillDisappear(_ animated: Bool) {
         
         if let userProfile = profile {
-          NotificationCenter.default.post(name: Notification.Name(rawValue: "transport4Church.profileUpdated"), object: self, userInfo: ["update":userProfile])
+          NotificationCenter.default.post(name: Notification.Name(rawValue: Constants.NotificationNamespace.profileUpdated), object: self, userInfo: ["update":userProfile])
         }
         
        
