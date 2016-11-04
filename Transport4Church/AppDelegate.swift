@@ -43,7 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.rootViewController = UINavigationController(rootViewController:AuthViewController())
         }
         
-        window?.rootViewController = UINavigationController(rootViewController:RiderMapClusterController())
+//        window?.rootViewController = UINavigationController(rootViewController:EditProfileViewController())
 
     
 //        NotificationHelper.setupNotification()
@@ -102,6 +102,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
+        _ = ChurchRepo().fetchNearbyChurchesIfNeeded()
         SocketIOManager.sharedInstance.establishConnection()
     }
     

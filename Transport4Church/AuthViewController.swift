@@ -54,7 +54,7 @@ class AuthViewController : FormViewController {
         let valuesDictionary = form.values()
 
         if let email = valuesDictionary["Email"] as? String, let password = valuesDictionary["Password"] as? String {
-            let credentials = Credentials(username: email, password: password, role: valuesDictionary["Role"] as! String)
+            let credentials = Credentials(username: email, password: password, role: "Rider")
             
             userRepo.authenticate(credentials, listener: self)
         }else{

@@ -71,6 +71,8 @@ class ProfileViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+   
+        
         title = "Profile"
         if let user = PFUser.current() {
             currentUser = user
@@ -139,7 +141,8 @@ class ProfileViewController : UIViewController {
     }
     
     func setupNameLabel(_ parentMargin : UILayoutGuide){
-        nameLabel = createProfileLabel(userRepo.extractUserField("name"))
+        let fullname = "\(userRepo.extractUserField("firstname")) \(userRepo.extractUserField("surname"))"
+        nameLabel = createProfileLabel(fullname)
         
         profileContent.addSubview(nameLabel)
         
@@ -153,7 +156,10 @@ class ProfileViewController : UIViewController {
     }
     
     func setupChurchLabel(_ parentMargin : UILayoutGuide){
-        churchLabel = createProfileLabel("Church: EFA RCCG Leeds \n 13-17 Walter Street \n Leeds, LS3 4BB")
+        if let church = ChurchRepo.getCurrentUserChurch() {
+            churchLabel = createProfileLabel("Church: \(church.name!) \n")
+        }
+        
         churchLabel.numberOfLines = 3
         
         profileContent.addSubview(churchLabel)
@@ -203,8 +209,14 @@ class ProfileViewController : UIViewController {
     func actOnProfileUpdate(notification: NSNotification){
         Helper.showSuccessMessage(title: nil, subtitle: "Profile updated successfully")
         
-        if let profile = notification.userInfo?["update"] as? Profile {
-            self.nameLabel.text = profile.name
+        if let profile = notification.userInfo?["profile"] as? Profile {
+            self.nameLabel.text = "\(profile.firstname) \(profile.surname)"
+            self.churchLabel.text = "\(profile.church.name!) \n"
+            self.roleLabel.text = "Joined as \(userRepo.extractUserField("role")) \n \(Helper.convertDateToString(currentUser.createdAt!))"
+            
+            userRepo.getCurrentUser()?["firstname"] = profile.firstname
+            userRepo.getCurrentUser()?["surname"] = profile.surname
+
         }
         print("profile view controller received Profile update Notification")
         

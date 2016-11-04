@@ -14,6 +14,7 @@ class EditProfileViewController : FormViewController {
     
     fileprivate var userRepo : UserRepo = UserRepo()
     fileprivate var profile : Profile?
+    fileprivate var userChurch : Church?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,9 +27,12 @@ class EditProfileViewController : FormViewController {
             row.cell.height = {
                 return 60
             }
-            
         }
         
+        if let church = ChurchRepo.getCurrentUserChurch() {
+            self.userChurch = church
+        }
+                
         form
         //    <<< ImageRow("Picture"){
           //      $0.title = "Select Profile Picture"
@@ -39,12 +43,18 @@ class EditProfileViewController : FormViewController {
                // })
             
             +++ Section("Please fill in your details")
-            <<< TextRow("Name"){ row in
-                row.title = "Fullname"
-                row.placeholder = "i.e Emma Smith"
-                row.value = userRepo.extractUserField("name")
+            <<< TextRow("Firstname"){ row in
+                row.title = "Firstname"
+                row.placeholder = "i.e Emma"
+                row.value = userRepo.extractUserField("firstname")
 
                 }
+            
+            <<< TextRow("Surname"){ row in
+                row.title = "Surname"
+                row.placeholder = "i.e Smith"
+                row.value = userRepo.extractUserField("surname")
+            }
             
             <<< ActionSheetRow<String>("Gender") {
                 $0.title = "Gender"
@@ -56,9 +66,9 @@ class EditProfileViewController : FormViewController {
             +++ Section()
             <<< PushRow<String>("Church") {
                 $0.title = "Church"
-                $0.selectorTitle = "Choose your church"
-                $0.options = ["EFA RCCG Leeds"]
-                $0.value = userRepo.extractUserField("church")
+                $0.selectorTitle = "Nearby Churches"
+                $0.options = ChurchRepo.churchNames
+                $0.value = userChurch?.name
             }
             
             +++ Section("Number Driver will to contact you on")
@@ -87,24 +97,30 @@ class EditProfileViewController : FormViewController {
     func handleFormSubmission(_ sender: UIButton!){
        
         let valuesDictionary = form.values()
-        let empytFields = Helper.validateFormInputs(valuesDictionary)
         
-        if empytFields.isEmpty == false {
-            Helper.showErrorMessage(title: "Incomplete Fields", subtitle: "Please fill in the following fields: \(empytFields.joined(separator: ", "))")
-
-        }else{
-
-            profile = Profile(image: valuesDictionary["Picture"] as? UIImage, name: valuesDictionary["Name"] as! String, gender: valuesDictionary["Gender"] as! String, contact: valuesDictionary["Contact"] as! String, church: valuesDictionary["Church"] as! String)
+     
+        if let firstname = valuesDictionary["Firstname"] as? String, let surname = valuesDictionary["Surname"] as? String, let gender = valuesDictionary["Gender"] as? String, let contact = valuesDictionary["Contact"] as? String, let church = valuesDictionary["Church"] as? String {
+            
+            let chosenChurch = ChurchRepo.churchCacheByName[church]
+            
+            profile = Profile(image: valuesDictionary["Picture"] as? UIImage, firstname: firstname, surname: surname, gender: gender, contact: contact, church: chosenChurch! )
             
             userRepo.updateProfile(profile!, listener: self)
+
+            
+        }else{
+            Helper.showErrorMessage(title: "Incomplete Fields", subtitle: "Please complete all fields")
         }
         
+      
     }
     
+    
+    /// This lifecycle method will notify all listeners that this profile has been updated before exiting
     override func viewWillDisappear(_ animated: Bool) {
         
         if let userProfile = profile {
-          NotificationCenter.default.post(name: Notification.Name(rawValue: Constants.NotificationNamespace.profileUpdated), object: self, userInfo: ["update":userProfile])
+          NotificationCenter.default.post(name: Notification.Name(rawValue: Constants.NotificationNamespace.profileUpdated), object: self, userInfo: ["profile":userProfile])
         }
         
        
