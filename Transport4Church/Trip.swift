@@ -27,8 +27,7 @@ class Trip : PFObject, PFSubclassing  {
     
     @NSManaged var extraRiders : Int
     
-    //only set destination on this object then Rider will have location
-    @NSManaged var destination : PFGeoPoint
+    @NSManaged var destination : Church
 
     @NSManaged var driver : PFObject?
     
@@ -60,22 +59,16 @@ enum TripStatus : String {
         switch(status){
             case "New" :
                 return .NEW
-                break
             case "Requested" :
                 return .REQUESTED
-                break
             case "Accepted" :
                 return .ACCEPTED
-                break
             case "Cancelled" :
                 return .CANCELLED
-                break
             case "Started" :
                 return .STARTED
-                break
             case "Completed" :
                 return .COMPLETED
-                break            
             default:
                 return nil
            

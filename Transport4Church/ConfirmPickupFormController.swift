@@ -12,8 +12,9 @@ import Parse
 
 class ConfirmPickupFormController: FormViewController {
     
-    var trip : Trip
-    
+    fileprivate var trip : Trip
+    fileprivate var userChurch = ""
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -21,6 +22,8 @@ class ConfirmPickupFormController: FormViewController {
     init(trip: Trip) {
         self.trip = trip
         super.init(nibName: nil, bundle: nil)
+        
+       
     }
  
     
@@ -29,33 +32,24 @@ class ConfirmPickupFormController: FormViewController {
         
         navigationItem.title = "Confirm Pickup"
         
+        if let church = ChurchRepo.getCurrentUserChurch() {
+            self.userChurch = church.name!
+        }
+  
+        
         form +++ Section()
-//            <<< PostalAddressRow("location"){
-//                $0.title = "From"
-//                $0.streetPlaceholder = ""
-//                $0.postalCodePlaceholder = ""
-//                $0.cityPlaceholder = ""
-//                
-//                $0.value = PostalAddress(
-//                    street: self.trip.rider.address.streetName,
-//                    state: self.trip.rider.address.city,
-//                    postalCode: self.trip.rider.address.postcode,
-//                    city: self.trip.rider.address.country,
-//                    country: ""
-//                )
-//                $0.disabled = true
-//            }
-            
+
             <<< TextRow("location"){ row in
                 row.title = "From"
                 row.value = "\(self.trip.rider.address.streetName!), \(self.trip.rider.address.postcode!)"
                 row.disabled = true
             }
             
-            <<< TextRow("destination"){ row in
-                row.title = "To"
-                row.value = "RCCG EFA Leeds, LS4 2BB"
-                row.disabled = true
+            <<< PushRow<String>("destination") {
+                $0.title = "To"
+                $0.selectorTitle = "Nearby Churches"
+                $0.options = ChurchRepo.churchNames
+                $0.value = userChurch
             }
             
             <<< PhoneRow("contact"){ row in
@@ -99,7 +93,9 @@ class ConfirmPickupFormController: FormViewController {
 
         self.trip.status = TripStatus.REQUESTED
         
-        self.trip.destination = PFGeoPoint(latitude: EFA_Coord.latitude, longitude: EFA_Coord.longitude)
+        let chosenChurch = ChurchRepo.churchCacheByName[valuesDictionary["destination"] as! String]
+
+        self.trip.destination = chosenChurch!
         self.trip.pickupTime = valuesDictionary["pickup_time"] as! Date
         self.trip.extraRiders = getInteger(of: valuesDictionary["extra_riders"] as! String)
         

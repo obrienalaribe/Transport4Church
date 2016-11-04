@@ -16,10 +16,11 @@ struct Credentials {
 
 struct Profile {
     var image : UIImage?
-    var name: String
+    var firstname: String
+    var surname: String
     var gender: String
     var contact : String
-    var church : String
+    var church : Church
 }
 
 class UserRepo {
@@ -52,24 +53,24 @@ class UserRepo {
                 }
             }
             
-            currentUser["name"] = profile.name
+            currentUser["firstname"] = profile.firstname
+            currentUser["surname"] = profile.surname
             currentUser["gender"] = profile.gender
             currentUser["contact"] = profile.contact
-            currentUser["church"] = profile.church
+            currentUser["Church"] = profile.church
 
             currentUser.saveInBackground(block: { (success, error) in
                 
                 if listener.navigationController?.viewControllers.count == 1 {
                     //registration stage
                     
-                    if currentUser["role"] as! String == UserRoles.Driver.rawValue {
-                        listener.navigationController?.setViewControllers([DriverRequestListController(collectionViewLayout: UICollectionViewFlowLayout())], animated: true)
-                    }else{
-                        listener.navigationController?.setViewControllers([RiderPickupController()], animated: true)
-                    }
+                    listener.navigationController?.setViewControllers([RiderPickupController()], animated: true)
+
                 }else{
                     //was accessed through settings
                     listener.navigationController?.popViewController(animated: true)
+                    print(currentUser)
+
                 }
             })
         }
@@ -89,7 +90,7 @@ class UserRepo {
             if let error = error {
                 
                 if error._code == 202 {
-                    
+                    //user already exist
                     PFUser.logInWithUsername(inBackground: credentials.username, password: credentials.password) {(user: PFUser?, error: Error?) -> Void in
                         if user != nil {
                             print(PFUser.current()!)
@@ -169,6 +170,7 @@ class UserRepo {
         return ""
     }
     
+  
     fileprivate func createOrUpdateUserAvatar(_ pictureObject: PFObject, data: Data){
      
         let pictureFile = PFFile(name: "image.png", data: data)

@@ -17,6 +17,8 @@ class ParseServer {
     func registerSubClasses(){
         Rider.registerSubclass()
         Trip.registerSubclass()
+        Route.registerSubclass()
+        Church.registerSubclass()
     }
     
     func configureServer(){
@@ -31,8 +33,8 @@ class ParseServer {
         })
         
         Parse.initialize(with: parseConfiguration)
-        
 //        PFUser.logOut()
+       
     }
     
    

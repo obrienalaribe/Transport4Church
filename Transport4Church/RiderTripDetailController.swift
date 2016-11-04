@@ -77,8 +77,7 @@ class RiderTripDetailController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-              
+
         view.backgroundColor = UIColor.clear
         
         view.addSubview(container)
@@ -139,7 +138,8 @@ class RiderTripDetailController: UIViewController {
         tripDetails.addConstraintsWithFormat("H:|-10-[v0]-10-|", views: destinationView)
         tripDetails.addConstraintsWithFormat("V:|-50-[v0(35)]", views: destinationView)
 
-        createLineView(destinationView, leftTitle: "Destination", rightTitle: "RCCG EFA Leeds")
+        let destination : Church =  ChurchRepo.churchCacheById[self.trip.destination.objectId!]!
+        createLineView(destinationView, leftTitle: "Destination", rightTitle: destination.name!)
        
         //setup pickup time line
         let timeView = UIView()
@@ -188,7 +188,6 @@ class RiderTripDetailController: UIViewController {
         lineView.addConstraintsWithFormat("V:|-32-[v0(3)]", views: bottomBorderLine)
         
     }
-
     
     func cancelRequest(){
         self.delegate.riderWillCancelTrip()

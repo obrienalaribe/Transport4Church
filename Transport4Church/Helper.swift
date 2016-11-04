@@ -10,26 +10,6 @@ import BRYXBanner
 
 class Helper {
     
-    static func validateFormInputs(_ valuesDictionary: Dictionary<String, Any?>) -> [String]{
-        var emptyFields = [String]()
-        for key in valuesDictionary.keys {
-            if let field = unwrap(valuesDictionary[key]) {
-                if unwrap(field)!.isEmpty {
-                    emptyFields.append(key)
-                    print("\(key) is empty \(unwrap(field)!.isEmpty)")
-                }
-            }
-        }
-        return emptyFields
-    }
-    
-    static func unwrap(_ value: Any?) -> String? {
-        if let result = value {
-            return result as? String
-        }
-        return nil
-    }
-
     static func convertDateToString(_ date : Date) -> String{
         // format the NSDate to a NSString
         let dateFormat = DateFormatter()
