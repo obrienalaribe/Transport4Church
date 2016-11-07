@@ -37,9 +37,7 @@
 		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>Update your profile with an image</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>We will use your location to help a driver find you</string>
+	<string>Take a picture to use of your profile</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Let the driver know where you are</string>
 	<key>NSPhotoLibraryUsageDescription</key>

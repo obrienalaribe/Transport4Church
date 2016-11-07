@@ -30,8 +30,8 @@ class ConfirmPickupFormController: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = "Confirm Pickup"
-        
+        navigationItem.title = "Confirm Request"
+
         if let church = ChurchRepo.getCurrentUserChurch() {
             self.userChurch = church.name!
         }
@@ -60,7 +60,7 @@ class ConfirmPickupFormController: FormViewController {
             +++ Section()
             <<< PushRow<String>("extra_riders") {
                 $0.title = "Extra riders"
-                $0.selectorTitle = ""
+                $0.selectorTitle = "Extra riders"
                 $0.options = ["None", "One","Two","Three"]
                 $0.value = "None"
             }
@@ -99,9 +99,25 @@ class ConfirmPickupFormController: FormViewController {
         self.trip.pickupTime = valuesDictionary["pickup_time"] as! Date
         self.trip.extraRiders = getInteger(of: valuesDictionary["extra_riders"] as! String)
         
+        if self.trip.pickupTime.timeIntervalSince(Date()) > 0 {
+            //assume time is for tmrw
+
+           print("pickup time in the future")
+            
+        }else{
+            print("pickup time in the past")
+
+        }
+        
+        let futureTime = Calendar.current
+            .date(byAdding: .day, value: 1, to: self.trip.pickupTime)
+        
+        print("original \(self.trip.pickupTime)")
+        print("rider meant this time \(futureTime)")
+
         if let contactNumber = valuesDictionary["contact"] as? String {
             let user = PFUser.current()
-            user?["contact"] = contactNumber
+            user?["contact"] = contactNumber.trim()
             user?.saveEventually()
         }
         

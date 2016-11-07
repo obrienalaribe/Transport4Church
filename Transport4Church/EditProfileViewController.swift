@@ -102,8 +102,8 @@ class EditProfileViewController : FormViewController {
         if let firstname = valuesDictionary["Firstname"] as? String, let surname = valuesDictionary["Surname"] as? String, let gender = valuesDictionary["Gender"] as? String, let contact = valuesDictionary["Contact"] as? String, let church = valuesDictionary["Church"] as? String {
             
             let chosenChurch = ChurchRepo.churchCacheByName[church]
-            
-            profile = Profile(image: valuesDictionary["Picture"] as? UIImage, firstname: firstname, surname: surname, gender: gender, contact: contact, church: chosenChurch! )
+   
+             profile = Profile(image: valuesDictionary["Picture"] as? UIImage, firstname: firstname.trim(), surname: surname.trim(), gender: gender.trim(), contact: contact.trim(), church: chosenChurch! )
             
             userRepo.updateProfile(profile!, listener: self)
 

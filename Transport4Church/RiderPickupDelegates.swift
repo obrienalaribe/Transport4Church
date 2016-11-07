@@ -72,7 +72,7 @@ extension RiderPickupController : GMSMapViewDelegate{
             //run ui updates on main thread
             self.pickupBtn.transform = CGAffineTransform(scaleX: 0.05, y: 0.05)
             
-            UIView.animate(withDuration: 2.0, delay: 0,usingSpringWithDamping: 0.20, initialSpringVelocity: 4.00, options: UIViewAnimationOptions.allowUserInteraction,animations: {self.pickupBtn.transform = CGAffineTransform.identity
+            UIView.animate(withDuration: 2.0, delay: 0,usingSpringWithDamping: 0.8, initialSpringVelocity: 4.00, options: UIViewAnimationOptions.allowUserInteraction,animations: {self.pickupBtn.transform = CGAffineTransform.identity
                 }, completion: nil)
         })
     }
@@ -173,7 +173,6 @@ extension RiderPickupController : CLLocationManagerDelegate {
         if self.riderMapViewDidInitialiseWithLocation == false {
             //first app launch when they is a delay with map update
             setRiderLocationOnMap()
-            animatePickupBtn()
         }
 
     }

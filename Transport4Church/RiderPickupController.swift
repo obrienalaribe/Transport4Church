@@ -87,6 +87,8 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
         navigationItem.rightBarButtonItem = cancelTripBtn
         cancelTripBtn.isEnabled = false
         
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
     }
     
     
@@ -111,6 +113,7 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
            
         }
         
+        self.animatePickupBtn()
         //TODO: use Socket to detect when trip is complete and then ToggleTripMode
 
         
@@ -119,7 +122,7 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
 
     func setRiderLocationOnMap(){
         self.locationManager.delegate = self
-        self.locationManager.requestAlwaysAuthorization()
+        self.locationManager.requestWhenInUseAuthorization()
         self.locationManager.startUpdatingLocation()
         self.pickupBtn.isUserInteractionEnabled = false
         
@@ -361,6 +364,7 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
     
     func setupViewObservers() -> Void {
         NotificationCenter.default.addObserver(self, selector: #selector(handleViewStateFromBackground), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
+        self.animatePickupBtn()
     }
     
     func handleLocationAuthorizationState(){

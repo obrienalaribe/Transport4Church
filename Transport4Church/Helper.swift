@@ -60,7 +60,7 @@ class Helper {
         banner.show(duration: 3.0)
     }
     
-    static func showSuccessMessage(title: String?, subtitle: String?){
+    static func showSuccessMessage(title: String?, subtitle: String){
         let banner = Banner(title: title, subtitle: subtitle, image: UIImage(named: "tick"), backgroundColor: UIColor.white)
         banner.textColor = BrandColours.primary.color
         banner.dismissesOnTap = true

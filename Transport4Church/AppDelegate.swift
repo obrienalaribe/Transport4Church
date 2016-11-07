@@ -82,11 +82,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
         
-        if application.applicationState == .background {
-//            PFPush.handle(userInfo)
+        if application.applicationState == .background {        }
+        if let message = userInfo["alert"] as? String {
+            Helper.showSuccessMessage(title: nil, subtitle: message)
+ 
         }
         
-        print("RECEIVED REMOTE NOTIFICATION \(userInfo)")
+        print("RECEIVED REMOTE NOTIFICATION \(userInfo[AnyHashable("aps")])" as Any)
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
