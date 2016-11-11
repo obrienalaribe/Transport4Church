@@ -81,36 +81,57 @@ extension RiderPickupController : GMSMapViewDelegate{
 
 // MARK: RiderTripDetailControllerDelegate
 
-extension RiderPickupController: RiderTripDetailControllerDelegate {
+extension RiderPickupController: TripStateControllerDelegate {
     
     func riderWillCancelTrip() {
         let alertController = UIAlertController (title: "Contact Driver", message: "Please choose what action you would like to take", preferredStyle: .alert)
         
-        let callDriverAction = UIAlertAction(title: "Speak to Driver", style: .default) { (_) -> Void in
-            let driverPhoneNum = "07411411590"
-            if let url = URL(string: "tel://\(driverPhoneNum)") {
-                UIApplication.shared.openURL(url)
-            }
-        }
-        
+    
         let confirmAction = UIAlertAction(title: "Cancel Pickup", style: .default) { (_) -> Void in
             //TODO: Send socket request to notify the driver
-
             self.toggleViewForCurrentTripMode(state: .REQUESTED)
-
-             self.currentTrip.status = .CANCELLED
-             self.currentTrip.saveInBackground(block: { (success, error) in
-                self.startNetworkActivityForCancelledTrip()
-             })
+            
+            self.currentTrip.status = .CANCELLED
+            self.currentTrip.saveInBackground(block: { (success, error) in
+                self.startNetworkActivityForTripReset()
+            })
         }
         
         let cancelAction = UIAlertAction(title: "Exit", style: .default) { (_) -> Void in
-           
+            
+        }
+        
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true, completion: nil)
+
+    }
+    
+    func driverDidCancelTrip(){
+        let alertController = UIAlertController (title: "Driver cancelled trip", message: "Please choose what action you would like to take", preferredStyle: .alert)
+        
+        let callDriverAction = UIAlertAction(title: "Speak to Driver", style: .default) { (_) -> Void in
+            if let driver = self.driver {
+                if let driverPhoneNum = driver["contact"] {
+                    if let url = URL(string: "tel://\(driverPhoneNum)") {
+                        UIApplication.shared.openURL(url)
+                    }
+                }
+            }else{
+                print("driver was \(self.driver)")
+            }
+            self.startNetworkActivityForTripReset()
+            
+        }
+        
+        let confirmAction = UIAlertAction(title: "Accept", style: .default) { (_) -> Void in
+            
+            self.startNetworkActivityForTripReset()
         }
         
         alertController.addAction(callDriverAction)
         alertController.addAction(confirmAction)
-        alertController.addAction(cancelAction)
         
         present(alertController, animated: true, completion: nil)
 

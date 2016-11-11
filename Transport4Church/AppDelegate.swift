@@ -29,14 +29,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ = ParseServer()
         
         if let loggedInUser = PFUser.current(){
+            window?.rootViewController = UINavigationController(rootViewController:RiderPickupController())
             
             print("user logged in \(loggedInUser)")
-            if loggedInUser["role"] as! String == UserRoles.Rider.rawValue {
-                window?.rootViewController = UINavigationController(rootViewController:RiderPickupController())
-            }else{
-                window?.rootViewController = UINavigationController(rootViewController: DriverRequestListController(collectionViewLayout: UICollectionViewFlowLayout()))
-            }
-
+           
         }else{
             print("user not logged in ")
 
@@ -83,12 +79,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
         
         if application.applicationState == .background {        }
-        if let message = userInfo["alert"] as? String {
-            Helper.showSuccessMessage(title: nil, subtitle: message)
- 
-        }
         
-        print("RECEIVED REMOTE NOTIFICATION \(userInfo[AnyHashable("aps")])" as Any)
+        if let aps = userInfo["aps"] as? [String:Any] {
+            if let alert = aps["alert"] as? String {
+                if alert.contains("cancelled"){
+                    NotificationCenter.default.post(name: Notification.Name(rawValue: Constants.NotificationNamespace.tripUpdate), object: self, userInfo: ["status": TripStatus.CANCELLED, "alert": alert])
+                }else if alert.contains("on its way now"){
+                     NotificationCenter.default.post(name: Notification.Name(rawValue: Constants.NotificationNamespace.tripUpdate), object: self, userInfo: ["status": TripStatus.STARTED, "alert": alert])
+                }else if alert.contains("completed"){
+                     NotificationCenter.default.post(name: Notification.Name(rawValue: Constants.NotificationNamespace.tripUpdate), object: self, userInfo: ["status": TripStatus.COMPLETED, "alert": alert])
+                }
+            }
+        }
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
@@ -104,8 +106,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
-        _ = ChurchRepo().fetchNearbyChurchesIfNeeded()
         SocketIOManager.sharedInstance.establishConnection()
+        _ = ChurchRepo().fetchNearbyChurchesIfNeeded()
     }
     
     func applicationWillTerminate(_ application: UIApplication) {

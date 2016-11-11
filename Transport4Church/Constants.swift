@@ -12,6 +12,7 @@ struct Constants {
     
     struct NotificationNamespace {
         static let profileUpdated = "transport4Church.profileUpdated"
+        static let tripUpdate = "transport4Church.tripUpdate"
         static let userChannel = "transport4Church.userChannel"
     }
     

@@ -8,8 +8,9 @@
 
 import UIKit
 
-protocol RiderTripDetailControllerDelegate {
+protocol TripStateControllerDelegate {
     func riderWillCancelTrip()
+    func driverDidCancelTrip()
 }
 
 
@@ -62,7 +63,7 @@ class RiderTripDetailController: UIViewController {
     var originLabel : UILabel!
     var destinationLabel : UILabel!
 
-    var delegate: RiderTripDetailControllerDelegate!
+    var delegate: TripStateControllerDelegate!
     
     var trip : Trip
     

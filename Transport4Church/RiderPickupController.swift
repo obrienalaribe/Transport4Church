@@ -52,9 +52,14 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
     var currentTrip : Trip!
     
     var driverLocation : GMSMarker!
+    var driver: PFObject?
     
     var tripDetailController: RiderTripDetailController!
     
+    override func loadView() {
+        super.loadView()
+        NotificationCenter.default.addObserver(self, selector: #selector(RiderPickupController.actOnTripUpdate(notification:)), name: NSNotification.Name(rawValue: Constants.NotificationNamespace.tripUpdate), object: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,9 +113,6 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
             if self.currentTrip?.status == TripStatus.REQUESTED {
                 modallyDisplayTripDetails()
             }
-            
-            listenForSocketConnection()
-           
         }
         
         self.animatePickupBtn()
@@ -282,7 +284,7 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
         
         let settingsAction = UIAlertAction(title: "Yes, Call Driver", style: .default) { (_) -> Void in
             if let driver = self.currentTrip.driver {
-                let driverContact = driver["contact"] as! String
+                let driverContact = self.driver?["contact"] as! String
                 if let url = URL(string: "tel://\(driverContact)") {
                     UIApplication.shared.openURL(url)
                 }
@@ -393,7 +395,7 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
     
 
     
-    func startNetworkActivityForCancelledTrip(){
+    func startNetworkActivityForTripReset(){
         let size = CGSize(width: 30, height:30)
         
         startAnimating(size, message: "Please wait", type: NVActivityIndicatorType(rawValue: 17)!)
@@ -433,9 +435,16 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
             
             self.currentTrip.status = .CANCELLED
             self.currentTrip.saveInBackground(block: { (success, error) in
-                self.startNetworkActivityForCancelledTrip()
+                self.startNetworkActivityForTripReset()
 
             })
+            
+            if let driver = self.driver {
+                let userId = self.currentTrip?.driver?.objectId!
+                CloudFunctions.notifyUserAboutTrip(receiverId: userId!, status: "cancel", message: "Rider cancelled trip")
+
+            }
+
         }
         
         let cancelAction = UIAlertAction(title: "Exit", style: .default) { (_) -> Void in
@@ -457,15 +466,6 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
                 
                 if self.currentTrip.status == .REQUESTED {
                     self.toggleViewForCurrentTripMode(state: .REQUESTED)
-
-                    let dispatchTime: DispatchTime = DispatchTime.now() + Double(Int64(0.9 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
-                    DispatchQueue.main.asyncAfter(deadline: dispatchTime, execute: {
-                        let banner = Banner(title: "Pickup Request Accepted!!", subtitle: "The church bus is on its way now", image: UIImage(named: "bus"), backgroundColor: BrandColours.primary.color)
-                        banner.dismissesOnTap = false
-                        banner.show(duration: 3.0)
-                        
-                        banner.didTapBlock?(())
-                    })
                     
                     self.mapView.alpha = 1
                     self.locationTrackingLabel.alpha = 1
@@ -473,7 +473,6 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
                     self.currentTrip.status = .STARTED
                     self.currentTrip.saveEventually()
                     self.setupActiveTripModeView(locationInfo)
-            
                 }
                 
                 if self.currentTrip.status == .STARTED {
@@ -485,8 +484,9 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
                         self.currentTrip.fetchInBackground { (trip, error) in
                             if let updatedTrip = trip as? Trip {
                                 updatedTrip.driver?.fetchIfNeededInBackground(block: { (object, error) in
-                                    if let driverName = updatedTrip.driver?["name"] as? String {
-                                        self.driverLocation.title = driverName
+                                    self.driver = updatedTrip.driver
+                                    if let firstname = updatedTrip.driver?["firstname"] as? String, let surname = updatedTrip.driver?["surname"] as? String{
+                                        self.driverLocation.title = "\(firstname) \(surname)"
                                     }
                                 })
                             }
@@ -508,6 +508,33 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
         }
         
     }
+    
+    /**
+     This function is an observer method that listens for trip updates from the driver
+     */
+    func actOnTripUpdate(notification: NSNotification){
+        
+        if let status = notification.userInfo?["status"] as? TripStatus, let alert = notification.userInfo?["alert"] as? String {
+            if status == TripStatus.CANCELLED {
+                Helper.showErrorMessage(title: nil, subtitle: alert)
+                self.driverDidCancelTrip()
+            }else if status == TripStatus.STARTED {
+                Helper.showSuccessMessage(title: nil, subtitle: alert)
+                self.listenForSocketConnection()
+            }else if status == TripStatus.COMPLETED {
+                Helper.showSuccessMessage(title: nil, subtitle: alert)
+                self.startNetworkActivityForTripReset()
+            }else{
+                print("did not get status from trip Notification")
+            }
+        }
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+        print("rider pickup view stopped observing for trip updates")
+    }
+
 }
 
 
