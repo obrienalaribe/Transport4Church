@@ -74,4 +74,8 @@ class Helper {
         banner.show(duration: 3.0)
     }
     
+    static func parsePostcodePrefix(postcode: String) -> String {
+       return "\(postcode.components(separatedBy: " ")[0].trimmingCharacters(in: CharacterSet.whitespacesAndNewlines))"
+        
+    }
 }

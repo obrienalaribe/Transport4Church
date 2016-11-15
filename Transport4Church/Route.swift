@@ -16,6 +16,7 @@ class Route : PFObject, PFSubclassing  {
     @NSManaged var name : String?
     @NSManaged var church : Church?
     
+    //TODO add Contact, ridersNotified
     override init(){
         super.init()
     }

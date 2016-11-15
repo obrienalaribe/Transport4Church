@@ -14,6 +14,9 @@ class ConfirmPickupFormController: FormViewController {
     
     fileprivate var trip : Trip
     fileprivate var userChurch = ""
+    fileprivate var street = ""
+    fileprivate var postcode = ""
+
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -21,6 +24,10 @@ class ConfirmPickupFormController: FormViewController {
     
     init(trip: Trip) {
         self.trip = trip
+        if let streetName = self.trip.rider.address.streetName, let postcode = self.trip.rider.address.postcode {
+            self.street = streetName
+            self.postcode = postcode
+        }
         super.init(nibName: nil, bundle: nil)
         
        
@@ -41,7 +48,7 @@ class ConfirmPickupFormController: FormViewController {
 
             <<< TextRow("location"){ row in
                 row.title = "From"
-                row.value = "\(self.trip.rider.address.streetName!), \(self.trip.rider.address.postcode!)"
+                row.value = "\(self.street) \(self.postcode)"
                 row.disabled = true
             }
             
@@ -87,6 +94,11 @@ class ConfirmPickupFormController: FormViewController {
     
     func handleFormSubmission(_ sender: UIButton!){
         
+        if self.street.isEmpty || self.postcode.isEmpty {
+            Helper.showErrorMessage(title: nil, subtitle: "Pickup origin cannot be empty or incomplete")
+            return
+        }
+        
         NotificationHelper.setupNotification()
 
         let valuesDictionary = form.values()
@@ -99,22 +111,17 @@ class ConfirmPickupFormController: FormViewController {
         self.trip.pickupTime = valuesDictionary["pickup_time"] as! Date
         self.trip.extraRiders = getInteger(of: valuesDictionary["extra_riders"] as! String)
         
-        if self.trip.pickupTime.timeIntervalSince(Date()) > 0 {
+        if self.trip.pickupTime.timeIntervalSince(Date()) < -61{
             //assume time is for tmrw
-
-           print("pickup time in the future")
+            print("time difference \(self.trip.pickupTime.timeIntervalSince(Date()))")
             
-        }else{
-            print("pickup time in the past")
-
+            let futureTime = Calendar.current
+                .date(byAdding: .day, value: 1, to: self.trip.pickupTime)
+            print("rider meant this date \(futureTime)")
+            self.trip.pickupTime = futureTime!
         }
         
-        let futureTime = Calendar.current
-            .date(byAdding: .day, value: 1, to: self.trip.pickupTime)
-        
-        print("original \(self.trip.pickupTime)")
-        print("rider meant this time \(futureTime)")
-
+       
         if let contactNumber = valuesDictionary["contact"] as? String {
             let user = PFUser.current()
             user?["contact"] = contactNumber.trim()
@@ -123,17 +130,18 @@ class ConfirmPickupFormController: FormViewController {
         
         self.trip.saveInBackground(block: { (success, error) in
             self.navigationController?.popViewController(animated: true)
+
+            let user = self.trip.rider.user
+            CloudFunctions.notifyUserAboutTrip(receiverId: "\(chosenChurch!.objectId!):Driver", status: "requested", message: "\(user["firstname"]!) made a new pickup request from \(Helper.parsePostcodePrefix(postcode: self.postcode))")
+
         })
         
-        //TODO: Create a global channel for all drivers to notify
-
         
     }
     
     
     func getInteger(of stringNumber: String) -> Int {
         var values = ["None" : 0, "One": 1, "Two" : 2, "Three" : 3]
-        print("Exra riders: \(values[stringNumber]!)")
         return values[stringNumber]!
     }
    

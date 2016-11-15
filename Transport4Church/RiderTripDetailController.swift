@@ -59,7 +59,7 @@ class RiderTripDetailController: UIViewController {
         return btn
     }()
     
-    
+  
     var originLabel : UILabel!
     var destinationLabel : UILabel!
 
@@ -101,7 +101,7 @@ class RiderTripDetailController: UIViewController {
         infoLabel.trailingAnchor.constraint(equalTo: container.trailingAnchor).isActive = true
         infoLabel.leadingAnchor.constraint(equalTo: container.leadingAnchor).isActive = true
         infoLabel.translatesAutoresizingMaskIntoConstraints = false
-        
+      
         //setup info detail line
         container.addSubview(infoDetailLabel)
         infoDetailLabel.topAnchor.constraint(equalTo: infoLabel.topAnchor, constant: 30).isActive = true
@@ -131,6 +131,7 @@ class RiderTripDetailController: UIViewController {
         
         createLineView(originView, leftTitle: "Origin", rightTitle: self.trip.rider.address.streetName!)
 
+
         //setup destination line
         let destinationView = UIView()
 
@@ -142,6 +143,7 @@ class RiderTripDetailController: UIViewController {
         let destination : Church =  ChurchRepo.churchCacheById[self.trip.destination.objectId!]!
         createLineView(destinationView, leftTitle: "Destination", rightTitle: destination.name!)
        
+        
         //setup pickup time line
         let timeView = UIView()
         tripDetails.addSubview(timeView)

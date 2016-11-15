@@ -38,8 +38,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
             window?.rootViewController = UINavigationController(rootViewController:AuthViewController())
         }
-        
-//        window?.rootViewController = UINavigationController(rootViewController:EditProfileViewController())
+     
+//        window?.rootViewController = UINavigationController(rootViewController:RiderTripDetailController(trip: trip))
 
     
 //        NotificationHelper.setupNotification()
@@ -54,8 +54,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let deviceInstallation = installation {
             deviceInstallation.setDeviceTokenFrom(deviceToken)
             //register user on a channel with their ID
-            if let user = PFUser.current() {
-                deviceInstallation.channels = [user.objectId!]
+            if let user = PFUser.current(), let church = ChurchRepo.getCurrentUserChurch() {
+                deviceInstallation.channels = [user.objectId!, "\(church.objectId!):Rider"]
             }
             
             deviceInstallation.saveInBackground(block: { (success, error) in
