@@ -103,7 +103,7 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
+        super.viewWillAppear(true)
         
         if self.currentTrip == nil {
             //initial state before trip is initialized

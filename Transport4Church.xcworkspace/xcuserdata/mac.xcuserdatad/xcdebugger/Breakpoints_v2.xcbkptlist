@@ -101,7 +101,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Transport4Church/RiderPickupController.swift"
-            timestampString = "500336279.171276"
+            timestampString = "501032168.960591"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "308"
@@ -117,7 +117,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Transport4Church/RiderPickupController.swift"
-            timestampString = "500512536.678698"
+            timestampString = "501032168.960591"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "501"
@@ -133,7 +133,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Transport4Church/RiderPickupController.swift"
-            timestampString = "500512536.678698"
+            timestampString = "501032168.960591"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "500"
@@ -149,7 +149,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Transport4Church/RiderPickupController.swift"
-            timestampString = "500336279.171276"
+            timestampString = "501032168.960591"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "313"
@@ -203,6 +203,22 @@
             startingLineNumber = "53"
             endingLineNumber = "53"
             landmarkName = "getDriverLocationUpdate(forUser:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Transport4Church/RiderPickupDelegates.swift"
+            timestampString = "501032234.167558"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "196"
+            endingLineNumber = "196"
+            landmarkName = "locationManager(_:didUpdateLocations:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

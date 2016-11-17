@@ -12,7 +12,7 @@ import Parse
 
 class ChurchRepo {
     
-    static var churchNames = [String]()
+    static var churchNames = Set<String>()
     static var churchCacheById = Dictionary<String, Church>()
     static var churchCacheByName = Dictionary<String, Church>()
 
@@ -21,12 +21,12 @@ class ChurchRepo {
             let query = PFQuery(className: Church.parseClassName())
             query.findObjectsInBackground { (results, error) in
                 if let churches = results as? [Church] {
-                    print("Caching churches ...")
                     for church in churches {
-                        ChurchRepo.churchNames.append(church.name!)
+                        ChurchRepo.churchNames.insert(church.name!)
                         ChurchRepo.churchCacheById[church.objectId!] = church
                         ChurchRepo.churchCacheByName[church.name!] = church
                     }
+                    print("Finished caching churches \(ChurchRepo.churchCacheById.count)")
                 }
             }
 

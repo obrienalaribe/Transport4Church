@@ -38,11 +38,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
             window?.rootViewController = UINavigationController(rootViewController:AuthViewController())
         }
-     
-//        window?.rootViewController = UINavigationController(rootViewController:RiderTripDetailController(trip: trip))
+    
+//        window?.rootViewController = UINavigationController(rootViewController:RiderTripDetailController(trip: ModelFactory.makeTrip()))
 
     
-//        NotificationHelper.setupNotification()
         UserRepo.configureAppLaunchCount()
       
         return true
@@ -50,6 +49,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         let installation = PFInstallation.current()
+        
+        print("You have this person for notifications")
         
         if let deviceInstallation = installation {
             deviceInstallation.setDeviceTokenFrom(deviceToken)
@@ -84,10 +85,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if let alert = aps["alert"] as? String {
                 if alert.contains("cancelled"){
                     NotificationCenter.default.post(name: Notification.Name(rawValue: Constants.NotificationNamespace.tripUpdate), object: self, userInfo: ["status": TripStatus.CANCELLED, "alert": alert])
-                }else if alert.contains("on its way now"){
+                }else if alert.contains("pick you"){
                      NotificationCenter.default.post(name: Notification.Name(rawValue: Constants.NotificationNamespace.tripUpdate), object: self, userInfo: ["status": TripStatus.STARTED, "alert": alert])
                 }else if alert.contains("completed"){
                      NotificationCenter.default.post(name: Notification.Name(rawValue: Constants.NotificationNamespace.tripUpdate), object: self, userInfo: ["status": TripStatus.COMPLETED, "alert": alert])
+                }else if alert.contains("ready"){
+                    Helper.showSuccessMessage(title: nil, subtitle: alert)
                 }
             }
         }

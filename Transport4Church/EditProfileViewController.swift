@@ -67,7 +67,7 @@ class EditProfileViewController : FormViewController {
             <<< PushRow<String>("Church") {
                 $0.title = "Church"
                 $0.selectorTitle = "Nearby Churches"
-                $0.options = ChurchRepo.churchNames
+                $0.options = Array(ChurchRepo.churchNames)
                 $0.value = userChurch?.name
             }
             
@@ -98,7 +98,7 @@ class EditProfileViewController : FormViewController {
        
         let valuesDictionary = form.values()
         
-     
+
         if let firstname = valuesDictionary["Firstname"] as? String, let surname = valuesDictionary["Surname"] as? String, let gender = valuesDictionary["Gender"] as? String, let contact = valuesDictionary["Contact"] as? String, let church = valuesDictionary["Church"] as? String {
             
             let chosenChurch = ChurchRepo.churchCacheByName[church]
@@ -119,6 +119,7 @@ class EditProfileViewController : FormViewController {
     /// This lifecycle method will notify all listeners that this profile has been updated before exiting
     override func viewWillDisappear(_ animated: Bool) {
         
+
         if let userProfile = profile {
           NotificationCenter.default.post(name: Notification.Name(rawValue: Constants.NotificationNamespace.profileUpdated), object: self, userInfo: ["profile":userProfile])
         }

@@ -16,6 +16,7 @@ class ConfirmPickupFormController: FormViewController {
     fileprivate var userChurch = ""
     fileprivate var street = ""
     fileprivate var postcode = ""
+    var bookingTimeMessage = ""
 
 
     required init?(coder aDecoder: NSCoder) {
@@ -55,7 +56,7 @@ class ConfirmPickupFormController: FormViewController {
             <<< PushRow<String>("destination") {
                 $0.title = "To"
                 $0.selectorTitle = "Nearby Churches"
-                $0.options = ChurchRepo.churchNames
+                $0.options = Array(ChurchRepo.churchNames)
                 $0.value = userChurch
             }
             
@@ -99,8 +100,6 @@ class ConfirmPickupFormController: FormViewController {
             return
         }
         
-        NotificationHelper.setupNotification()
-
         let valuesDictionary = form.values()
 
         self.trip.status = TripStatus.REQUESTED
@@ -134,6 +133,7 @@ class ConfirmPickupFormController: FormViewController {
             let user = self.trip.rider.user
             CloudFunctions.notifyUserAboutTrip(receiverId: "\(chosenChurch!.objectId!):Driver", status: "requested", message: "\(user["firstname"]!) made a new pickup request from \(Helper.parsePostcodePrefix(postcode: self.postcode))")
 
+            //OBrien would like to be picked up from LS11 at 10pm today/tmrw
         })
         
         

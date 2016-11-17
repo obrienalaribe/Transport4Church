@@ -194,6 +194,12 @@ extension RiderPickupController : CLLocationManagerDelegate {
         if self.riderMapViewDidInitialiseWithLocation == false {
             //first app launch when they is a delay with map update
             setRiderLocationOnMap()
+            
+            //set delay and then ask for notifications
+            let dispatchTime: DispatchTime = DispatchTime.now() + Double(Int64(1.6 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+            DispatchQueue.main.asyncAfter(deadline: dispatchTime, execute: {
+                NotificationHelper.setupNotification()
+            })
         }
 
     }

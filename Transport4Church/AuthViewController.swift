@@ -28,14 +28,6 @@ class AuthViewController : FormViewController {
                 $0.title = "Password"
             }
             
-            +++ Section("Login as")
-            <<< ActionSheetRow<String>("Role") {
-                $0.title = "Rider or Driver ?"
-                $0.selectorTitle = "Rider or Driver ?"
-                $0.options = ["Rider","Driver"]
-                $0.value = "Rider"
-            }
-            
             +++ Section() { section in
                 section.header = {
                     var header = HeaderFooterView<UIButton>(.callback({

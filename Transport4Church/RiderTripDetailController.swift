@@ -59,6 +59,14 @@ class RiderTripDetailController: UIViewController {
         return btn
     }()
     
+    
+    let closeBtn : UIButton = {
+        let btn = UIButton()
+        btn.setImage(UIImage(named:"close"), for: UIControlState())
+        btn.tintColor = UIColor(red:0.98, green:0.98, blue:0.98, alpha:0.6)
+        return btn
+    }()
+    
   
     var originLabel : UILabel!
     var destinationLabel : UILabel!
@@ -95,12 +103,26 @@ class RiderTripDetailController: UIViewController {
         container.heightAnchor.constraint(equalTo: view.heightAnchor,
                                                                    multiplier: 0.5).isActive = true
 
-        //setup info line
-        container.addSubview(infoLabel)
-        infoLabel.topAnchor.constraint(equalTo: container.topAnchor, constant: 5).isActive = true
-        infoLabel.trailingAnchor.constraint(equalTo: container.trailingAnchor).isActive = true
-        infoLabel.leadingAnchor.constraint(equalTo: container.leadingAnchor).isActive = true
-        infoLabel.translatesAutoresizingMaskIntoConstraints = false
+        //setup title Bar
+        let titleBar = UIView()
+        
+        container.addSubview(titleBar)
+        
+        container.addConstraintsWithFormat("H:|[v0]|", views: titleBar)
+        container.addConstraintsWithFormat("V:|-5-[v0(22)]", views: titleBar)
+        
+        titleBar.addSubview(infoLabel)
+        titleBar.addSubview(closeBtn)
+        
+        let offset = (view.bounds.width/4) + 12
+        
+        titleBar.addConstraintsWithFormat("H:|-\(offset)-[v0(150)]-5-[v1(20)]-10-|", views: infoLabel, closeBtn)
+        titleBar.addConstraintsWithFormat("V:|[v0]|", views: infoLabel)
+        titleBar.addConstraintsWithFormat("V:|[v0]|", views: closeBtn)
+        closeBtn.addTarget(self, action: #selector(RiderTripDetailController.closeWindow), for: .touchUpInside)
+
+        //setup info line inside title Bar
+        titleBar.addSubview(infoLabel)
       
         //setup info detail line
         container.addSubview(infoDetailLabel)
@@ -119,9 +141,6 @@ class RiderTripDetailController: UIViewController {
         tripDetails.backgroundColor = UIColor.white
         tripDetails.heightAnchor.constraint(equalTo: container.heightAnchor,
                                                          multiplier: 0.5).isActive = true
-//        tripDetails.backgroundColor = .redColor()
-   
-
         //setup origin line
         let originView = UIView()
         tripDetails.addSubview(originView)
@@ -129,8 +148,12 @@ class RiderTripDetailController: UIViewController {
         tripDetails.addConstraintsWithFormat("H:|-10-[v0]-10-|", views: originView)
         tripDetails.addConstraintsWithFormat("V:|-10-[v0(35)]", views: originView)
         
-        createLineView(originView, leftTitle: "Origin", rightTitle: self.trip.rider.address.streetName!)
-
+        
+        if let riderAddress = self.trip.rider.address {
+            createLineView(originView, leftTitle: "Origin", rightTitle: riderAddress.streetName!)
+        }else{
+            createLineView(originView, leftTitle: "Origin", rightTitle: "Unknown")
+        }
 
         //setup destination line
         let destinationView = UIView()
@@ -140,8 +163,11 @@ class RiderTripDetailController: UIViewController {
         tripDetails.addConstraintsWithFormat("H:|-10-[v0]-10-|", views: destinationView)
         tripDetails.addConstraintsWithFormat("V:|-50-[v0(35)]", views: destinationView)
 
-        let destination : Church =  ChurchRepo.churchCacheById[self.trip.destination.objectId!]!
-        createLineView(destinationView, leftTitle: "Destination", rightTitle: destination.name!)
+        if let destination = ChurchRepo.churchCacheById[self.trip.destination.objectId!] {
+            createLineView(destinationView, leftTitle: "Destination", rightTitle: destination.name!)
+        }else{
+            createLineView(destinationView, leftTitle: "Destination", rightTitle: "Unknown")
+        }
        
         
         //setup pickup time line
@@ -194,6 +220,11 @@ class RiderTripDetailController: UIViewController {
     
     func cancelRequest(){
         self.delegate.riderWillCancelTrip()
+    }
+    
+    func closeWindow(){
+        print("dismissing self ...")
+        self.dismiss(animated: true, completion: nil)
     }
     
     func createLabel(_ title : String) -> UILabel{

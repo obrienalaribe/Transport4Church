@@ -24,6 +24,7 @@
 		04DD3C4D1D5909B700DEBB32 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD3C4C1D5909B700DEBB32 /* EditProfileViewController.swift */; };
 		04DD3C4F1D591C8500DEBB32 /* RiderPickupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD3C4E1D591C8500DEBB32 /* RiderPickupController.swift */; };
 		04E04DA31DA1C82700E2FFF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04E04DA21DA1C82700E2FFF8 /* LaunchScreen.storyboard */; };
+		04F149FF1DDE4D850034BCE9 /* ModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F149FE1DDE4D850034BCE9 /* ModelFactory.swift */; };
 		431CF3D81D67269A00898CD7 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431CF3D71D67269A00898CD7 /* MenuViewController.swift */; };
 		431CF3DA1D6EF2F500898CD7 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431CF3D91D6EF2F500898CD7 /* MenuItem.swift */; };
 		431CF3DC1D6F493200898CD7 /* MenuActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431CF3DB1D6F493200898CD7 /* MenuActions.swift */; };
@@ -88,6 +89,7 @@
 		04DD3C4C1D5909B700DEBB32 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		04DD3C4E1D591C8500DEBB32 /* RiderPickupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RiderPickupController.swift; sourceTree = "<group>"; };
 		04E04DA21DA1C82700E2FFF8 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ../LaunchScreen.storyboard; sourceTree = "<group>"; };
+		04F149FE1DDE4D850034BCE9 /* ModelFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelFactory.swift; sourceTree = "<group>"; };
 		1D141164A79898C712AAD20F /* Pods-Transport4Church.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transport4Church.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Transport4Church/Pods-Transport4Church.debug.xcconfig"; sourceTree = "<group>"; };
 		39419231E5C68A0756CEB512 /* Pods-Transport4ChurchTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transport4ChurchTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Transport4ChurchTests/Pods-Transport4ChurchTests.release.xcconfig"; sourceTree = "<group>"; };
 		431CF3D71D67269A00898CD7 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -307,6 +309,7 @@
 				43632A131D61F51100AD3B75 /* Address.swift */,
 				43632A151D62154900AD3B75 /* Rider.swift */,
 				43632A171D62155200AD3B75 /* Driver.swift */,
+				04F149FE1DDE4D850034BCE9 /* ModelFactory.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -625,6 +628,7 @@
 				04DD3C1A1D57A72C00DEBB32 /* AppDelegate.swift in Sources */,
 				43DF82B21DCCA13E0048C6C2 /* ChurchRepo.swift in Sources */,
 				042B42341D6887BE008CBFE0 /* ParseServer.swift in Sources */,
+				04F149FF1DDE4D850034BCE9 /* ModelFactory.swift in Sources */,
 				041CA9831DB150B100792045 /* Constants.swift in Sources */,
 				04DD3C4D1D5909B700DEBB32 /* EditProfileViewController.swift in Sources */,
 				041CA9811DAAE2CE00792045 /* CloudFunctions.swift in Sources */,
