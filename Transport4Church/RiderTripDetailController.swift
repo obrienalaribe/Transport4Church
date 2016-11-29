@@ -114,7 +114,7 @@ class RiderTripDetailController: UIViewController {
         titleBar.addSubview(infoLabel)
         titleBar.addSubview(closeBtn)
         
-        let offset = (view.bounds.width/4) + 12
+        let offset = (view.bounds.width/4) + 10
         
         titleBar.addConstraintsWithFormat("H:|-\(offset)-[v0(150)]-5-[v1(20)]-10-|", views: infoLabel, closeBtn)
         titleBar.addConstraintsWithFormat("V:|[v0]|", views: infoLabel)
@@ -224,7 +224,7 @@ class RiderTripDetailController: UIViewController {
     
     func closeWindow(){
         print("dismissing self ...")
-        self.dismiss(animated: true, completion: nil)
+        self.delegate.riderWillCancelTrip()
     }
     
     func createLabel(_ title : String) -> UILabel{
