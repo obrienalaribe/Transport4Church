@@ -43,7 +43,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "31"
-            endingLineNumber = "31">
+            endingLineNumber = "31"
+            landmarkName = "mapView(_:idleAt:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -57,7 +59,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "21"
-            endingLineNumber = "21">
+            endingLineNumber = "21"
+            landmarkName = "mapView(_:willMove:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -97,11 +101,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Transport4Church/RiderPickupController.swift"
-            timestampString = "501032168.960591"
+            timestampString = "502466716.713301"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "308"
-            endingLineNumber = "308"
+            startingLineNumber = "310"
+            endingLineNumber = "310"
             landmarkName = "toggleViewForCurrentTripMode(state:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -113,11 +117,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Transport4Church/RiderPickupController.swift"
-            timestampString = "501032168.960591"
+            timestampString = "502466716.713301"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "501"
-            endingLineNumber = "501"
+            startingLineNumber = "503"
+            endingLineNumber = "503"
             landmarkName = "listenForSocketConnection()"
             landmarkType = "7">
          </BreakpointContent>
@@ -129,11 +133,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Transport4Church/RiderPickupController.swift"
-            timestampString = "501032168.960591"
+            timestampString = "502466716.713301"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "500"
-            endingLineNumber = "500"
+            startingLineNumber = "502"
+            endingLineNumber = "502"
             landmarkName = "listenForSocketConnection()"
             landmarkType = "7">
          </BreakpointContent>
@@ -145,11 +149,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Transport4Church/RiderPickupController.swift"
-            timestampString = "501032168.960591"
+            timestampString = "502466716.713301"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "313"
-            endingLineNumber = "313"
+            startingLineNumber = "315"
+            endingLineNumber = "315"
             landmarkName = "toggleViewForCurrentTripMode(state:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -213,7 +217,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "196"
-            endingLineNumber = "196">
+            endingLineNumber = "196"
+            landmarkName = "locationManager(_:didUpdateLocations:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

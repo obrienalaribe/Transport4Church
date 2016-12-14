@@ -44,9 +44,7 @@ class ConfirmPickupFormController: FormViewController {
             self.userChurch = church.name!
         }
   
-        
         form +++ Section()
-
             <<< TextRow("location"){ row in
                 row.title = "From"
                 row.value = "\(self.street) \(self.postcode)"
