@@ -63,7 +63,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "34"
             endingLineNumber = "34"
-            landmarkName = "viewDidLoad()"
+            landmarkName = "init(trip:)"
             landmarkType = "7">
             <Locations>
                <Location

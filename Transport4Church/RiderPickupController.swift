@@ -70,12 +70,8 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
         mapView.delegate = self
         mapView.isMyLocationEnabled = true
         mapView.settings.myLocationButton = true
-        mapView.setMinZoom(12, maxZoom: 16)
-        
                 
         view.addSubview(mapView)
-        
-        print(self.mapView.myLocation)
         
         setupLocationTrackingLabel()
         setupMapPin()
@@ -206,6 +202,17 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
             print("driver made signficant change in distance")
         }
         
+        //Keep the driver marker in view while updating
+        var visibleRegion : GMSVisibleRegion = self.mapView.projection.visibleRegion()
+        let bounds = GMSCoordinateBounds(coordinate: visibleRegion.nearLeft, coordinate: visibleRegion.farRight)
+
+        if bounds.contains(driverLocation.position) == false || bounds.contains(riderLoc.coordinate) == false {
+            print("you need to update the map view now")
+            let camera = mapView.camera(for: bounds, insets: UIEdgeInsets(top: 0, left: 50, bottom: 0, right: 50))!
+            self.mapView.camera = camera
+
+        }
+        
     }
     
     //TODO: could move this to location helper
@@ -312,20 +319,22 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
         }
         
         if state == TripStatus.STARTED {
-            self.locationTrackingLabel.isUserInteractionEnabled = false
+            self.locationTrackingLabel.isHidden = true
             self.pickupBtn.isHidden = true
             self.mapPin.isHidden = true
             self.cancelTripBtn.isEnabled = true
             self.cancelTripBtn.tintColor = UIColor.black
+            self.mapView.settings.myLocationButton = false
         }
        
         if state == TripStatus.CANCELLED {
-            self.locationTrackingLabel.isUserInteractionEnabled = true
+            self.locationTrackingLabel.isHidden = false
             self.pickupBtn.isHidden = false
             self.mapPin.isHidden = false
             self.cancelTripBtn.isEnabled = false
             self.cancelTripBtn.tintColor = UIColor.clear
-            
+            self.mapView.settings.myLocationButton = true
+
             if driverLocation != nil {
                 //remove driver marker from map
                 driverLocation.map = nil
