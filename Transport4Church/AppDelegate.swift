@@ -94,6 +94,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             }
         }
+        print("RECEIVED REMOTE NOTIFICATION")
     }
     
     func applicationWillResignActive(_ application: UIApplication) {

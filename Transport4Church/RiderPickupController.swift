@@ -112,6 +112,8 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
             
             if self.currentTrip?.status == TripStatus.REQUESTED {
                 modallyDisplayTripDetails()
+                
+                listenForSocketConnection()
             }
         }
         
@@ -177,7 +179,7 @@ class RiderPickupController: UIViewController, NVActivityIndicatorViewable {
         self.mapView.camera = camera
         
         setupCallDriverButton()
-    
+     
     }
     
     func updateDriverMarker(_ position: CLLocationCoordinate2D){
